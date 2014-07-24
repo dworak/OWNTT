@@ -33,6 +33,6 @@ EnumType EnumType##FromNSString(NSString *string) \
 { \
 ENUM_DEF(ENUM_STRCMP) \
 return (EnumType)0; \
-}
+} 
 
 #endif

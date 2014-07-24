@@ -12,8 +12,8 @@
 XX(LMSegueKeyType_None,) \
 XX(LMSegueKeyType_PushNavigation,) \
 XX(LMSegueKeyType_PushInstanceList,) \
-XX(LMSegueKeyType_PushAdvertiserList) \
-XX(LMSegueKeyType_PushProgramList) \
+XX(LMSegueKeyType_PushAdvertiserList,) \
+XX(LMSegueKeyType_PushProgramList,) \
 
 DECLARE_ENUM(LMSegueKeyType,SEGUE_TYPE)
 
