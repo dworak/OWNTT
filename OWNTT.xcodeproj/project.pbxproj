@@ -45,6 +45,29 @@
 		EDF39E7519810C6100E00966 /* LMSplashViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF39E7419810C6100E00966 /* LMSplashViewController_iPhone.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		25462AC41981B70B0007482F /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = wrapper.xcdatamodel;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILES_DIR)/Sources/DataModelClasses/$(INPUT_FILE_BASE).mom",
+			);
+			script = "${SRCROOT}/OWNTT/Scripts/mogen.sh";
+		};
+		25462AC61981B7D40007482F /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = wrapper.xcdatamodeld;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILES_DIR)/Sources/DataModelClasses/$(INPUT_FILE_BASE).momd",
+			);
+			script = "${SRCROOT}/OWNTT/Scripts/mogend.sh";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXContainerItemProxy section */
 		EDF39E271980FC8700E00966 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -139,6 +162,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25462AC71981BA590007482F /* ModelClasses */ = {
+			isa = PBXGroup;
+			children = (
+				25462AC81981BA590007482F /* Genereted */,
+			);
+			path = ModelClasses;
+			sourceTree = "<group>";
+		};
+		25462AC81981BA590007482F /* Genereted */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Genereted;
+			sourceTree = "<group>";
+		};
 		EDF39DEF1980FC8700E00966 = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +284,7 @@
 		EDF39E441980FF7D00E00966 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25462AC71981BA590007482F /* ModelClasses */,
 				EDF39E451980FF7D00E00966 /* OWNTT.xcdatamodeld */,
 			);
 			path = Model;
@@ -256,7 +295,6 @@
 			children = (
 				EDF39E65198103C000E00966 /* Utils */,
 				EDF39E481980FF7D00E00966 /* main */,
-				EDF39E4C1980FF7D00E00966 /* Model */,
 				EDF39E4D1980FF7D00E00966 /* ViewControllers */,
 				EDF39E4E1980FF7D00E00966 /* Views */,
 			);
@@ -271,13 +309,6 @@
 				EDF39E4B1980FF7D00E00966 /* LMAppDelegate.m */,
 			);
 			path = main;
-			sourceTree = "<group>";
-		};
-		EDF39E4C1980FF7D00E00966 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		EDF39E4D1980FF7D00E00966 /* ViewControllers */ = {
@@ -356,6 +387,8 @@
 				FA8FA3E9088E4F4D857CAE3D /* Copy Pods Resources */,
 			);
 			buildRules = (
+				25462AC61981B7D40007482F /* PBXBuildRule */,
+				25462AC41981B70B0007482F /* PBXBuildRule */,
 			);
 			dependencies = (
 			);

@@ -11,7 +11,7 @@ baseClass=TTManagedObject
 curVer=`/usr/libexec/PlistBuddy "${INPUT_FILE_PATH}/.xccurrentversion" -c 'print _XCCurrentVersionName'`
 
 echo mogenerator --model \"${INPUT_FILE_PATH}/$curVer\" --output-dir \"${INPUT_FILE_DIR}/\"
-mogenerator --model "${INPUT_FILE_PATH}/$curVer" --output-dir "${INPUT_FILE_DIR}/Source/ModelClasses/Genereted" --template-var arc=true --base-class $baseClass
+mogenerator --model "${INPUT_FILE_PATH}/$curVer" --output-dir "${INPUT_FILE_DIR}/ModelClasses/Genereted" --template-var arc=true --base-class $baseClass
 
 echo ${DEVELOPER_BIN_DIR}/momc -XD_MOMC_TARGET_VERSION=10.6 \"${INPUT_FILE_PATH}\" \"${TARGET_BUILD_DIR}/${EXECUTABLE_FOLDER_PATH}/${INPUT_FILE_BASE}.momd\"
 ${DEVELOPER_BIN_DIR}/momc -XD_MOMC_TARGET_VERSION=10.6 "${INPUT_FILE_PATH}" "${TARGET_BUILD_DIR}/${EXECUTABLE_FOLDER_PATH}/${INPUT_FILE_BASE}.momd"
