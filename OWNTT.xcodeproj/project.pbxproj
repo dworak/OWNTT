@@ -1,0 +1,735 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C9F3FCFC4078458C841A60FD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3CEF0A0FE04D0FAC9F6EC3 /* libPods.a */; };
+		EDD131AA198117B1006F39E3 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD131A9198117B1006F39E3 /* Storyboard.storyboard */; };
+		EDD131AE198120FA006F39E3 /* LMLoginViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131AD198120FA006F39E3 /* LMLoginViewController_iPhone.xib */; };
+		EDD131B019812526006F39E3 /* LM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD131AF19812526006F39E3 /* LM.framework */; };
+		EDD131B31981272C006F39E3 /* LMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD131B21981272C006F39E3 /* LMTextField.m */; };
+		EDD131B619812ECF006F39E3 /* LMBranchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD131B519812ECF006F39E3 /* LMBranchViewController.m */; };
+		EDD131B919812EFD006F39E3 /* LMBranchInstanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD131B819812EFD006F39E3 /* LMBranchInstanceViewController.m */; };
+		EDD131BC19812F1E006F39E3 /* LMBranchAdvertiserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD131BB19812F1E006F39E3 /* LMBranchAdvertiserViewController.m */; };
+		EDD131BF19812F2E006F39E3 /* LMBranchProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD131BE19812F2E006F39E3 /* LMBranchProgramViewController.m */; };
+		EDD131C119812F48006F39E3 /* LMBranchInstanceViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131C019812F48006F39E3 /* LMBranchInstanceViewController_iPhone.xib */; };
+		EDD131C31981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131C21981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib */; };
+		EDD131C519813051006F39E3 /* LMBranchProgramViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131C419813051006F39E3 /* LMBranchProgramViewController_iPhone.xib */; };
+		EDD131C81981316A006F39E3 /* LMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD131C71981316A006F39E3 /* LMButton.m */; };
+		EDF39DFC1980FC8700E00966 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF39DFB1980FC8700E00966 /* Foundation.framework */; };
+		EDF39DFE1980FC8700E00966 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF39DFD1980FC8700E00966 /* CoreGraphics.framework */; };
+		EDF39E001980FC8700E00966 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF39DFF1980FC8700E00966 /* UIKit.framework */; };
+		EDF39E021980FC8700E00966 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF39E011980FC8700E00966 /* CoreData.framework */; };
+		EDF39E231980FC8700E00966 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF39E221980FC8700E00966 /* XCTest.framework */; };
+		EDF39E241980FC8700E00966 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF39DFB1980FC8700E00966 /* Foundation.framework */; };
+		EDF39E251980FC8700E00966 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF39DFF1980FC8700E00966 /* UIKit.framework */; };
+		EDF39E261980FC8700E00966 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF39E011980FC8700E00966 /* CoreData.framework */; };
+		EDF39E2E1980FC8700E00966 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDF39E2C1980FC8700E00966 /* InfoPlist.strings */; };
+		EDF39E301980FC8700E00966 /* OWNTTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E2F1980FC8700E00966 /* OWNTTTests.m */; };
+		EDF39E501980FF7D00E00966 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDF39E3D1980FF7D00E00966 /* InfoPlist.strings */; };
+		EDF39E511980FF7D00E00966 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF39E3F1980FF7D00E00966 /* Images.xcassets */; };
+		EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E451980FF7D00E00966 /* OWNTT.xcdatamodeld */; };
+		EDF39E541980FF7D00E00966 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E491980FF7D00E00966 /* main.m */; };
+		EDF39E551980FF7D00E00966 /* LMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E4B1980FF7D00E00966 /* LMAppDelegate.m */; };
+		EDF39E5B198101D500E00966 /* LMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E5A198101D500E00966 /* LMNavigationViewController.m */; };
+		EDF39E63198103B700E00966 /* mogen.sh in Resources */ = {isa = PBXBuildFile; fileRef = EDF39E61198103B700E00966 /* mogen.sh */; };
+		EDF39E64198103B700E00966 /* mogend.sh in Resources */ = {isa = PBXBuildFile; fileRef = EDF39E62198103B700E00966 /* mogend.sh */; };
+		EDF39E68198104D700E00966 /* LMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E67198104D700E00966 /* LMLoginViewController.m */; };
+		EDF39E6B1981059C00E00966 /* LMSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E6A1981059C00E00966 /* LMSplashViewController.m */; };
+		EDF39E6E1981060200E00966 /* LMSegueKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E6D1981060200E00966 /* LMSegueKeys.m */; };
+		EDF39E7319810AE700E00966 /* LMHostChildBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E7219810AE700E00966 /* LMHostChildBaseViewController.m */; };
+		EDF39E7519810C6100E00966 /* LMSplashViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF39E7419810C6100E00966 /* LMSplashViewController_iPhone.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EDF39E271980FC8700E00966 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDF39DF01980FC8700E00966 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDF39DF71980FC8700E00966;
+			remoteInfo = OWNTT;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7E43CB3D41384074996BB063 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		8E3CEF0A0FE04D0FAC9F6EC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDD131A9198117B1006F39E3 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		EDD131AD198120FA006F39E3 /* LMLoginViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMLoginViewController_iPhone.xib; sourceTree = "<group>"; };
+		EDD131AF19812526006F39E3 /* LM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LM.framework; sourceTree = "<group>"; };
+		EDD131B11981272C006F39E3 /* LMTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTextField.h; sourceTree = "<group>"; };
+		EDD131B21981272C006F39E3 /* LMTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTextField.m; sourceTree = "<group>"; };
+		EDD131B419812ECF006F39E3 /* LMBranchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchViewController.h; sourceTree = "<group>"; };
+		EDD131B519812ECF006F39E3 /* LMBranchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchViewController.m; sourceTree = "<group>"; };
+		EDD131B719812EFD006F39E3 /* LMBranchInstanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchInstanceViewController.h; sourceTree = "<group>"; };
+		EDD131B819812EFD006F39E3 /* LMBranchInstanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchInstanceViewController.m; sourceTree = "<group>"; };
+		EDD131BA19812F1E006F39E3 /* LMBranchAdvertiserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchAdvertiserViewController.h; sourceTree = "<group>"; };
+		EDD131BB19812F1E006F39E3 /* LMBranchAdvertiserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchAdvertiserViewController.m; sourceTree = "<group>"; };
+		EDD131BD19812F2E006F39E3 /* LMBranchProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchProgramViewController.h; sourceTree = "<group>"; };
+		EDD131BE19812F2E006F39E3 /* LMBranchProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchProgramViewController.m; sourceTree = "<group>"; };
+		EDD131C019812F48006F39E3 /* LMBranchInstanceViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchInstanceViewController_iPhone.xib; sourceTree = "<group>"; };
+		EDD131C21981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchAdvertiserViewController_iPhone.xib; sourceTree = "<group>"; };
+		EDD131C419813051006F39E3 /* LMBranchProgramViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchProgramViewController_iPhone.xib; sourceTree = "<group>"; };
+		EDD131C61981316A006F39E3 /* LMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMButton.h; sourceTree = "<group>"; };
+		EDD131C71981316A006F39E3 /* LMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMButton.m; sourceTree = "<group>"; };
+		EDF39DF81980FC8700E00966 /* OWNTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OWNTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF39DFB1980FC8700E00966 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EDF39DFD1980FC8700E00966 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EDF39DFF1980FC8700E00966 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EDF39E011980FC8700E00966 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EDF39E211980FC8700E00966 /* OWNTTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OWNTTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF39E221980FC8700E00966 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		EDF39E2B1980FC8700E00966 /* OWNTTTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OWNTTTests-Info.plist"; sourceTree = "<group>"; };
+		EDF39E2D1980FC8700E00966 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EDF39E2F1980FC8700E00966 /* OWNTTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OWNTTTests.m; sourceTree = "<group>"; };
+		EDF39E3E1980FF7D00E00966 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EDF39E3F1980FF7D00E00966 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EDF39E401980FF7D00E00966 /* OWNTT-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "OWNTT-Info.plist"; sourceTree = "<group>"; };
+		EDF39E411980FF7D00E00966 /* OWNTT-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OWNTT-Prefix.pch"; sourceTree = "<group>"; };
+		EDF39E461980FF7D00E00966 /* OWNTT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OWNTT.xcdatamodel; sourceTree = "<group>"; };
+		EDF39E491980FF7D00E00966 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EDF39E4A1980FF7D00E00966 /* LMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAppDelegate.h; sourceTree = "<group>"; };
+		EDF39E4B1980FF7D00E00966 /* LMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAppDelegate.m; sourceTree = "<group>"; };
+		EDF39E59198101D500E00966 /* LMNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMNavigationViewController.h; sourceTree = "<group>"; };
+		EDF39E5A198101D500E00966 /* LMNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMNavigationViewController.m; sourceTree = "<group>"; };
+		EDF39E61198103B700E00966 /* mogen.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mogen.sh; sourceTree = "<group>"; };
+		EDF39E62198103B700E00966 /* mogend.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mogend.sh; sourceTree = "<group>"; };
+		EDF39E66198104D700E00966 /* LMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLoginViewController.h; sourceTree = "<group>"; };
+		EDF39E67198104D700E00966 /* LMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLoginViewController.m; sourceTree = "<group>"; };
+		EDF39E691981059C00E00966 /* LMSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSplashViewController.h; sourceTree = "<group>"; };
+		EDF39E6A1981059C00E00966 /* LMSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSplashViewController.m; sourceTree = "<group>"; };
+		EDF39E6C1981060200E00966 /* LMSegueKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSegueKeys.h; sourceTree = "<group>"; };
+		EDF39E6D1981060200E00966 /* LMSegueKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSegueKeys.m; sourceTree = "<group>"; };
+		EDF39E6F198106B700E00966 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		EDF39E70198109B500E00966 /* Design.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Design.h; sourceTree = "<group>"; };
+		EDF39E7119810AE700E00966 /* LMHostChildBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHostChildBaseViewController.h; sourceTree = "<group>"; };
+		EDF39E7219810AE700E00966 /* LMHostChildBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMHostChildBaseViewController.m; sourceTree = "<group>"; };
+		EDF39E7419810C6100E00966 /* LMSplashViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMSplashViewController_iPhone.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDF39DF51980FC8700E00966 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF39DFE1980FC8700E00966 /* CoreGraphics.framework in Frameworks */,
+				EDD131B019812526006F39E3 /* LM.framework in Frameworks */,
+				EDF39E021980FC8700E00966 /* CoreData.framework in Frameworks */,
+				EDF39E001980FC8700E00966 /* UIKit.framework in Frameworks */,
+				EDF39DFC1980FC8700E00966 /* Foundation.framework in Frameworks */,
+				C9F3FCFC4078458C841A60FD /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF39E1E1980FC8700E00966 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF39E231980FC8700E00966 /* XCTest.framework in Frameworks */,
+				EDF39E261980FC8700E00966 /* CoreData.framework in Frameworks */,
+				EDF39E251980FC8700E00966 /* UIKit.framework in Frameworks */,
+				EDF39E241980FC8700E00966 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EDF39DEF1980FC8700E00966 = {
+			isa = PBXGroup;
+			children = (
+				EDF39E031980FC8700E00966 /* OWNTT */,
+				EDF39E291980FC8700E00966 /* OWNTTTests */,
+				EDF39DFA1980FC8700E00966 /* Frameworks */,
+				EDF39DF91980FC8700E00966 /* Products */,
+				7E43CB3D41384074996BB063 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		EDF39DF91980FC8700E00966 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDF39DF81980FC8700E00966 /* OWNTT.app */,
+				EDF39E211980FC8700E00966 /* OWNTTTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDF39DFA1980FC8700E00966 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDF39DFB1980FC8700E00966 /* Foundation.framework */,
+				EDF39DFD1980FC8700E00966 /* CoreGraphics.framework */,
+				EDF39DFF1980FC8700E00966 /* UIKit.framework */,
+				EDF39E011980FC8700E00966 /* CoreData.framework */,
+				EDF39E221980FC8700E00966 /* XCTest.framework */,
+				8E3CEF0A0FE04D0FAC9F6EC3 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDF39E031980FC8700E00966 /* OWNTT */ = {
+			isa = PBXGroup;
+			children = (
+				FB2548E819811BF300894CEF /* 3rdParty */,
+				EDF39E60198103B700E00966 /* Scripts */,
+				EDF39E391980FF7D00E00966 /* Resources */,
+				EDF39E471980FF7D00E00966 /* Sources */,
+			);
+			path = OWNTT;
+			sourceTree = "<group>";
+		};
+		EDF39E291980FC8700E00966 /* OWNTTTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDF39E2F1980FC8700E00966 /* OWNTTTests.m */,
+				EDF39E2A1980FC8700E00966 /* Supporting Files */,
+			);
+			path = OWNTTTests;
+			sourceTree = "<group>";
+		};
+		EDF39E2A1980FC8700E00966 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDF39E2B1980FC8700E00966 /* OWNTTTests-Info.plist */,
+				EDF39E2C1980FC8700E00966 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDF39E391980FF7D00E00966 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EDF39E3A1980FF7D00E00966 /* Configuration */,
+				EDF39E421980FF7D00E00966 /* Design */,
+				EDF39E431980FF7D00E00966 /* Graphics */,
+				EDF39E441980FF7D00E00966 /* Model */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EDF39E3A1980FF7D00E00966 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				EDF39E3F1980FF7D00E00966 /* Images.xcassets */,
+				EDF39E3D1980FF7D00E00966 /* InfoPlist.strings */,
+				EDF39E401980FF7D00E00966 /* OWNTT-Info.plist */,
+				EDF39E411980FF7D00E00966 /* OWNTT-Prefix.pch */,
+				EDD131A9198117B1006F39E3 /* Storyboard.storyboard */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		EDF39E421980FF7D00E00966 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				EDF39E7419810C6100E00966 /* LMSplashViewController_iPhone.xib */,
+				EDD131AD198120FA006F39E3 /* LMLoginViewController_iPhone.xib */,
+				EDD131C019812F48006F39E3 /* LMBranchInstanceViewController_iPhone.xib */,
+				EDD131C21981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib */,
+				EDD131C419813051006F39E3 /* LMBranchProgramViewController_iPhone.xib */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		EDF39E431980FF7D00E00966 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Graphics;
+			sourceTree = "<group>";
+		};
+		EDF39E441980FF7D00E00966 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDF39E451980FF7D00E00966 /* OWNTT.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EDF39E471980FF7D00E00966 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				EDF39E65198103C000E00966 /* Utils */,
+				EDF39E481980FF7D00E00966 /* main */,
+				EDF39E4C1980FF7D00E00966 /* Model */,
+				EDF39E4D1980FF7D00E00966 /* ViewControllers */,
+				EDF39E4E1980FF7D00E00966 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		EDF39E481980FF7D00E00966 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				EDF39E491980FF7D00E00966 /* main.m */,
+				EDF39E4A1980FF7D00E00966 /* LMAppDelegate.h */,
+				EDF39E4B1980FF7D00E00966 /* LMAppDelegate.m */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		EDF39E4C1980FF7D00E00966 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EDF39E4D1980FF7D00E00966 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EDD131B419812ECF006F39E3 /* LMBranchViewController.h */,
+				EDD131B519812ECF006F39E3 /* LMBranchViewController.m */,
+				EDF39E7119810AE700E00966 /* LMHostChildBaseViewController.h */,
+				EDF39E7219810AE700E00966 /* LMHostChildBaseViewController.m */,
+				EDF39E66198104D700E00966 /* LMLoginViewController.h */,
+				EDF39E67198104D700E00966 /* LMLoginViewController.m */,
+				EDF39E59198101D500E00966 /* LMNavigationViewController.h */,
+				EDF39E5A198101D500E00966 /* LMNavigationViewController.m */,
+				EDF39E691981059C00E00966 /* LMSplashViewController.h */,
+				EDF39E6A1981059C00E00966 /* LMSplashViewController.m */,
+				EDD131B719812EFD006F39E3 /* LMBranchInstanceViewController.h */,
+				EDD131B819812EFD006F39E3 /* LMBranchInstanceViewController.m */,
+				EDD131BA19812F1E006F39E3 /* LMBranchAdvertiserViewController.h */,
+				EDD131BB19812F1E006F39E3 /* LMBranchAdvertiserViewController.m */,
+				EDD131BD19812F2E006F39E3 /* LMBranchProgramViewController.h */,
+				EDD131BE19812F2E006F39E3 /* LMBranchProgramViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EDF39E4E1980FF7D00E00966 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EDD131B11981272C006F39E3 /* LMTextField.h */,
+				EDD131B21981272C006F39E3 /* LMTextField.m */,
+				EDD131C61981316A006F39E3 /* LMButton.h */,
+				EDD131C71981316A006F39E3 /* LMButton.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EDF39E60198103B700E00966 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				EDF39E61198103B700E00966 /* mogen.sh */,
+				EDF39E62198103B700E00966 /* mogend.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		EDF39E65198103C000E00966 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EDF39E6C1981060200E00966 /* LMSegueKeys.h */,
+				EDF39E6D1981060200E00966 /* LMSegueKeys.m */,
+				EDF39E6F198106B700E00966 /* Macros.h */,
+				EDF39E70198109B500E00966 /* Design.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FB2548E819811BF300894CEF /* 3rdParty */ = {
+			isa = PBXGroup;
+			children = (
+				EDD131AF19812526006F39E3 /* LM.framework */,
+			);
+			path = 3rdParty;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDF39DF71980FC8700E00966 /* OWNTT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF39E331980FC8700E00966 /* Build configuration list for PBXNativeTarget "OWNTT" */;
+			buildPhases = (
+				68B1EAD3113140629FB2C5D4 /* Check Pods Manifest.lock */,
+				EDF39DF41980FC8700E00966 /* Sources */,
+				EDF39DF51980FC8700E00966 /* Frameworks */,
+				EDF39DF61980FC8700E00966 /* Resources */,
+				FA8FA3E9088E4F4D857CAE3D /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OWNTT;
+			productName = OWNTT;
+			productReference = EDF39DF81980FC8700E00966 /* OWNTT.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EDF39E201980FC8700E00966 /* OWNTTTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF39E361980FC8700E00966 /* Build configuration list for PBXNativeTarget "OWNTTTests" */;
+			buildPhases = (
+				EDF39E1D1980FC8700E00966 /* Sources */,
+				EDF39E1E1980FC8700E00966 /* Frameworks */,
+				EDF39E1F1980FC8700E00966 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDF39E281980FC8700E00966 /* PBXTargetDependency */,
+			);
+			name = OWNTTTests;
+			productName = OWNTTTests;
+			productReference = EDF39E211980FC8700E00966 /* OWNTTTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDF39DF01980FC8700E00966 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LM;
+				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					EDF39E201980FC8700E00966 = {
+						TestTargetID = EDF39DF71980FC8700E00966;
+					};
+				};
+			};
+			buildConfigurationList = EDF39DF31980FC8700E00966 /* Build configuration list for PBXProject "OWNTT" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDF39DEF1980FC8700E00966;
+			productRefGroup = EDF39DF91980FC8700E00966 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDF39DF71980FC8700E00966 /* OWNTT */,
+				EDF39E201980FC8700E00966 /* OWNTTTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDF39DF61980FC8700E00966 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF39E64198103B700E00966 /* mogend.sh in Resources */,
+				EDF39E7519810C6100E00966 /* LMSplashViewController_iPhone.xib in Resources */,
+				EDF39E511980FF7D00E00966 /* Images.xcassets in Resources */,
+				EDF39E501980FF7D00E00966 /* InfoPlist.strings in Resources */,
+				EDD131AA198117B1006F39E3 /* Storyboard.storyboard in Resources */,
+				EDD131C519813051006F39E3 /* LMBranchProgramViewController_iPhone.xib in Resources */,
+				EDD131AE198120FA006F39E3 /* LMLoginViewController_iPhone.xib in Resources */,
+				EDF39E63198103B700E00966 /* mogen.sh in Resources */,
+				EDD131C31981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib in Resources */,
+				EDD131C119812F48006F39E3 /* LMBranchInstanceViewController_iPhone.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF39E1F1980FC8700E00966 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF39E2E1980FC8700E00966 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		68B1EAD3113140629FB2C5D4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FA8FA3E9088E4F4D857CAE3D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDF39DF41980FC8700E00966 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD131B919812EFD006F39E3 /* LMBranchInstanceViewController.m in Sources */,
+				EDF39E551980FF7D00E00966 /* LMAppDelegate.m in Sources */,
+				EDD131B619812ECF006F39E3 /* LMBranchViewController.m in Sources */,
+				EDF39E68198104D700E00966 /* LMLoginViewController.m in Sources */,
+				EDF39E6B1981059C00E00966 /* LMSplashViewController.m in Sources */,
+				EDF39E5B198101D500E00966 /* LMNavigationViewController.m in Sources */,
+				EDF39E541980FF7D00E00966 /* main.m in Sources */,
+				EDF39E6E1981060200E00966 /* LMSegueKeys.m in Sources */,
+				EDD131BF19812F2E006F39E3 /* LMBranchProgramViewController.m in Sources */,
+				EDD131BC19812F1E006F39E3 /* LMBranchAdvertiserViewController.m in Sources */,
+				EDD131B31981272C006F39E3 /* LMTextField.m in Sources */,
+				EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */,
+				EDD131C81981316A006F39E3 /* LMButton.m in Sources */,
+				EDF39E7319810AE700E00966 /* LMHostChildBaseViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDF39E1D1980FC8700E00966 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF39E301980FC8700E00966 /* OWNTTTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EDF39E281980FC8700E00966 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDF39DF71980FC8700E00966 /* OWNTT */;
+			targetProxy = EDF39E271980FC8700E00966 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EDF39E2C1980FC8700E00966 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF39E2D1980FC8700E00966 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EDF39E3D1980FF7D00E00966 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF39E3E1980FF7D00E00966 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDF39E311980FC8700E00966 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EDF39E321980FC8700E00966 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDF39E341980FC8700E00966 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E43CB3D41384074996BB063 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PROJECT_DIR)/OWNTT/3rdParty\"/**",
+					"$(PROJECT_DIR)/OWNTT/3rdParty",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OWNTT/Resources/Configuration/OWNTT-Prefix.pch";
+				INFOPLIST_FILE = "OWNTT/Resources/Configuration/OWNTT-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EDF39E351980FC8700E00966 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E43CB3D41384074996BB063 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PROJECT_DIR)/OWNTT/3rdParty\"/**",
+					"$(PROJECT_DIR)/OWNTT/3rdParty",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OWNTT/Resources/Configuration/OWNTT-Prefix.pch";
+				INFOPLIST_FILE = "OWNTT/Resources/Configuration/OWNTT-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EDF39E371980FC8700E00966 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OWNTT.app/OWNTT";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OWNTT/OWNTT-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "OWNTTTests/OWNTTTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		EDF39E381980FC8700E00966 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OWNTT.app/OWNTT";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OWNTT/OWNTT-Prefix.pch";
+				INFOPLIST_FILE = "OWNTTTests/OWNTTTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDF39DF31980FC8700E00966 /* Build configuration list for PBXProject "OWNTT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF39E311980FC8700E00966 /* Debug */,
+				EDF39E321980FC8700E00966 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF39E331980FC8700E00966 /* Build configuration list for PBXNativeTarget "OWNTT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF39E341980FC8700E00966 /* Debug */,
+				EDF39E351980FC8700E00966 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF39E361980FC8700E00966 /* Build configuration list for PBXNativeTarget "OWNTTTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF39E371980FC8700E00966 /* Debug */,
+				EDF39E381980FC8700E00966 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EDF39E451980FF7D00E00966 /* OWNTT.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EDF39E461980FF7D00E00966 /* OWNTT.xcdatamodel */,
+			);
+			currentVersion = EDF39E461980FF7D00E00966 /* OWNTT.xcdatamodel */;
+			path = OWNTT.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EDF39DF01980FC8700E00966 /* Project object */;
+}

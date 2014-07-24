@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LMLoginViewController">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="VCl-tj-Zv7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gY-U6-aKp" customClass="LMTextField">
+                    <rect key="frame" x="52" y="143" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="217" id="Db9-1m-cey"/>
+                        <constraint firstAttribute="height" constant="30" id="uQZ-Tf-NV9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="duG-8E-r03" customClass="LMTextField">
+                    <rect key="frame" x="52" y="194" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="LxA-NF-hpi"/>
+                        <constraint firstAttribute="width" constant="217" id="x6k-Y0-FKf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x19-Ux-yRm">
+                    <rect key="frame" x="137" y="245" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="a7A-YP-FSa"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.52145321550000001" green="0.98148211789999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="duG-8E-r03" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="52" id="2Zp-3Y-Ghn"/>
+                <constraint firstItem="4gY-U6-aKp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="143" id="AN7-Qp-oA7"/>
+                <constraint firstAttribute="centerX" secondItem="4gY-U6-aKp" secondAttribute="centerX" id="DE4-x3-mFM"/>
+                <constraint firstAttribute="trailing" secondItem="duG-8E-r03" secondAttribute="trailing" constant="51" id="GI5-pa-8qD"/>
+                <constraint firstItem="duG-8E-r03" firstAttribute="top" secondItem="4gY-U6-aKp" secondAttribute="bottom" constant="21" id="WQ0-oW-hqi"/>
+                <constraint firstAttribute="trailing" secondItem="4gY-U6-aKp" secondAttribute="trailing" constant="51" id="kYW-Sq-dch"/>
+                <constraint firstAttribute="centerX" secondItem="duG-8E-r03" secondAttribute="centerX" id="nBx-89-q6m"/>
+                <constraint firstItem="4gY-U6-aKp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="52" id="ter-gf-VMs"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,12 @@
+.DS_Store
+*.lock
+
+OWNTT.xcodeproj/project.xcworkspace/
+OWNTT.xcodeproj/xcuserdata/
+OWNTT.xcodeproj/User Data/
+
+OWNTT.xcodeproj/project.xcworkspace/xcshareddata/
+OWNTT.xcodeproj/project.xcworkspace/xcuserdata/
+
+Pods/*
+OWNTT.xcworkspace/*
