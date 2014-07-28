@@ -20,6 +20,9 @@
 		EDD131C31981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131C21981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib */; };
 		EDD131C519813051006F39E3 /* LMBranchProgramViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131C419813051006F39E3 /* LMBranchProgramViewController_iPhone.xib */; };
 		EDD131C81981316A006F39E3 /* LMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD131C71981316A006F39E3 /* LMButton.m */; };
+		EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE87C0019867C7E00043861 /* LMSettingsViewController.m */; };
+		EDE87C0319867C8F00043861 /* LMSettingsViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE87C0219867C8F00043861 /* LMSettingsViewController_iPhone.xib */; };
+		EDE87C0619867E9100043861 /* LMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE87C0519867E9100043861 /* LMUtils.m */; };
 		EDF39DFC1980FC8700E00966 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF39DFB1980FC8700E00966 /* Foundation.framework */; };
 		EDF39DFE1980FC8700E00966 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF39DFD1980FC8700E00966 /* CoreGraphics.framework */; };
 		EDF39E001980FC8700E00966 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF39DFF1980FC8700E00966 /* UIKit.framework */; };
@@ -99,6 +102,11 @@
 		EDD131C419813051006F39E3 /* LMBranchProgramViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchProgramViewController_iPhone.xib; sourceTree = "<group>"; };
 		EDD131C61981316A006F39E3 /* LMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMButton.h; sourceTree = "<group>"; };
 		EDD131C71981316A006F39E3 /* LMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMButton.m; sourceTree = "<group>"; };
+		EDE87BFF19867C7E00043861 /* LMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSettingsViewController.h; sourceTree = "<group>"; };
+		EDE87C0019867C7E00043861 /* LMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSettingsViewController.m; sourceTree = "<group>"; };
+		EDE87C0219867C8F00043861 /* LMSettingsViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMSettingsViewController_iPhone.xib; sourceTree = "<group>"; };
+		EDE87C0419867E9100043861 /* LMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMUtils.h; sourceTree = "<group>"; };
+		EDE87C0519867E9100043861 /* LMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMUtils.m; sourceTree = "<group>"; };
 		EDF39DF81980FC8700E00966 /* OWNTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OWNTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF39DFB1980FC8700E00966 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EDF39DFD1980FC8700E00966 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -270,6 +278,7 @@
 				EDD131C019812F48006F39E3 /* LMBranchInstanceViewController_iPhone.xib */,
 				EDD131C21981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib */,
 				EDD131C419813051006F39E3 /* LMBranchProgramViewController_iPhone.xib */,
+				EDE87C0219867C8F00043861 /* LMSettingsViewController_iPhone.xib */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -314,6 +323,12 @@
 		EDF39E4D1980FF7D00E00966 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EDD131BA19812F1E006F39E3 /* LMBranchAdvertiserViewController.h */,
+				EDD131BB19812F1E006F39E3 /* LMBranchAdvertiserViewController.m */,
+				EDD131B719812EFD006F39E3 /* LMBranchInstanceViewController.h */,
+				EDD131B819812EFD006F39E3 /* LMBranchInstanceViewController.m */,
+				EDD131BD19812F2E006F39E3 /* LMBranchProgramViewController.h */,
+				EDD131BE19812F2E006F39E3 /* LMBranchProgramViewController.m */,
 				EDD131B419812ECF006F39E3 /* LMBranchViewController.h */,
 				EDD131B519812ECF006F39E3 /* LMBranchViewController.m */,
 				EDF39E7119810AE700E00966 /* LMHostChildBaseViewController.h */,
@@ -322,14 +337,10 @@
 				EDF39E67198104D700E00966 /* LMLoginViewController.m */,
 				EDF39E59198101D500E00966 /* LMNavigationViewController.h */,
 				EDF39E5A198101D500E00966 /* LMNavigationViewController.m */,
+				EDE87BFF19867C7E00043861 /* LMSettingsViewController.h */,
+				EDE87C0019867C7E00043861 /* LMSettingsViewController.m */,
 				EDF39E691981059C00E00966 /* LMSplashViewController.h */,
 				EDF39E6A1981059C00E00966 /* LMSplashViewController.m */,
-				EDD131B719812EFD006F39E3 /* LMBranchInstanceViewController.h */,
-				EDD131B819812EFD006F39E3 /* LMBranchInstanceViewController.m */,
-				EDD131BA19812F1E006F39E3 /* LMBranchAdvertiserViewController.h */,
-				EDD131BB19812F1E006F39E3 /* LMBranchAdvertiserViewController.m */,
-				EDD131BD19812F2E006F39E3 /* LMBranchProgramViewController.h */,
-				EDD131BE19812F2E006F39E3 /* LMBranchProgramViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -361,6 +372,8 @@
 				EDF39E6D1981060200E00966 /* LMSegueKeys.m */,
 				EDF39E6F198106B700E00966 /* Macros.h */,
 				EDF39E70198109B500E00966 /* Design.h */,
+				EDE87C0419867E9100043861 /* LMUtils.h */,
+				EDE87C0519867E9100043861 /* LMUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -462,6 +475,7 @@
 				EDD131AE198120FA006F39E3 /* LMLoginViewController_iPhone.xib in Resources */,
 				EDF39E63198103B700E00966 /* mogen.sh in Resources */,
 				EDD131C31981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib in Resources */,
+				EDE87C0319867C8F00043861 /* LMSettingsViewController_iPhone.xib in Resources */,
 				EDD131C119812F48006F39E3 /* LMBranchInstanceViewController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,8 +539,10 @@
 				EDD131BF19812F2E006F39E3 /* LMBranchProgramViewController.m in Sources */,
 				EDD131BC19812F1E006F39E3 /* LMBranchAdvertiserViewController.m in Sources */,
 				EDD131B31981272C006F39E3 /* LMTextField.m in Sources */,
+				EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */,
 				EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */,
 				EDD131C81981316A006F39E3 /* LMButton.m in Sources */,
+				EDE87C0619867E9100043861 /* LMUtils.m in Sources */,
 				EDF39E7319810AE700E00966 /* LMHostChildBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

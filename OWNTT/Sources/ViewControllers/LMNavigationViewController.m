@@ -7,12 +7,21 @@
 //
 
 #import "LMNavigationViewController.h"
+#import "LMLoginViewController.h"
 
 @interface LMNavigationViewController ()
 
 @end
 
 @implementation LMNavigationViewController
+
+- (void)awakeFromNib {
+    if(![LMUtils userExist]) {
+        self.viewControllers = [NSArray arrayWithObject:[self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([LMLoginViewController class])]];
+    } else {
+        self.viewControllers = [NSArray arrayWithObject:[LMUtils checkAndSetControllersByTreeHierarchyForStoryboard:self.storyboard]];
+    }
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

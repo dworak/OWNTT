@@ -18,6 +18,7 @@
     #import <LM/LMViewControllerBase.h>
     #import <LM/TTHostViewController.h>
     #import "LMHostChildBaseViewController.h"
+    #import "LMUtils.h"
     #import "Design.h"
     #import "Macros.h"
     #import "LMSegueKeys.h"

@@ -32,19 +32,13 @@
         <!--Navigation View Controller-->
         <scene sceneID="Ddp-gf-zuL">
             <objects>
-                <navigationController definesPresentationContext="YES" modalTransitionStyle="crossDissolve" id="XLK-Xm-Upl" customClass="LMNavigationViewController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LMNavigationViewController" definesPresentationContext="YES" modalTransitionStyle="crossDissolve" id="XLK-Xm-Upl" customClass="LMNavigationViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="2CF-zG-jsR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dbG-d6-dF5">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="heA-MX-ohP" kind="relationship" relationship="rootViewController" id="WYN-Ff-bEP"/>
-                        <segue destination="eS8-cG-JSw" kind="push" identifier="LMSegueKeyType_PushInstanceList" id="iAa-X2-fCW"/>
-                        <segue destination="M0q-mS-hcy" kind="push" identifier="LMSegueKeyType_PushAdvertiserList" id="5HV-s7-Fh8"/>
-                        <segue destination="y7x-9C-JhN" kind="push" identifier="LMSegueKeyType_PushProgramList" id="Z9x-PR-8Y1"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ehu-cJ-EYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,7 +47,7 @@
         <!--Host View Controller-->
         <scene sceneID="6WE-7s-cck">
             <objects>
-                <viewController id="eS8-cG-JSw" customClass="TTHostViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LMBranchInstanceViewController" id="eS8-cG-JSw" customClass="TTHostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NJO-7M-bZ8"/>
                         <viewControllerLayoutGuide type="bottom" id="Qgi-HN-tHp"/>
@@ -61,22 +55,27 @@
                     <view key="view" contentMode="scaleToFill" id="nve-eY-YOw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.55294117649999996" green="0.3294117647" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="PfO-Jk-lyN"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMBranchInstanceViewController"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchInstanceViewController"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="M0q-mS-hcy" kind="push" identifier="LMSegueKeyType_PushAdvertiserList" id="GpV-0x-REA"/>
+                        <segue destination="y7x-9C-JhN" kind="push" identifier="LMSegueKeyType_PushProgramList" id="0yr-Nw-2XK"/>
+                        <segue destination="RYl-XQ-yBK" kind="push" identifier="LMSegueKeyType_PushSettings" id="lNx-Wm-meh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QVc-ma-Rce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2982" y="-1667"/>
+            <point key="canvasLocation" x="-1942" y="-1067"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="cs7-8z-ptX">
             <objects>
-                <viewController id="heA-MX-ohP" customClass="TTHostViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LMLoginViewController" id="heA-MX-ohP" customClass="TTHostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="T6v-KE-yV5"/>
                         <viewControllerLayoutGuide type="bottom" id="2rD-px-L1x"/>
@@ -100,15 +99,21 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMLoginViewController"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMLoginViewController"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="eS8-cG-JSw" kind="push" identifier="LMSegueKeyType_PushInstanceList" id="zZP-nQ-5a1"/>
+                        <segue destination="M0q-mS-hcy" kind="push" identifier="LMSegueKeyType_PushAdvertiserList" id="c2K-fW-i7n"/>
+                        <segue destination="y7x-9C-JhN" kind="push" identifier="LMSegueKeyType_PushProgramList" id="ejX-9D-Nq8"/>
+                        <segue destination="RYl-XQ-yBK" kind="push" identifier="LMSegueKeyType_PushSettings" id="F8A-SV-1H3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkW-NQ-HKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2982" y="-897"/>
+            <point key="canvasLocation" x="-2878" y="-2027"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="ptU-cQ-hXn">
             <objects>
-                <viewController id="y7x-9C-JhN" customClass="TTHostViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LMBranchProgramViewController" id="y7x-9C-JhN" customClass="TTHostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cH4-gA-f4s"/>
                         <viewControllerLayoutGuide type="bottom" id="YJc-mN-5ik"/>
@@ -116,22 +121,48 @@
                     <view key="view" contentMode="scaleToFill" id="UMT-pD-bbd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Llc-Xr-y2j"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMBranchProgramViewController"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchProgramViewController"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="RYl-XQ-yBK" kind="push" identifier="LMSegueKeyType_PushSettings" id="aLh-jf-MNt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2K-1O-NLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2096" y="-3340"/>
+            <point key="canvasLocation" x="-8" y="-2772"/>
+        </scene>
+        <!--Host View Controller-->
+        <scene sceneID="Bf2-ge-1CQ">
+            <objects>
+                <viewController id="RYl-XQ-yBK" customClass="TTHostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o40-fZ-arM"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZdR-Kn-CGf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5kL-UY-hzt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RSg-Ly-LoZ"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMSettingsViewController"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMSettingsViewController"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Yf-Zs-yh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-846" y="2095"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="po8-7I-VCu">
             <objects>
-                <viewController id="M0q-mS-hcy" customClass="TTHostViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LMBranchAdvertiserViewController" id="M0q-mS-hcy" customClass="TTHostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7ke-j2-Cgm"/>
                         <viewControllerLayoutGuide type="bottom" id="iVY-8f-4hq"/>
@@ -146,10 +177,14 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMBranchAdvertiserViewController"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchAdvertiserViewController"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="y7x-9C-JhN" kind="push" identifier="LMSegueKeyType_PushProgramList" id="HNE-4q-bxA"/>
+                        <segue destination="RYl-XQ-yBK" kind="push" identifier="LMSegueKeyType_PushSettings" id="Ns2-ig-tOr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5L-xC-nBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2582" y="-2547"/>
+            <point key="canvasLocation" x="-1374" y="-2027"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -157,4 +192,9 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="GpV-0x-REA"/>
+        <segue reference="HNE-4q-bxA"/>
+        <segue reference="Ns2-ig-tOr"/>
+    </inferredMetricsTieBreakers>
 </document>

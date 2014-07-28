@@ -1,22 +1,18 @@
 //
-//  MLSplashViewController.m
+//  LMSettingsViewController.m
 //  OWNTT
 //
-//  Created by Kaszuba Maciej on 24/07/14.
+//  Created by Kaszuba Maciej on 28/07/14.
 //
 //
 
-#import "LMSplashViewController.h"
+#import "LMSettingsViewController.h"
 
-@interface LMSplashViewController ()
-- (void)splashViewControllerDidFinish;
+@interface LMSettingsViewController ()
+
 @end
 
-@implementation LMSplashViewController
-
-- (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-}
+@implementation LMSettingsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,14 +27,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    //TODO: add tree download mechanism
-    [self splashViewControllerDidFinish];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,12 +45,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-#pragma mark -
-#pragma mark === Private methods ===
-- (void)splashViewControllerDidFinish
-{
-    [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushNavigation] sender:self];
-}
 
 @end
