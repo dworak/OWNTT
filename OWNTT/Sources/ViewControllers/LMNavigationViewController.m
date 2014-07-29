@@ -19,7 +19,7 @@
     if(![LMUtils userExist]) {
         self.viewControllers = [NSArray arrayWithObject:[self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([LMLoginViewController class])]];
     } else {
-        self.viewControllers = [NSArray arrayWithObject:[LMUtils checkAndSetControllersByTreeHierarchyForStoryboard:self.storyboard]];
+        self.viewControllers = [NSArray arrayWithObjects:[self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([LMLoginViewController class])], [LMUtils checkAndSetControllersByTreeHierarchyForStoryboard:self.storyboard], nil];
     }
 }
 

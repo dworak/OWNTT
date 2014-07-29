@@ -46,4 +46,10 @@
 }
 */
 
+#pragma mark -
+#pragma mark === Public methods ===
+- (void)hideBackButtonItem:(BOOL)hidden {
+    [self.parentViewController.navigationItem setHidesBackButton:hidden animated:NO];
+}
+
 @end

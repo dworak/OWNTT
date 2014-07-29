@@ -9,5 +9,5 @@
 #import "LMHostChildBaseViewController.h"
 
 @interface LMBranchViewController : LMHostChildBaseViewController
-
+- (void)hideBackButtonItem:(BOOL)hidden;
 @end
