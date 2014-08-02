@@ -55,4 +55,11 @@
         }];
     }
 }
+
++ (UIViewController *)currentStoryboardControllerForIdentifier:(NSString *)identifier
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle mainBundle]];
+    return [storyboard instantiateViewControllerWithIdentifier:identifier];
+}
+
 @end

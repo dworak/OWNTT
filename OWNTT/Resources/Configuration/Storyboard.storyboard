@@ -68,7 +68,7 @@
                     <navigationItem key="navigationItem" id="PfO-Jk-lyN"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMBranchInstanceViewController"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchInstanceViewController"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="M0q-mS-hcy" kind="push" identifier="LMSegueKeyType_PushAdvertiserList" id="GpV-0x-REA"/>
@@ -152,7 +152,7 @@
                     <navigationItem key="navigationItem" id="Llc-Xr-y2j"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMBranchProgramViewController"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchProgramViewController"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="K9t-Vf-4sE" kind="push" identifier="LMSegueKeyType_PushReportSummary" id="ed7-PD-Gfj"/>
@@ -202,7 +202,7 @@
                     <navigationItem key="navigationItem" id="Fxy-QP-Ifc"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMBranchAdvertiserViewController"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchAdvertiserViewController"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="y7x-9C-JhN" kind="push" identifier="LMSegueKeyType_PushProgramList" id="HNE-4q-bxA"/>

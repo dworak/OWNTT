@@ -16,23 +16,43 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logoSplash.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vbx-SW-VRM">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoSplash.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vbx-SW-VRM">
                     <rect key="frame" x="42" y="125" width="236" height="72"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="72" id="MMT-e5-DWM"/>
+                        <constraint firstAttribute="width" constant="236" id="cKM-IV-tkz"/>
+                    </constraints>
                 </imageView>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fBf-10-8bC">
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fBf-10-8bC">
                     <rect key="frame" x="150" y="210" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="hYj-Bv-cJr"/>
+                        <constraint firstAttribute="height" constant="20" id="xvX-t9-1Y3"/>
+                    </constraints>
                 </activityIndicatorView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trwa pobieranie danych ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ER-ci-iSo">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trwa pobieranie danych ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ER-ci-iSo">
                     <rect key="frame" x="20" y="228" width="280" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="39" id="GGn-ZD-W2i"/>
+                        <constraint firstAttribute="width" constant="280" id="a7x-un-gKa"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="fBf-10-8bC" firstAttribute="top" secondItem="Vbx-SW-VRM" secondAttribute="bottom" constant="13" id="AHm-la-sd8"/>
+                <constraint firstAttribute="centerX" secondItem="Vbx-SW-VRM" secondAttribute="centerX" id="EAv-93-zYV"/>
+                <constraint firstAttribute="centerX" secondItem="fBf-10-8bC" secondAttribute="centerX" id="cGx-KL-Jom"/>
+                <constraint firstItem="3ER-ci-iSo" firstAttribute="top" secondItem="Vbx-SW-VRM" secondAttribute="bottom" constant="31" id="fLz-c6-S9p"/>
+                <constraint firstAttribute="centerX" secondItem="3ER-ci-iSo" secondAttribute="centerX" id="hhq-TU-auP"/>
+                <constraint firstItem="Vbx-SW-VRM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="125" id="qFb-pC-z7Z"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

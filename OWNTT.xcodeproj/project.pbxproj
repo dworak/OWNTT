@@ -36,9 +36,7 @@
 		EDD131B919812EFD006F39E3 /* LMBranchInstanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD131B819812EFD006F39E3 /* LMBranchInstanceViewController.m */; };
 		EDD131BC19812F1E006F39E3 /* LMBranchAdvertiserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD131BB19812F1E006F39E3 /* LMBranchAdvertiserViewController.m */; };
 		EDD131BF19812F2E006F39E3 /* LMBranchProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD131BE19812F2E006F39E3 /* LMBranchProgramViewController.m */; };
-		EDD131C119812F48006F39E3 /* LMBranchInstanceViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131C019812F48006F39E3 /* LMBranchInstanceViewController_iPhone.xib */; };
-		EDD131C31981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131C21981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib */; };
-		EDD131C519813051006F39E3 /* LMBranchProgramViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131C419813051006F39E3 /* LMBranchProgramViewController_iPhone.xib */; };
+		EDD131C119812F48006F39E3 /* LMBranchViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131C019812F48006F39E3 /* LMBranchViewController_iPhone.xib */; };
 		EDD131C81981316A006F39E3 /* LMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD131C71981316A006F39E3 /* LMButton.m */; };
 		EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE87C0019867C7E00043861 /* LMSettingsViewController.m */; };
 		EDE87C0319867C8F00043861 /* LMSettingsViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE87C0219867C8F00043861 /* LMSettingsViewController_iPhone.xib */; };
@@ -145,9 +143,7 @@
 		EDD131BB19812F1E006F39E3 /* LMBranchAdvertiserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchAdvertiserViewController.m; sourceTree = "<group>"; };
 		EDD131BD19812F2E006F39E3 /* LMBranchProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchProgramViewController.h; sourceTree = "<group>"; };
 		EDD131BE19812F2E006F39E3 /* LMBranchProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchProgramViewController.m; sourceTree = "<group>"; };
-		EDD131C019812F48006F39E3 /* LMBranchInstanceViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchInstanceViewController_iPhone.xib; sourceTree = "<group>"; };
-		EDD131C21981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchAdvertiserViewController_iPhone.xib; sourceTree = "<group>"; };
-		EDD131C419813051006F39E3 /* LMBranchProgramViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchProgramViewController_iPhone.xib; sourceTree = "<group>"; };
+		EDD131C019812F48006F39E3 /* LMBranchViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchViewController_iPhone.xib; sourceTree = "<group>"; };
 		EDD131C61981316A006F39E3 /* LMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMButton.h; sourceTree = "<group>"; };
 		EDD131C71981316A006F39E3 /* LMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMButton.m; sourceTree = "<group>"; };
 		EDE87BFF19867C7E00043861 /* LMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSettingsViewController.h; sourceTree = "<group>"; };
@@ -365,9 +361,7 @@
 			children = (
 				EDF39E7419810C6100E00966 /* LMSplashViewController_iPhone.xib */,
 				EDD131AD198120FA006F39E3 /* LMLoginViewController_iPhone.xib */,
-				EDD131C019812F48006F39E3 /* LMBranchInstanceViewController_iPhone.xib */,
-				EDD131C21981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib */,
-				EDD131C419813051006F39E3 /* LMBranchProgramViewController_iPhone.xib */,
+				EDD131C019812F48006F39E3 /* LMBranchViewController_iPhone.xib */,
 				EDE87C0219867C8F00043861 /* LMSettingsViewController_iPhone.xib */,
 				250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */,
 			);
@@ -578,15 +572,13 @@
 				25036AB0198D294600EAE355 /* tabbar4.png in Resources */,
 				EDD131AA198117B1006F39E3 /* Storyboard.storyboard in Resources */,
 				25036AAE198D294600EAE355 /* tabbar3.png in Resources */,
-				EDD131C519813051006F39E3 /* LMBranchProgramViewController_iPhone.xib in Resources */,
 				EDD131AE198120FA006F39E3 /* LMLoginViewController_iPhone.xib in Resources */,
 				25036AAD198D294600EAE355 /* tabbar2@2x.png in Resources */,
 				EDF39E63198103B700E00966 /* mogen.sh in Resources */,
-				EDD131C31981303E006F39E3 /* LMBranchAdvertiserViewController_iPhone.xib in Resources */,
 				EDE87C0319867C8F00043861 /* LMSettingsViewController_iPhone.xib in Resources */,
 				25036AAA198D294600EAE355 /* tabbar1.png in Resources */,
 				25036AAB198D294600EAE355 /* tabbar1@2x.png in Resources */,
-				EDD131C119812F48006F39E3 /* LMBranchInstanceViewController_iPhone.xib in Resources */,
+				EDD131C119812F48006F39E3 /* LMBranchViewController_iPhone.xib in Resources */,
 				25036ADD198D4D1300EAE355 /* settings.plist in Resources */,
 				25036AB1198D294600EAE355 /* tabbar4@2x.png in Resources */,
 			);

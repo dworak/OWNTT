@@ -8,6 +8,9 @@
 
 #import "LMNavigationViewController.h"
 #import "LMLoginViewController.h"
+#import "LMBranchAdvertiserViewController.h"
+#import "LMBranchInstanceViewController.h"
+#import "LMBranchProgramViewController.h"
 
 @interface LMNavigationViewController ()
 
@@ -39,14 +42,17 @@
     {
         case NavigationControllerType_Report:
         {
+            self.viewControllers = [NSArray arrayWithObject:[LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchInstanceViewController class])]];
             break;
         }
         case NavigationControllerType_ReportTemplate:
         {
+            self.viewControllers = [NSArray arrayWithObject:[LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchAdvertiserViewController class])]];
             break;
         }
         case NavigationControllerType_Alert:
         {
+            self.viewControllers = [NSArray arrayWithObject:[LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchProgramViewController class])]];
             break;
         }
         default:
