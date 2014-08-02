@@ -25,6 +25,8 @@
 		25036ADD198D4D1300EAE355 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25036ADC198D4D1300EAE355 /* settings.plist */; };
 		25036ADF198D51A500EAE355 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 25036ADE198D51A500EAE355 /* logo.png */; };
 		25036AE1198D521F00EAE355 /* logoSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = 25036AE0198D521F00EAE355 /* logoSplash.png */; };
+		25036AE9198D5EE300EAE355 /* LMBranchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25036AE8198D5EE300EAE355 /* LMBranchTableViewCell.m */; };
+		25036AEB198D5F0700EAE355 /* LMBranchTableViewCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25036AEA198D5F0700EAE355 /* LMBranchTableViewCell_iPhone.xib */; };
 		250FD81F1986DC1C0047EB42 /* LMSummaryReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250FD81E1986DC1C0047EB42 /* LMSummaryReportViewController.m */; };
 		250FD8211986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */; };
 		C9F3FCFC4078458C841A60FD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3CEF0A0FE04D0FAC9F6EC3 /* libPods.a */; };
@@ -125,6 +127,9 @@
 		25036ADC198D4D1300EAE355 /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		25036ADE198D51A500EAE355 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		25036AE0198D521F00EAE355 /* logoSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoSplash.png; sourceTree = "<group>"; };
+		25036AE7198D5EE300EAE355 /* LMBranchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchTableViewCell.h; sourceTree = "<group>"; };
+		25036AE8198D5EE300EAE355 /* LMBranchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchTableViewCell.m; sourceTree = "<group>"; };
+		25036AEA198D5F0700EAE355 /* LMBranchTableViewCell_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchTableViewCell_iPhone.xib; sourceTree = "<group>"; };
 		250FD81D1986DC1C0047EB42 /* LMSummaryReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSummaryReportViewController.h; sourceTree = "<group>"; };
 		250FD81E1986DC1C0047EB42 /* LMSummaryReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSummaryReportViewController.m; sourceTree = "<group>"; };
 		250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMSummaryReportViewController_iPhone.xib; sourceTree = "<group>"; };
@@ -260,6 +265,15 @@
 			path = Segue;
 			sourceTree = "<group>";
 		};
+		25036AE6198D5EC900EAE355 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				25036AE7198D5EE300EAE355 /* LMBranchTableViewCell.h */,
+				25036AE8198D5EE300EAE355 /* LMBranchTableViewCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		25462AC71981BA590007482F /* ModelClasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +378,7 @@
 				EDD131C019812F48006F39E3 /* LMBranchViewController_iPhone.xib */,
 				EDE87C0219867C8F00043861 /* LMSettingsViewController_iPhone.xib */,
 				250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */,
+				25036AEA198D5F0700EAE355 /* LMBranchTableViewCell_iPhone.xib */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -390,6 +405,7 @@
 		EDF39E471980FF7D00E00966 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				25036AE6198D5EC900EAE355 /* Cells */,
 				25036AE2198D53E200EAE355 /* Segue */,
 				25036ABC198D2CCE00EAE355 /* Categories */,
 				EDF39E65198103C000E00966 /* Utils */,
@@ -560,6 +576,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25036AEB198D5F0700EAE355 /* LMBranchTableViewCell_iPhone.xib in Resources */,
 				EDF39E64198103B700E00966 /* mogend.sh in Resources */,
 				250FD8211986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib in Resources */,
 				25036ADF198D51A500EAE355 /* logo.png in Resources */,
@@ -634,6 +651,7 @@
 			files = (
 				EDD131B919812EFD006F39E3 /* LMBranchInstanceViewController.m in Sources */,
 				25036AD5198D2E6900EAE355 /* LMUser.m in Sources */,
+				25036AE9198D5EE300EAE355 /* LMBranchTableViewCell.m in Sources */,
 				EDF39E551980FF7D00E00966 /* LMAppDelegate.m in Sources */,
 				25036AC4198D2CCE00EAE355 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				EDD131B619812ECF006F39E3 /* LMBranchViewController.m in Sources */,

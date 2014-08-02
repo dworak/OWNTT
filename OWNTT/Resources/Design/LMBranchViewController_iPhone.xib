@@ -4,8 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LMBranchInstanceViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LMBranchViewController">
             <connections>
+                <outlet property="tableView" destination="O3E-Gn-v43" id="S24-UW-aRF"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Y32-vt-tpj"/>
             </connections>
         </placeholder>
@@ -13,7 +14,21 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="O3E-Gn-v43">
+                    <rect key="frame" x="0.0" y="44" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="O3E-Gn-v43" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="19X-aK-5f5"/>
+                <constraint firstItem="O3E-Gn-v43" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="9sl-aY-9Nh"/>
+                <constraint firstAttribute="centerX" secondItem="O3E-Gn-v43" secondAttribute="centerX" id="Fb1-Yq-M7L"/>
+                <constraint firstAttribute="bottom" secondItem="O3E-Gn-v43" secondAttribute="bottom" constant="44" id="L1V-KW-vRZ"/>
+                <constraint firstAttribute="trailing" secondItem="O3E-Gn-v43" secondAttribute="trailing" id="QkX-D6-d8W"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
