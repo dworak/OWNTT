@@ -15,14 +15,6 @@
 
 @implementation LMNavigationViewController
 
-- (void)awakeFromNib {
-    if(![LMUtils userExist]) {
-        self.viewControllers = [NSArray arrayWithObject:[self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([LMLoginViewController class])]];
-    } else {
-        self.viewControllers = [NSArray arrayWithObjects:[self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([LMLoginViewController class])], [LMUtils checkAndSetControllersByTreeHierarchyForStoryboard:self.storyboard], nil];
-    }
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,9 +28,30 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //clear navigation bar
     [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = [UIImage new];
     self.navigationBar.translucent = YES;
+    
+    //setup layout for controller type
+    switch (self.controllerType.intValue)
+    {
+        case NavigationControllerType_Report:
+        {
+            break;
+        }
+        case NavigationControllerType_ReportTemplate:
+        {
+            break;
+        }
+        case NavigationControllerType_Alert:
+        {
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning

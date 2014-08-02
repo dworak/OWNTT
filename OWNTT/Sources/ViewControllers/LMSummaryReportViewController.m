@@ -1,18 +1,18 @@
 //
-//  LMBranchAdvertiserViewController.m
+//  LMSummaryReportViewController.m
 //  OWNTT
 //
-//  Created by Kaszuba Maciej on 24/07/14.
+//  Created by Maciej Kaszuba on 28/07/14.
 //
 //
 
-#import "LMBranchAdvertiserViewController.h"
+#import "LMSummaryReportViewController.h"
 
-@interface LMBranchAdvertiserViewController ()
+@interface LMSummaryReportViewController ()
 
 @end
 
-@implementation LMBranchAdvertiserViewController
+@implementation LMSummaryReportViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +27,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self hideBackButtonItem:YES];
 }
 
 - (void)didReceiveMemoryWarning

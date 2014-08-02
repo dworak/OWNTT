@@ -11,4 +11,5 @@
 @interface LMUtils : NSObject
 + (BOOL)userExist;
 + (UIViewController *)checkAndSetControllersByTreeHierarchyForStoryboard:(UIStoryboard *)storyboard;
++ (void)saveCoreDataContext:(NSManagedObjectContext *)context;
 @end

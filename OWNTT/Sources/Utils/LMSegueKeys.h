@@ -10,11 +10,14 @@
 
 #define SEGUE_TYPE(XX) \
 XX(LMSegueKeyType_None,) \
+XX(LMSegueKeyType_PushLogin,) \
+XX(LMSegueKeyType_PushTabBar,) \
 XX(LMSegueKeyType_PushNavigation,) \
 XX(LMSegueKeyType_PushInstanceList,) \
 XX(LMSegueKeyType_PushAdvertiserList,) \
 XX(LMSegueKeyType_PushProgramList,) \
 XX(LMSegueKeyType_PushSettings,) \
+XX(LMSegueKeyType_PushReportSummary,) \
 
 DECLARE_ENUM(LMSegueKeyType,SEGUE_TYPE)
 

@@ -9,6 +9,8 @@
 #import "LMSplashViewController.h"
 
 @interface LMSplashViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *indicatorTextLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 - (void)splashViewControllerDidFinish;
 @end
 
@@ -38,7 +40,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     //TODO: add tree download mechanism
-    [self splashViewControllerDidFinish];
+    [self.activityIndicator startAnimating];
+    [self performSelector:@selector(splashViewControllerDidFinish) withObject:nil afterDelay:3];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,7 +65,13 @@
 #pragma mark === Private methods ===
 - (void)splashViewControllerDidFinish
 {
-    [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushNavigation] sender:self];
+    [self.activityIndicator stopAnimating];
+    self.indicatorTextLabel.hidden = YES;
+    if(![LMUtils userExist]) {
+        [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushLogin] sender:self.parentViewController];
+    } else {
+        [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushTabBar] sender:self.parentViewController];
+    }
 }
 
 @end

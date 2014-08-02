@@ -6,7 +6,7 @@
 
 #TODO: Change this to the name of custom ManagedObject base class (if applicable)
 #  If no custom MO class is required, remove the "--base-class $baseClass" parameter from mogenerator call
-baseClass=TTManagedObject
+baseClass=ManagedObject
 
 curVer=`/usr/libexec/PlistBuddy "${INPUT_FILE_PATH}/.xccurrentversion" -c 'print _XCCurrentVersionName'`
 

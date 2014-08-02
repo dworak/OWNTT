@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LMAppUtils.h"
+
+@class LMAppUtils;
 
 @interface LMAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) LMAppUtils *appUtils;
 
 @end

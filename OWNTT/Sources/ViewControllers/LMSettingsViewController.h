@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LMSettingsViewController : UIViewController
+@interface LMSettingsViewController : LMHostChildBaseViewController
 
 @end

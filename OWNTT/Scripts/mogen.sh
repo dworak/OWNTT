@@ -6,10 +6,10 @@
 
 #TODO: Change this to the name of custom ManagedObject base class
 #  If no custom MO class is required, remove the "--base-class $baseClass" parameter from mogenerator call
-baseClass=TTManagedObject
+baseClass=ManagedObject
 
 echo mogenerator --model \"${INPUT_FILE_PATH}\" --output-dir \"${INPUT_FILE_DIR}/\"
-mogenerator --model "${INPUT_FILE_PATH}" --output-dir "${INPUT_FILE_DIR}/ModelClasses/Base" --template-var arc=true --base-class $baseClass
+mogenerator --model "${INPUT_FILE_PATH}" --output-dir "${INPUT_FILE_DIR}/ModelClasses/Human" --template-var arc=true --base-class $baseClass
 
 echo ${DEVELOPER_BIN_DIR}/momc -XD_MOMC_TARGET_VERSION=10.6 \"${INPUT_FILE_PATH}\" \"${TARGET_BUILD_DIR}/${EXECUTABLE_FOLDER_PATH}/${INPUT_FILE_BASE}.mom\"
 ${DEVELOPER_BIN_DIR}/momc -XD_MOMC_TARGET_VERSION=10.6 "${INPUT_FILE_PATH}" "${TARGET_BUILD_DIR}/${EXECUTABLE_FOLDER_PATH}/${INPUT_FILE_BASE}.mom"

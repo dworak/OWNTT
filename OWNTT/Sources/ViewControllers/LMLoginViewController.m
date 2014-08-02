@@ -7,9 +7,19 @@
 //
 
 #import "LMLoginViewController.h"
+#import "LMTextField.h"
+#import "LMUser.h"
 
 #define BACKGROUND_IMAGE_VIEW_TAG 99
 #define BACKGROUND_STATUS_BAR_TAG 100
+
+@interface LMLoginViewController ()
+@property (weak, nonatomic) IBOutlet LMTextField *loginTextField;
+@property (weak, nonatomic) IBOutlet LMTextField *passwordTextField;
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@end
 
 @implementation LMLoginViewController
 
@@ -54,6 +64,7 @@
             }
         }
     }];
+    self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
     
 }
 
@@ -74,12 +85,38 @@
 #pragma mark -
 #pragma mark === IBAction methods ===
 - (IBAction)loginButtonTapped:(id)sender {
-    
+    //Add fields validation
+    LMUser *user = [LMUser createObjectInContext:self.managedObjectContext];
+    user.name = self.loginTextField.text;
+    user.password = self.passwordTextField.text;
+    [self saveManagedContext];
+    [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushTabBar] sender:self];
 }
 
 #pragma mark -
 #pragma mark === Private methods ===
 - (void)checkDependingTreeAndShowBranch {
     
+}
+
+- (void)saveManagedContext{
+    if(!self.managedObjectContext) {
+        NSLog(@"Null context");
+        return;
+    }
+    if(self.managedObjectContext == [[LMCoreDataManager sharedInstance] masterManagedObjectContext]) {
+        [[LMCoreDataManager sharedInstance] saveMasterContext];
+    } else {
+        [self.managedObjectContext performBlockAndWait:^{
+            NSError *error = nil;
+            BOOL saved = [self.managedObjectContext save:&error];
+            if (!saved) {
+                // do some real error handling
+                NSLog(@"Could not save background context due to %@", error);
+            } else {
+                [[LMCoreDataManager sharedInstance] saveMasterContext];
+            }
+        }];
+    }
 }
 @end

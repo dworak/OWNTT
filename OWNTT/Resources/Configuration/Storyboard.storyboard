@@ -17,32 +17,40 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="d81-ZO-l92"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMSplashViewController"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMSplashViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="XLK-Xm-Upl" kind="modal" identifier="LMSegueKeyType_PushNavigation" id="sdk-C6-fXO"/>
+                        <segue destination="LCS-Kh-fre" kind="modal" identifier="LMSegueKeyType_PushTabBar" customClass="LMPushSegue" modalTransitionStyle="crossDissolve" id="taN-ZK-iiH"/>
+                        <segue destination="heA-MX-ohP" kind="modal" identifier="LMSegueKeyType_PushLogin" customClass="LMPushSegue" modalTransitionStyle="crossDissolve" id="bzR-dC-4dG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3pV-t9-cKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4181" y="-2041"/>
+            <point key="canvasLocation" x="-3445" y="-2161"/>
         </scene>
-        <!--Navigation View Controller-->
+        <!--Navigation View Controller - Raport-->
         <scene sceneID="Ddp-gf-zuL">
             <objects>
-                <navigationController storyboardIdentifier="LMNavigationViewController" definesPresentationContext="YES" modalTransitionStyle="crossDissolve" id="XLK-Xm-Upl" customClass="LMNavigationViewController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LMReportNavigationViewController" definesPresentationContext="YES" modalTransitionStyle="crossDissolve" id="XLK-Xm-Upl" customClass="LMNavigationViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Raport" image="tabbar1.png" id="CIi-AV-jPN"/>
                     <navigationItem key="navigationItem" id="2CF-zG-jsR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dbG-d6-dF5">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="controllerType">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ehu-cJ-EYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3669" y="-2041"/>
+            <point key="canvasLocation" x="-2238" y="-4761"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="6WE-7s-cck">
@@ -65,12 +73,33 @@
                     <connections>
                         <segue destination="M0q-mS-hcy" kind="push" identifier="LMSegueKeyType_PushAdvertiserList" id="GpV-0x-REA"/>
                         <segue destination="y7x-9C-JhN" kind="push" identifier="LMSegueKeyType_PushProgramList" id="0yr-Nw-2XK"/>
-                        <segue destination="RYl-XQ-yBK" kind="push" identifier="LMSegueKeyType_PushSettings" id="lNx-Wm-meh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QVc-ma-Rce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1942" y="-1067"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="g7i-oa-Fgi">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="LCS-Kh-fre" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="djG-Dj-oas"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Hjr-aY-s2a">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="XLK-Xm-Upl" kind="relationship" relationship="viewControllers" id="cdc-wl-ZxT"/>
+                        <segue destination="TiH-9s-jPY" kind="relationship" relationship="viewControllers" id="tHz-HL-QAO"/>
+                        <segue destination="yFe-XZ-eT1" kind="relationship" relationship="viewControllers" id="vYR-F7-PaW"/>
+                        <segue destination="RYl-XQ-yBK" kind="relationship" relationship="viewControllers" id="0H9-hr-deZ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pEs-la-7V7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2904" y="-3467"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="cs7-8z-ptX">
@@ -100,15 +129,12 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMLoginViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="eS8-cG-JSw" kind="push" identifier="LMSegueKeyType_PushInstanceList" id="zZP-nQ-5a1"/>
-                        <segue destination="M0q-mS-hcy" kind="push" identifier="LMSegueKeyType_PushAdvertiserList" id="c2K-fW-i7n"/>
-                        <segue destination="y7x-9C-JhN" kind="push" identifier="LMSegueKeyType_PushProgramList" id="ejX-9D-Nq8"/>
-                        <segue destination="RYl-XQ-yBK" kind="push" identifier="LMSegueKeyType_PushSettings" id="F8A-SV-1H3"/>
+                        <segue destination="LCS-Kh-fre" kind="push" identifier="LMSegueKeyType_PushTabBar" id="s2C-JK-vLA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkW-NQ-HKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2878" y="-2027"/>
+            <point key="canvasLocation" x="-2904" y="-1091"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="ptU-cQ-hXn">
@@ -129,14 +155,14 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchProgramViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="RYl-XQ-yBK" kind="push" identifier="LMSegueKeyType_PushSettings" id="aLh-jf-MNt"/>
+                        <segue destination="K9t-Vf-4sE" kind="push" identifier="LMSegueKeyType_PushReportSummary" id="ed7-PD-Gfj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2K-1O-NLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-8" y="-2772"/>
         </scene>
-        <!--Host View Controller-->
+        <!--Host View Controller - Ustawienia-->
         <scene sceneID="Bf2-ge-1CQ">
             <objects>
                 <viewController id="RYl-XQ-yBK" customClass="TTHostViewController" sceneMemberID="viewController">
@@ -149,6 +175,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Ustawienia" image="tabbar4.png" id="diy-MC-CoD"/>
                     <navigationItem key="navigationItem" id="RSg-Ly-LoZ"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMSettingsViewController"/>
@@ -157,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Yf-Zs-yh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-846" y="2095"/>
+            <point key="canvasLocation" x="-2238" y="-1851"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="po8-7I-VCu">
@@ -179,22 +206,91 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="y7x-9C-JhN" kind="push" identifier="LMSegueKeyType_PushProgramList" id="HNE-4q-bxA"/>
-                        <segue destination="RYl-XQ-yBK" kind="push" identifier="LMSegueKeyType_PushSettings" id="Ns2-ig-tOr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5L-xC-nBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1374" y="-2027"/>
         </scene>
+        <!--Host View Controller-->
+        <scene sceneID="i3d-vZ-lTt">
+            <objects>
+                <viewController id="K9t-Vf-4sE" customClass="TTHostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2zh-GH-Omq"/>
+                        <viewControllerLayoutGuide type="bottom" id="d9k-0V-Gwj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Gw-MM-Umx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="m0V-Hl-Vv4"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMSummaryReportViewController"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMSummaryReportViewController"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ctm-89-FLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728" y="-2772"/>
+        </scene>
+        <!--Navigation View Controller - Alert-->
+        <scene sceneID="ET4-lE-ZZI">
+            <objects>
+                <navigationController storyboardIdentifier="LMAlertNavigationViewController" definesPresentationContext="YES" modalTransitionStyle="crossDissolve" id="yFe-XZ-eT1" customClass="LMNavigationViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Alert" image="tabbar3.png" id="grI-Oe-HO0"/>
+                    <navigationItem key="navigationItem" id="XCh-9x-C4J"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8qk-Hs-bZ3">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="controllerType">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zwx-hp-5fz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2238" y="-2723"/>
+        </scene>
+        <!--Navigation View Controller - Szablony-->
+        <scene sceneID="ieT-U7-n6W">
+            <objects>
+                <navigationController storyboardIdentifier="LMReportTemplateNavigationViewController" definesPresentationContext="YES" modalTransitionStyle="crossDissolve" id="TiH-9s-jPY" customClass="LMNavigationViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Szablony" image="tabbar2.png" id="Pse-sV-1n6"/>
+                    <navigationItem key="navigationItem" id="hnC-yp-HlV"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IgR-6E-9ur">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="controllerType">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tv2-Wg-CT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2238" y="-3897"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="tabbar1.png" width="30" height="30"/>
+        <image name="tabbar2.png" width="30" height="30"/>
+        <image name="tabbar3.png" width="30" height="30"/>
+        <image name="tabbar4.png" width="30" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="GpV-0x-REA"/>
+        <segue reference="taN-ZK-iiH"/>
         <segue reference="0yr-Nw-2XK"/>
-        <segue reference="aLh-jf-MNt"/>
     </inferredMetricsTieBreakers>
 </document>

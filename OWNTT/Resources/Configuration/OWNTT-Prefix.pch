@@ -22,4 +22,6 @@
     #import "Design.h"
     #import "Macros.h"
     #import "LMSegueKeys.h"
+    #import "NSManagedObject+Fetch.h"
+    #import "NSManagedObjectContext+FetchedObjectFromURI.h"
 #endif

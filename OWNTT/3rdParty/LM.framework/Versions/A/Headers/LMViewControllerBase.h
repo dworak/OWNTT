@@ -24,7 +24,10 @@
 - (void)shakeAnimation:(NSArray*) views;
 - (void)scrollToTopWithTextFieldOrigin: (NSDictionary*) userInfo;
 - (void)returnToDefaultScrollContentSize:(BOOL)defaultContent withUserInfoDictionary:(NSDictionary*) userInfo;
+
 @property (weak, nonatomic) UITextField *currentEditingTextField;
 @property (strong, nonatomic, readonly) UIScrollView *contentScrollView;
 @property (weak, nonatomic) id<LMViewControllerBaseDelegate> delegate;
+
+
 @end

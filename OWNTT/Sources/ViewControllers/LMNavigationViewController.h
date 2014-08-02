@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LMNavigationViewController : UINavigationController
+typedef enum {
+    NavigationControllerType_Report = 0,
+    NavigationControllerType_ReportTemplate,
+    NavigationControllerType_Alert
+} NavigationControllerType;
 
+@interface LMNavigationViewController : UINavigationController
+@property (strong, nonatomic) NSNumber *controllerType;
 @end
