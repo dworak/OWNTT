@@ -39,7 +39,8 @@
 
 #pragma mark -
 #pragma mark === Private methods ===
-- (void)setupTextField {
+- (void)setupTextField
+{
     self.validationType = LMTextFieldValidaitonType_None;
     
     self.backgroundColor = UI_TEXTFIELD_BACKGROUND_COLOR;
@@ -56,13 +57,37 @@
 
 #pragma mark -
 #pragma mark === Public methods ===
-- (void)addValidation:(LMTextFieldValidaitonType)validationType {
+- (void)addValidation:(LMTextFieldValidaitonType)validationType
+{
     self.validationType = validationType;
-    switch (validationType) {
-        case LMTextFieldValidaitonType_None:
-            break;
+}
+
+- (NSString *)validateField
+{
+    switch (self.validationType)
+    {
+        case LMTextFieldValidaitonType_Login:
+            if([LMUtils validateEmail:self.text])
+            {
+                return nil;
+            }
+            else
+            {
+                return @"Login musi być w formacie e-mail i zawierać od 1 do 255 znaków";
+            }
+        case LMTextFieldValidaitonType_Password:
+        {
+            if(self.text.length > 60 || self.text.length < 1)
+            {
+                return @"Hasło musi zawierać od 1 do 60 znaków";
+            }
+            else
+            {
+                return nil;
+            }
+        }
         default:
-            break;
+            return NO;
     }
 }
 

@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="LMAdvertiser" representedClassName="LMAdvertiser" parentEntity="LMReadOnlyObject" syncable="YES">
+        <relationship name="instance" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMInstance" inverseName="advertisers" inverseEntity="LMInstance" syncable="YES"/>
+        <relationship name="programs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LMProgram" inverseName="advertiser" inverseEntity="LMProgram" syncable="YES"/>
+    </entity>
+    <entity name="LMInstance" representedClassName="LMInstance" parentEntity="LMReadOnlyObject" syncable="YES">
+        <relationship name="advertisers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LMAdvertiser" inverseName="instance" inverseEntity="LMAdvertiser" syncable="YES"/>
+    </entity>
+    <entity name="LMProgram" representedClassName="LMProgram" parentEntity="LMReadOnlyObject" syncable="YES">
+        <relationship name="advertiser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMAdvertiser" inverseName="programs" inverseEntity="LMAdvertiser" syncable="YES"/>
+        <relationship name="reports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LMReport" inverseName="program" inverseEntity="LMReport" syncable="YES"/>
+    </entity>
+    <entity name="LMReadOnlyObject" representedClassName="LMReadOnlyObject" isAbstract="YES" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="LMReport" parentEntity="LMReadOnlyObject" syncable="YES">
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMProgram" inverseName="reports" inverseEntity="LMProgram" syncable="YES"/>
+    </entity>
     <entity name="LMUser" representedClassName="LMUser" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="LMUser" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="LMReadOnlyObject" positionX="-63" positionY="0" width="128" height="73"/>
+        <element name="LMInstance" positionX="-54" positionY="18" width="128" height="58"/>
+        <element name="LMReport" positionX="-36" positionY="27" width="128" height="58"/>
+        <element name="LMAdvertiser" positionX="-18" positionY="36" width="128" height="73"/>
+        <element name="LMProgram" positionX="0" positionY="45" width="128" height="73"/>
     </elements>
 </model>

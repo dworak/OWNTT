@@ -29,6 +29,16 @@
 		25036AEB198D5F0700EAE355 /* LMBranchTableViewCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25036AEA198D5F0700EAE355 /* LMBranchTableViewCell_iPhone.xib */; };
 		250FD81F1986DC1C0047EB42 /* LMSummaryReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250FD81E1986DC1C0047EB42 /* LMSummaryReportViewController.m */; };
 		250FD8211986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */; };
+		253F1F3E198E219400158407 /* tree.json in Resources */ = {isa = PBXBuildFile; fileRef = 253F1F3D198E219400158407 /* tree.json */; };
+		253F1F4B198E276400158407 /* _LMAdvertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F40198E276400158407 /* _LMAdvertiser.m */; };
+		253F1F4C198E276400158407 /* _LMInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F42198E276400158407 /* _LMInstance.m */; };
+		253F1F4D198E276400158407 /* _LMReadOnlyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F44198E276400158407 /* _LMReadOnlyObject.m */; };
+		253F1F4E198E276400158407 /* LMAdvertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F46198E276400158407 /* LMAdvertiser.m */; };
+		253F1F4F198E276400158407 /* LMInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F48198E276400158407 /* LMInstance.m */; };
+		253F1F50198E276400158407 /* LMReadOnlyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F4A198E276400158407 /* LMReadOnlyObject.m */; };
+		253F1F55198E27BD00158407 /* _LMProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F52198E27BD00158407 /* _LMProgram.m */; };
+		253F1F56198E27BD00158407 /* LMProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F54198E27BD00158407 /* LMProgram.m */; };
+		253F1F5A198E9DBB00158407 /* LMReportWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F59198E9DBB00158407 /* LMReportWS.m */; };
 		C9F3FCFC4078458C841A60FD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3CEF0A0FE04D0FAC9F6EC3 /* libPods.a */; };
 		EDD131AA198117B1006F39E3 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD131A9198117B1006F39E3 /* Storyboard.storyboard */; };
 		EDD131AE198120FA006F39E3 /* LMLoginViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131AD198120FA006F39E3 /* LMLoginViewController_iPhone.xib */; };
@@ -133,6 +143,25 @@
 		250FD81D1986DC1C0047EB42 /* LMSummaryReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSummaryReportViewController.h; sourceTree = "<group>"; };
 		250FD81E1986DC1C0047EB42 /* LMSummaryReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSummaryReportViewController.m; sourceTree = "<group>"; };
 		250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMSummaryReportViewController_iPhone.xib; sourceTree = "<group>"; };
+		253F1F3D198E219400158407 /* tree.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tree.json; sourceTree = "<group>"; };
+		253F1F3F198E276400158407 /* _LMAdvertiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LMAdvertiser.h; sourceTree = "<group>"; };
+		253F1F40198E276400158407 /* _LMAdvertiser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LMAdvertiser.m; sourceTree = "<group>"; };
+		253F1F41198E276400158407 /* _LMInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LMInstance.h; sourceTree = "<group>"; };
+		253F1F42198E276400158407 /* _LMInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LMInstance.m; sourceTree = "<group>"; };
+		253F1F43198E276400158407 /* _LMReadOnlyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LMReadOnlyObject.h; sourceTree = "<group>"; };
+		253F1F44198E276400158407 /* _LMReadOnlyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LMReadOnlyObject.m; sourceTree = "<group>"; };
+		253F1F45198E276400158407 /* LMAdvertiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAdvertiser.h; sourceTree = "<group>"; };
+		253F1F46198E276400158407 /* LMAdvertiser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAdvertiser.m; sourceTree = "<group>"; };
+		253F1F47198E276400158407 /* LMInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMInstance.h; sourceTree = "<group>"; };
+		253F1F48198E276400158407 /* LMInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMInstance.m; sourceTree = "<group>"; };
+		253F1F49198E276400158407 /* LMReadOnlyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReadOnlyObject.h; sourceTree = "<group>"; };
+		253F1F4A198E276400158407 /* LMReadOnlyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMReadOnlyObject.m; sourceTree = "<group>"; };
+		253F1F51198E27BD00158407 /* _LMProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LMProgram.h; sourceTree = "<group>"; };
+		253F1F52198E27BD00158407 /* _LMProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LMProgram.m; sourceTree = "<group>"; };
+		253F1F53198E27BD00158407 /* LMProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMProgram.h; sourceTree = "<group>"; };
+		253F1F54198E27BD00158407 /* LMProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMProgram.m; sourceTree = "<group>"; };
+		253F1F58198E9DBB00158407 /* LMReportWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReportWS.h; sourceTree = "<group>"; };
+		253F1F59198E9DBB00158407 /* LMReportWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMReportWS.m; sourceTree = "<group>"; };
 		7E43CB3D41384074996BB063 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		8E3CEF0A0FE04D0FAC9F6EC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD131A9198117B1006F39E3 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
@@ -250,6 +279,22 @@
 		25036AC9198D2D7100EAE355 /* Genereted */ = {
 			isa = PBXGroup;
 			children = (
+				253F1F51198E27BD00158407 /* _LMProgram.h */,
+				253F1F52198E27BD00158407 /* _LMProgram.m */,
+				253F1F53198E27BD00158407 /* LMProgram.h */,
+				253F1F54198E27BD00158407 /* LMProgram.m */,
+				253F1F3F198E276400158407 /* _LMAdvertiser.h */,
+				253F1F40198E276400158407 /* _LMAdvertiser.m */,
+				253F1F41198E276400158407 /* _LMInstance.h */,
+				253F1F42198E276400158407 /* _LMInstance.m */,
+				253F1F43198E276400158407 /* _LMReadOnlyObject.h */,
+				253F1F44198E276400158407 /* _LMReadOnlyObject.m */,
+				253F1F45198E276400158407 /* LMAdvertiser.h */,
+				253F1F46198E276400158407 /* LMAdvertiser.m */,
+				253F1F47198E276400158407 /* LMInstance.h */,
+				253F1F48198E276400158407 /* LMInstance.m */,
+				253F1F49198E276400158407 /* LMReadOnlyObject.h */,
+				253F1F4A198E276400158407 /* LMReadOnlyObject.m */,
 				25036AD0198D2E6900EAE355 /* _LMUser.h */,
 				25036AD1198D2E6900EAE355 /* _LMUser.m */,
 				25036AD2198D2E6900EAE355 /* LMUser.h */,
@@ -272,6 +317,15 @@
 				25036AE8198D5EE300EAE355 /* LMBranchTableViewCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		253F1F57198E9D6400158407 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				253F1F58198E9DBB00158407 /* LMReportWS.h */,
+				253F1F59198E9DBB00158407 /* LMReportWS.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		25462AC71981BA590007482F /* ModelClasses */ = {
@@ -366,6 +420,7 @@
 				EDF39E411980FF7D00E00966 /* OWNTT-Prefix.pch */,
 				EDD131A9198117B1006F39E3 /* Storyboard.storyboard */,
 				25036ADC198D4D1300EAE355 /* settings.plist */,
+				253F1F3D198E219400158407 /* tree.json */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -405,6 +460,7 @@
 		EDF39E471980FF7D00E00966 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				253F1F57198E9D6400158407 /* Model */,
 				25036AE6198D5EC900EAE355 /* Cells */,
 				25036AE2198D53E200EAE355 /* Segue */,
 				25036ABC198D2CCE00EAE355 /* Categories */,
@@ -594,6 +650,7 @@
 				EDF39E63198103B700E00966 /* mogen.sh in Resources */,
 				EDE87C0319867C8F00043861 /* LMSettingsViewController_iPhone.xib in Resources */,
 				25036AAA198D294600EAE355 /* tabbar1.png in Resources */,
+				253F1F3E198E219400158407 /* tree.json in Resources */,
 				25036AAB198D294600EAE355 /* tabbar1@2x.png in Resources */,
 				EDD131C119812F48006F39E3 /* LMBranchViewController_iPhone.xib in Resources */,
 				25036ADD198D4D1300EAE355 /* settings.plist in Resources */,
@@ -654,6 +711,7 @@
 				25036AE9198D5EE300EAE355 /* LMBranchTableViewCell.m in Sources */,
 				EDF39E551980FF7D00E00966 /* LMAppDelegate.m in Sources */,
 				25036AC4198D2CCE00EAE355 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
+				253F1F4E198E276400158407 /* LMAdvertiser.m in Sources */,
 				EDD131B619812ECF006F39E3 /* LMBranchViewController.m in Sources */,
 				25036AC8198D2CDA00EAE355 /* ManagedObject.m in Sources */,
 				EDF39E68198104D700E00966 /* LMLoginViewController.m in Sources */,
@@ -661,19 +719,27 @@
 				EDF39E5B198101D500E00966 /* LMNavigationViewController.m in Sources */,
 				25036AC5198D2CCE00EAE355 /* UIImage+Additions.m in Sources */,
 				EDF39E541980FF7D00E00966 /* main.m in Sources */,
+				253F1F56198E27BD00158407 /* LMProgram.m in Sources */,
 				EDF39E6E1981060200E00966 /* LMSegueKeys.m in Sources */,
 				250FD81F1986DC1C0047EB42 /* LMSummaryReportViewController.m in Sources */,
+				253F1F5A198E9DBB00158407 /* LMReportWS.m in Sources */,
+				253F1F4F198E276400158407 /* LMInstance.m in Sources */,
 				EDD131BF19812F2E006F39E3 /* LMBranchProgramViewController.m in Sources */,
 				EDD131BC19812F1E006F39E3 /* LMBranchAdvertiserViewController.m in Sources */,
+				253F1F50198E276400158407 /* LMReadOnlyObject.m in Sources */,
 				25036ADB198D466600EAE355 /* LMAppUtils.m in Sources */,
 				25036AC3198D2CCE00EAE355 /* NSManagedObject+Fetch.m in Sources */,
+				253F1F4C198E276400158407 /* _LMInstance.m in Sources */,
 				25036AD4198D2E6900EAE355 /* _LMUser.m in Sources */,
+				253F1F55198E27BD00158407 /* _LMProgram.m in Sources */,
 				EDD131B31981272C006F39E3 /* LMTextField.m in Sources */,
 				EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */,
 				EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */,
+				253F1F4D198E276400158407 /* _LMReadOnlyObject.m in Sources */,
 				EDD131C81981316A006F39E3 /* LMButton.m in Sources */,
 				EDE87C0619867E9100043861 /* LMUtils.m in Sources */,
 				EDF39E7319810AE700E00966 /* LMHostChildBaseViewController.m in Sources */,
+				253F1F4B198E276400158407 /* _LMAdvertiser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

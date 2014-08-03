@@ -13,4 +13,6 @@
 + (UIViewController *)checkAndSetControllersByTreeHierarchyForStoryboard:(UIStoryboard *)storyboard;
 + (void)saveCoreDataContext:(NSManagedObjectContext *)context;
 + (UIViewController *)currentStoryboardControllerForIdentifier:(NSString *)identifier;
++ (BOOL)validateEmail:(NSString *)candidate;
++ (BOOL)isNumeric:(NSString*)inputString;
 @end

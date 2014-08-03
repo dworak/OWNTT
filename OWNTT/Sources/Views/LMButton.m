@@ -14,11 +14,17 @@
 
 @implementation LMButton
 
+- (void)awakeFromNib
+{
+    [self setupButton];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self setupButton];
     }
     return self;
 }

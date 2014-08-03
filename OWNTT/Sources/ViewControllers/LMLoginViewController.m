@@ -64,7 +64,10 @@
             }
         }
     }];
+    self.contentScrollView.backgroundColor = [UIColor redColor];
     self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    [self.loginTextField addValidation:LMTextFieldValidaitonType_Login];
+    [self.passwordTextField addValidation:LMTextFieldValidaitonType_Password];
     
 }
 
@@ -86,6 +89,18 @@
 #pragma mark === IBAction methods ===
 - (IBAction)loginButtonTapped:(id)sender {
     //Add fields validation
+    NSString *text = [self.loginTextField validateField];
+    if(text != nil)
+    {
+        [self showErrorAlertWithText:text];
+        return;
+    }
+    text = [self.passwordTextField validateField];
+    if(text != nil)
+    {
+        [self showErrorAlertWithText:text];
+        return;
+    }
     LMUser *user = [LMUser createObjectInContext:self.managedObjectContext];
     user.name = self.loginTextField.text;
     user.password = self.passwordTextField.text;
@@ -95,6 +110,12 @@
 
 #pragma mark -
 #pragma mark === Private methods ===
+- (void)showErrorAlertWithText:(NSString *)text
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Błąd" message:text delegate:self cancelButtonTitle:@"Popraw" otherButtonTitles:nil];
+    [alertView show];
+}
+
 - (void)checkDependingTreeAndShowBranch {
     
 }

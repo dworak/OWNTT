@@ -129,7 +129,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMLoginViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="LCS-Kh-fre" kind="push" identifier="LMSegueKeyType_PushTabBar" id="s2C-JK-vLA"/>
+                        <segue destination="LCS-Kh-fre" kind="modal" identifier="LMSegueKeyType_PushTabBar" modalTransitionStyle="crossDissolve" id="s2C-JK-vLA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkW-NQ-HKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -290,7 +290,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="taN-ZK-iiH"/>
         <segue reference="0yr-Nw-2XK"/>
+        <segue reference="s2C-JK-vLA"/>
     </inferredMetricsTieBreakers>
 </document>
