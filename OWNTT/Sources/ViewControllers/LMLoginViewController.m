@@ -64,7 +64,6 @@
             }
         }
     }];
-    self.contentScrollView.backgroundColor = [UIColor redColor];
     self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
     [self.loginTextField addValidation:LMTextFieldValidaitonType_Login];
     [self.passwordTextField addValidation:LMTextFieldValidaitonType_Password];
@@ -92,12 +91,14 @@
     NSString *text = [self.loginTextField validateField];
     if(text != nil)
     {
+        [self shakeAnimation:[NSArray arrayWithObjects:self.loginTextField, nil]];
         [self showErrorAlertWithText:text];
         return;
     }
     text = [self.passwordTextField validateField];
     if(text != nil)
     {
+        [self shakeAnimation:[NSArray arrayWithObjects:self.passwordTextField, nil]];
         [self showErrorAlertWithText:text];
         return;
     }
