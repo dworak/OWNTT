@@ -15,4 +15,8 @@
 + (UIViewController *)currentStoryboardControllerForIdentifier:(NSString *)identifier;
 + (BOOL)validateEmail:(NSString *)candidate;
 + (BOOL)isNumeric:(NSString*)inputString;
++ (void)downloadAppData;
++ (void)storeCurrentInstance:(NSNumber *)instanceId;
++ (void)removeCurrentInstance;
++ (NSNumber *)getCurrentInstance;
 @end

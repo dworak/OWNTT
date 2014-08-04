@@ -16,7 +16,7 @@ extern const struct LMProgramFetchedProperties {
 } LMProgramFetchedProperties;
 
 @class LMAdvertiser;
-@class NSManagedObject;
+@class LMReport;
 
 
 @interface LMProgramID : NSManagedObjectID {}
@@ -53,8 +53,8 @@ extern const struct LMProgramFetchedProperties {
 
 - (void)addReports:(NSSet*)value_;
 - (void)removeReports:(NSSet*)value_;
-- (void)addReportsObject:(NSManagedObject*)value_;
-- (void)removeReportsObject:(NSManagedObject*)value_;
+- (void)addReportsObject:(LMReport*)value_;
+- (void)removeReportsObject:(LMReport*)value_;
 
 @end
 

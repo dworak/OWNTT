@@ -17,6 +17,7 @@
     #import <LM/LMCoreDataManager.h>
     #import <LM/LMViewControllerBase.h>
     #import <LM/TTHostViewController.h>
+    #import "Constans.h"
     #import "LMHostChildBaseViewController.h"
     #import "LMUtils.h"
     #import "Design.h"

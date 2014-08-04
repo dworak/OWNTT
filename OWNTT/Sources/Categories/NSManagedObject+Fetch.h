@@ -9,10 +9,13 @@
 #import <CoreData/CoreData.h>
 
 @interface NSManagedObject (Fetch)
++ (id)fetchActiveEntityOfClass:(Class)entityClass withObjectID:(NSNumber *)objectId inContext:(NSManagedObjectContext*)context;
++ (id)fetchEntityOfClass:(Class)entityClass withObjectID:(NSNumber *)objectId inContext:(NSManagedObjectContext*)context;
 + (id)fetchEntityOfClass:(Class)entityClass withPredicate:(NSPredicate*)predicate inContext:(NSManagedObjectContext*)context;
 + (id)fetchEntityOfClass:(Class)entityClass withURI:(NSURL *)uri inContext:(NSManagedObjectContext *)context;
 + (NSArray*)fetchEntitiesOfClass:(Class)entityClass withPredicate:(NSPredicate*)predicate inContext:(NSManagedObjectContext*)context;
 + (NSArray*)fetchEntitiesOfClass:(Class)entityClass withPredicate:(NSPredicate*)predicate sortDescriptors:(NSArray*)sortDescriptors inContext:(NSManagedObjectContext*)context;
 + (NSArray*)fetchEntitiesOfClass:(Class)entityClass inContext:(NSManagedObjectContext*)context;
++ (NSArray *)fetchActiveEntityOfClass:(Class)entityClass inContext:(NSManagedObjectContext*)context;
 
 @end

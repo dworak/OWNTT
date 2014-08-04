@@ -7,7 +7,6 @@
 //
 
 #import "LMSplashViewController.h"
-#define DOWNLOAD_JSON_FILE_NAME @"tree"
 
 @interface LMSplashViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *indicatorTextLabel;
@@ -77,24 +76,7 @@
 
 - (void)downloadJsonData
 {
-    NSError *error;
-    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:DOWNLOAD_JSON_FILE_NAME ofType:@"json"] options:NSDataReadingMapped error:&error];
-    if(error) {
-        NSLog(@"error: can't load json file");
-    }
-    //NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
-    if(error) {
-        NSLog(@"error: can't parse json file");
-    }
-    
-    //Store data to database
-    if(jsonArray) {
-        for (NSDictionary *dict in jsonArray) {
-            
-        }
-    }
-    
+    [LMUtils downloadAppData];
     [self performSelector:@selector(splashViewControllerDidFinish) withObject:nil afterDelay:3];
 }
 

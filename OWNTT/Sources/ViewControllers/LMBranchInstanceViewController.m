@@ -7,9 +7,9 @@
 //
 
 #import "LMBranchInstanceViewController.h"
+#import "LMInstance.h"
 
 @interface LMBranchInstanceViewController ()
-
 @end
 
 @implementation LMBranchInstanceViewController
@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor blueColor];
+    self.parentViewController.title = @"Instancja";
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,4 +47,33 @@
 }
 */
 
+- (NSString*)nextSegueKey
+{
+    return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushAdvertiserList];
+}
+
+#pragma mark -
+#pragma mark === Private methods ===
+- (void)getTableData
+{
+    self.tableData = [LMInstance fetchActiveEntityOfClass:[LMInstance class] inContext:self.managedObjectContext];
+    [self.tableView reloadData];
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

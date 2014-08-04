@@ -8,12 +8,14 @@
 
 #import "LMNavigationViewController.h"
 #import "LMLoginViewController.h"
+#import "LMBranchViewController.h"
 #import "LMBranchAdvertiserViewController.h"
 #import "LMBranchInstanceViewController.h"
 #import "LMBranchProgramViewController.h"
+#import "LMHeaderView.h"
 
 @interface LMNavigationViewController ()
-
+@property (strong, nonatomic) NSNumber *currentObjectId;
 @end
 
 @implementation LMNavigationViewController
@@ -27,6 +29,11 @@
     return self;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,11 +45,22 @@
     self.navigationBar.translucent = YES;
     
     //setup layout for controller type
+    UIViewController *currentTopViewController;
     switch (self.controllerType.intValue)
     {
         case NavigationControllerType_Report:
         {
-            self.viewControllers = [NSArray arrayWithObject:[LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchInstanceViewController class])]];
+            self.currentObjectId = [LMUtils getCurrentInstance];
+            if(self.currentObjectId)
+            {
+                currentTopViewController = [LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchAdvertiserViewController class])];
+                self.viewControllers = [NSArray arrayWithObject:currentTopViewController];
+            }
+            else
+            {
+                currentTopViewController = [LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchInstanceViewController class])];
+                self.viewControllers = [NSArray arrayWithObject:currentTopViewController];
+            }
             break;
         }
         case NavigationControllerType_ReportTemplate:
@@ -58,6 +76,7 @@
         default:
             break;
     }
+    [self prepareBranchController:currentTopViewController];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,5 +95,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark -
+#pragma mark === Private methods ===
+- (void)prepareBranchController:(UIViewController *)bController
+{
+    if([bController isKindOfClass:[TTHostViewController class]])
+    {
+        TTHostViewController *hostController = (TTHostViewController *)bController;
+        if([hostController.childViewController isKindOfClass:[LMBranchViewController class]])
+        {
+            LMBranchViewController *branchController = ((LMBranchViewController *)hostController.childViewController);
+            [branchController currentBranchObjectId:self.currentObjectId];
+        }
+        
+    }
+}
 
 @end

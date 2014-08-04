@@ -7,6 +7,10 @@
 //
 
 #import "LMBranchProgramViewController.h"
+#import "LMInstance.h"
+#import "LMReadOnlyObject.h"
+#import "LMProgram.h"
+#import "LMAdvertiser.h"
 
 @interface LMBranchProgramViewController ()
 
@@ -27,7 +31,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.parentViewController.title = @"Program";
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,5 +50,20 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)getTableData
+{
+    LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId inContext:self.managedObjectContext];
+    if(instance) {
+        NSMutableArray *programsArray = [NSMutableArray new];
+        for(LMAdvertiser *advertiser in instance.advertisers.allObjects)
+        {
+            [programsArray addObjectsFromArray:advertiser.programs.allObjects];
+        }
+        NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        self.tableData = [programsArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesc]];
+        [self.tableView reloadData];
+    }
+}
 
 @end

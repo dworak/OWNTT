@@ -27,5 +27,8 @@
 #define UI_BUTTON_FONT [UIFont fontWithName:@"Helvetica" size:18]
 #define UI_BUTTON_CORNER_RADIOUS 5
 
+//LMHeaderView
+#define HEADER_VIEW_BACKGROUND_COLOR [UIColor whiteColor]
+
 
 #endif

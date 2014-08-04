@@ -39,6 +39,10 @@
 		253F1F55198E27BD00158407 /* _LMProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F52198E27BD00158407 /* _LMProgram.m */; };
 		253F1F56198E27BD00158407 /* LMProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F54198E27BD00158407 /* LMProgram.m */; };
 		253F1F5A198E9DBB00158407 /* LMReportWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F59198E9DBB00158407 /* LMReportWS.m */; };
+		25FF5B46198F50B00043DA5D /* _LMReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FF5B45198F50B00043DA5D /* _LMReport.m */; };
+		25FF5B49198F50B70043DA5D /* LMReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FF5B48198F50B70043DA5D /* LMReport.m */; };
+		25FF5B4D198F68CB0043DA5D /* LMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FF5B4C198F68CB0043DA5D /* LMHeaderView.m */; };
+		25FF5B50198F68FA0043DA5D /* LMHeaderView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25FF5B4F198F68FA0043DA5D /* LMHeaderView_iPhone.xib */; };
 		C9F3FCFC4078458C841A60FD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3CEF0A0FE04D0FAC9F6EC3 /* libPods.a */; };
 		EDD131AA198117B1006F39E3 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD131A9198117B1006F39E3 /* Storyboard.storyboard */; };
 		EDD131AE198120FA006F39E3 /* LMLoginViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131AD198120FA006F39E3 /* LMLoginViewController_iPhone.xib */; };
@@ -162,6 +166,14 @@
 		253F1F54198E27BD00158407 /* LMProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMProgram.m; sourceTree = "<group>"; };
 		253F1F58198E9DBB00158407 /* LMReportWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReportWS.h; sourceTree = "<group>"; };
 		253F1F59198E9DBB00158407 /* LMReportWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMReportWS.m; sourceTree = "<group>"; };
+		25FF5B44198F50B00043DA5D /* _LMReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LMReport.h; sourceTree = "<group>"; };
+		25FF5B45198F50B00043DA5D /* _LMReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LMReport.m; sourceTree = "<group>"; };
+		25FF5B47198F50B70043DA5D /* LMReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReport.h; sourceTree = "<group>"; };
+		25FF5B48198F50B70043DA5D /* LMReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMReport.m; sourceTree = "<group>"; };
+		25FF5B4A198F5DBD0043DA5D /* Constans.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constans.h; sourceTree = "<group>"; };
+		25FF5B4B198F68CB0043DA5D /* LMHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHeaderView.h; sourceTree = "<group>"; };
+		25FF5B4C198F68CB0043DA5D /* LMHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMHeaderView.m; sourceTree = "<group>"; };
+		25FF5B4F198F68FA0043DA5D /* LMHeaderView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMHeaderView_iPhone.xib; sourceTree = "<group>"; };
 		7E43CB3D41384074996BB063 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		8E3CEF0A0FE04D0FAC9F6EC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD131A9198117B1006F39E3 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
@@ -279,6 +291,10 @@
 		25036AC9198D2D7100EAE355 /* Genereted */ = {
 			isa = PBXGroup;
 			children = (
+				25FF5B47198F50B70043DA5D /* LMReport.h */,
+				25FF5B48198F50B70043DA5D /* LMReport.m */,
+				25FF5B44198F50B00043DA5D /* _LMReport.h */,
+				25FF5B45198F50B00043DA5D /* _LMReport.m */,
 				253F1F51198E27BD00158407 /* _LMProgram.h */,
 				253F1F52198E27BD00158407 /* _LMProgram.m */,
 				253F1F53198E27BD00158407 /* LMProgram.h */,
@@ -336,6 +352,14 @@
 				25036AC7198D2CDA00EAE355 /* ManagedObject.m */,
 			);
 			path = ModelClasses;
+			sourceTree = "<group>";
+		};
+		25FF5B4E198F68DE0043DA5D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				25FF5B4F198F68FA0043DA5D /* LMHeaderView_iPhone.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		EDF39DEF1980FC8700E00966 = {
@@ -428,6 +452,7 @@
 		EDF39E421980FF7D00E00966 /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				25FF5B4E198F68DE0043DA5D /* Views */,
 				EDF39E7419810C6100E00966 /* LMSplashViewController_iPhone.xib */,
 				EDD131AD198120FA006F39E3 /* LMLoginViewController_iPhone.xib */,
 				EDD131C019812F48006F39E3 /* LMBranchViewController_iPhone.xib */,
@@ -516,6 +541,8 @@
 				EDD131B21981272C006F39E3 /* LMTextField.m */,
 				EDD131C61981316A006F39E3 /* LMButton.h */,
 				EDD131C71981316A006F39E3 /* LMButton.m */,
+				25FF5B4B198F68CB0043DA5D /* LMHeaderView.h */,
+				25FF5B4C198F68CB0043DA5D /* LMHeaderView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -540,6 +567,7 @@
 				EDE87C0519867E9100043861 /* LMUtils.m */,
 				25036AD9198D466600EAE355 /* LMAppUtils.h */,
 				25036ADA198D466600EAE355 /* LMAppUtils.m */,
+				25FF5B4A198F5DBD0043DA5D /* Constans.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -655,6 +683,7 @@
 				EDD131C119812F48006F39E3 /* LMBranchViewController_iPhone.xib in Resources */,
 				25036ADD198D4D1300EAE355 /* settings.plist in Resources */,
 				25036AB1198D294600EAE355 /* tabbar4@2x.png in Resources */,
+				25FF5B50198F68FA0043DA5D /* LMHeaderView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +735,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25FF5B46198F50B00043DA5D /* _LMReport.m in Sources */,
 				EDD131B919812EFD006F39E3 /* LMBranchInstanceViewController.m in Sources */,
 				25036AD5198D2E6900EAE355 /* LMUser.m in Sources */,
 				25036AE9198D5EE300EAE355 /* LMBranchTableViewCell.m in Sources */,
@@ -735,6 +765,8 @@
 				EDD131B31981272C006F39E3 /* LMTextField.m in Sources */,
 				EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */,
 				EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */,
+				25FF5B49198F50B70043DA5D /* LMReport.m in Sources */,
+				25FF5B4D198F68CB0043DA5D /* LMHeaderView.m in Sources */,
 				253F1F4D198E276400158407 /* _LMReadOnlyObject.m in Sources */,
 				EDD131C81981316A006F39E3 /* LMButton.m in Sources */,
 				EDE87C0619867E9100043861 /* LMUtils.m in Sources */,

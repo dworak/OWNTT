@@ -12,10 +12,14 @@
         <relationship name="reports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LMReport" inverseName="program" inverseEntity="LMReport" syncable="YES"/>
     </entity>
     <entity name="LMReadOnlyObject" representedClassName="LMReadOnlyObject" isAbstract="YES" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="objectId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="report1" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="report5" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="report8" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
-    <entity name="LMReport" parentEntity="LMReadOnlyObject" syncable="YES">
+    <entity name="LMReport" representedClassName="LMReport" parentEntity="LMReadOnlyObject" syncable="YES">
         <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMProgram" inverseName="reports" inverseEntity="LMProgram" syncable="YES"/>
     </entity>
     <entity name="LMUser" representedClassName="LMUser" syncable="YES">
@@ -23,11 +27,11 @@
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="LMUser" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="LMReadOnlyObject" positionX="-63" positionY="0" width="128" height="73"/>
-        <element name="LMInstance" positionX="-54" positionY="18" width="128" height="58"/>
-        <element name="LMReport" positionX="-36" positionY="27" width="128" height="58"/>
         <element name="LMAdvertiser" positionX="-18" positionY="36" width="128" height="73"/>
+        <element name="LMInstance" positionX="-54" positionY="18" width="128" height="58"/>
         <element name="LMProgram" positionX="0" positionY="45" width="128" height="73"/>
+        <element name="LMReadOnlyObject" positionX="-63" positionY="0" width="128" height="135"/>
+        <element name="LMReport" positionX="-36" positionY="27" width="128" height="60"/>
+        <element name="LMUser" positionX="-63" positionY="-18" width="128" height="75"/>
     </elements>
 </model>

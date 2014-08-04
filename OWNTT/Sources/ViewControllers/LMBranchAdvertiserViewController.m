@@ -6,10 +6,13 @@
 //
 //
 
+#import "LMReadOnlyObject.h"
+#import "LMAdvertiser.h"
+#import "LMInstance.h"
 #import "LMBranchAdvertiserViewController.h"
+#import "LMBranchProgramViewController.h"
 
 @interface LMBranchAdvertiserViewController ()
-
 @end
 
 @implementation LMBranchAdvertiserViewController
@@ -27,14 +30,37 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor redColor];
-    [self hideBackButtonItem:YES];
+    self.parentViewController.title = @"Reklamodawca";
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
+    {
+        TTHostViewController *hostController = (TTHostViewController *)segue.destinationViewController;
+        if([hostController.childViewController isKindOfClass:[LMBranchProgramViewController class]])
+        {
+            [((LMBranchProgramViewController *)hostController.childViewController) currentBranchObjectId:self.objectId];
+            ((LMBranchProgramViewController *)hostController.childViewController).advertiserId = self.selectedObjectId;
+        }
+    }
+}
+
+- (void)getTableData
+{
+    LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId inContext:self.managedObjectContext];
+    if(instance) {
+        self.tableData = [NSArray arrayWithArray:instance.advertisers.allObjects];
+        NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        self.tableData = [self.tableData sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesc]];
+        [self.tableView reloadData];
+    }
 }
 
 /*
@@ -47,5 +73,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (NSString *)nextSegueKey
+{
+    return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushProgramList];
+}
 
 @end

@@ -6,12 +6,19 @@
 //
 //
 
+#import "Constans.h"
 #import "LMAppDelegate.h"
 #import "LMBranchAdvertiserViewController.h"
 #import "LMBranchInstanceViewController.h"
 #import "LMBranchProgramViewController.h"
 #import "LMUtils.h"
 #import "LMUser.h"
+#import "LMReportWS.h"
+#import "LMInstance.h"
+#import "LMAdvertiser.h"
+#import "LMProgram.h"
+#import "LMReport.h"
+#import "LMReadOnlyObject.h"
 
 @implementation LMUtils
 + (BOOL)userExist {
@@ -85,6 +92,122 @@
     NSCharacterSet *stringSet = [NSCharacterSet characterSetWithCharactersInString:inputString];
     isValid = [alphaNumbersSet isSupersetOfSet:stringSet];
     return isValid;
+}
+
++ (void)downloadAppData
+{
+    NSManagedObjectContext *context = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:DOWNLOAD_JSON_FILE_NAME ofType:@"json"] options:NSDataReadingMapped error:&error];
+    if(error)
+    {
+        NSLog(@"error: can't load json file");
+    }
+    //NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+    if(error)
+    {
+        NSLog(@"error: can't parse json file");
+    }
+    
+    //Store data to database
+    NSMutableArray *reportArray = [NSMutableArray new];
+    if(jsonArray)
+    {
+        for (NSDictionary *dict in jsonArray)
+        {
+            LMReportWS *reportWS = [[LMReportWS alloc] initWithDictionary:dict error:&error];
+            if(error)
+            {
+                NSLog(@"error: could not create report ws object");
+            }
+            else
+            {
+                [reportArray addObject:reportWS];
+            }
+        }
+    }
+    //Unactive all readonly objects
+    NSArray *array = [NSManagedObject fetchEntitiesOfClass:[LMReadOnlyObject class] inContext:context];
+    for(LMReadOnlyObject *readOnlyObj in array)
+    {
+        readOnlyObj.activeValue = NO;
+    }
+    
+    if(!error)
+    {
+        for(LMReportWS *reportWS in reportArray)
+        {
+            LMInstance *instance;
+            LMAdvertiser *advertiser;
+            LMProgram *program;
+            if(reportWS.InstancjaId)
+            {
+                instance = (LMInstance *)[LMReadOnlyObject fetchEntityOfClass:[LMInstance class] withObjectID:reportWS.InstancjaId inContext:context];
+                if(!instance)
+                {
+                    instance = [LMInstance createObjectInContext:context];
+                    instance.objectIdValue = reportWS.InstancjaId.intValue;
+                }
+                instance.name = reportWS.InstancjaNazwa;
+                instance.report1 = reportWS.Raport1;
+                instance.report5 = reportWS.Raport5;
+                instance.report8 = reportWS.Raport8;
+                instance.activeValue = YES;
+            }
+            if(reportWS.ReklamodawcaId)
+            {
+                advertiser = (LMAdvertiser *)[LMReadOnlyObject fetchEntityOfClass:[LMAdvertiser class] withObjectID:reportWS.ReklamodawcaId inContext:context];
+                if(!advertiser)
+                {
+                    advertiser = [LMAdvertiser createObjectInContext:context];
+                    advertiser.objectIdValue = reportWS.ReklamodawcaId.intValue;
+                }
+                advertiser.name = reportWS.ReklamodawcaNazwa;
+                advertiser.activeValue = YES;
+                if(instance)
+                {
+                    [instance.advertisersSet addObject:advertiser];
+                }
+            }
+            if(reportWS.ProgramId)
+            {
+                program = (LMProgram *)[LMReadOnlyObject fetchEntityOfClass:[LMProgram class] withObjectID:reportWS.ProgramId inContext:context];
+                if(!program)
+                {
+                    program = [LMProgram createObjectInContext:context];
+                    program.objectIdValue = reportWS.ProgramId.intValue;
+                }
+                program.name = reportWS.ProgramNazwa;
+                program.activeValue = YES;
+                if(advertiser)
+                {
+                    [advertiser.programsSet addObject:program];
+                }
+            }
+        }
+    }
+    [LMUtils saveCoreDataContext:context];
+}
+
++ (void)storeCurrentInstance:(NSNumber *)instanceId
+{
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    [standardUserDefaults setValue:instanceId forKey:USER_DEFAULTS_CURRENT_INSTANCE];
+    [standardUserDefaults synchronize];
+}
+
++ (void)removeCurrentInstance
+{
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    [standardUserDefaults setValue:nil forKey:USER_DEFAULTS_CURRENT_INSTANCE];
+    [standardUserDefaults synchronize];
+}
+
++ (NSNumber *)getCurrentInstance
+{
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    return [standardUserDefaults valueForKey:USER_DEFAULTS_CURRENT_INSTANCE];
 }
 
 @end

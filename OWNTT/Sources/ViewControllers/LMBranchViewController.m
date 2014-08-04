@@ -8,9 +8,11 @@
 
 #import "LMBranchViewController.h"
 #import "LMBranchTableViewCell.h"
+#import "LMHeaderView.h"
+#import "LMNavigationViewController.h"
+#import "LMReadOnlyObject.h"
 
 @interface LMBranchViewController ()
-
 @end
 
 @implementation LMBranchViewController
@@ -28,9 +30,23 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    
+    //check navigation controller type
+    if([self.parentViewController.navigationController isKindOfClass:[LMNavigationViewController class]])
+    {
+        LMNavigationViewController *navController = (LMNavigationViewController *)self.parentViewController.navigationController;
+        if(navController.controllerType.intValue == NavigationControllerType_Report)
+        {
+            self.headerView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMHeaderView class])] owner:self options:nil] objectAtIndex:0];
+        }
+    }
+    
     [self.tableView registerNib:nil forCellReuseIdentifier:@"BranchCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    [self getTableData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,6 +59,23 @@
 {
     self.tableView.dataSource = nil;
     self.tableView.delegate = nil;
+}
+
+- (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
+    {
+        TTHostViewController *hostController = (TTHostViewController *)segue.destinationViewController;
+        if([hostController.childViewController isKindOfClass:[LMBranchViewController class]])
+        {
+            [((LMBranchViewController *)hostController.childViewController) currentBranchObjectId:self.selectedObjectId];
+        }
+    }
+}
+
+- (void)getTableData
+{
+    
 }
 
 /*
@@ -58,15 +91,26 @@
 
 #pragma mark -
 #pragma mark === Public methods ===
-- (void)hideBackButtonItem:(BOOL)hidden {
+- (void)hideBackButtonItem:(BOOL)hidden
+{
     [self.parentViewController.navigationItem setHidesBackButton:hidden animated:NO];
+}
+
+- (void)currentBranchObjectId:(NSNumber *)objectId
+{
+    self.objectId = objectId;
+}
+
+- (NSString *)nextSegueKey
+{
+    return nil;
 }
 
 #pragma mark -
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.tableData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,8 +118,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BranchCell"];
     if(!cell) {
         cell = (LMBranchTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMBranchTableViewCell class])] owner:self options:nil] objectAtIndex:0];
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
-    cell.textLabel.text = @"Branch";
+    LMReadOnlyObject *object = [self.tableData objectAtIndex:indexPath.row];
+    cell.textLabel.text = object.name;
     return cell;
 }
 
@@ -84,14 +130,28 @@
     return 1;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return @"Raporty";
-}
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    if([view isKindOfClass:[UITableViewHeaderFooterView class]])
+    {
+        ((UITableViewHeaderFooterView *)view).contentView.backgroundColor = HEADER_VIEW_BACKGROUND_COLOR;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *nextSegue = [self nextSegueKey];
+    if(nextSegue)
+    {
+        LMReadOnlyObject *object = [self.tableData objectAtIndex:indexPath.row];
+        self.selectedObjectId = object.objectId;
+        [self.parentViewController performSegueWithIdentifier:nextSegue sender:self];
+    }
 }
 
 #pragma mark -
@@ -103,7 +163,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 44;
+    if(self.headerView)
+    {
+        return 44;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return self.headerView;
 }
 
 @end
