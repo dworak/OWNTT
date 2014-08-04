@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.parentViewController.title = @"Reklamodawca";
+    [self.parentViewController.navigationItem setTitle:@"Reklamodawca"];
 }
 
 - (void)didReceiveMemoryWarning

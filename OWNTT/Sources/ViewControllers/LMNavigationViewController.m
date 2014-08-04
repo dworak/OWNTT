@@ -13,6 +13,7 @@
 #import "LMBranchInstanceViewController.h"
 #import "LMBranchProgramViewController.h"
 #import "LMHeaderView.h"
+#import "LMInstance.h"
 
 @interface LMNavigationViewController ()
 @property (strong, nonatomic) NSNumber *currentObjectId;
@@ -51,7 +52,9 @@
         case NavigationControllerType_Report:
         {
             self.currentObjectId = [LMUtils getCurrentInstance];
-            if(self.currentObjectId)
+            NSManagedObjectContext *mOC = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+            NSArray *instances = [LMInstance fetchActiveEntityOfClass:[LMInstance class] inContext:mOC];
+            if(self.currentObjectId || instances.count < 2)
             {
                 currentTopViewController = [LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchAdvertiserViewController class])];
                 self.viewControllers = [NSArray arrayWithObject:currentTopViewController];

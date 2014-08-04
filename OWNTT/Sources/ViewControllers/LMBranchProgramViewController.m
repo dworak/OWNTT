@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.parentViewController.title = @"Program";
+    [self.parentViewController.navigationItem setTitle:@"Program"];
 }
 
 - (void)didReceiveMemoryWarning

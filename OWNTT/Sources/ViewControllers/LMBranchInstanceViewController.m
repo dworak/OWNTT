@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.parentViewController.title = @"Instancja";
+    [self.parentViewController.navigationItem setTitle:@"Instancje"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,6 +58,15 @@
 {
     self.tableData = [LMInstance fetchActiveEntityOfClass:[LMInstance class] inContext:self.managedObjectContext];
     [self.tableView reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(self.headerView) {
+        LMReadOnlyObject *object = [self.tableData objectAtIndex:indexPath.row];
+        [LMUtils storeCurrentInstance:object.objectId];
+    }
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 @end

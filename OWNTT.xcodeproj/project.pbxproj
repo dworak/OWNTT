@@ -29,6 +29,7 @@
 		25036AEB198D5F0700EAE355 /* LMBranchTableViewCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25036AEA198D5F0700EAE355 /* LMBranchTableViewCell_iPhone.xib */; };
 		250FD81F1986DC1C0047EB42 /* LMSummaryReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250FD81E1986DC1C0047EB42 /* LMSummaryReportViewController.m */; };
 		250FD8211986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */; };
+		252CB2D819901454002677B8 /* LMBranchReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252CB2D719901454002677B8 /* LMBranchReportViewController.m */; };
 		253F1F3E198E219400158407 /* tree.json in Resources */ = {isa = PBXBuildFile; fileRef = 253F1F3D198E219400158407 /* tree.json */; };
 		253F1F4B198E276400158407 /* _LMAdvertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F40198E276400158407 /* _LMAdvertiser.m */; };
 		253F1F4C198E276400158407 /* _LMInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F42198E276400158407 /* _LMInstance.m */; };
@@ -147,6 +148,8 @@
 		250FD81D1986DC1C0047EB42 /* LMSummaryReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSummaryReportViewController.h; sourceTree = "<group>"; };
 		250FD81E1986DC1C0047EB42 /* LMSummaryReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSummaryReportViewController.m; sourceTree = "<group>"; };
 		250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMSummaryReportViewController_iPhone.xib; sourceTree = "<group>"; };
+		252CB2D619901454002677B8 /* LMBranchReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchReportViewController.h; sourceTree = "<group>"; };
+		252CB2D719901454002677B8 /* LMBranchReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchReportViewController.m; sourceTree = "<group>"; };
 		253F1F3D198E219400158407 /* tree.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tree.json; sourceTree = "<group>"; };
 		253F1F3F198E276400158407 /* _LMAdvertiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LMAdvertiser.h; sourceTree = "<group>"; };
 		253F1F40198E276400158407 /* _LMAdvertiser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LMAdvertiser.m; sourceTree = "<group>"; };
@@ -530,6 +533,8 @@
 				EDF39E6A1981059C00E00966 /* LMSplashViewController.m */,
 				250FD81D1986DC1C0047EB42 /* LMSummaryReportViewController.h */,
 				250FD81E1986DC1C0047EB42 /* LMSummaryReportViewController.m */,
+				252CB2D619901454002677B8 /* LMBranchReportViewController.h */,
+				252CB2D719901454002677B8 /* LMBranchReportViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -766,6 +771,7 @@
 				EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */,
 				EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */,
 				25FF5B49198F50B70043DA5D /* LMReport.m in Sources */,
+				252CB2D819901454002677B8 /* LMBranchReportViewController.m in Sources */,
 				25FF5B4D198F68CB0043DA5D /* LMHeaderView.m in Sources */,
 				253F1F4D198E276400158407 /* _LMReadOnlyObject.m in Sources */,
 				EDD131C81981316A006F39E3 /* LMButton.m in Sources */,

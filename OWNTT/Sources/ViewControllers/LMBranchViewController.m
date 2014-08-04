@@ -29,6 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.parentViewController.navigationItem setBackBarButtonItem:backButtonItem];
+    
     // Do any additional setup after loading the view.
     self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
     
@@ -145,6 +148,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.selected = NO;
     NSString *nextSegue = [self nextSegueKey];
     if(nextSegue)
     {

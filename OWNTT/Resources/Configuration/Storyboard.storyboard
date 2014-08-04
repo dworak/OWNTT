@@ -40,7 +40,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dbG-d6-dF5">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.90980392156862744" green="0.28235294117647058" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="controllerType">
@@ -291,6 +291,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="0yr-Nw-2XK"/>
-        <segue reference="s2C-JK-vLA"/>
+        <segue reference="taN-ZK-iiH"/>
     </inferredMetricsTieBreakers>
 </document>
