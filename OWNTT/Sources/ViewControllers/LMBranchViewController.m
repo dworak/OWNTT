@@ -36,6 +36,10 @@
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.parentViewController.navigationItem setBackBarButtonItem:backButtonItem];
     
+    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 118, 36)];
+    titleImage.image = [UIImage imageNamed:@"logo.png"];
+    [self.parentViewController.navigationItem setTitleView:titleImage];
+    
     // Do any additional setup after loading the view.
     self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
     

@@ -42,6 +42,12 @@
 		253F1F5A198E9DBB00158407 /* LMReportWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F59198E9DBB00158407 /* LMReportWS.m */; };
 		25FAFCA71990C41600FCD226 /* LMReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA61990C41600FCD226 /* LMReportData.m */; };
 		25FAFCAA1990D42900FCD226 /* LMTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */; };
+		25FAFCAD1990D79300FCD226 /* LMReportMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCAC1990D79300FCD226 /* LMReportMenuViewController.m */; };
+		25FAFCB01990D7A000FCD226 /* LMAlertMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCAF1990D7A000FCD226 /* LMAlertMenuViewController.m */; };
+		25FAFCB21990D7F200FCD226 /* LMMenuViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25FAFCB11990D7F200FCD226 /* LMMenuViewController_iPhone.xib */; };
+		25FAFCB51990D81F00FCD226 /* LMMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCB41990D81F00FCD226 /* LMMenuViewController.m */; };
+		25FAFCB81990DBFB00FCD226 /* LMMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCB71990DBFB00FCD226 /* LMMenuTableViewCell.m */; };
+		25FAFCBA1990DC1B00FCD226 /* LMMenuTableViewCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25FAFCB91990DC1B00FCD226 /* LMMenuTableViewCell_iPhone.xib */; };
 		25FF5B46198F50B00043DA5D /* _LMReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FF5B45198F50B00043DA5D /* _LMReport.m */; };
 		25FF5B49198F50B70043DA5D /* LMReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FF5B48198F50B70043DA5D /* LMReport.m */; };
 		25FF5B4D198F68CB0043DA5D /* LMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FF5B4C198F68CB0043DA5D /* LMHeaderView.m */; };
@@ -175,6 +181,16 @@
 		25FAFCA61990C41600FCD226 /* LMReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMReportData.m; sourceTree = "<group>"; };
 		25FAFCA81990D42900FCD226 /* LMTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTabBarViewController.h; sourceTree = "<group>"; };
 		25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTabBarViewController.m; sourceTree = "<group>"; };
+		25FAFCAB1990D79300FCD226 /* LMReportMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReportMenuViewController.h; sourceTree = "<group>"; };
+		25FAFCAC1990D79300FCD226 /* LMReportMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMReportMenuViewController.m; sourceTree = "<group>"; };
+		25FAFCAE1990D7A000FCD226 /* LMAlertMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAlertMenuViewController.h; sourceTree = "<group>"; };
+		25FAFCAF1990D7A000FCD226 /* LMAlertMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAlertMenuViewController.m; sourceTree = "<group>"; };
+		25FAFCB11990D7F200FCD226 /* LMMenuViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMMenuViewController_iPhone.xib; sourceTree = "<group>"; };
+		25FAFCB31990D81F00FCD226 /* LMMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMMenuViewController.h; sourceTree = "<group>"; };
+		25FAFCB41990D81F00FCD226 /* LMMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMMenuViewController.m; sourceTree = "<group>"; };
+		25FAFCB61990DBFB00FCD226 /* LMMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMMenuTableViewCell.h; sourceTree = "<group>"; };
+		25FAFCB71990DBFB00FCD226 /* LMMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMMenuTableViewCell.m; sourceTree = "<group>"; };
+		25FAFCB91990DC1B00FCD226 /* LMMenuTableViewCell_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMMenuTableViewCell_iPhone.xib; sourceTree = "<group>"; };
 		25FF5B44198F50B00043DA5D /* _LMReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LMReport.h; sourceTree = "<group>"; };
 		25FF5B45198F50B00043DA5D /* _LMReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LMReport.m; sourceTree = "<group>"; };
 		25FF5B47198F50B70043DA5D /* LMReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReport.h; sourceTree = "<group>"; };
@@ -340,6 +356,8 @@
 			children = (
 				25036AE7198D5EE300EAE355 /* LMBranchTableViewCell.h */,
 				25036AE8198D5EE300EAE355 /* LMBranchTableViewCell.m */,
+				25FAFCB61990DBFB00FCD226 /* LMMenuTableViewCell.h */,
+				25FAFCB71990DBFB00FCD226 /* LMMenuTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -470,6 +488,8 @@
 				EDE87C0219867C8F00043861 /* LMSettingsViewController_iPhone.xib */,
 				250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */,
 				25036AEA198D5F0700EAE355 /* LMBranchTableViewCell_iPhone.xib */,
+				25FAFCB11990D7F200FCD226 /* LMMenuViewController_iPhone.xib */,
+				25FAFCB91990DC1B00FCD226 /* LMMenuTableViewCell_iPhone.xib */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -521,12 +541,16 @@
 		EDF39E4D1980FF7D00E00966 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				25FAFCAE1990D7A000FCD226 /* LMAlertMenuViewController.h */,
+				25FAFCAF1990D7A000FCD226 /* LMAlertMenuViewController.m */,
 				EDD131BA19812F1E006F39E3 /* LMBranchAdvertiserViewController.h */,
 				EDD131BB19812F1E006F39E3 /* LMBranchAdvertiserViewController.m */,
 				EDD131B719812EFD006F39E3 /* LMBranchInstanceViewController.h */,
 				EDD131B819812EFD006F39E3 /* LMBranchInstanceViewController.m */,
 				EDD131BD19812F2E006F39E3 /* LMBranchProgramViewController.h */,
 				EDD131BE19812F2E006F39E3 /* LMBranchProgramViewController.m */,
+				252CB2D619901454002677B8 /* LMBranchReportViewController.h */,
+				252CB2D719901454002677B8 /* LMBranchReportViewController.m */,
 				EDD131B419812ECF006F39E3 /* LMBranchViewController.h */,
 				EDD131B519812ECF006F39E3 /* LMBranchViewController.m */,
 				EDF39E7119810AE700E00966 /* LMHostChildBaseViewController.h */,
@@ -535,16 +559,18 @@
 				EDF39E67198104D700E00966 /* LMLoginViewController.m */,
 				EDF39E59198101D500E00966 /* LMNavigationViewController.h */,
 				EDF39E5A198101D500E00966 /* LMNavigationViewController.m */,
+				25FAFCAB1990D79300FCD226 /* LMReportMenuViewController.h */,
+				25FAFCAC1990D79300FCD226 /* LMReportMenuViewController.m */,
 				EDE87BFF19867C7E00043861 /* LMSettingsViewController.h */,
 				EDE87C0019867C7E00043861 /* LMSettingsViewController.m */,
 				EDF39E691981059C00E00966 /* LMSplashViewController.h */,
 				EDF39E6A1981059C00E00966 /* LMSplashViewController.m */,
 				250FD81D1986DC1C0047EB42 /* LMSummaryReportViewController.h */,
 				250FD81E1986DC1C0047EB42 /* LMSummaryReportViewController.m */,
-				252CB2D619901454002677B8 /* LMBranchReportViewController.h */,
-				252CB2D719901454002677B8 /* LMBranchReportViewController.m */,
 				25FAFCA81990D42900FCD226 /* LMTabBarViewController.h */,
 				25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */,
+				25FAFCB31990D81F00FCD226 /* LMMenuViewController.h */,
+				25FAFCB41990D81F00FCD226 /* LMMenuViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -695,7 +721,9 @@
 				25036AAA198D294600EAE355 /* tabbar1.png in Resources */,
 				253F1F3E198E219400158407 /* tree.json in Resources */,
 				25036AAB198D294600EAE355 /* tabbar1@2x.png in Resources */,
+				25FAFCB21990D7F200FCD226 /* LMMenuViewController_iPhone.xib in Resources */,
 				EDD131C119812F48006F39E3 /* LMBranchViewController_iPhone.xib in Resources */,
+				25FAFCBA1990DC1B00FCD226 /* LMMenuTableViewCell_iPhone.xib in Resources */,
 				25036ADD198D4D1300EAE355 /* settings.plist in Resources */,
 				25036AB1198D294600EAE355 /* tabbar4@2x.png in Resources */,
 				25FF5B50198F68FA0043DA5D /* LMHeaderView_iPhone.xib in Resources */,
@@ -771,6 +799,8 @@
 				253F1F5A198E9DBB00158407 /* LMReportWS.m in Sources */,
 				253F1F4F198E276400158407 /* LMInstance.m in Sources */,
 				EDD131BF19812F2E006F39E3 /* LMBranchProgramViewController.m in Sources */,
+				25FAFCB51990D81F00FCD226 /* LMMenuViewController.m in Sources */,
+				25FAFCB01990D7A000FCD226 /* LMAlertMenuViewController.m in Sources */,
 				EDD131BC19812F1E006F39E3 /* LMBranchAdvertiserViewController.m in Sources */,
 				253F1F50198E276400158407 /* LMReadOnlyObject.m in Sources */,
 				25036ADB198D466600EAE355 /* LMAppUtils.m in Sources */,
@@ -783,7 +813,9 @@
 				EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */,
 				EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */,
 				25FF5B49198F50B70043DA5D /* LMReport.m in Sources */,
+				25FAFCAD1990D79300FCD226 /* LMReportMenuViewController.m in Sources */,
 				252CB2D819901454002677B8 /* LMBranchReportViewController.m in Sources */,
+				25FAFCB81990DBFB00FCD226 /* LMMenuTableViewCell.m in Sources */,
 				25FF5B4D198F68CB0043DA5D /* LMHeaderView.m in Sources */,
 				253F1F4D198E276400158407 /* _LMReadOnlyObject.m in Sources */,
 				EDD131C81981316A006F39E3 /* LMButton.m in Sources */,

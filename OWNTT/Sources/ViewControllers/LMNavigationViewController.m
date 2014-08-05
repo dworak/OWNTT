@@ -72,22 +72,12 @@
                 currentTopViewController = [LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchInstanceViewController class])];
                 self.viewControllers = [NSArray arrayWithObject:currentTopViewController];
             }
-            break;
-        }
-        case NavigationControllerType_ReportTemplate:
-        {
-            self.viewControllers = [NSArray arrayWithObject:[LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchAdvertiserViewController class])]];
-            break;
-        }
-        case NavigationControllerType_Alert:
-        {
-            self.viewControllers = [NSArray arrayWithObject:[LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchProgramViewController class])]];
+            [self prepareBranchController:currentTopViewController];
             break;
         }
         default:
             break;
     }
-    [self prepareBranchController:currentTopViewController];
 }
 
 - (void)didReceiveMemoryWarning

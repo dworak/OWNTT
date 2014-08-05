@@ -30,5 +30,8 @@
 //LMHeaderView
 #define HEADER_VIEW_BACKGROUND_COLOR [UIColor whiteColor]
 
+//LMMenuViewController
+#define SUBMENU_BACKGROUND_COLOR [UIColor grayColor]
+
 
 #endif
