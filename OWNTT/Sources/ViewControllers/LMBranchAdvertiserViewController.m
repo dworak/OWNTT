@@ -31,6 +31,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.parentViewController.navigationItem setTitle:@"Reklamodawca"];
+    if(self.headerView)
+    {
+        [self hideBackButtonItem:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,14 +51,13 @@
         if([hostController.childViewController isKindOfClass:[LMBranchProgramViewController class]])
         {
             [((LMBranchProgramViewController *)hostController.childViewController) currentBranchObjectId:self.objectId];
-            ((LMBranchProgramViewController *)hostController.childViewController).advertiserId = self.selectedObjectId;
         }
     }
 }
 
 - (void)getTableData
 {
-    LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId inContext:self.managedObjectContext];
+    LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId.instanceId inContext:self.managedObjectContext];
     if(instance) {
         self.tableData = [NSArray arrayWithArray:instance.advertisers.allObjects];
         NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];

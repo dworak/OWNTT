@@ -40,6 +40,8 @@
 		253F1F55198E27BD00158407 /* _LMProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F52198E27BD00158407 /* _LMProgram.m */; };
 		253F1F56198E27BD00158407 /* LMProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F54198E27BD00158407 /* LMProgram.m */; };
 		253F1F5A198E9DBB00158407 /* LMReportWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F59198E9DBB00158407 /* LMReportWS.m */; };
+		25FAFCA71990C41600FCD226 /* LMReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA61990C41600FCD226 /* LMReportData.m */; };
+		25FAFCAA1990D42900FCD226 /* LMTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */; };
 		25FF5B46198F50B00043DA5D /* _LMReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FF5B45198F50B00043DA5D /* _LMReport.m */; };
 		25FF5B49198F50B70043DA5D /* LMReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FF5B48198F50B70043DA5D /* LMReport.m */; };
 		25FF5B4D198F68CB0043DA5D /* LMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FF5B4C198F68CB0043DA5D /* LMHeaderView.m */; };
@@ -169,6 +171,10 @@
 		253F1F54198E27BD00158407 /* LMProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMProgram.m; sourceTree = "<group>"; };
 		253F1F58198E9DBB00158407 /* LMReportWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReportWS.h; sourceTree = "<group>"; };
 		253F1F59198E9DBB00158407 /* LMReportWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMReportWS.m; sourceTree = "<group>"; };
+		25FAFCA51990C41600FCD226 /* LMReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReportData.h; sourceTree = "<group>"; };
+		25FAFCA61990C41600FCD226 /* LMReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMReportData.m; sourceTree = "<group>"; };
+		25FAFCA81990D42900FCD226 /* LMTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTabBarViewController.h; sourceTree = "<group>"; };
+		25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTabBarViewController.m; sourceTree = "<group>"; };
 		25FF5B44198F50B00043DA5D /* _LMReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LMReport.h; sourceTree = "<group>"; };
 		25FF5B45198F50B00043DA5D /* _LMReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LMReport.m; sourceTree = "<group>"; };
 		25FF5B47198F50B70043DA5D /* LMReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReport.h; sourceTree = "<group>"; };
@@ -343,6 +349,8 @@
 			children = (
 				253F1F58198E9DBB00158407 /* LMReportWS.h */,
 				253F1F59198E9DBB00158407 /* LMReportWS.m */,
+				25FAFCA51990C41600FCD226 /* LMReportData.h */,
+				25FAFCA61990C41600FCD226 /* LMReportData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -535,6 +543,8 @@
 				250FD81E1986DC1C0047EB42 /* LMSummaryReportViewController.m */,
 				252CB2D619901454002677B8 /* LMBranchReportViewController.h */,
 				252CB2D719901454002677B8 /* LMBranchReportViewController.m */,
+				25FAFCA81990D42900FCD226 /* LMTabBarViewController.h */,
+				25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -747,6 +757,7 @@
 				EDF39E551980FF7D00E00966 /* LMAppDelegate.m in Sources */,
 				25036AC4198D2CCE00EAE355 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				253F1F4E198E276400158407 /* LMAdvertiser.m in Sources */,
+				25FAFCAA1990D42900FCD226 /* LMTabBarViewController.m in Sources */,
 				EDD131B619812ECF006F39E3 /* LMBranchViewController.m in Sources */,
 				25036AC8198D2CDA00EAE355 /* ManagedObject.m in Sources */,
 				EDF39E68198104D700E00966 /* LMLoginViewController.m in Sources */,
@@ -768,6 +779,7 @@
 				25036AD4198D2E6900EAE355 /* _LMUser.m in Sources */,
 				253F1F55198E27BD00158407 /* _LMProgram.m in Sources */,
 				EDD131B31981272C006F39E3 /* LMTextField.m in Sources */,
+				25FAFCA71990C41600FCD226 /* LMReportData.m in Sources */,
 				EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */,
 				EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */,
 				25FF5B49198F50B70043DA5D /* LMReport.m in Sources */,

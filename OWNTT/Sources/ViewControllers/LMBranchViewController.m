@@ -11,6 +11,10 @@
 #import "LMHeaderView.h"
 #import "LMNavigationViewController.h"
 #import "LMReadOnlyObject.h"
+#import "LMInstance.h"
+#import "LMAdvertiser.h"
+#import "LMProgram.h"
+#import "LMReport.h"
 
 @interface LMBranchViewController ()
 @end
@@ -71,7 +75,7 @@
         TTHostViewController *hostController = (TTHostViewController *)segue.destinationViewController;
         if([hostController.childViewController isKindOfClass:[LMBranchViewController class]])
         {
-            [((LMBranchViewController *)hostController.childViewController) currentBranchObjectId:self.selectedObjectId];
+            [((LMBranchViewController *)hostController.childViewController) currentBranchObjectId:self.objectId];
         }
     }
 }
@@ -99,7 +103,7 @@
     [self.parentViewController.navigationItem setHidesBackButton:hidden animated:NO];
 }
 
-- (void)currentBranchObjectId:(NSNumber *)objectId
+- (void)currentBranchObjectId:(LMReportData *)objectId
 {
     self.objectId = objectId;
 }
@@ -153,8 +157,27 @@
     NSString *nextSegue = [self nextSegueKey];
     if(nextSegue)
     {
+        if(!self.objectId)
+        {
+            self.objectId = [LMReportData new];
+        }
         LMReadOnlyObject *object = [self.tableData objectAtIndex:indexPath.row];
-        self.selectedObjectId = object.objectId;
+        if([object isKindOfClass:[LMInstance class]])
+        {
+            self.objectId.instanceId = object.objectId;
+        }
+        else if([object isKindOfClass:[LMAdvertiser class]])
+        {
+            self.objectId.advertiserId = object.objectId;
+        }
+        else if([object isKindOfClass:[LMProgram class]])
+        {
+            self.objectId.programId = object.objectId;
+        }
+        else if([object isKindOfClass:[LMReport class]])
+        {
+            self.objectId.reportId = object.objectId;
+        }
         [self.parentViewController performSegueWithIdentifier:nextSegue sender:self];
     }
 }

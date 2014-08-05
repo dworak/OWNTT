@@ -6,9 +6,13 @@
 //
 //
 
+#import "LMAppDelegate.h"
+#import "LMBranchInstanceViewController.h"
 #import "LMLoginViewController.h"
+#import "LMNavigationViewController.h"
 #import "LMTextField.h"
 #import "LMUser.h"
+#import "LMReadOnlyObject.h"
 
 #define BACKGROUND_IMAGE_VIEW_TAG 99
 #define BACKGROUND_STATUS_BAR_TAG 100
@@ -102,11 +106,40 @@
         [self showErrorAlertWithText:text];
         return;
     }
+    
+    NSArray *users = [LMUser fetchLMUsersInContext:self.managedObjectContext];
+    if(users.count > 2)
+    {
+        NSLog(@"Error: tow users in database");
+    }
+    if(users.count > 0)
+    {
+        [self.managedObjectContext deleteObject:[users objectAtIndex:0]];
+    }
+    users = [LMReadOnlyObject fetchActiveEntityOfClass:[LMReadOnlyObject class] inContext:self.managedObjectContext];
+    for(LMReadOnlyObject *obj in users)
+    {
+        [self.managedObjectContext deleteObject:obj];
+    }
+    
     LMUser *user = [LMUser createObjectInContext:self.managedObjectContext];
     user.name = self.loginTextField.text;
     user.password = self.passwordTextField.text;
     [self saveManagedContext];
-    [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushTabBar] sender:self];
+    [LMUtils downloadAppData];
+    if(self.isPresentModal)
+    {
+        if([self.presentingViewController isKindOfClass:[UITabBarController class]])
+        {
+            //[((UITabBarController *)self.presentingViewController).presentingViewController
+        }
+        [self.parentViewController dismissViewControllerAnimated:YES completion:^{
+        }];
+    }
+    else
+    {
+        [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushTabBar] sender:self];
+    }
 }
 
 #pragma mark -

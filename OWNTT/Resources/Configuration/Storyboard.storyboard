@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="-1942" y="-1067"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="g7i-oa-Fgi">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="LCS-Kh-fre" sceneMemberID="viewController">
+                <tabBarController definesPresentationContext="YES" id="LCS-Kh-fre" customClass="LMTabBarViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="djG-Dj-oas"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Hjr-aY-s2a">
@@ -181,6 +181,9 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMSettingsViewController"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMSettingsViewController"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="heA-MX-ohP" kind="modal" identifier="LMSegueKeyType_PushLogin" modalTransitionStyle="crossDissolve" id="Ug5-Jv-ffk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Yf-Zs-yh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -290,7 +293,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0yr-Nw-2XK"/>
         <segue reference="taN-ZK-iiH"/>
+        <segue reference="Ug5-Jv-ffk"/>
+        <segue reference="0yr-Nw-2XK"/>
     </inferredMetricsTieBreakers>
 </document>

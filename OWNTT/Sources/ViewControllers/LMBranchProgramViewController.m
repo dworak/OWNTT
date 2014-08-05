@@ -53,7 +53,7 @@
 
 - (void)getTableData
 {
-    LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId inContext:self.managedObjectContext];
+    LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId.instanceId inContext:self.managedObjectContext];
     if(instance) {
         NSMutableArray *programsArray = [NSMutableArray new];
         for(LMAdvertiser *advertiser in instance.advertisers.allObjects)

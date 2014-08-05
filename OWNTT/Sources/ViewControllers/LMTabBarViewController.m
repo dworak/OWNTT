@@ -1,18 +1,18 @@
 //
-//  LMHostChildBaseViewController.m
+//  LMTabBarViewController.m
 //  OWNTT
 //
-//  Created by Kaszuba Maciej on 24/07/14.
+//  Created by Maciej Kaszuba on 05/08/14.
 //
 //
 
-#import "LMHostChildBaseViewController.h"
+#import "LMTabBarViewController.h"
 
-@interface LMHostChildBaseViewController ()
+@interface LMTabBarViewController ()
 
 @end
 
-@implementation LMHostChildBaseViewController
+@implementation LMTabBarViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,15 +45,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (void)refreshView
-{
-    
-}
-
-- (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-}
 
 @end

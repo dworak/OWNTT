@@ -9,5 +9,4 @@
 #import "LMBranchViewController.h"
 
 @interface LMBranchProgramViewController : LMBranchViewController
-@property (strong, nonatomic) NSNumber *advertiserId;
 @end

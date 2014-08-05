@@ -7,6 +7,7 @@
 //
 
 #import "LMHostChildBaseViewController.h"
+#import "LMReportData.h"
 
 @class LMHeaderView;
 
@@ -21,11 +22,10 @@ typedef enum {
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (unsafe_unretained, nonatomic) LMBranchControllerType branchControllerType;
 @property (strong, nonatomic) LMHeaderView *headerView;
-@property (strong, nonatomic) NSNumber *objectId;
-@property (strong, nonatomic) NSNumber *selectedObjectId;
+@property (strong, nonatomic) LMReportData *objectId;
 
 - (void)hideBackButtonItem:(BOOL)hidden;
-- (void)currentBranchObjectId:(NSNumber *)objectId;
+- (void)currentBranchObjectId:(LMReportData *)objectId;
 - (NSString *)nextSegueKey;
 - (void)getTableData;;
 @end

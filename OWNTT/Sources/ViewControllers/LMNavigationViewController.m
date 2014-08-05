@@ -14,9 +14,10 @@
 #import "LMBranchProgramViewController.h"
 #import "LMHeaderView.h"
 #import "LMInstance.h"
+#import "LMReportData.h"
 
 @interface LMNavigationViewController ()
-@property (strong, nonatomic) NSNumber *currentObjectId;
+@property (strong, nonatomic) LMReportData *currentObjectId;
 @end
 
 @implementation LMNavigationViewController
@@ -47,17 +48,24 @@
     
     //setup layout for controller type
     UIViewController *currentTopViewController;
+    self.currentObjectId = [LMReportData new];
     switch (self.controllerType.intValue)
     {
         case NavigationControllerType_Report:
         {
-            self.currentObjectId = [LMUtils getCurrentInstance];
+            NSNumber *instanceId = [LMUtils getCurrentInstance];
+            self.currentObjectId.instanceId = instanceId;
             NSManagedObjectContext *mOC = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
             NSArray *instances = [LMInstance fetchActiveEntityOfClass:[LMInstance class] inContext:mOC];
-            if(self.currentObjectId || instances.count < 2)
+            if(self.currentObjectId.instanceId || instances.count < 2)
             {
+                NSMutableArray *controllers = [NSMutableArray new];
+                currentTopViewController = [LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchInstanceViewController class])];
+                [self prepareBranchController:currentTopViewController];
+                [controllers addObject:currentTopViewController];
                 currentTopViewController = [LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchAdvertiserViewController class])];
-                self.viewControllers = [NSArray arrayWithObject:currentTopViewController];
+                [controllers addObject:currentTopViewController];
+                self.viewControllers = controllers;
             }
             else
             {

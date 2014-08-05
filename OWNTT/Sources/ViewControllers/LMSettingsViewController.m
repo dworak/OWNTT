@@ -7,8 +7,10 @@
 //
 #import "LMBranchInstanceViewController.h"
 #import "LMNavigationViewController.h"
+#import "LMLoginViewController.h"
 #import "LMSettingsViewController.h"
 #import "LMInstance.h"
+#import "LMUser.h"
 
 @interface LMSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -31,18 +33,43 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSManagedObjectContext *managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
-    NSArray *instances = [LMInstance fetchActiveEntityOfClass:[LMInstance class] inContext:managedObjectContext];
-    if(instances.count < 2)
-    {
-        self.instanceButton.hidden = YES;
-    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self refreshView];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)refreshView
+{
+    NSManagedObjectContext *managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    NSArray *instances = [LMInstance fetchActiveEntityOfClass:[LMInstance class] inContext:managedObjectContext];
+    if(instances.count < 2)
+    {
+        self.instanceButton.hidden = YES;
+    }
+    LMUser *user = [[LMUser fetchLMUsersInContext:managedObjectContext] objectAtIndex:0];
+    self.nameLabel.text = user.name;
+}
+
+- (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
+    {
+        TTHostViewController *hostController = (TTHostViewController *)segue.destinationViewController;
+        if([hostController.childViewController isKindOfClass:[LMLoginViewController class]])
+        {
+            LMLoginViewController *loginController = (LMLoginViewController *)hostController.childViewController;
+            loginController.isPresentModal = YES;
+        }
+    }
 }
 
 /*
@@ -57,6 +84,8 @@
 */
 - (IBAction)deleteButtonTapped:(id)sender
 {
+    [self instanceButtonTapped:nil];
+    [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushLogin] sender:self];
 }
 
 - (IBAction)instanceButtonTapped:(id)sender
@@ -69,7 +98,7 @@
             LMNavigationViewController *navController = (LMNavigationViewController *)controller;
             if(navController.controllerType.intValue == NavigationControllerType_Report)
             {
-                navController.viewControllers = [NSArray arrayWithObject:[LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchInstanceViewController class])]];
+                [navController popToRootViewControllerAnimated:NO];
                 self.tabBarController.selectedViewController = navController;
             }
         }
@@ -79,6 +108,8 @@
 
 - (IBAction)refreshButtonTapped:(id)sender
 {
+    //TODO: add load tree
+    [self instanceButtonTapped:nil];
 }
 
 @end
