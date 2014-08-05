@@ -48,6 +48,12 @@
 		25FAFCB51990D81F00FCD226 /* LMMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCB41990D81F00FCD226 /* LMMenuViewController.m */; };
 		25FAFCB81990DBFB00FCD226 /* LMMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCB71990DBFB00FCD226 /* LMMenuTableViewCell.m */; };
 		25FAFCBA1990DC1B00FCD226 /* LMMenuTableViewCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25FAFCB91990DC1B00FCD226 /* LMMenuTableViewCell_iPhone.xib */; };
+		25FAFCC71990E1D300FCD226 /* _LMReadOnlyUserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCBC1990E1D300FCD226 /* _LMReadOnlyUserObject.m */; };
+		25FAFCC81990E1D300FCD226 /* _LMUserAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCBE1990E1D300FCD226 /* _LMUserAlert.m */; };
+		25FAFCC91990E1D300FCD226 /* _LMUserReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCC01990E1D300FCD226 /* _LMUserReport.m */; };
+		25FAFCCA1990E1D300FCD226 /* LMReadOnlyUserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCC21990E1D300FCD226 /* LMReadOnlyUserObject.m */; };
+		25FAFCCB1990E1D300FCD226 /* LMUserAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCC41990E1D300FCD226 /* LMUserAlert.m */; };
+		25FAFCCC1990E1D300FCD226 /* LMUserReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCC61990E1D300FCD226 /* LMUserReport.m */; };
 		25FF5B46198F50B00043DA5D /* _LMReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FF5B45198F50B00043DA5D /* _LMReport.m */; };
 		25FF5B49198F50B70043DA5D /* LMReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FF5B48198F50B70043DA5D /* LMReport.m */; };
 		25FF5B4D198F68CB0043DA5D /* LMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FF5B4C198F68CB0043DA5D /* LMHeaderView.m */; };
@@ -191,6 +197,18 @@
 		25FAFCB61990DBFB00FCD226 /* LMMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMMenuTableViewCell.h; sourceTree = "<group>"; };
 		25FAFCB71990DBFB00FCD226 /* LMMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMMenuTableViewCell.m; sourceTree = "<group>"; };
 		25FAFCB91990DC1B00FCD226 /* LMMenuTableViewCell_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMMenuTableViewCell_iPhone.xib; sourceTree = "<group>"; };
+		25FAFCBB1990E1D300FCD226 /* _LMReadOnlyUserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _LMReadOnlyUserObject.h; path = Genereted/_LMReadOnlyUserObject.h; sourceTree = "<group>"; };
+		25FAFCBC1990E1D300FCD226 /* _LMReadOnlyUserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _LMReadOnlyUserObject.m; path = Genereted/_LMReadOnlyUserObject.m; sourceTree = "<group>"; };
+		25FAFCBD1990E1D300FCD226 /* _LMUserAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _LMUserAlert.h; path = Genereted/_LMUserAlert.h; sourceTree = "<group>"; };
+		25FAFCBE1990E1D300FCD226 /* _LMUserAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _LMUserAlert.m; path = Genereted/_LMUserAlert.m; sourceTree = "<group>"; };
+		25FAFCBF1990E1D300FCD226 /* _LMUserReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _LMUserReport.h; path = Genereted/_LMUserReport.h; sourceTree = "<group>"; };
+		25FAFCC01990E1D300FCD226 /* _LMUserReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _LMUserReport.m; path = Genereted/_LMUserReport.m; sourceTree = "<group>"; };
+		25FAFCC11990E1D300FCD226 /* LMReadOnlyUserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMReadOnlyUserObject.h; path = Genereted/LMReadOnlyUserObject.h; sourceTree = "<group>"; };
+		25FAFCC21990E1D300FCD226 /* LMReadOnlyUserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMReadOnlyUserObject.m; path = Genereted/LMReadOnlyUserObject.m; sourceTree = "<group>"; };
+		25FAFCC31990E1D300FCD226 /* LMUserAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMUserAlert.h; path = Genereted/LMUserAlert.h; sourceTree = "<group>"; };
+		25FAFCC41990E1D300FCD226 /* LMUserAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMUserAlert.m; path = Genereted/LMUserAlert.m; sourceTree = "<group>"; };
+		25FAFCC51990E1D300FCD226 /* LMUserReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMUserReport.h; path = Genereted/LMUserReport.h; sourceTree = "<group>"; };
+		25FAFCC61990E1D300FCD226 /* LMUserReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMUserReport.m; path = Genereted/LMUserReport.m; sourceTree = "<group>"; };
 		25FF5B44198F50B00043DA5D /* _LMReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _LMReport.h; sourceTree = "<group>"; };
 		25FF5B45198F50B00043DA5D /* _LMReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _LMReport.m; sourceTree = "<group>"; };
 		25FF5B47198F50B70043DA5D /* LMReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReport.h; sourceTree = "<group>"; };
@@ -376,6 +394,18 @@
 		25462AC71981BA590007482F /* ModelClasses */ = {
 			isa = PBXGroup;
 			children = (
+				25FAFCBB1990E1D300FCD226 /* _LMReadOnlyUserObject.h */,
+				25FAFCBC1990E1D300FCD226 /* _LMReadOnlyUserObject.m */,
+				25FAFCBD1990E1D300FCD226 /* _LMUserAlert.h */,
+				25FAFCBE1990E1D300FCD226 /* _LMUserAlert.m */,
+				25FAFCBF1990E1D300FCD226 /* _LMUserReport.h */,
+				25FAFCC01990E1D300FCD226 /* _LMUserReport.m */,
+				25FAFCC11990E1D300FCD226 /* LMReadOnlyUserObject.h */,
+				25FAFCC21990E1D300FCD226 /* LMReadOnlyUserObject.m */,
+				25FAFCC31990E1D300FCD226 /* LMUserAlert.h */,
+				25FAFCC41990E1D300FCD226 /* LMUserAlert.m */,
+				25FAFCC51990E1D300FCD226 /* LMUserReport.h */,
+				25FAFCC61990E1D300FCD226 /* LMUserReport.m */,
 				25036AC9198D2D7100EAE355 /* Genereted */,
 				25036AC6198D2CDA00EAE355 /* ManagedObject.h */,
 				25036AC7198D2CDA00EAE355 /* ManagedObject.m */,
@@ -778,6 +808,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25FAFCCB1990E1D300FCD226 /* LMUserAlert.m in Sources */,
 				25FF5B46198F50B00043DA5D /* _LMReport.m in Sources */,
 				EDD131B919812EFD006F39E3 /* LMBranchInstanceViewController.m in Sources */,
 				25036AD5198D2E6900EAE355 /* LMUser.m in Sources */,
@@ -792,6 +823,7 @@
 				EDF39E6B1981059C00E00966 /* LMSplashViewController.m in Sources */,
 				EDF39E5B198101D500E00966 /* LMNavigationViewController.m in Sources */,
 				25036AC5198D2CCE00EAE355 /* UIImage+Additions.m in Sources */,
+				25FAFCCA1990E1D300FCD226 /* LMReadOnlyUserObject.m in Sources */,
 				EDF39E541980FF7D00E00966 /* main.m in Sources */,
 				253F1F56198E27BD00158407 /* LMProgram.m in Sources */,
 				EDF39E6E1981060200E00966 /* LMSegueKeys.m in Sources */,
@@ -799,15 +831,19 @@
 				253F1F5A198E9DBB00158407 /* LMReportWS.m in Sources */,
 				253F1F4F198E276400158407 /* LMInstance.m in Sources */,
 				EDD131BF19812F2E006F39E3 /* LMBranchProgramViewController.m in Sources */,
+				25FAFCCC1990E1D300FCD226 /* LMUserReport.m in Sources */,
 				25FAFCB51990D81F00FCD226 /* LMMenuViewController.m in Sources */,
+				25FAFCC71990E1D300FCD226 /* _LMReadOnlyUserObject.m in Sources */,
 				25FAFCB01990D7A000FCD226 /* LMAlertMenuViewController.m in Sources */,
 				EDD131BC19812F1E006F39E3 /* LMBranchAdvertiserViewController.m in Sources */,
 				253F1F50198E276400158407 /* LMReadOnlyObject.m in Sources */,
+				25FAFCC81990E1D300FCD226 /* _LMUserAlert.m in Sources */,
 				25036ADB198D466600EAE355 /* LMAppUtils.m in Sources */,
 				25036AC3198D2CCE00EAE355 /* NSManagedObject+Fetch.m in Sources */,
 				253F1F4C198E276400158407 /* _LMInstance.m in Sources */,
 				25036AD4198D2E6900EAE355 /* _LMUser.m in Sources */,
 				253F1F55198E27BD00158407 /* _LMProgram.m in Sources */,
+				25FAFCC91990E1D300FCD226 /* _LMUserReport.m in Sources */,
 				EDD131B31981272C006F39E3 /* LMTextField.m in Sources */,
 				25FAFCA71990C41600FCD226 /* LMReportData.m in Sources */,
 				EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */,
