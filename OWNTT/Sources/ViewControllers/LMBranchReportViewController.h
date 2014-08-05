@@ -8,6 +8,6 @@
 
 #import "LMBranchViewController.h"
 
-@interface LMBranchReportViewController : LMBranchViewController
+@interface LMBranchReportViewController : LMBranchViewController <TTChildViewControllerProtocol>
 
 @end

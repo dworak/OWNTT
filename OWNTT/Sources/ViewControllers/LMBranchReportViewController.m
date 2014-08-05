@@ -7,6 +7,8 @@
 //
 
 #import "LMBranchReportViewController.h"
+#import "LMReport.h"
+#import "LMInstance.h"
 
 @interface LMBranchReportViewController ()
 
@@ -46,5 +48,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)getTableData
+{
+    self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId.instanceId inContext:self.managedObjectContext];
+    self.tableData = instance.reports.allObjects;
+    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    self.tableData = [self.tableData sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesc]];
+}
+
+- (NSString *)nextSegueKey
+{
+    return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushReportSummary];
+}
 
 @end

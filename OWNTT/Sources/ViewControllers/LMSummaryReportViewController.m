@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.parentViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,5 +46,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)doneAction:(id)sender
+{
+    
+}
 
 @end

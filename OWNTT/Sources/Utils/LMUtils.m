@@ -14,6 +14,7 @@
 #import "LMUtils.h"
 #import "LMUser.h"
 #import "LMReportWS.h"
+#import "LMReport.h"
 #import "LMInstance.h"
 #import "LMAdvertiser.h"
 #import "LMProgram.h"
@@ -148,11 +149,44 @@
                 {
                     instance = [LMInstance createObjectInContext:context];
                     instance.objectIdValue = reportWS.InstancjaId.intValue;
+                    if(reportWS.Raport1.intValue)
+                    {
+                        LMReport *report = (LMReport *)[LMReadOnlyObject fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:1] inContext:context];
+                        if(!report)
+                        {
+                            report = [LMReport createObjectInContext:context];
+                            report.objectId = [NSNumber numberWithInt:1];
+                        }
+                        report.name = @"Raport łączny kampanii";
+                        report.activeValue = YES;
+                        [instance.reportsSet addObject:report];
+                    }
+                    if(reportWS.Raport5.intValue)
+                    {
+                        LMReport *report = (LMReport *)[LMReadOnlyObject fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:2] inContext:context];
+                        if(!report)
+                        {
+                            report = [LMReport createObjectInContext:context];
+                            report.objectId = [NSNumber numberWithInt:2];
+                        }
+                        report.name = @"Raport wszystkich wydawców";
+                        report.activeValue = YES;
+                        [instance.reportsSet addObject:report];
+                    }
+                    if(reportWS.Raport8.intValue)
+                    {
+                        LMReport *report = (LMReport *)[LMReadOnlyObject fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:3] inContext:context];
+                        if(!report)
+                        {
+                            report = [LMReport createObjectInContext:context];
+                            report.objectId = [NSNumber numberWithInt:3];
+                        }
+                        report.name = @"Raport form reklamowych";
+                        report.activeValue = YES;
+                        [instance.reportsSet addObject:report];
+                    }
                 }
                 instance.name = reportWS.InstancjaNazwa;
-                instance.report1 = reportWS.Raport1;
-                instance.report5 = reportWS.Raport5;
-                instance.report8 = reportWS.Raport8;
                 instance.activeValue = YES;
             }
             if(reportWS.ReklamodawcaId)

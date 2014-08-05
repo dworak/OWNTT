@@ -155,7 +155,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="K9t-Vf-4sE" kind="push" identifier="LMSegueKeyType_PushReportSummary" id="ed7-PD-Gfj"/>
+                        <segue destination="dp1-ZQ-flU" kind="push" identifier="LMSegueKeyType_PushReport" id="N6r-LL-aii"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2K-1O-NLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -236,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctm-89-FLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2264" y="-5014"/>
+            <point key="canvasLocation" x="2656" y="-5014"/>
         </scene>
         <!--Navigation View Controller - Alert-->
         <scene sceneID="ET4-lE-ZZI">
@@ -337,6 +337,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUj-pa-X8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1374" y="-2723"/>
+        </scene>
+        <!--Host View Controller-->
+        <scene sceneID="d04-hU-N7Q">
+            <objects>
+                <viewController storyboardIdentifier="LMBranchReportViewController" id="dp1-ZQ-flU" customClass="TTHostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MDf-7T-DGM"/>
+                        <viewControllerLayoutGuide type="bottom" id="zII-MS-BEu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="T4x-4R-ddP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xSW-Hg-xch"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMBranchReportViewController"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchViewController"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="K9t-Vf-4sE" kind="push" identifier="LMSegueKeyType_PushReportSummary" id="zbN-r1-3gJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clT-eE-5zX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2112" y="-5014"/>
         </scene>
     </scenes>
     <resources>

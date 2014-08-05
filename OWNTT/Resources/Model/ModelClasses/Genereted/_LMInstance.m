@@ -8,6 +8,7 @@ const struct LMInstanceAttributes LMInstanceAttributes = {
 
 const struct LMInstanceRelationships LMInstanceRelationships = {
 	.advertisers = @"advertisers",
+	.reports = @"reports",
 };
 
 const struct LMInstanceFetchedProperties LMInstanceFetchedProperties = {
@@ -55,6 +56,19 @@ const struct LMInstanceFetchedProperties LMInstanceFetchedProperties = {
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"advertisers"];
   
 	[self didAccessValueForKey:@"advertisers"];
+	return result;
+}
+	
+
+@dynamic reports;
+
+	
+- (NSMutableSet*)reportsSet {
+	[self willAccessValueForKey:@"reports"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"reports"];
+  
+	[self didAccessValueForKey:@"reports"];
 	return result;
 }
 	

@@ -66,4 +66,9 @@
     }
 }
 
+- (NSString *)nextSegueKey
+{
+    return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushReport];
+}
+
 @end

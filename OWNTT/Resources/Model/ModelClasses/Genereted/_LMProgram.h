@@ -9,14 +9,12 @@ extern const struct LMProgramAttributes {
 
 extern const struct LMProgramRelationships {
 	__unsafe_unretained NSString *advertiser;
-	__unsafe_unretained NSString *reports;
 } LMProgramRelationships;
 
 extern const struct LMProgramFetchedProperties {
 } LMProgramFetchedProperties;
 
 @class LMAdvertiser;
-@class LMReport;
 
 
 @interface LMProgramID : NSManagedObjectID {}
@@ -39,22 +37,10 @@ extern const struct LMProgramFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet *reports;
-
-- (NSMutableSet*)reportsSet;
-
-
-
-
 
 @end
 
 @interface _LMProgram (CoreDataGeneratedAccessors)
-
-- (void)addReports:(NSSet*)value_;
-- (void)removeReports:(NSSet*)value_;
-- (void)addReportsObject:(LMReport*)value_;
-- (void)removeReportsObject:(LMReport*)value_;
 
 @end
 
@@ -64,11 +50,6 @@ extern const struct LMProgramFetchedProperties {
 
 - (LMAdvertiser*)primitiveAdvertiser;
 - (void)setPrimitiveAdvertiser:(LMAdvertiser*)value;
-
-
-
-- (NSMutableSet*)primitiveReports;
-- (void)setPrimitiveReports:(NSMutableSet*)value;
 
 
 @end

@@ -1,0 +1,11 @@
+{
+    "reportTimeInterval" : [
+        "Ten rok",
+        "Poprzedni miesiąc",
+        "Aktualny miesiąc",
+        "Poprzedni tydzień",
+        "Ten tydzień",
+        "Wczoraj",
+        "Dzisiaj"
+    ],
+}

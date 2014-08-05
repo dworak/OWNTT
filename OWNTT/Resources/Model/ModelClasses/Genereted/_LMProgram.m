@@ -8,7 +8,6 @@ const struct LMProgramAttributes LMProgramAttributes = {
 
 const struct LMProgramRelationships LMProgramRelationships = {
 	.advertiser = @"advertiser",
-	.reports = @"reports",
 };
 
 const struct LMProgramFetchedProperties LMProgramFetchedProperties = {
@@ -49,19 +48,6 @@ const struct LMProgramFetchedProperties LMProgramFetchedProperties = {
 
 @dynamic advertiser;
 
-	
-
-@dynamic reports;
-
-	
-- (NSMutableSet*)reportsSet {
-	[self willAccessValueForKey:@"reports"];
-  
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"reports"];
-  
-	[self didAccessValueForKey:@"reports"];
-	return result;
-}
 	
 
 

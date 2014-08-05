@@ -7,7 +7,7 @@ const struct LMReportAttributes LMReportAttributes = {
 };
 
 const struct LMReportRelationships LMReportRelationships = {
-	.program = @"program",
+	.instance = @"instance",
 };
 
 const struct LMReportFetchedProperties LMReportFetchedProperties = {
@@ -46,8 +46,17 @@ const struct LMReportFetchedProperties LMReportFetchedProperties = {
 
 
 
-@dynamic program;
+@dynamic instance;
 
+	
+- (NSMutableSet*)instanceSet {
+	[self willAccessValueForKey:@"instance"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"instance"];
+  
+	[self didAccessValueForKey:@"instance"];
+	return result;
+}
 	
 
 

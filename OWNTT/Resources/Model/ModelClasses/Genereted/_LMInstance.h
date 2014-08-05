@@ -9,12 +9,14 @@ extern const struct LMInstanceAttributes {
 
 extern const struct LMInstanceRelationships {
 	__unsafe_unretained NSString *advertisers;
+	__unsafe_unretained NSString *reports;
 } LMInstanceRelationships;
 
 extern const struct LMInstanceFetchedProperties {
 } LMInstanceFetchedProperties;
 
 @class LMAdvertiser;
+@class LMReport;
 
 
 @interface LMInstanceID : NSManagedObjectID {}
@@ -37,6 +39,13 @@ extern const struct LMInstanceFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSSet *reports;
+
+- (NSMutableSet*)reportsSet;
+
+
+
+
 
 @end
 
@@ -47,6 +56,11 @@ extern const struct LMInstanceFetchedProperties {
 - (void)addAdvertisersObject:(LMAdvertiser*)value_;
 - (void)removeAdvertisersObject:(LMAdvertiser*)value_;
 
+- (void)addReports:(NSSet*)value_;
+- (void)removeReports:(NSSet*)value_;
+- (void)addReportsObject:(LMReport*)value_;
+- (void)removeReportsObject:(LMReport*)value_;
+
 @end
 
 @interface _LMInstance (CoreDataGeneratedPrimitiveAccessors)
@@ -55,6 +69,11 @@ extern const struct LMInstanceFetchedProperties {
 
 - (NSMutableSet*)primitiveAdvertisers;
 - (void)setPrimitiveAdvertisers:(NSMutableSet*)value;
+
+
+
+- (NSMutableSet*)primitiveReports;
+- (void)setPrimitiveReports:(NSMutableSet*)value;
 
 
 @end

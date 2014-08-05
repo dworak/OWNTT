@@ -8,13 +8,13 @@ extern const struct LMReportAttributes {
 } LMReportAttributes;
 
 extern const struct LMReportRelationships {
-	__unsafe_unretained NSString *program;
+	__unsafe_unretained NSString *instance;
 } LMReportRelationships;
 
 extern const struct LMReportFetchedProperties {
 } LMReportFetchedProperties;
 
-@class LMProgram;
+@class LMInstance;
 
 
 @interface LMReportID : NSManagedObjectID {}
@@ -30,9 +30,9 @@ extern const struct LMReportFetchedProperties {
 
 
 
-@property (nonatomic, strong) LMProgram *program;
+@property (nonatomic, strong) NSSet *instance;
 
-//- (BOOL)validateProgram:(id*)value_ error:(NSError**)error_;
+- (NSMutableSet*)instanceSet;
 
 
 
@@ -42,14 +42,19 @@ extern const struct LMReportFetchedProperties {
 
 @interface _LMReport (CoreDataGeneratedAccessors)
 
+- (void)addInstance:(NSSet*)value_;
+- (void)removeInstance:(NSSet*)value_;
+- (void)addInstanceObject:(LMInstance*)value_;
+- (void)removeInstanceObject:(LMInstance*)value_;
+
 @end
 
 @interface _LMReport (CoreDataGeneratedPrimitiveAccessors)
 
 
 
-- (LMProgram*)primitiveProgram;
-- (void)setPrimitiveProgram:(LMProgram*)value;
+- (NSMutableSet*)primitiveInstance;
+- (void)setPrimitiveInstance:(NSMutableSet*)value;
 
 
 @end
