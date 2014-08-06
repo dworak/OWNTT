@@ -14,10 +14,10 @@
 #import "LMBranchProgramViewController.h"
 #import "LMHeaderView.h"
 #import "LMInstance.h"
-#import "LMReportData.h"
+#import "LMData.h"
 
 @interface LMNavigationViewController ()
-@property (strong, nonatomic) LMReportData *currentObjectId;
+@property (strong, nonatomic) LMData *currentObjectId;
 @end
 
 @implementation LMNavigationViewController
@@ -48,7 +48,7 @@
     
     //setup layout for controller type
     UIViewController *currentTopViewController;
-    self.currentObjectId = [LMReportData new];
+    self.currentObjectId = [LMData new];
     switch (self.controllerType.intValue)
     {
         case NavigationControllerType_Report:

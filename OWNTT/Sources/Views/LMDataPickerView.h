@@ -8,12 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^PickerViewDoneAction)(NSString *value);
-typedef void (^PickerViewCancelAction)();
+@interface LMDataPickerView : UIView
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneItem;
 
-@interface LMDataPickerView : UIPickerView <UIPickerViewDelegate>
-@property (copy, nonatomic) PickerViewDoneAction pickerViewDoneAction;
-@property (copy, nonatomic) PickerViewCancelAction pickerViewCancelAction;
-
--(void)addPickerData:(NSArray *)pickerData;
 @end

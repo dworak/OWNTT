@@ -41,6 +41,7 @@
 #pragma mark -
 #pragma mark === Private methods ===
 - (void)setupButton {
+    self.exclusiveTouch = YES;
     self.backgroundColor = UI_BUTTON_BACKGROUND_COLOR;
     
     self.layer.borderWidth = UI_BUTTON_BORDER_WIDTH;

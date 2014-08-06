@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LMReportData : NSObject
+@interface LMData : NSObject
+@property (unsafe_unretained, nonatomic) BOOL isReport;
 @property (strong, nonatomic) NSNumber *instanceId;
 @property (strong, nonatomic) NSNumber *advertiserId;
 @property (strong, nonatomic) NSNumber *programId;

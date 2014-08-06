@@ -156,6 +156,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="dp1-ZQ-flU" kind="push" identifier="LMSegueKeyType_PushReport" id="N6r-LL-aii"/>
+                        <segue destination="aZI-3u-bLF" kind="push" identifier="LMSegueKeyType_PushAlertSummary" id="cLc-J3-1iJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2K-1O-NLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -363,6 +364,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clT-eE-5zX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2112" y="-5014"/>
+        </scene>
+        <!--Host View Controller-->
+        <scene sceneID="a6A-KI-DUG">
+            <objects>
+                <viewController id="aZI-3u-bLF" customClass="TTHostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NJp-Ne-5We"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vm5-7F-Tds"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l7e-Rc-UUB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Np7-2H-jr8"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMAlertSummaryViewController"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMAlertSummaryViewController"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hnp-mc-6yV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2112" y="-4102"/>
         </scene>
     </scenes>
     <resources>

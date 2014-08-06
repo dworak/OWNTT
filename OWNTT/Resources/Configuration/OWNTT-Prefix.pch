@@ -25,4 +25,5 @@
     #import "LMSegueKeys.h"
     #import "NSManagedObject+Fetch.h"
     #import "NSManagedObjectContext+FetchedObjectFromURI.h"
+    #import "LMReferenceData.h"
 #endif

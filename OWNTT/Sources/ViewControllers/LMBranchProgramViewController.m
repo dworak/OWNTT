@@ -7,6 +7,7 @@
 //
 
 #import "LMBranchProgramViewController.h"
+#import "LMNavigationViewController.h"
 #import "LMInstance.h"
 #import "LMReadOnlyObject.h"
 #import "LMProgram.h"
@@ -68,7 +69,19 @@
 
 - (NSString *)nextSegueKey
 {
-    return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushReport];
+    if([self.parentViewController.navigationController isKindOfClass:[LMNavigationViewController class]])
+    {
+        LMNavigationViewController *navController = (LMNavigationViewController *)self.parentViewController.navigationController;
+        if(navController.controllerType.intValue == NavigationControllerType_Alert)
+        {
+            return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushAlertSummary];
+        }
+        else
+        {
+            return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushReport];
+        }
+    }
+    return nil;
 }
 
 @end

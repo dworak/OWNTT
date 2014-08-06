@@ -6,8 +6,8 @@
 //
 //
 
-#import "LMReportData.h"
+#import "LMData.h"
 
-@implementation LMReportData
+@implementation LMData
 
 @end

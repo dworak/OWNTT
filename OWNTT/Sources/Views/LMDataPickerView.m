@@ -9,12 +9,9 @@
 #import "LMDataPickerView.h"
 
 @interface LMDataPickerView ()
-@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbarView;
 
 @property (strong, nonatomic) NSString *currentValue;
-
-@property (strong, nonatomic) NSArray *pickerData;
 
 @end
 
@@ -37,31 +34,5 @@
     // Drawing code
 }
 */
-
-- (IBAction)doneButton:(id)sender
-{
-    self.pickerViewDoneAction(self.currentValue);
-}
-
-- (IBAction)cancelAction:(id)sender
-{
-    self.pickerViewCancelAction();
-}
-
-- (void)addPickerData:(NSArray *)pickerData
-{
-    self.pickerData = pickerData;
-}
-
-- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    return [self.pickerData objectAtIndex:row];
-}
-
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-	self.currentValue = [self.pickerData objectAtIndex:row];
-}
 
 @end

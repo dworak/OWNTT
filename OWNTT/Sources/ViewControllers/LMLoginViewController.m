@@ -14,9 +14,6 @@
 #import "LMUser.h"
 #import "LMReadOnlyObject.h"
 
-#define BACKGROUND_IMAGE_VIEW_TAG 99
-#define BACKGROUND_STATUS_BAR_TAG 100
-
 @interface LMLoginViewController ()
 @property (weak, nonatomic) IBOutlet LMTextField *loginTextField;
 @property (weak, nonatomic) IBOutlet LMTextField *passwordTextField;
@@ -96,14 +93,14 @@
     if(text != nil)
     {
         [self shakeAnimation:[NSArray arrayWithObjects:self.loginTextField, nil]];
-        [self showErrorAlertWithText:text];
+        [LMUtils showErrorAlertWithText:text];
         return;
     }
     text = [self.passwordTextField validateField];
     if(text != nil)
     {
         [self shakeAnimation:[NSArray arrayWithObjects:self.passwordTextField, nil]];
-        [self showErrorAlertWithText:text];
+        [LMUtils showErrorAlertWithText:text];
         return;
     }
     
@@ -144,12 +141,6 @@
 
 #pragma mark -
 #pragma mark === Private methods ===
-- (void)showErrorAlertWithText:(NSString *)text
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Błąd" message:text delegate:self cancelButtonTitle:@"Popraw" otherButtonTitles:nil];
-    [alertView show];
-}
-
 - (void)checkDependingTreeAndShowBranch {
     
 }

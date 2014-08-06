@@ -19,6 +19,7 @@ XX(LMSegueKeyType_PushProgramList,) \
 XX(LMSegueKeyType_PushReport,) \
 XX(LMSegueKeyType_PushSettings,) \
 XX(LMSegueKeyType_PushReportSummary,) \
+XX(LMSegueKeyType_PushAlertSummary,) \
 
 DECLARE_ENUM(LMSegueKeyType,SEGUE_TYPE)
 

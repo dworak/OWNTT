@@ -19,4 +19,5 @@
 + (void)storeCurrentInstance:(NSNumber *)instanceId;
 + (void)removeCurrentInstance;
 + (NSNumber *)getCurrentInstance;
++ (void)showErrorAlertWithText:(NSString *)text;
 @end

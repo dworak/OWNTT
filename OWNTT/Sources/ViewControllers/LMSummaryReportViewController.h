@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "LMHostChildBaseViewController.h"
+#import "LMSummaryBaseViewController.h"
 
-@interface LMSummaryReportViewController : LMHostChildBaseViewController
+@interface LMSummaryReportViewController : LMSummaryBaseViewController
 
 @end

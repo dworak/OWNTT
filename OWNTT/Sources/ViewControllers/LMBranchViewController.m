@@ -107,7 +107,7 @@
     [self.parentViewController.navigationItem setHidesBackButton:hidden animated:NO];
 }
 
-- (void)currentBranchObjectId:(LMReportData *)objectId
+- (void)currentBranchObjectId:(LMData *)objectId
 {
     self.objectId = objectId;
 }
@@ -163,7 +163,7 @@
     {
         if(!self.objectId)
         {
-            self.objectId = [LMReportData new];
+            self.objectId = [LMData new];
         }
         LMReadOnlyObject *object = [self.tableData objectAtIndex:indexPath.row];
         if([object isKindOfClass:[LMInstance class]])

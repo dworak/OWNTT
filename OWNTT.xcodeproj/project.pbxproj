@@ -31,6 +31,10 @@
 		250F89AE1991577500D91836 /* LMReferenceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F89AD1991577500D91836 /* LMReferenceData.m */; };
 		250F89BA19915B0000D91836 /* LMDataPickerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250F89B919915B0000D91836 /* LMDataPickerView_iPhone.xib */; };
 		250F89BD19915C1B00D91836 /* LMDataPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F89BC19915C1B00D91836 /* LMDataPickerView.m */; };
+		250F89C01991FBDF00D91836 /* LMDataPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F89BF1991FBDF00D91836 /* LMDataPickerViewController.m */; };
+		250F89C319920B4A00D91836 /* LMAlertSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F89C219920B4A00D91836 /* LMAlertSummaryViewController.m */; };
+		250F89C519920B6E00D91836 /* LMAlertSummaryViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250F89C419920B6E00D91836 /* LMAlertSummaryViewController_iPhone.xib */; };
+		250F89C819920C0B00D91836 /* LMSummaryBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F89C719920C0B00D91836 /* LMSummaryBaseViewController.m */; };
 		250FD81F1986DC1C0047EB42 /* LMSummaryReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250FD81E1986DC1C0047EB42 /* LMSummaryReportViewController.m */; };
 		250FD8211986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */; };
 		252CB2D819901454002677B8 /* LMBranchReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252CB2D719901454002677B8 /* LMBranchReportViewController.m */; };
@@ -44,7 +48,7 @@
 		253F1F55198E27BD00158407 /* _LMProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F52198E27BD00158407 /* _LMProgram.m */; };
 		253F1F56198E27BD00158407 /* LMProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F54198E27BD00158407 /* LMProgram.m */; };
 		253F1F5A198E9DBB00158407 /* LMReportWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F59198E9DBB00158407 /* LMReportWS.m */; };
-		25FAFCA71990C41600FCD226 /* LMReportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA61990C41600FCD226 /* LMReportData.m */; };
+		25FAFCA71990C41600FCD226 /* LMData.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA61990C41600FCD226 /* LMData.m */; };
 		25FAFCAA1990D42900FCD226 /* LMTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */; };
 		25FAFCAD1990D79300FCD226 /* LMReportMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCAC1990D79300FCD226 /* LMReportMenuViewController.m */; };
 		25FAFCB01990D7A000FCD226 /* LMAlertMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCAF1990D7A000FCD226 /* LMAlertMenuViewController.m */; };
@@ -169,6 +173,13 @@
 		250F89B919915B0000D91836 /* LMDataPickerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMDataPickerView_iPhone.xib; sourceTree = "<group>"; };
 		250F89BB19915C1B00D91836 /* LMDataPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMDataPickerView.h; sourceTree = "<group>"; };
 		250F89BC19915C1B00D91836 /* LMDataPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMDataPickerView.m; sourceTree = "<group>"; };
+		250F89BE1991FBDF00D91836 /* LMDataPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMDataPickerViewController.h; sourceTree = "<group>"; };
+		250F89BF1991FBDF00D91836 /* LMDataPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMDataPickerViewController.m; sourceTree = "<group>"; };
+		250F89C119920B4A00D91836 /* LMAlertSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAlertSummaryViewController.h; sourceTree = "<group>"; };
+		250F89C219920B4A00D91836 /* LMAlertSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAlertSummaryViewController.m; sourceTree = "<group>"; };
+		250F89C419920B6E00D91836 /* LMAlertSummaryViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMAlertSummaryViewController_iPhone.xib; sourceTree = "<group>"; };
+		250F89C619920C0B00D91836 /* LMSummaryBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSummaryBaseViewController.h; sourceTree = "<group>"; };
+		250F89C719920C0B00D91836 /* LMSummaryBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSummaryBaseViewController.m; sourceTree = "<group>"; };
 		250FD81D1986DC1C0047EB42 /* LMSummaryReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSummaryReportViewController.h; sourceTree = "<group>"; };
 		250FD81E1986DC1C0047EB42 /* LMSummaryReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSummaryReportViewController.m; sourceTree = "<group>"; };
 		250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMSummaryReportViewController_iPhone.xib; sourceTree = "<group>"; };
@@ -193,8 +204,8 @@
 		253F1F54198E27BD00158407 /* LMProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMProgram.m; sourceTree = "<group>"; };
 		253F1F58198E9DBB00158407 /* LMReportWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReportWS.h; sourceTree = "<group>"; };
 		253F1F59198E9DBB00158407 /* LMReportWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMReportWS.m; sourceTree = "<group>"; };
-		25FAFCA51990C41600FCD226 /* LMReportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReportData.h; sourceTree = "<group>"; };
-		25FAFCA61990C41600FCD226 /* LMReportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMReportData.m; sourceTree = "<group>"; };
+		25FAFCA51990C41600FCD226 /* LMData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMData.h; sourceTree = "<group>"; };
+		25FAFCA61990C41600FCD226 /* LMData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMData.m; sourceTree = "<group>"; };
 		25FAFCA81990D42900FCD226 /* LMTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTabBarViewController.h; sourceTree = "<group>"; };
 		25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTabBarViewController.m; sourceTree = "<group>"; };
 		25FAFCAB1990D79300FCD226 /* LMReportMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReportMenuViewController.h; sourceTree = "<group>"; };
@@ -395,8 +406,8 @@
 			children = (
 				253F1F58198E9DBB00158407 /* LMReportWS.h */,
 				253F1F59198E9DBB00158407 /* LMReportWS.m */,
-				25FAFCA51990C41600FCD226 /* LMReportData.h */,
-				25FAFCA61990C41600FCD226 /* LMReportData.m */,
+				25FAFCA51990C41600FCD226 /* LMData.h */,
+				25FAFCA61990C41600FCD226 /* LMData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -532,6 +543,7 @@
 				25FAFCB11990D7F200FCD226 /* LMMenuViewController_iPhone.xib */,
 				25FAFCB91990DC1B00FCD226 /* LMMenuTableViewCell_iPhone.xib */,
 				250F89B919915B0000D91836 /* LMDataPickerView_iPhone.xib */,
+				250F89C419920B6E00D91836 /* LMAlertSummaryViewController_iPhone.xib */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -585,6 +597,8 @@
 			children = (
 				25FAFCAE1990D7A000FCD226 /* LMAlertMenuViewController.h */,
 				25FAFCAF1990D7A000FCD226 /* LMAlertMenuViewController.m */,
+				250F89C119920B4A00D91836 /* LMAlertSummaryViewController.h */,
+				250F89C219920B4A00D91836 /* LMAlertSummaryViewController.m */,
 				EDD131BA19812F1E006F39E3 /* LMBranchAdvertiserViewController.h */,
 				EDD131BB19812F1E006F39E3 /* LMBranchAdvertiserViewController.m */,
 				EDD131B719812EFD006F39E3 /* LMBranchInstanceViewController.h */,
@@ -595,10 +609,14 @@
 				252CB2D719901454002677B8 /* LMBranchReportViewController.m */,
 				EDD131B419812ECF006F39E3 /* LMBranchViewController.h */,
 				EDD131B519812ECF006F39E3 /* LMBranchViewController.m */,
+				250F89BE1991FBDF00D91836 /* LMDataPickerViewController.h */,
+				250F89BF1991FBDF00D91836 /* LMDataPickerViewController.m */,
 				EDF39E7119810AE700E00966 /* LMHostChildBaseViewController.h */,
 				EDF39E7219810AE700E00966 /* LMHostChildBaseViewController.m */,
 				EDF39E66198104D700E00966 /* LMLoginViewController.h */,
 				EDF39E67198104D700E00966 /* LMLoginViewController.m */,
+				25FAFCB31990D81F00FCD226 /* LMMenuViewController.h */,
+				25FAFCB41990D81F00FCD226 /* LMMenuViewController.m */,
 				EDF39E59198101D500E00966 /* LMNavigationViewController.h */,
 				EDF39E5A198101D500E00966 /* LMNavigationViewController.m */,
 				25FAFCAB1990D79300FCD226 /* LMReportMenuViewController.h */,
@@ -607,12 +625,12 @@
 				EDE87C0019867C7E00043861 /* LMSettingsViewController.m */,
 				EDF39E691981059C00E00966 /* LMSplashViewController.h */,
 				EDF39E6A1981059C00E00966 /* LMSplashViewController.m */,
+				250F89C619920C0B00D91836 /* LMSummaryBaseViewController.h */,
+				250F89C719920C0B00D91836 /* LMSummaryBaseViewController.m */,
 				250FD81D1986DC1C0047EB42 /* LMSummaryReportViewController.h */,
 				250FD81E1986DC1C0047EB42 /* LMSummaryReportViewController.m */,
 				25FAFCA81990D42900FCD226 /* LMTabBarViewController.h */,
 				25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */,
-				25FAFCB31990D81F00FCD226 /* LMMenuViewController.h */,
-				25FAFCB41990D81F00FCD226 /* LMMenuViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -764,6 +782,7 @@
 				25036AAE198D294600EAE355 /* tabbar3.png in Resources */,
 				EDD131AE198120FA006F39E3 /* LMLoginViewController_iPhone.xib in Resources */,
 				25036AAD198D294600EAE355 /* tabbar2@2x.png in Resources */,
+				250F89C519920B6E00D91836 /* LMAlertSummaryViewController_iPhone.xib in Resources */,
 				EDF39E63198103B700E00966 /* mogen.sh in Resources */,
 				EDE87C0319867C8F00043861 /* LMSettingsViewController_iPhone.xib in Resources */,
 				25036AAA198D294600EAE355 /* tabbar1.png in Resources */,
@@ -829,6 +848,7 @@
 				25FAFCCB1990E1D300FCD226 /* LMUserAlert.m in Sources */,
 				25FF5B46198F50B00043DA5D /* _LMReport.m in Sources */,
 				EDD131B919812EFD006F39E3 /* LMBranchInstanceViewController.m in Sources */,
+				250F89C01991FBDF00D91836 /* LMDataPickerViewController.m in Sources */,
 				25036AD5198D2E6900EAE355 /* LMUser.m in Sources */,
 				25036AE9198D5EE300EAE355 /* LMBranchTableViewCell.m in Sources */,
 				EDF39E551980FF7D00E00966 /* LMAppDelegate.m in Sources */,
@@ -850,6 +870,7 @@
 				250F89BD19915C1B00D91836 /* LMDataPickerView.m in Sources */,
 				253F1F4F198E276400158407 /* LMInstance.m in Sources */,
 				EDD131BF19812F2E006F39E3 /* LMBranchProgramViewController.m in Sources */,
+				250F89C319920B4A00D91836 /* LMAlertSummaryViewController.m in Sources */,
 				25FAFCCC1990E1D300FCD226 /* LMUserReport.m in Sources */,
 				25FAFCB51990D81F00FCD226 /* LMMenuViewController.m in Sources */,
 				25FAFCC71990E1D300FCD226 /* _LMReadOnlyUserObject.m in Sources */,
@@ -861,11 +882,12 @@
 				25036AC3198D2CCE00EAE355 /* NSManagedObject+Fetch.m in Sources */,
 				253F1F4C198E276400158407 /* _LMInstance.m in Sources */,
 				25036AD4198D2E6900EAE355 /* _LMUser.m in Sources */,
+				250F89C819920C0B00D91836 /* LMSummaryBaseViewController.m in Sources */,
 				253F1F55198E27BD00158407 /* _LMProgram.m in Sources */,
 				250F89AE1991577500D91836 /* LMReferenceData.m in Sources */,
 				25FAFCC91990E1D300FCD226 /* _LMUserReport.m in Sources */,
 				EDD131B31981272C006F39E3 /* LMTextField.m in Sources */,
-				25FAFCA71990C41600FCD226 /* LMReportData.m in Sources */,
+				25FAFCA71990C41600FCD226 /* LMData.m in Sources */,
 				EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */,
 				EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */,
 				25FF5B49198F50B70043DA5D /* LMReport.m in Sources */,
