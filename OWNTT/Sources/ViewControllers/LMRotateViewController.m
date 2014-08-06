@@ -1,20 +1,18 @@
 //
-//  LMWebViewController.m
+//  LMRotateViewController.m
 //  OWNTT
 //
 //  Created by Maciej Kaszuba on 06/08/14.
 //
 //
 
-#import "LMWebViewController.h"
-#import "LMNavigationViewController.h"
-#import "LMTabBarViewController.h"
+#import "LMRotateViewController.h"
 
-@interface LMWebViewController ()
+@interface LMRotateViewController ()
 
 @end
 
-@implementation LMWebViewController
+@implementation LMRotateViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,19 +48,12 @@
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight | UIInterfaceOrientationMaskPortrait;
+    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
 }
 
 - (BOOL)shouldAutorotate
 {
     return YES;
-}
-
-- (IBAction)doneAction:(id)sender
-{
-    [self.parentViewController dismissViewControllerAnimated:YES completion:^{
-    }];
-    [((LMNavigationViewController *)((LMTabBarViewController*)((TTHostViewController *)self.parentViewController).presentingViewController).selectedViewController) popToRootViewControllerAnimated:NO];
 }
 
 @end

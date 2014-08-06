@@ -61,6 +61,16 @@
 }
 */
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
 #pragma mark -
 #pragma mark === Private methods ===
 - (void)splashViewControllerDidFinish

@@ -42,6 +42,7 @@
 		25146A84199238B3001DC8E3 /* LMDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25146A83199238B3001DC8E3 /* LMDatePickerView.m */; };
 		25146A8719924FC5001DC8E3 /* LMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25146A8619924FC5001DC8E3 /* LMWebViewController.m */; };
 		25146A8919924FDA001DC8E3 /* LMWebViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25146A8819924FDA001DC8E3 /* LMWebViewController_iPhone.xib */; };
+		25146A8F199290D2001DC8E3 /* LMRotateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25146A8E199290D2001DC8E3 /* LMRotateViewController.m */; };
 		252CB2D819901454002677B8 /* LMBranchReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252CB2D719901454002677B8 /* LMBranchReportViewController.m */; };
 		253F1F3E198E219400158407 /* tree.json in Resources */ = {isa = PBXBuildFile; fileRef = 253F1F3D198E219400158407 /* tree.json */; };
 		253F1F4B198E276400158407 /* _LMAdvertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F40198E276400158407 /* _LMAdvertiser.m */; };
@@ -196,6 +197,8 @@
 		25146A8519924FC5001DC8E3 /* LMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMWebViewController.h; sourceTree = "<group>"; };
 		25146A8619924FC5001DC8E3 /* LMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMWebViewController.m; sourceTree = "<group>"; };
 		25146A8819924FDA001DC8E3 /* LMWebViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMWebViewController_iPhone.xib; sourceTree = "<group>"; };
+		25146A8D199290D2001DC8E3 /* LMRotateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMRotateViewController.h; sourceTree = "<group>"; };
+		25146A8E199290D2001DC8E3 /* LMRotateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMRotateViewController.m; sourceTree = "<group>"; };
 		252CB2D619901454002677B8 /* LMBranchReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchReportViewController.h; sourceTree = "<group>"; };
 		252CB2D719901454002677B8 /* LMBranchReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchReportViewController.m; sourceTree = "<group>"; };
 		253F1F3D198E219400158407 /* tree.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tree.json; sourceTree = "<group>"; };
@@ -650,6 +653,8 @@
 				25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */,
 				25146A8519924FC5001DC8E3 /* LMWebViewController.h */,
 				25146A8619924FC5001DC8E3 /* LMWebViewController.m */,
+				25146A8D199290D2001DC8E3 /* LMRotateViewController.h */,
+				25146A8E199290D2001DC8E3 /* LMRotateViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -913,6 +918,7 @@
 				250F89AE1991577500D91836 /* LMReferenceData.m in Sources */,
 				25FAFCC91990E1D300FCD226 /* _LMUserReport.m in Sources */,
 				EDD131B31981272C006F39E3 /* LMTextField.m in Sources */,
+				25146A8F199290D2001DC8E3 /* LMRotateViewController.m in Sources */,
 				25FAFCA71990C41600FCD226 /* LMData.m in Sources */,
 				EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */,
 				EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */,

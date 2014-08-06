@@ -394,10 +394,10 @@
             </objects>
             <point key="canvasLocation" x="2112" y="-4102"/>
         </scene>
-        <!--Host View Controller-->
+        <!--Rotate View Controller-->
         <scene sceneID="iv2-sl-J48">
             <objects>
-                <viewController id="xsX-7X-ySU" customClass="TTHostViewController" sceneMemberID="viewController">
+                <viewController id="xsX-7X-ySU" customClass="LMRotateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y5w-mU-lUo"/>
                         <viewControllerLayoutGuide type="bottom" id="SRE-OQ-4Wl"/>
@@ -431,7 +431,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="taN-ZK-iiH"/>
-        <segue reference="Ug5-Jv-ffk"/>
+        <segue reference="bzR-dC-4dG"/>
         <segue reference="4JP-VP-Uak"/>
         <segue reference="HNE-4q-bxA"/>
         <segue reference="wRg-FK-AFq"/>

@@ -81,6 +81,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+
 /*
 #pragma mark - Navigation
 

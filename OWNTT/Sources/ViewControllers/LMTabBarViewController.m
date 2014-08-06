@@ -7,6 +7,7 @@
 //
 
 #import "LMTabBarViewController.h"
+#import "LMWebViewController.h"
 
 @interface LMTabBarViewController () <UITabBarControllerDelegate>
 
@@ -50,6 +51,32 @@
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
     
     return (![viewController isEqual:self.selectedViewController]);
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    /*if([self.presentedViewController isKindOfClass:[TTHostViewController class]])
+    {
+        TTHostViewController *hostController = (TTHostViewController *)self.presentedViewController;
+        if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
+        {
+            return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+        }
+    }*/
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (BOOL)shouldAutorotate
+{
+    /*if([self.presentedViewController isKindOfClass:[TTHostViewController class]])
+    {
+        TTHostViewController *hostController = (TTHostViewController *)self.presentedViewController;
+        if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
+        {
+            return YES;
+        }
+    }*/
+    return NO;
 }
 
 @end
