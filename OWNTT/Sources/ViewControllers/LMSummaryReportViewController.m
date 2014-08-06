@@ -51,14 +51,6 @@
     self.reportNameTextField.delegate = nil;
 }
 
-- (void)viewDidLayoutSubviews
-{
-    if(self.pickerViewController)
-    {
-        [self.pickerViewController updateFrameForOrientation:self.interfaceOrientation];
-    }
-}
-
 /*
 #pragma mark - Navigation
 
