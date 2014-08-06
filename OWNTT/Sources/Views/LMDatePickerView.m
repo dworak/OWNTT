@@ -8,6 +8,13 @@
 
 #import "LMDatePickerView.h"
 
+@interface LMDatePickerView ()
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbarView;
+
+@property (strong, nonatomic) NSString *currentValue;
+
+@end
+
 @implementation LMDatePickerView
 
 - (id)initWithFrame:(CGRect)frame

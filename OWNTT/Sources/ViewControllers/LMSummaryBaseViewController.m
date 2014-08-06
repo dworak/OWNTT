@@ -29,12 +29,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pickerShow) name:PICKER_VIEW_SHOW_NOTIFICATION object:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pickerHide) name:PICKER_VIEW_HIDE_NOTIFICATION object:self];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pickerWillShow) name:PICKER_VIEW_WILL_SHOW_NOTIFICATION object:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pickerWillHide) name:PICKER_VIEW_WILL_HIDE_NOTIFICATION object:self];
-    
     [self.parentViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)]];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -70,11 +64,6 @@
 - (void)viewDidLayoutSubviews
 {
     
-}
-
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning

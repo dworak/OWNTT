@@ -85,7 +85,10 @@
 #pragma mark === Public methods ===
 - (void)setPickerDate:(NSDate *)date
 {
-    self.defaultDate = date;
+    if(date)
+    {
+        self.defaultDate = date;
+    }
 }
 
 - (void)showInView:(UIView *)view

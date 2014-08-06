@@ -15,6 +15,7 @@ typedef void (^DatePickerViewCancelAction)();
 @property (copy, nonatomic) DatePickerViewDoneAction pickerViewDoneAction;
 @property (copy, nonatomic) DatePickerViewCancelAction pickerViewCancelAction;
 
+- (void)updateFrameForOrientation:(UIInterfaceOrientation)orintation;
 - (void)setPickerDate:(NSDate *)date;
 - (void)showInView:(UIView *)view;
 - (void)hide;

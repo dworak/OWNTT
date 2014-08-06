@@ -8,4 +8,24 @@
         "Wczoraj",
         "Dzisiaj"
     ],
+    "alertMonitoringTypes" : [
+        "Narastający",
+        "Dzienny"
+    ],
+    "alertHourTypes" : [
+        "9:00",
+        "10:00",
+        "11:00",
+        "12:00"
+    ],
+    "alertPointertypes" : [
+        "Odsłona",
+        "Kliknięcie",
+        "Wizyta",
+        "Nowa Wizyta",
+        "Czas na stronie",
+        "Checkpoint",
+        "Lead",
+        "Sprzedaż"
+    ]
 }

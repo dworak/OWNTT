@@ -7,17 +7,25 @@
 //
 
 #import "LMAlertSummaryViewController.h"
+#import "LMDataPickerViewController.h"
+#import "LMDatePickerViewController.h"
 #import "LMButton.h"
 #import "LMTextField.h"
+#import "LMReferenceData.h"
 
 @interface LMAlertSummaryViewController ()
+@property (strong, nonatomic) LMDatePickerViewController *datePickerController;
+
 @property (weak, nonatomic) IBOutlet LMTextField *alertNameTextField;
+@property (strong, nonatomic) NSDateFormatter *dateFormater;
 @property (weak, nonatomic) IBOutlet LMButton *dateFrom;
 @property (weak, nonatomic) IBOutlet LMButton *dateTo;
 @property (weak, nonatomic) IBOutlet LMButton *monitoringType;
 @property (weak, nonatomic) IBOutlet LMButton *rateType;
 @property (weak, nonatomic) IBOutlet LMButton *hourOfSend;
 @property (weak, nonatomic) IBOutlet LMTextField *valueTextField;
+
+@property (weak, nonatomic) UIButton *currentButton;
 
 @end
 
@@ -36,6 +44,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.dateFormater = [[NSDateFormatter alloc] init];
+    [self.dateFormater setDateFormat:@"yyyy-dd-mm"];
+    self.scrollView.contentSize = CGSizeMake(320, self.view.frame.size.height-64);
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,5 +65,157 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+/*- (void)viewDidLayoutSubviews
+{
+    if(self.pickerViewController)
+    {
+        [self.pickerViewController updateFrameForOrientation:self.interfaceOrientation];
+    }
+    
+    if(self.datePickerController)
+    {
+        [self.datePickerController updateFrameForOrientation:self.interfaceOrientation];
+    }
+}*/
+
+- (IBAction)buttonTapped:(id)sender
+{
+    BOOL isPickerData = YES;
+    self.currentButton = (UIButton *)sender;
+    NSArray *dataArray;
+    int defaultStartValue = -1;
+    switch (self.currentButton.tag) {
+        case LMAlertSummaryButtonType_DateFrom:
+            isPickerData = NO;
+            break;
+        case LMAlertSummaryButtonType_DateTo:
+            isPickerData = NO;
+            break;
+        case LMAlertSummaryButtonType_Hour:
+            defaultStartValue = 0;
+            dataArray = [LMReferenceData staticAlertHourTypes];
+            break;
+        case LMAlertSummaryButtonType_Monitoring:
+            defaultStartValue = 0;
+            dataArray = [LMReferenceData staticAlertMonitoringTypes];
+            break;
+        case LMAlertSummaryButtonType_Pointer:
+            defaultStartValue = 1;
+            dataArray = [LMReferenceData staticAlertPointerTypes];
+            break;
+        default:
+            break;
+    }
+    
+    if(isPickerData)
+    {
+        if(self.currentEditingTextField)
+        {
+            [self.currentEditingTextField resignFirstResponder];
+        }
+        if(self.datePickerController)
+        {
+            [self.datePickerController hide];
+        }
+        if(!self.pickerViewController)
+        {
+            self.pickerViewController = [[LMDataPickerViewController alloc] init];
+            __weak LMAlertSummaryViewController *selfObj = self;
+            self.pickerViewController.pickerViewCancelAction = ^()
+            {
+                [selfObj.pickerViewController hide];
+            };
+            self.pickerViewController.pickerViewDoneAction = ^(NSString *value)
+            {
+                [selfObj.currentButton setTitle:value forState:UIControlStateNormal];
+                [selfObj.currentButton setTitle:value forState:UIControlStateHighlighted];
+                [selfObj.pickerViewController hide];
+            };
+        }
+        [self.pickerViewController addPickerData:dataArray];
+        [self.pickerViewController showInView:self.view];
+        int defaultVal = 0;
+        BOOL check = NO;
+        for(NSString *str in dataArray)
+        {
+            if([str isEqualToString:self.currentButton.titleLabel.text])
+            {
+                check = YES;
+                break;
+            }
+            defaultVal++;
+        }
+        if(!check) {
+            defaultVal = -1;
+        }
+        if(defaultVal != -1)
+        {
+            [self.pickerViewController selectPickerObject:defaultVal];
+        }
+        else
+        {
+            if(defaultStartValue != -1)
+            {
+                [self.pickerViewController selectPickerObject:defaultStartValue];
+            }
+            else
+            {
+                [self.pickerViewController selectPickerObject:-1];
+            }
+        }
+    }
+    else
+    {
+        if(self.currentEditingTextField)
+        {
+            [self.currentEditingTextField resignFirstResponder];
+        }
+        if(self.pickerViewController)
+        {
+            [self.pickerViewController hide];
+        }
+        if(!self.datePickerController)
+        {
+            self.datePickerController = [[LMDatePickerViewController alloc] init];
+            __weak LMAlertSummaryViewController *selfObj = self;
+            self.datePickerController.pickerViewCancelAction = ^()
+            {
+                [selfObj.pickerViewController hide];
+            };
+            self.datePickerController.pickerViewDoneAction = ^(NSDate *value)
+            {
+                NSString *date = [selfObj.dateFormater stringFromDate:value];
+                [selfObj.currentButton setTitle:date forState:UIControlStateNormal];
+                [selfObj.currentButton setTitle:date forState:UIControlStateHighlighted];
+                [selfObj.datePickerController hide];
+            };
+        }
+        [self.datePickerController showInView:self.view];
+        NSString *pickerDate = [self.dateFormater stringFromDate:[NSDate date]];
+        if([pickerDate isEqualToString:self.currentButton.titleLabel.text])
+        {
+            [self.datePickerController setPickerDate:[NSDate date]];
+        }
+        else
+        {
+            [self.datePickerController setPickerDate:nil];
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark === UITextFieldDelegate methods ===
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    [self.pickerViewController hide];
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 @end

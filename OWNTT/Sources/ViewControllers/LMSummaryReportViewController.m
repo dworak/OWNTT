@@ -37,7 +37,7 @@
     [self.timeintervalButton setTitle:[self.pickerData objectAtIndex:2] forState:UIControlStateNormal];
     [self.timeintervalButton setTitle:[self.pickerData objectAtIndex:2] forState:UIControlStateHighlighted];
     self.reportNameTextField.delegate = self;
-    self.scrollView.contentSize = CGSizeMake(320, 480);
+    self.scrollView.contentSize = CGSizeMake(320, self.view.frame.size.height-64);
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,7 +87,6 @@
     {
         [self.reportNameTextField resignFirstResponder];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:PICKER_VIEW_WILL_SHOW_NOTIFICATION object:self userInfo:nil];
     if(!self.pickerViewController)
     {
         self.pickerViewController = [[LMDataPickerViewController alloc] init];

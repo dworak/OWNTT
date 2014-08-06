@@ -21,11 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) NSArray *pickerData;
-- (void)pickerShow;
-- (void)pickerHide;
-
-- (void)pickerWillShow;
-- (void)pickerWillHide;
 
 - (void)saveObjectData;
 - (BOOL)isValid;

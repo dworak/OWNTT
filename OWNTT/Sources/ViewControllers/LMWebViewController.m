@@ -1,18 +1,18 @@
 //
-//  LMTabBarViewController.m
+//  LMWebViewController.m
 //  OWNTT
 //
-//  Created by Maciej Kaszuba on 05/08/14.
+//  Created by Maciej Kaszuba on 06/08/14.
 //
 //
 
-#import "LMTabBarViewController.h"
+#import "LMWebViewController.h"
 
-@interface LMTabBarViewController () <UITabBarControllerDelegate>
+@interface LMWebViewController ()
 
 @end
 
-@implementation LMTabBarViewController
+@implementation LMWebViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +27,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,10 +45,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
-    
-    return (![viewController isEqual:self.selectedViewController]);
-}
 
 @end

@@ -61,6 +61,7 @@
 - (void)updateFrameForOrientation:(UIInterfaceOrientation)orintation
 {
     CGRect pickerFrame = self.pickerView.frame;
+    pickerFrame.origin.x = 0;
     if(UIInterfaceOrientationIsLandscape(orintation))
     {
         pickerFrame.size.width = self.pickerView.superview.frame.size.width;
@@ -99,6 +100,7 @@
 - (void)addPickerData:(NSArray *)pickerData
 {
     self.pickerData = pickerData;
+    [self.pickerView.pickerView reloadAllComponents];
 }
 
 - (void)showInView:(UIView *)view
@@ -118,6 +120,7 @@
         self.pickerShow = YES;
         [view addSubview:self.pickerView];
         CGRect pickerFrame = self.pickerView.frame;
+        pickerFrame.origin.x = 0;
         pickerFrame.origin.y = view.frame.size.height;
         self.pickerView.frame = pickerFrame;
         
@@ -154,6 +157,7 @@
     self.pickerShow = NO;
     [[NSNotificationCenter defaultCenter] postNotificationName:PICKER_VIEW_WILL_HIDE_NOTIFICATION object:nil userInfo:nil];
     CGRect pickerFrame = self.pickerView.frame;
+    pickerFrame.origin.x = 0;
     pickerFrame.origin.y = self.pickerView.superview.frame.size.height;
     [UIView animateWithDuration:STANDARD_ANIMATION_DURATION animations:^{
         self.pickerView.frame = pickerFrame;

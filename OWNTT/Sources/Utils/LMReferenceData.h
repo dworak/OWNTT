@@ -10,4 +10,7 @@
 
 @interface LMReferenceData : NSObject
 + (NSArray *)staticReportTimeIntervalValues;
++ (NSArray *)staticAlertMonitoringTypes;
++ (NSArray *)staticAlertHourTypes;
++ (NSArray *)staticAlertPointerTypes;
 @end

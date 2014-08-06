@@ -55,7 +55,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <outlet property="cancelItem" destination="qRu-UI-3yZ" id="pva-vk-Lf6"/>
                 <outlet property="datePicker" destination="rCK-Ka-Pkr" id="IQy-wF-bhC"/>
                 <outlet property="doneItem" destination="S8J-Bv-STb" id="xrD-Dw-gCY"/>
-                <outlet property="toolbarView" destination="tnc-VI-7VN" id="7gj-Pd-N08"/>
+                <outlet property="toolbarView" destination="tnc-VI-7VN" id="ydo-Qn-wk7"/>
             </connections>
         </view>
     </objects>

@@ -234,6 +234,9 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMSummaryReportViewController"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMSummaryReportViewController"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="xsX-7X-ySU" kind="push" identifier="LMSegueKeyType_PushWeb" id="wRg-FK-AFq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctm-89-FLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -383,10 +386,36 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMAlertSummaryViewController"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMAlertSummaryViewController"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="xsX-7X-ySU" kind="push" identifier="LMSegueKeyType_PushWeb" id="QI1-tS-7i7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hnp-mc-6yV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2112" y="-4102"/>
+        </scene>
+        <!--Host View Controller-->
+        <scene sceneID="iv2-sl-J48">
+            <objects>
+                <viewController id="xsX-7X-ySU" customClass="TTHostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y5w-mU-lUo"/>
+                        <viewControllerLayoutGuide type="bottom" id="SRE-OQ-4Wl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="piB-Ei-Au1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="17J-bl-wQJ"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMWebViewController"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMWebViewController"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="57M-gp-kbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3208" y="-5014"/>
         </scene>
     </scenes>
     <resources>
@@ -402,8 +431,9 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="taN-ZK-iiH"/>
+        <segue reference="Ug5-Jv-ffk"/>
         <segue reference="4JP-VP-Uak"/>
         <segue reference="HNE-4q-bxA"/>
-        <segue reference="Ug5-Jv-ffk"/>
+        <segue reference="wRg-FK-AFq"/>
     </inferredMetricsTieBreakers>
 </document>
