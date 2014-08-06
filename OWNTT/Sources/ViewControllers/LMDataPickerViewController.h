@@ -15,6 +15,8 @@ typedef void (^PickerViewCancelAction)();
 @property (copy, nonatomic) PickerViewDoneAction pickerViewDoneAction;
 @property (copy, nonatomic) PickerViewCancelAction pickerViewCancelAction;
 
+- (void)updateFrameForOrientation:(UIInterfaceOrientation)orintation;
+
 - (void)selectPickerObject:(int)row;
 - (void)addPickerData:(NSArray *)pickerData;
 - (void)showInView:(UIView *)view;

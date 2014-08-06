@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -10,29 +10,25 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzz-D2-1S4">
+                <view contentMode="scaleToFill" id="pzz-D2-1S4">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bzN-NK-BxG" customClass="LMButton">
+                            <rect key="frame" x="9" y="7" width="301" height="30"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                            <state key="normal" title="Raport ogólny programów">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="headerButtonOn:" destination="iN0-l3-epB" eventType="touchUpInside" id="3f7-n9-1rX"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzN-NK-BxG" customClass="LMButton">
-                    <rect key="frame" x="10" y="7" width="301" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Raport ogólny programów">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="headerButtonOn:" destination="iN0-l3-epB" eventType="touchUpInside" id="3f7-n9-1rX"/>
-                    </connections>
-                </button>
             </subviews>
-            <constraints>
-                <constraint firstItem="pzz-D2-1S4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0RO-YQ-HeP"/>
-                <constraint firstAttribute="trailing" secondItem="pzz-D2-1S4" secondAttribute="trailing" id="B1J-tw-S3X"/>
-                <constraint firstAttribute="bottom" secondItem="pzz-D2-1S4" secondAttribute="bottom" id="Yvn-Nu-ocU"/>
-                <constraint firstItem="pzz-D2-1S4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yKA-VZ-Cmn"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="headerButton" destination="bzN-NK-BxG" id="m02-EJ-7cK"/>

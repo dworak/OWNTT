@@ -37,21 +37,7 @@
     [self.timeintervalButton setTitle:[self.pickerData objectAtIndex:2] forState:UIControlStateNormal];
     [self.timeintervalButton setTitle:[self.pickerData objectAtIndex:2] forState:UIControlStateHighlighted];
     self.reportNameTextField.delegate = self;
-}
-
-- (void)viewDidLayoutSubviews
-{
-    /*CGRect frame = self.pickerView.frame;
-    if(self.pickerViewShow)
-    {
-        frame.origin.y = self.view.frame.size.height - frame.size.height;
-    }
-    else
-    {
-        frame.origin.y = self.view.frame.size.height;
-    }
-    self.pickerView.frame = frame;*/
-    
+    self.scrollView.contentSize = CGSizeMake(320, 480);
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,6 +49,14 @@
 - (void)dealloc
 {
     self.reportNameTextField.delegate = nil;
+}
+
+- (void)viewDidLayoutSubviews
+{
+    if(self.pickerViewController)
+    {
+        [self.pickerViewController updateFrameForOrientation:self.interfaceOrientation];
+    }
 }
 
 /*

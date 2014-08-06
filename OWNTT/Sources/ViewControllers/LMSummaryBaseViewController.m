@@ -67,6 +67,11 @@
 
 }
 
+- (void)viewDidLayoutSubviews
+{
+    
+}
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

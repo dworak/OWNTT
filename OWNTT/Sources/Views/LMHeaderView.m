@@ -21,6 +21,7 @@
     CGRect sepFrame = CGRectMake(0, self.frame.size.height-1, 320, 1);
     UIView *seperatorView = [[UIView alloc] initWithFrame:sepFrame];
     seperatorView.backgroundColor = [UIColor colorWithWhite:224.0/255.0 alpha:1.0];
+    seperatorView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self addSubview:seperatorView];
 }
 

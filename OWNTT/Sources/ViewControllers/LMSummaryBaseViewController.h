@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *instanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *advertiserLabel;
 @property (weak, nonatomic) IBOutlet UILabel *programLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) NSArray *pickerData;
 - (void)pickerShow;

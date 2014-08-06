@@ -58,6 +58,25 @@
 }
 */
 
+- (void)updateFrameForOrientation:(UIInterfaceOrientation)orintation
+{
+    CGRect pickerFrame = self.pickerView.frame;
+    if(UIInterfaceOrientationIsLandscape(orintation))
+    {
+        pickerFrame.size.width = self.pickerView.superview.frame.size.width;
+    }
+    else
+    {
+        pickerFrame.size.width = self.pickerView.superview.frame.size.width;
+    }
+    pickerFrame.origin.y = self.pickerView.superview.frame.size.height;
+    if(self.pickerShow)
+    {
+        pickerFrame.origin.y -= pickerFrame.size.height;
+    }
+    self.pickerView.frame = pickerFrame;
+}
+
 #pragma mark -
 #pragma mark === Private methods ===
 - (void)doneAction
@@ -84,34 +103,46 @@
 
 - (void)showInView:(UIView *)view
 {
-    if(self.pickerShow) {
-        return;
-    }
-    self.pickerShow = YES;
     if(!self.pickerView)
     {
         self.pickerView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMDataPickerView class])] owner:self options:nil] objectAtIndex:0];
+        self.pickerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self.pickerView.cancelItem setTarget:self];
         [self.pickerView.cancelItem setAction:@selector(cancelAction)];
         [self.pickerView.doneItem setTarget:self];
         [self.pickerView.doneItem setAction:@selector(doneAction)];
     }
-    [view addSubview:self.pickerView];
-    CGRect pickerFrame = self.pickerView.frame;
-    pickerFrame.origin.y = view.frame.size.height;
-    self.pickerView.frame = pickerFrame;
     
-    pickerFrame.origin.y = view.frame.size.height - (pickerFrame.size.height + 44);
-    [UIView animateWithDuration:STANDARD_ANIMATION_DURATION animations:^{
+    if(!self.pickerShow)
+    {
+        self.pickerShow = YES;
+        [view addSubview:self.pickerView];
+        CGRect pickerFrame = self.pickerView.frame;
+        pickerFrame.origin.y = view.frame.size.height;
         self.pickerView.frame = pickerFrame;
-    } completion:^(BOOL finished) {
-        [self.pickerView.pickerView selectRow:self.defaultRow inComponent:0 animated:YES];
+        
+        pickerFrame.origin.y = pickerFrame.origin.y - (pickerFrame.size.height + 44);
+        [UIView animateWithDuration:STANDARD_ANIMATION_DURATION animations:^{
+            self.pickerView.frame = pickerFrame;
+        } completion:^(BOOL finished) {
+            if(self.defaultRow != -1)
+            {
+                [self.pickerView.pickerView selectRow:self.defaultRow inComponent:0 animated:YES];
+                self.currentPickerValue = [self.pickerData objectAtIndex:self.defaultRow];
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:PICKER_VIEW_SHOW_NOTIFICATION object:nil userInfo:nil];
+        }];
+    }
+    else
+    {
         if(self.defaultRow != -1)
         {
+            [self.pickerView.pickerView selectRow:self.defaultRow inComponent:0 animated:YES];
             self.currentPickerValue = [self.pickerData objectAtIndex:self.defaultRow];
         }
+        [self.pickerView.pickerView reloadAllComponents];
         [[NSNotificationCenter defaultCenter] postNotificationName:PICKER_VIEW_SHOW_NOTIFICATION object:nil userInfo:nil];
-    }];
+    }
 }
 
 - (void)hide
