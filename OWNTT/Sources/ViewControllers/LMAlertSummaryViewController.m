@@ -12,6 +12,10 @@
 #import "LMButton.h"
 #import "LMTextField.h"
 #import "LMReferenceData.h"
+#import "LMInstance.h"
+#import "LMReport.h"
+#import "LMAdvertiser.h"
+#import "LMProgram.h"
 
 @interface LMAlertSummaryViewController ()
 @property (strong, nonatomic) LMDatePickerViewController *datePickerController;
@@ -47,6 +51,28 @@
     self.dateFormater = [[NSDateFormatter alloc] init];
     [self.dateFormater setDateFormat:@"yyyy-dd-mm"];
     self.scrollView.contentSize = CGSizeMake(320, self.view.frame.size.height-64);
+    
+    self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.transactionData.instanceId inContext:self.managedObjectContext];
+    if(instance)
+    {
+        self.instanceLabel.text = instance.name;
+        for(LMAdvertiser *advertiser in instance.advertisers.allObjects)
+        {
+            if(advertiser.objectId.intValue == self.transactionData.advertiserId.intValue)
+            {
+                self.advertiserLabel.text = advertiser.name;
+                for(LMProgram *program in advertiser.programs.allObjects)
+                {
+                    if(program.objectId.intValue == self.transactionData.programId.intValue)
+                    {
+                        self.programLabel.text = program.name;
+                    }
+                }
+                break;
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning

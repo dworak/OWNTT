@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LMWebViewController : UIViewController
+@interface LMWebViewController : LMHostChildBaseViewController
 
 @end

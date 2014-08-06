@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LMData.h"
 
 @class LMDataPickerViewController;
 
@@ -19,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *advertiserLabel;
 @property (weak, nonatomic) IBOutlet UILabel *programLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (strong, nonatomic) LMData *transactionData;
 
 @property (strong, nonatomic) NSArray *pickerData;
 

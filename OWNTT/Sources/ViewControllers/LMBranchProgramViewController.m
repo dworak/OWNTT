@@ -8,6 +8,7 @@
 
 #import "LMBranchProgramViewController.h"
 #import "LMNavigationViewController.h"
+#import "LMSummaryBaseViewController.h"
 #import "LMInstance.h"
 #import "LMReadOnlyObject.h"
 #import "LMProgram.h"
@@ -52,6 +53,22 @@
 }
 */
 
+- (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
+    {
+        TTHostViewController *hostController = segue.destinationViewController;
+        if([hostController.childViewController isKindOfClass:[LMSummaryBaseViewController class]])
+        {
+            ((LMSummaryBaseViewController *)hostController.childViewController).transactionData = self.objectId;
+        }
+        else
+        {
+            [super prepareChildForSegue:segue sender:sender];
+        }
+    }
+}
+
 - (void)getTableData
 {
     LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId.instanceId inContext:self.managedObjectContext];
@@ -59,7 +76,10 @@
         NSMutableArray *programsArray = [NSMutableArray new];
         for(LMAdvertiser *advertiser in instance.advertisers.allObjects)
         {
-            [programsArray addObjectsFromArray:advertiser.programs.allObjects];
+            if(advertiser.objectId.intValue == self.objectId.advertiserId.intValue)
+            {
+                [programsArray addObjectsFromArray:advertiser.programs.allObjects];
+            }
         }
         NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
         self.tableData = [programsArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesc]];

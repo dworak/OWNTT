@@ -27,12 +27,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.parentViewController.navigationItem setHidesBackButton:YES animated:NO];
+    [self.parentViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
 }
 
 /*
@@ -45,5 +52,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)doneAction:(id)sender
+{
+    [self.parentViewController.navigationController popToRootViewControllerAnimated:YES];
+}
 
 @end

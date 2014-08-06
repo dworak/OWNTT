@@ -7,6 +7,7 @@
 //
 
 #import "LMBranchReportViewController.h"
+#import "LMAlertSummaryViewController.h"
 #import "LMReport.h"
 #import "LMInstance.h"
 
@@ -36,6 +37,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
+    {
+        TTHostViewController *hostController = segue.destinationViewController;
+        if([hostController.childViewController isKindOfClass:[LMSummaryBaseViewController class]])
+        {
+            ((LMSummaryBaseViewController *)hostController.childViewController).transactionData = self.objectId;
+        }
+    }
 }
 
 /*

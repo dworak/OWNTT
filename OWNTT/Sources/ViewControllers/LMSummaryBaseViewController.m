@@ -94,7 +94,7 @@
     if([self isValid])
     {
         [self saveObjectData];
-        [self.parentViewController.navigationController popToRootViewControllerAnimated:YES];
+        [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushWeb] sender:self];
     }
 }
 
@@ -105,7 +105,7 @@
 
 - (BOOL)isValid
 {
-    return NO;
+    return YES;
 }
 
 - (void)pickerShow
