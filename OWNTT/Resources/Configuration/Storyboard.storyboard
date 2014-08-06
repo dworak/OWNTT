@@ -235,7 +235,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMSummaryReportViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="xsX-7X-ySU" kind="push" identifier="LMSegueKeyType_PushWeb" id="wRg-FK-AFq"/>
+                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWeb" modalTransitionStyle="coverVertical" id="wRg-FK-AFq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctm-89-FLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -387,7 +387,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMAlertSummaryViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="xsX-7X-ySU" kind="push" identifier="LMSegueKeyType_PushWeb" id="QI1-tS-7i7"/>
+                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWeb" modalTransitionStyle="coverVertical" id="QI1-tS-7i7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hnp-mc-6yV" userLabel="First Responder" sceneMemberID="firstResponder"/>

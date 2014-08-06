@@ -7,6 +7,8 @@
 //
 
 #import "LMWebViewController.h"
+#import "LMNavigationViewController.h"
+#import "LMTabBarViewController.h"
 
 @interface LMWebViewController ()
 
@@ -27,14 +29,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.parentViewController.navigationItem setHidesBackButton:YES animated:NO];
-    [self.parentViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight | UIInterfaceOrientationMaskPortrait;
 }
 
 - (BOOL)shouldAutorotate
@@ -55,7 +60,9 @@
 
 - (IBAction)doneAction:(id)sender
 {
-    [self.parentViewController.navigationController popToRootViewControllerAnimated:YES];
+    [self.parentViewController dismissViewControllerAnimated:YES completion:^{
+    }];
+    [((LMNavigationViewController *)((LMTabBarViewController*)((TTHostViewController *)self.parentViewController).presentingViewController).selectedViewController) popToRootViewControllerAnimated:NO];
 }
 
 @end
