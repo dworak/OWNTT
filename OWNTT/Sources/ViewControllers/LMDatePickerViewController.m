@@ -1,27 +1,18 @@
 //
-//  LMAlertSummaryViewController.m
+//  LMDatePickerViewController.m
 //  OWNTT
 //
 //  Created by Maciej Kaszuba on 06/08/14.
 //
 //
 
-#import "LMAlertSummaryViewController.h"
-#import "LMButton.h"
-#import "LMTextField.h"
+#import "LMDatePickerViewController.h"
 
-@interface LMAlertSummaryViewController ()
-@property (weak, nonatomic) IBOutlet LMTextField *alertNameTextField;
-@property (weak, nonatomic) IBOutlet LMButton *dateFrom;
-@property (weak, nonatomic) IBOutlet LMButton *dateTo;
-@property (weak, nonatomic) IBOutlet LMButton *monitoringType;
-@property (weak, nonatomic) IBOutlet LMButton *rateType;
-@property (weak, nonatomic) IBOutlet LMButton *hourOfSend;
-@property (weak, nonatomic) IBOutlet LMTextField *valueTextField;
+@interface LMDatePickerViewController ()
 
 @end
 
-@implementation LMAlertSummaryViewController
+@implementation LMDatePickerViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

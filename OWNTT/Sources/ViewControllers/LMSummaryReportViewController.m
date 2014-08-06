@@ -13,11 +13,6 @@
 #import "LMNavigationViewController.h"
 
 @interface LMSummaryReportViewController () <UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *subMenuImage;
-@property (weak, nonatomic) IBOutlet UILabel *instanceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *advertiserLabel;
-@property (weak, nonatomic) IBOutlet UILabel *programLabel;
-
 @property (weak, nonatomic) IBOutlet LMTextField *reportNameTextField;
 @property (weak, nonatomic) IBOutlet LMButton *timeintervalButton;
 
@@ -81,17 +76,15 @@
 }
 */
 
-- (IBAction)doneAction:(id)sender
+- (BOOL)isValid
 {
     NSString *validate = [self.reportNameTextField validateField];
     if(validate)
     {
         [LMUtils showErrorAlertWithText:validate];
+        return NO;
     }
-    else
-    {
-        //[self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushReportSummary] sender:self];
-    }
+    return YES;
 }
 
 - (IBAction)showPickerTapped:(id)sender

@@ -96,7 +96,22 @@
 
 - (IBAction)doneAction:(id)sender
 {
+    //SaveData
+    if([self isValid])
+    {
+        [self saveObjectData];
+        [self.parentViewController.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
+- (void)saveObjectData
+{
     
+}
+
+- (BOOL)isValid
+{
+    return NO;
 }
 
 - (void)pickerShow
