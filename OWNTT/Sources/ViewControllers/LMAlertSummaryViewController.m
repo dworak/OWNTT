@@ -18,8 +18,6 @@
 #import "LMProgram.h"
 
 @interface LMAlertSummaryViewController ()
-@property (strong, nonatomic) LMDatePickerViewController *datePickerController;
-
 @property (weak, nonatomic) IBOutlet LMTextField *alertNameTextField;
 @property (strong, nonatomic) NSDateFormatter *dateFormater;
 @property (weak, nonatomic) IBOutlet LMButton *dateFrom;

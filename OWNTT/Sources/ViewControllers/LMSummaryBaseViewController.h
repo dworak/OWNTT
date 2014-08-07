@@ -10,9 +10,11 @@
 #import "LMData.h"
 
 @class LMDataPickerViewController;
+@class LMDatePickerViewController;
 
 @interface LMSummaryBaseViewController : LMViewControllerBase <TTChildViewControllerProtocol>
 @property (strong, nonatomic) LMDataPickerViewController *pickerViewController;
+@property (strong, nonatomic) LMDatePickerViewController *datePickerController;
 @property (unsafe_unretained, nonatomic) BOOL pickerViewShow;
 
 @property (weak, nonatomic) IBOutlet UIImageView *subMenuImage;

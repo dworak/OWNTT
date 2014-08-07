@@ -8,6 +8,7 @@
 
 #import "LMSummaryBaseViewController.h"
 #import "LMDataPickerViewController.h"
+#import "LMDatePickerViewController.h"
 #import <LM/LMViewControllerBase.h>
 
 @interface LMSummaryBaseViewController ()
@@ -94,6 +95,18 @@
 
 - (IBAction)doneAction:(id)sender
 {
+    if(self.currentEditingTextField)
+    {
+        [self.currentEditingTextField resignFirstResponder];
+    }
+    if(self.pickerViewController)
+    {
+        [self.pickerViewController hide];
+    }
+    if(self.datePickerController)
+    {
+        [self.datePickerController hide];
+    }
     //SaveData
     if([self isValid])
     {

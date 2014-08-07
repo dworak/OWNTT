@@ -113,6 +113,7 @@
 #pragma mark === UITextFieldDelegate methods ===
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+    self.currentEditingTextField = textField;
     [self.pickerViewController hide];
     return YES;
 }
