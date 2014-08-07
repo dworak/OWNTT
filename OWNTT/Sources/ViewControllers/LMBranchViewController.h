@@ -7,6 +7,7 @@
 //
 
 #import "LMHostChildBaseViewController.h"
+#import "LMWebViewController.h"
 #import "LMData.h"
 
 @class LMHeaderView;

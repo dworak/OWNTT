@@ -76,7 +76,10 @@
 {
     [self.parentViewController dismissViewControllerAnimated:YES completion:^{
     }];
+    if(!self.isPop)
+    {
     [((LMNavigationViewController *)((LMTabBarViewController*)((TTHostViewController *)self.parentViewController).presentingViewController).selectedViewController) popToRootViewControllerAnimated:NO];
+    }
 }
 
 @end

@@ -73,6 +73,7 @@
                     <connections>
                         <segue destination="M0q-mS-hcy" kind="push" identifier="LMSegueKeyType_PushAdvertiserList" id="GpV-0x-REA"/>
                         <segue destination="y7x-9C-JhN" kind="push" identifier="LMSegueKeyType_PushProgramList" id="0yr-Nw-2XK"/>
+                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWebPop" modalTransitionStyle="crossDissolve" id="ydz-0Q-tPw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QVc-ma-Rce" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -158,6 +159,7 @@
                     <connections>
                         <segue destination="dp1-ZQ-flU" kind="push" identifier="LMSegueKeyType_PushReport" id="N6r-LL-aii"/>
                         <segue destination="aZI-3u-bLF" kind="push" identifier="LMSegueKeyType_PushAlertSummary" id="cLc-J3-1iJ"/>
+                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWebPop" modalTransitionStyle="crossDissolve" id="KPh-Vc-hFT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2K-1O-NLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -211,6 +213,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="y7x-9C-JhN" kind="push" identifier="LMSegueKeyType_PushProgramList" id="HNE-4q-bxA"/>
+                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWebPop" modalTransitionStyle="crossDissolve" id="FU0-uX-eKh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5L-xC-nBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctm-89-FLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1464" y="-3508"/>
+            <point key="canvasLocation" x="1864" y="-4236"/>
         </scene>
         <!--Navigation View Controller - Alert-->
         <scene sceneID="ET4-lE-ZZI">
@@ -366,6 +369,7 @@
                     <connections>
                         <segue destination="K9t-Vf-4sE" kind="push" identifier="LMSegueKeyType_PushReportSummary" id="zbN-r1-3gJ"/>
                         <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWeb" id="Cw4-sy-BWk"/>
+                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWebPop" modalTransitionStyle="crossDissolve" id="SLq-IL-yY4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clT-eE-5zX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -419,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57M-gp-kbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-270" y="-5163"/>
+            <point key="canvasLocation" x="74" y="-5835"/>
         </scene>
     </scenes>
     <resources>
@@ -434,10 +438,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="HNE-4q-bxA"/>
-        <segue reference="4JP-VP-Uak"/>
+        <segue reference="FPb-vR-x9c"/>
         <segue reference="taN-ZK-iiH"/>
         <segue reference="bzR-dC-4dG"/>
-        <segue reference="c3B-pN-opZ"/>
+        <segue reference="0yr-Nw-2XK"/>
+        <segue reference="FU0-uX-eKh"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^ShowReport)();
 @interface LMHeaderView : UITableViewHeaderFooterView
-
+@property (copy, nonatomic) ShowReport showReport;
 @end

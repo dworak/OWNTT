@@ -44,7 +44,7 @@
 */
 - (IBAction)headerButtonOn:(UIButton *)sender
 {
-    
+    self.showReport();
 }
 
 @end
