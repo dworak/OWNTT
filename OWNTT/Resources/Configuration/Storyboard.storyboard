@@ -77,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QVc-ma-Rce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-406" y="-3309"/>
+            <point key="canvasLocation" x="-838" y="-3301"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="g7i-oa-Fgi">
@@ -162,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2K-1O-NLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528" y="-5014"/>
+            <point key="canvasLocation" x="224" y="-4261"/>
         </scene>
         <!--Host View Controller - Ustawienia-->
         <scene sceneID="Bf2-ge-1CQ">
@@ -215,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5L-xC-nBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="-4269"/>
+            <point key="canvasLocation" x="-270" y="-4261"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="i3d-vZ-lTt">
@@ -241,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctm-89-FLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3032" y="-4269"/>
+            <point key="canvasLocation" x="1464" y="-3508"/>
         </scene>
         <!--Navigation View Controller - Alert-->
         <scene sceneID="ET4-lE-ZZI">
@@ -311,6 +311,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="eS8-cG-JSw" kind="push" identifier="LMSegueKeyType_PushInstanceList" id="FPb-vR-x9c"/>
+                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWeb" modalTransitionStyle="crossDissolve" id="xYs-E4-REd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAm-rs-MCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -337,6 +338,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="eS8-cG-JSw" kind="push" identifier="LMSegueKeyType_PushInstanceList" id="4JP-VP-Uak"/>
+                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWeb" modalTransitionStyle="crossDissolve" id="c3B-pN-opZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUj-pa-X8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -368,7 +370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clT-eE-5zX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2304" y="-5014"/>
+            <point key="canvasLocation" x="736" y="-4253"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="a6A-KI-DUG">
@@ -394,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hnp-mc-6yV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2304" y="-3070"/>
+            <point key="canvasLocation" x="736" y="-2309"/>
         </scene>
         <!--Rotate View Controller-->
         <scene sceneID="iv2-sl-J48">
@@ -417,7 +419,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57M-gp-kbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4744" y="-5022"/>
+            <point key="canvasLocation" x="-270" y="-5163"/>
         </scene>
     </scenes>
     <resources>
@@ -432,10 +434,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bzR-dC-4dG"/>
-        <segue reference="taN-ZK-iiH"/>
-        <segue reference="4JP-VP-Uak"/>
         <segue reference="HNE-4q-bxA"/>
-        <segue reference="Cw4-sy-BWk"/>
+        <segue reference="4JP-VP-Uak"/>
+        <segue reference="taN-ZK-iiH"/>
+        <segue reference="bzR-dC-4dG"/>
+        <segue reference="c3B-pN-opZ"/>
     </inferredMetricsTieBreakers>
 </document>
