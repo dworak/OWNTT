@@ -5,16 +5,20 @@
 #import "LMReadOnlyObject.h"
 
 extern const struct LMReportAttributes {
+	__unsafe_unretained NSString *htmlName;
 } LMReportAttributes;
 
 extern const struct LMReportRelationships {
 	__unsafe_unretained NSString *instance;
+	__unsafe_unretained NSString *userReports;
 } LMReportRelationships;
 
 extern const struct LMReportFetchedProperties {
 } LMReportFetchedProperties;
 
 @class LMInstance;
+@class LMUserReport;
+
 
 
 @interface LMReportID : NSManagedObjectID {}
@@ -30,9 +34,26 @@ extern const struct LMReportFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* htmlName;
+
+
+
+//- (BOOL)validateHtmlName:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSSet *instance;
 
 - (NSMutableSet*)instanceSet;
+
+
+
+
+@property (nonatomic, strong) NSSet *userReports;
+
+- (NSMutableSet*)userReportsSet;
 
 
 
@@ -47,14 +68,30 @@ extern const struct LMReportFetchedProperties {
 - (void)addInstanceObject:(LMInstance*)value_;
 - (void)removeInstanceObject:(LMInstance*)value_;
 
+- (void)addUserReports:(NSSet*)value_;
+- (void)removeUserReports:(NSSet*)value_;
+- (void)addUserReportsObject:(LMUserReport*)value_;
+- (void)removeUserReportsObject:(LMUserReport*)value_;
+
 @end
 
 @interface _LMReport (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSString*)primitiveHtmlName;
+- (void)setPrimitiveHtmlName:(NSString*)value;
+
+
+
+
 
 - (NSMutableSet*)primitiveInstance;
 - (void)setPrimitiveInstance:(NSMutableSet*)value;
+
+
+
+- (NSMutableSet*)primitiveUserReports;
+- (void)setPrimitiveUserReports:(NSMutableSet*)value;
 
 
 @end

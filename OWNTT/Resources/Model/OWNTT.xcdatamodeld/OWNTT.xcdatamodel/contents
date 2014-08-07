@@ -24,23 +24,32 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="LMReport" representedClassName="LMReport" parentEntity="LMReadOnlyObject" syncable="YES">
+        <attribute name="htmlName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="instance" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LMInstance" inverseName="reports" inverseEntity="LMInstance" syncable="YES"/>
+        <relationship name="userReports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LMUserReport" inverseName="reportObject" inverseEntity="LMUserReport" syncable="YES"/>
     </entity>
     <entity name="LMUser" representedClassName="LMUser" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="userAlerts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LMUserAlert" inverseName="user" inverseEntity="LMUserAlert" syncable="YES"/>
+        <relationship name="userReports" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LMUserReport" inverseName="user" inverseEntity="LMUserReport" syncable="YES"/>
     </entity>
-    <entity name="LMUserAlert" representedClassName="LMUserAlert" parentEntity="LMReadOnlyUserObject" syncable="YES"/>
-    <entity name="LMUserReport" representedClassName="LMUserReport" parentEntity="LMReadOnlyUserObject" syncable="YES"/>
+    <entity name="LMUserAlert" representedClassName="LMUserAlert" parentEntity="LMReadOnlyUserObject" syncable="YES">
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMUser" inverseName="userAlerts" inverseEntity="LMUser" syncable="YES"/>
+    </entity>
+    <entity name="LMUserReport" representedClassName="LMUserReport" parentEntity="LMReadOnlyUserObject" syncable="YES">
+        <relationship name="reportObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMReport" inverseName="userReports" inverseEntity="LMReport" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMUser" inverseName="userReports" inverseEntity="LMUser" syncable="YES"/>
+    </entity>
     <elements>
         <element name="LMAdvertiser" positionX="-18" positionY="36" width="128" height="75"/>
         <element name="LMInstance" positionX="-54" positionY="18" width="128" height="73"/>
         <element name="LMProgram" positionX="0" positionY="45" width="128" height="58"/>
         <element name="LMReadOnlyObject" positionX="-63" positionY="0" width="128" height="135"/>
         <element name="LMReadOnlyUserObject" positionX="-9" positionY="54" width="128" height="73"/>
-        <element name="LMReport" positionX="-36" positionY="27" width="128" height="58"/>
-        <element name="LMUser" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="LMUserAlert" positionX="-18" positionY="45" width="128" height="45"/>
-        <element name="LMUserReport" positionX="-27" positionY="36" width="128" height="45"/>
+        <element name="LMReport" positionX="-36" positionY="27" width="128" height="88"/>
+        <element name="LMUser" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="LMUserAlert" positionX="-18" positionY="45" width="128" height="58"/>
+        <element name="LMUserReport" positionX="-27" positionY="36" width="128" height="73"/>
     </elements>
 </model>

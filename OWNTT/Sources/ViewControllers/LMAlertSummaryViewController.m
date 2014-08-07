@@ -16,6 +16,8 @@
 #import "LMReport.h"
 #import "LMAdvertiser.h"
 #import "LMProgram.h"
+#import "LMUserAlert.h"
+#import "LMUser.h"
 
 @interface LMAlertSummaryViewController ()
 @property (weak, nonatomic) IBOutlet LMTextField *alertNameTextField;
@@ -151,6 +153,17 @@
     {
         return YES;
     }
+}
+
+- (void)saveObjectData
+{
+    NSManagedObjectContext *managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    LMUser *user = [[LMUser fetchLMUsersInContext:managedObjectContext] objectAtIndex:0];
+    LMUserAlert *userAlert = [LMUserAlert createObjectInContext:managedObjectContext];
+    userAlert.name = self.alertNameTextField.text;
+    userAlert.createDate = [NSDate date];
+    [user.userAlertsSet addObject:userAlert];
+    [LMUtils saveCoreDataContext:managedObjectContext];
 }
 
 - (IBAction)buttonTapped:(id)sender

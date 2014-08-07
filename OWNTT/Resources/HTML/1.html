@@ -1,0 +1,1011 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Insert title here</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("div.data").click(function(){
+		$(this).find('div').each(function(index){
+			if ($(this).css('display') == 'none') {
+				$(this).show();
+			} else {
+				$(this).hide();
+			}
+		});
+	});
+ });
+</script>
+<style type="text/css">
+body {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 0;
+	font-family: Verdana;
+	font-size: 20px;
+	}
+table {
+	border-width: 0px;
+	border-spacing: 0px;
+	border-style: outset;
+	border-color: gray;
+	border-collapse: separate;
+	}
+table td {
+	border-width: 0px;
+	border-style: inset;
+	border-color: gray;
+	border-right-width: 1px;
+	}
+table.header {
+	background-color: #662c91;
+	width: 100%;
+	}
+table.header td {
+	background-color: #662c91;
+	color: #ffffff;
+	}
+table.basicdata {
+	background-color: white;
+	width: 100%;
+	}
+table.basicdata td {
+	background-color: white;
+	color: #757575;
+	}
+table.detaileddata {
+	background-color: white;
+	width: 100%;
+	}
+table.detaileddata td.header {
+	background-color: #662c91;
+	color: #ffffff;
+	}
+table.detaileddata td.data {
+	background-color: white;
+	color: #757575;
+	}
+table.detailedndata td.empty {
+	color: #ffffff;
+	}
+div.header {
+	width: 100%;
+	background-color: #662c91;
+	}
+div.data {
+	border-width: 0px;
+	border-style: inset;
+	border-color: gray;
+	border-top-width: 1px;
+}
+div.detaileddata {
+	display: none;
+}
+</style>
+</head>
+<body>
+<div  class="header"> 
+<table class="header">
+	<tbody>
+		<tr>
+			<td width="20%">Kampania</td>
+			<td width="80%">
+				<div> 
+				<table class="header">
+					<tbody>
+						<tr>
+							<td width="30%">Odsłony</td>
+							<td width="40%">Kliknięcia</td>
+							<td width="15%">Leady</td>
+							<td width="15%">Sprzedaż</td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<div class="data">
+	<table class="data" width="100%">
+		<tbody>
+			<tr>
+				<td class="data" width="20%">interia.pl</td>
+				<td width="80%">
+					<div class="basicdata">
+					<table class="basicdata">
+						<tbody>
+							<tr>
+								<td width="30%">20&nbsp;123</td>
+								<td width="40%">20&nbsp;123</td>
+								<td width="15%">23.34</td>
+								<td width="15%">20&nbsp;123</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="detaileddata">
+						<table class="detaileddata">
+							<tbody>
+								<tr>
+									<td class ="header" width="30%">Odsłony</td>
+									<td class ="header" width="40%" colspan="2">Kliknięcia</td>
+									<td class ="header" width="15%">Leady</td>
+									<td class ="header" width="15%">Sprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data" colspan="2">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header" width="30%">Unikalne odsłony</td>
+									<td class ="header" width="23%">Unikalne wizyty</td>
+									<td class ="header" width="17%">CTR</td>
+									<td class ="header" width="15%">LR</td>
+									<td class ="header" width="15%">iSprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header">Częstotliwość</td>
+									<td class ="header">Wizyty</td>
+									<td class ="header">Nowe wizyty</td>
+									<td class ="header">iLead</td>
+									<td class ="header">Wartość</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="data">
+	<table class="data" width="100%">
+		<tbody>
+			<tr>
+				<td class="data" width="20%">interia.pl</td>
+				<td width="80%">
+					<div class="basicdata">
+					<table class="basicdata">
+						<tbody>
+							<tr>
+								<td width="30%">20&nbsp;123</td>
+								<td width="40%">20&nbsp;123</td>
+								<td width="15%">23.34</td>
+								<td width="15%">20&nbsp;123</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="detaileddata">
+						<table class="detaileddata">
+							<tbody>
+								<tr>
+									<td class ="header" width="30%">Odsłony</td>
+									<td class ="header" width="40%" colspan="2">Kliknięcia</td>
+									<td class ="header" width="15%">Leady</td>
+									<td class ="header" width="15%">Sprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data" colspan="2">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header" width="30%">Unikalne odsłony</td>
+									<td class ="header" width="23%">Unikalne wizyty</td>
+									<td class ="header" width="17%">CTR</td>
+									<td class ="header" width="15%">LR</td>
+									<td class ="header" width="15%">iSprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header">Częstotliwość</td>
+									<td class ="header">Wizyty</td>
+									<td class ="header">Nowe wizyty</td>
+									<td class ="header">iLead</td>
+									<td class ="header">Wartość</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="data">
+	<table class="data" width="100%">
+		<tbody>
+			<tr>
+				<td class="data" width="20%">interia.pl</td>
+				<td width="80%">
+					<div class="basicdata">
+					<table class="basicdata">
+						<tbody>
+							<tr>
+								<td width="30%">20&nbsp;123</td>
+								<td width="40%">20&nbsp;123</td>
+								<td width="15%">23.34</td>
+								<td width="15%">20&nbsp;123</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="detaileddata">
+						<table class="detaileddata">
+							<tbody>
+								<tr>
+									<td class ="header" width="30%">Odsłony</td>
+									<td class ="header" width="40%" colspan="2">Kliknięcia</td>
+									<td class ="header" width="15%">Leady</td>
+									<td class ="header" width="15%">Sprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data" colspan="2">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header" width="30%">Unikalne odsłony</td>
+									<td class ="header" width="23%">Unikalne wizyty</td>
+									<td class ="header" width="17%">CTR</td>
+									<td class ="header" width="15%">LR</td>
+									<td class ="header" width="15%">iSprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header">Częstotliwość</td>
+									<td class ="header">Wizyty</td>
+									<td class ="header">Nowe wizyty</td>
+									<td class ="header">iLead</td>
+									<td class ="header">Wartość</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="data">
+	<table class="data" width="100%">
+		<tbody>
+			<tr>
+				<td class="data" width="20%">interia.pl</td>
+				<td width="80%">
+					<div class="basicdata">
+					<table class="basicdata">
+						<tbody>
+							<tr>
+								<td width="30%">20&nbsp;123</td>
+								<td width="40%">20&nbsp;123</td>
+								<td width="15%">23.34</td>
+								<td width="15%">20&nbsp;123</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="detaileddata">
+						<table class="detaileddata">
+							<tbody>
+								<tr>
+									<td class ="header" width="30%">Odsłony</td>
+									<td class ="header" width="40%" colspan="2">Kliknięcia</td>
+									<td class ="header" width="15%">Leady</td>
+									<td class ="header" width="15%">Sprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data" colspan="2">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header" width="30%">Unikalne odsłony</td>
+									<td class ="header" width="23%">Unikalne wizyty</td>
+									<td class ="header" width="17%">CTR</td>
+									<td class ="header" width="15%">LR</td>
+									<td class ="header" width="15%">iSprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header">Częstotliwość</td>
+									<td class ="header">Wizyty</td>
+									<td class ="header">Nowe wizyty</td>
+									<td class ="header">iLead</td>
+									<td class ="header">Wartość</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="data">
+	<table class="data" width="100%">
+		<tbody>
+			<tr>
+				<td class="data" width="20%">interia.pl</td>
+				<td width="80%">
+					<div class="basicdata">
+					<table class="basicdata">
+						<tbody>
+							<tr>
+								<td width="30%">20&nbsp;123</td>
+								<td width="40%">20&nbsp;123</td>
+								<td width="15%">23.34</td>
+								<td width="15%">20&nbsp;123</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="detaileddata">
+						<table class="detaileddata">
+							<tbody>
+								<tr>
+									<td class ="header" width="30%">Odsłony</td>
+									<td class ="header" width="40%" colspan="2">Kliknięcia</td>
+									<td class ="header" width="15%">Leady</td>
+									<td class ="header" width="15%">Sprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data" colspan="2">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header" width="30%">Unikalne odsłony</td>
+									<td class ="header" width="23%">Unikalne wizyty</td>
+									<td class ="header" width="17%">CTR</td>
+									<td class ="header" width="15%">LR</td>
+									<td class ="header" width="15%">iSprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header">Częstotliwość</td>
+									<td class ="header">Wizyty</td>
+									<td class ="header">Nowe wizyty</td>
+									<td class ="header">iLead</td>
+									<td class ="header">Wartość</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="data">
+	<table class="data" width="100%">
+		<tbody>
+			<tr>
+				<td class="data" width="20%">interia.pl</td>
+				<td width="80%">
+					<div class="basicdata">
+					<table class="basicdata">
+						<tbody>
+							<tr>
+								<td width="30%">20&nbsp;123</td>
+								<td width="40%">20&nbsp;123</td>
+								<td width="15%">23.34</td>
+								<td width="15%">20&nbsp;123</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="detaileddata">
+						<table class="detaileddata">
+							<tbody>
+								<tr>
+									<td class ="header" width="30%">Odsłony</td>
+									<td class ="header" width="40%" colspan="2">Kliknięcia</td>
+									<td class ="header" width="15%">Leady</td>
+									<td class ="header" width="15%">Sprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data" colspan="2">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header" width="30%">Unikalne odsłony</td>
+									<td class ="header" width="23%">Unikalne wizyty</td>
+									<td class ="header" width="17%">CTR</td>
+									<td class ="header" width="15%">LR</td>
+									<td class ="header" width="15%">iSprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header">Częstotliwość</td>
+									<td class ="header">Wizyty</td>
+									<td class ="header">Nowe wizyty</td>
+									<td class ="header">iLead</td>
+									<td class ="header">Wartość</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="data">
+	<table class="data" width="100%">
+		<tbody>
+			<tr>
+				<td class="data" width="20%">interia.pl</td>
+				<td width="80%">
+					<div class="basicdata">
+					<table class="basicdata">
+						<tbody>
+							<tr>
+								<td width="30%">20&nbsp;123</td>
+								<td width="40%">20&nbsp;123</td>
+								<td width="15%">23.34</td>
+								<td width="15%">20&nbsp;123</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="detaileddata">
+						<table class="detaileddata">
+							<tbody>
+								<tr>
+									<td class ="header" width="30%">Odsłony</td>
+									<td class ="header" width="40%" colspan="2">Kliknięcia</td>
+									<td class ="header" width="15%">Leady</td>
+									<td class ="header" width="15%">Sprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data" colspan="2">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header" width="30%">Unikalne odsłony</td>
+									<td class ="header" width="23%">Unikalne wizyty</td>
+									<td class ="header" width="17%">CTR</td>
+									<td class ="header" width="15%">LR</td>
+									<td class ="header" width="15%">iSprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header">Częstotliwość</td>
+									<td class ="header">Wizyty</td>
+									<td class ="header">Nowe wizyty</td>
+									<td class ="header">iLead</td>
+									<td class ="header">Wartość</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="data">
+	<table class="data" width="100%">
+		<tbody>
+			<tr>
+				<td class="data" width="20%">interia.pl</td>
+				<td width="80%">
+					<div class="basicdata">
+					<table class="basicdata">
+						<tbody>
+							<tr>
+								<td width="30%">20&nbsp;123</td>
+								<td width="40%">20&nbsp;123</td>
+								<td width="15%">23.34</td>
+								<td width="15%">20&nbsp;123</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="detaileddata">
+						<table class="detaileddata">
+							<tbody>
+								<tr>
+									<td class ="header" width="30%">Odsłony</td>
+									<td class ="header" width="40%" colspan="2">Kliknięcia</td>
+									<td class ="header" width="15%">Leady</td>
+									<td class ="header" width="15%">Sprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data" colspan="2">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header" width="30%">Unikalne odsłony</td>
+									<td class ="header" width="23%">Unikalne wizyty</td>
+									<td class ="header" width="17%">CTR</td>
+									<td class ="header" width="15%">LR</td>
+									<td class ="header" width="15%">iSprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header">Częstotliwość</td>
+									<td class ="header">Wizyty</td>
+									<td class ="header">Nowe wizyty</td>
+									<td class ="header">iLead</td>
+									<td class ="header">Wartość</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="data">
+	<table class="data" width="100%">
+		<tbody>
+			<tr>
+				<td class="data" width="20%">interia.pl</td>
+				<td width="80%">
+					<div class="basicdata">
+					<table class="basicdata">
+						<tbody>
+							<tr>
+								<td width="30%">20&nbsp;123</td>
+								<td width="40%">20&nbsp;123</td>
+								<td width="15%">23.34</td>
+								<td width="15%">20&nbsp;123</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="detaileddata">
+						<table class="detaileddata">
+							<tbody>
+								<tr>
+									<td class ="header" width="30%">Odsłony</td>
+									<td class ="header" width="40%" colspan="2">Kliknięcia</td>
+									<td class ="header" width="15%">Leady</td>
+									<td class ="header" width="15%">Sprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data" colspan="2">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header" width="30%">Unikalne odsłony</td>
+									<td class ="header" width="23%">Unikalne wizyty</td>
+									<td class ="header" width="17%">CTR</td>
+									<td class ="header" width="15%">LR</td>
+									<td class ="header" width="15%">iSprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header">Częstotliwość</td>
+									<td class ="header">Wizyty</td>
+									<td class ="header">Nowe wizyty</td>
+									<td class ="header">iLead</td>
+									<td class ="header">Wartość</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="data">
+	<table class="data" width="100%">
+		<tbody>
+			<tr>
+				<td class="data" width="20%">interia.pl</td>
+				<td width="80%">
+					<div class="basicdata">
+					<table class="basicdata">
+						<tbody>
+							<tr>
+								<td width="30%">20&nbsp;123</td>
+								<td width="40%">20&nbsp;123</td>
+								<td width="15%">23.34</td>
+								<td width="15%">20&nbsp;123</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="detaileddata">
+						<table class="detaileddata">
+							<tbody>
+								<tr>
+									<td class ="header" width="30%">Odsłony</td>
+									<td class ="header" width="40%" colspan="2">Kliknięcia</td>
+									<td class ="header" width="15%">Leady</td>
+									<td class ="header" width="15%">Sprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data" colspan="2">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header" width="30%">Unikalne odsłony</td>
+									<td class ="header" width="23%">Unikalne wizyty</td>
+									<td class ="header" width="17%">CTR</td>
+									<td class ="header" width="15%">LR</td>
+									<td class ="header" width="15%">iSprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header">Częstotliwość</td>
+									<td class ="header">Wizyty</td>
+									<td class ="header">Nowe wizyty</td>
+									<td class ="header">iLead</td>
+									<td class ="header">Wartość</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="data">
+	<table class="data" width="100%">
+		<tbody>
+			<tr>
+				<td class="data" width="20%">interia.pl</td>
+				<td width="80%">
+					<div class="basicdata">
+					<table class="basicdata">
+						<tbody>
+							<tr>
+								<td width="30%">20&nbsp;123</td>
+								<td width="40%">20&nbsp;123</td>
+								<td width="15%">23.34</td>
+								<td width="15%">20&nbsp;123</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="detaileddata">
+						<table class="detaileddata">
+							<tbody>
+								<tr>
+									<td class ="header" width="30%">Odsłony</td>
+									<td class ="header" width="40%" colspan="2">Kliknięcia</td>
+									<td class ="header" width="15%">Leady</td>
+									<td class ="header" width="15%">Sprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data" colspan="2">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header" width="30%">Unikalne odsłony</td>
+									<td class ="header" width="23%">Unikalne wizyty</td>
+									<td class ="header" width="17%">CTR</td>
+									<td class ="header" width="15%">LR</td>
+									<td class ="header" width="15%">iSprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header">Częstotliwość</td>
+									<td class ="header">Wizyty</td>
+									<td class ="header">Nowe wizyty</td>
+									<td class ="header">iLead</td>
+									<td class ="header">Wartość</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="data">
+	<table class="data" width="100%">
+		<tbody>
+			<tr>
+				<td class="data" width="20%">interia.pl</td>
+				<td width="80%">
+					<div class="basicdata">
+					<table class="basicdata">
+						<tbody>
+							<tr>
+								<td width="30%">20&nbsp;123</td>
+								<td width="40%">20&nbsp;123</td>
+								<td width="15%">23.34</td>
+								<td width="15%">20&nbsp;123</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="detaileddata">
+						<table class="detaileddata">
+							<tbody>
+								<tr>
+									<td class ="header" width="30%">Odsłony</td>
+									<td class ="header" width="40%" colspan="2">Kliknięcia</td>
+									<td class ="header" width="15%">Leady</td>
+									<td class ="header" width="15%">Sprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data" colspan="2">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header" width="30%">Unikalne odsłony</td>
+									<td class ="header" width="23%">Unikalne wizyty</td>
+									<td class ="header" width="17%">CTR</td>
+									<td class ="header" width="15%">LR</td>
+									<td class ="header" width="15%">iSprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header">Częstotliwość</td>
+									<td class ="header">Wizyty</td>
+									<td class ="header">Nowe wizyty</td>
+									<td class ="header">iLead</td>
+									<td class ="header">Wartość</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="data">
+	<table class="data" width="100%">
+		<tbody>
+			<tr>
+				<td class="data" width="20%">interia.pl</td>
+				<td width="80%">
+					<div class="basicdata">
+					<table class="basicdata">
+						<tbody>
+							<tr>
+								<td width="30%">20&nbsp;123</td>
+								<td width="40%">20&nbsp;123</td>
+								<td width="15%">23.34</td>
+								<td width="15%">20&nbsp;123</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="detaileddata">
+						<table class="detaileddata">
+							<tbody>
+								<tr>
+									<td class ="header" width="30%">Odsłony</td>
+									<td class ="header" width="40%" colspan="2">Kliknięcia</td>
+									<td class ="header" width="15%">Leady</td>
+									<td class ="header" width="15%">Sprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data" colspan="2">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header" width="30%">Unikalne odsłony</td>
+									<td class ="header" width="23%">Unikalne wizyty</td>
+									<td class ="header" width="17%">CTR</td>
+									<td class ="header" width="15%">LR</td>
+									<td class ="header" width="15%">iSprzedaż</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+								</tr>
+								<tr>
+									<td class ="header">Częstotliwość</td>
+									<td class ="header">Wizyty</td>
+									<td class ="header">Nowe wizyty</td>
+									<td class ="header">iLead</td>
+									<td class ="header">Wartość</td>
+								</tr>
+								<tr>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+									<td class ="data">20&nbsp;123</td>
+									<td class ="data">23.34</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

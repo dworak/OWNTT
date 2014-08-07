@@ -11,6 +11,9 @@
 #import "LMTextField.h"
 #import "LMDataPickerViewController.h"
 #import "LMNavigationViewController.h"
+#import "LMUserReport.h"
+#import "LMReport.h"
+#import "LMUser.h"
 
 @interface LMSummaryReportViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet LMTextField *reportNameTextField;
@@ -53,15 +56,15 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (BOOL)isValid
 {
@@ -107,6 +110,19 @@
     {
         [self.pickerViewController selectPickerObject:-1];
     }
+}
+
+- (void)saveObjectData
+{
+    NSManagedObjectContext *managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    LMUser *user = [[LMUser fetchLMUsersInContext:managedObjectContext] objectAtIndex:0];
+    LMUserReport *userReport = [LMUserReport createObjectInContext:managedObjectContext];
+    LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:managedObjectContext];
+    userReport.reportObject = report;
+    userReport.createDate = [NSDate date];
+    userReport.name = self.reportNameTextField.text;
+    [user.userReportsSet addObject:userReport];
+    [LMUtils saveCoreDataContext:managedObjectContext];
 }
 
 #pragma mark -

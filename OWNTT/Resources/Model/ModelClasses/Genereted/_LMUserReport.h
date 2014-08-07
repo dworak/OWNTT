@@ -8,11 +8,15 @@ extern const struct LMUserReportAttributes {
 } LMUserReportAttributes;
 
 extern const struct LMUserReportRelationships {
+	__unsafe_unretained NSString *reportObject;
+	__unsafe_unretained NSString *user;
 } LMUserReportRelationships;
 
 extern const struct LMUserReportFetchedProperties {
 } LMUserReportFetchedProperties;
 
+@class LMReport;
+@class LMUser;
 
 
 @interface LMUserReportID : NSManagedObjectID {}
@@ -28,6 +32,20 @@ extern const struct LMUserReportFetchedProperties {
 
 
 
+@property (nonatomic, strong) LMReport *reportObject;
+
+//- (BOOL)validateReportObject:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) LMUser *user;
+
+//- (BOOL)validateUser:(id*)value_ error:(NSError**)error_;
+
+
+
+
 
 @end
 
@@ -36,6 +54,16 @@ extern const struct LMUserReportFetchedProperties {
 @end
 
 @interface _LMUserReport (CoreDataGeneratedPrimitiveAccessors)
+
+
+
+- (LMReport*)primitiveReportObject;
+- (void)setPrimitiveReportObject:(LMReport*)value;
+
+
+
+- (LMUser*)primitiveUser;
+- (void)setPrimitiveUser:(LMUser*)value;
 
 
 @end

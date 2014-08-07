@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LMWebViewController : LMHostChildBaseViewController
+@class LMData;
 
+@interface LMWebViewController : LMHostChildBaseViewController
+@property (strong, nonatomic) LMData *transactionData;
 @end

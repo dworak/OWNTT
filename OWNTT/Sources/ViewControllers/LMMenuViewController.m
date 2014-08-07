@@ -6,11 +6,20 @@
 //
 //
 
+#import "LMAppDelegate.h"
 #import "LMMenuViewController.h"
 #import "LMMenuTableViewCell.h"
+#import "LMReport.h"
+#import "LMUserAlert.h"
+#import "LMUserReport.h"
+#import "LMAlertMenuViewController.h"
+#import "LMReportMenuViewController.h"
+#import "LMReadOnlyUserObject.h"
+#import "LMData.h"
+#import "LMWebViewController.h"
 
 @interface LMMenuViewController ()
-
+@property (strong, nonatomic) NSArray *userObjects;
 @end
 
 @implementation LMMenuViewController
@@ -42,6 +51,24 @@
     self.subMenuImage.backgroundColor = SUBMENU_BACKGROUND_COLOR;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSManagedObjectContext *managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    LMUser *user = [[LMUser fetchLMUsersInContext:managedObjectContext] objectAtIndex:0];
+    if([self isKindOfClass:[LMReportMenuViewController class]])
+    {
+        self.userObjects = [LMUserReport fetchEntitiesOfClass:[LMUserReport class] inContext:managedObjectContext];//[NSArray arrayWithArray:user.userReports.allObjects];
+    }
+    else
+    {
+        self.userObjects = [NSArray arrayWithArray:user.userAlerts.allObjects];
+    }
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:YES];
+    self.userObjects = [self.userObjects sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -52,6 +79,18 @@
 {
     self.tableView.delegate = nil;
     self.tableView.dataSource = nil;
+}
+
+- (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
+    {
+        TTHostViewController *hostController = (TTHostViewController *)segue.destinationViewController;
+        if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
+        {
+            ((LMWebViewController *)hostController.childViewController).transactionData = self.object;
+        }
+    }
 }
 
 /*
@@ -73,18 +112,20 @@
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.userObjects.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
-    if(!cell) {
+    LMReadOnlyUserObject *userObject = [self.userObjects objectAtIndex:indexPath.row];
+    if(!cell)
+    {
         cell = (LMMenuTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMMenuTableViewCell class])] owner:self options:nil] objectAtIndex:0];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
     cell.textLabel.font = DEFAULT_APP_FONT;
-    cell.textLabel.text = @"";
+    cell.textLabel.text = userObject.name;
     return cell;
 }
 
@@ -100,7 +141,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    LMReadOnlyUserObject *userObject = [self.userObjects objectAtIndex:indexPath.row];
+    self.object = [LMData new];
+    if([userObject isKindOfClass:[LMUserReport class]])
+    {
+        self.object.reportId = ((LMUserReport *)userObject).reportObject.objectId;
+    }
+    [self performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushWeb] sender:self];
 }
 
 #pragma mark -

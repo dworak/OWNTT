@@ -8,11 +8,13 @@ extern const struct LMUserAlertAttributes {
 } LMUserAlertAttributes;
 
 extern const struct LMUserAlertRelationships {
+	__unsafe_unretained NSString *user;
 } LMUserAlertRelationships;
 
 extern const struct LMUserAlertFetchedProperties {
 } LMUserAlertFetchedProperties;
 
+@class LMUser;
 
 
 @interface LMUserAlertID : NSManagedObjectID {}
@@ -28,6 +30,13 @@ extern const struct LMUserAlertFetchedProperties {
 
 
 
+@property (nonatomic, strong) LMUser *user;
+
+//- (BOOL)validateUser:(id*)value_ error:(NSError**)error_;
+
+
+
+
 
 @end
 
@@ -36,6 +45,11 @@ extern const struct LMUserAlertFetchedProperties {
 @end
 
 @interface _LMUserAlert (CoreDataGeneratedPrimitiveAccessors)
+
+
+
+- (LMUser*)primitiveUser;
+- (void)setPrimitiveUser:(LMUser*)value;
 
 
 @end

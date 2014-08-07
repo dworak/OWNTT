@@ -7,6 +7,7 @@ const struct LMUserAlertAttributes LMUserAlertAttributes = {
 };
 
 const struct LMUserAlertRelationships LMUserAlertRelationships = {
+	.user = @"user",
 };
 
 const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
@@ -44,6 +45,10 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 
 
 
+
+@dynamic user;
+
+	
 
 
 

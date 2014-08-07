@@ -6,11 +6,14 @@
 //
 //
 
+#import "LMData.h"
+#import "LMReport.h"
 #import "LMWebViewController.h"
 #import "LMNavigationViewController.h"
 #import "LMTabBarViewController.h"
 
 @interface LMWebViewController ()
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -29,6 +32,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSManagedObjectContext *mOC = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    if(self.transactionData.reportId)
+    {
+        LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:mOC];
+        NSString *path = [[NSBundle mainBundle]
+                          pathForResource:report.htmlName ofType:@"html"];
+        NSURL *url = [NSURL fileURLWithPath:path];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.webView setScalesPageToFit:YES];
+        [self.webView loadRequest:request];
+    }
 }
 
 - (void)didReceiveMemoryWarning

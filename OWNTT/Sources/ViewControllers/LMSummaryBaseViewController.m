@@ -9,7 +9,10 @@
 #import "LMSummaryBaseViewController.h"
 #import "LMDataPickerViewController.h"
 #import "LMDatePickerViewController.h"
+#import "LMSummaryReportViewController.h"
+#import "LMAlertSummaryViewController.h"
 #import <LM/LMViewControllerBase.h>
+#import "LMUserAlert.h"
 
 @interface LMSummaryBaseViewController ()
 
@@ -111,13 +114,13 @@
     if([self isValid])
     {
         [self saveObjectData];
-        [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushWeb] sender:self];
+        [self.parentViewController.navigationController popToRootViewControllerAnimated:YES];
+        //[self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushWeb] sender:self];
     }
 }
 
 - (void)saveObjectData
 {
-    
 }
 
 - (BOOL)isValid

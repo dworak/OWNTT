@@ -122,6 +122,8 @@
     LMUser *user = [LMUser createObjectInContext:self.managedObjectContext];
     user.name = self.loginTextField.text;
     user.password = self.passwordTextField.text;
+    LMAppDelegate *appDelegate = ((LMAppDelegate *)[[UIApplication sharedApplication] delegate]);
+    appDelegate.appUtils.currentUser = user;
     [self saveManagedContext];
     [LMUtils downloadAppData];
     if(self.isPresentModal)

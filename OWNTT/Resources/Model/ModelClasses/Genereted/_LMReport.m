@@ -4,10 +4,12 @@
 #import "_LMReport.h"
 
 const struct LMReportAttributes LMReportAttributes = {
+	.htmlName = @"htmlName",
 };
 
 const struct LMReportRelationships LMReportRelationships = {
 	.instance = @"instance",
+	.userReports = @"userReports",
 };
 
 const struct LMReportFetchedProperties LMReportFetchedProperties = {
@@ -46,6 +48,13 @@ const struct LMReportFetchedProperties LMReportFetchedProperties = {
 
 
 
+@dynamic htmlName;
+
+
+
+
+
+
 @dynamic instance;
 
 	
@@ -55,6 +64,19 @@ const struct LMReportFetchedProperties LMReportFetchedProperties = {
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"instance"];
   
 	[self didAccessValueForKey:@"instance"];
+	return result;
+}
+	
+
+@dynamic userReports;
+
+	
+- (NSMutableSet*)userReportsSet {
+	[self willAccessValueForKey:@"userReports"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"userReports"];
+  
+	[self didAccessValueForKey:@"userReports"];
 	return result;
 }
 	

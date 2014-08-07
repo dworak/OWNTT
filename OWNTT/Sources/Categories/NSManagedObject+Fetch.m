@@ -13,9 +13,9 @@
 + (id)fetchActiveEntityOfClass:(Class)entityClass withObjectID:(NSNumber *)objectId inContext:(NSManagedObjectContext*)context
 {
     NSMutableArray *predicates = [NSMutableArray new];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %d", objectId.intValue];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId=%@", objectId];
     [predicates addObject:predicate];
-    predicate = [NSPredicate predicateWithFormat:@"active == YES"];
+    predicate = [NSPredicate predicateWithFormat:@"active=YES"];
     [predicates addObject:predicate];
     predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
     NSArray* results = [self fetchEntitiesOfClass:entityClass withPredicate:predicate sortDescriptors:nil inContext:context];
@@ -34,7 +34,7 @@
 
 + (id)fetchEntityOfClass:(Class)entityClass withObjectID:(NSNumber *)objectId inContext:(NSManagedObjectContext*)context
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %d", objectId.intValue];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId=%@", objectId];
     NSArray* results = [self fetchEntitiesOfClass:entityClass withPredicate:predicate sortDescriptors:nil inContext:context];
     
     assert(results.count <= 1);
@@ -85,7 +85,7 @@
 
 + (NSArray *)fetchActiveEntityOfClass:(Class)entityClass inContext:(NSManagedObjectContext*)context
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"active == YES"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"active=YES"];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     return [LMCoreDataManager getRowsFromEntity:entityClass withPredicate:predicate andSortDescriptors:[NSArray arrayWithObject:sortDescriptor] fromRow:-1 maxCount:-1 inContext:context];
 }

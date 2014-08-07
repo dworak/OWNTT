@@ -149,42 +149,46 @@
                 {
                     instance = [LMInstance createObjectInContext:context];
                     instance.objectIdValue = reportWS.InstancjaId.intValue;
-                    if(reportWS.Raport1.intValue)
+                }
+                [instance.reportsSet removeAllObjects];
+                if(reportWS.Raport1.intValue)
+                {
+                    LMReport *report = (LMReport *)[LMReadOnlyObject fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:1] inContext:context];
+                    if(!report)
                     {
-                        LMReport *report = (LMReport *)[LMReadOnlyObject fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:1] inContext:context];
-                        if(!report)
-                        {
-                            report = [LMReport createObjectInContext:context];
-                            report.objectId = [NSNumber numberWithInt:1];
-                        }
-                        report.name = @"Raport łączny kampanii";
-                        report.activeValue = YES;
-                        [instance.reportsSet addObject:report];
+                        report = [LMReport createObjectInContext:context];
+                        report.objectId = [NSNumber numberWithInt:1];
                     }
-                    if(reportWS.Raport5.intValue)
+                    report.name = @"Raport łączny kampanii";
+                    report.htmlName = @"1.html";
+                    report.activeValue = YES;
+                    [instance.reportsSet addObject:report];
+                }
+                if(reportWS.Raport5.intValue)
+                {
+                    LMReport *report = (LMReport *)[LMReadOnlyObject fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:2] inContext:context];
+                    if(!report)
                     {
-                        LMReport *report = (LMReport *)[LMReadOnlyObject fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:2] inContext:context];
-                        if(!report)
-                        {
-                            report = [LMReport createObjectInContext:context];
-                            report.objectId = [NSNumber numberWithInt:2];
-                        }
-                        report.name = @"Raport wszystkich wydawców";
-                        report.activeValue = YES;
-                        [instance.reportsSet addObject:report];
+                        report = [LMReport createObjectInContext:context];
+                        report.objectId = [NSNumber numberWithInt:2];
                     }
-                    if(reportWS.Raport8.intValue)
+                    report.name = @"Raport wszystkich wydawców";
+                    report.htmlName = @"2.html";
+                    report.activeValue = YES;
+                    [instance.reportsSet addObject:report];
+                }
+                if(reportWS.Raport8.intValue)
+                {
+                    LMReport *report = (LMReport *)[LMReadOnlyObject fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:3] inContext:context];
+                    if(!report)
                     {
-                        LMReport *report = (LMReport *)[LMReadOnlyObject fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:3] inContext:context];
-                        if(!report)
-                        {
-                            report = [LMReport createObjectInContext:context];
-                            report.objectId = [NSNumber numberWithInt:3];
-                        }
-                        report.name = @"Raport form reklamowych";
-                        report.activeValue = YES;
-                        [instance.reportsSet addObject:report];
+                        report = [LMReport createObjectInContext:context];
+                        report.objectId = [NSNumber numberWithInt:3];
                     }
+                    report.name = @"Raport form reklamowych";
+                    report.htmlName = @"3.html";
+                    report.activeValue = YES;
+                    [instance.reportsSet addObject:report];
                 }
                 instance.name = reportWS.InstancjaNazwa;
                 instance.activeValue = YES;

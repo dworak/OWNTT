@@ -9,6 +9,8 @@ const struct LMUserAttributes LMUserAttributes = {
 };
 
 const struct LMUserRelationships LMUserRelationships = {
+	.userAlerts = @"userAlerts",
+	.userReports = @"userReports",
 };
 
 const struct LMUserFetchedProperties LMUserFetchedProperties = {
@@ -60,6 +62,32 @@ const struct LMUserFetchedProperties LMUserFetchedProperties = {
 
 
 
+
+@dynamic userAlerts;
+
+	
+- (NSMutableSet*)userAlertsSet {
+	[self willAccessValueForKey:@"userAlerts"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"userAlerts"];
+  
+	[self didAccessValueForKey:@"userAlerts"];
+	return result;
+}
+	
+
+@dynamic userReports;
+
+	
+- (NSMutableSet*)userReportsSet {
+	[self willAccessValueForKey:@"userReports"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"userReports"];
+  
+	[self didAccessValueForKey:@"userReports"];
+	return result;
+}
+	
 
 
 

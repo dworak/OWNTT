@@ -10,11 +10,15 @@ extern const struct LMUserAttributes {
 } LMUserAttributes;
 
 extern const struct LMUserRelationships {
+	__unsafe_unretained NSString *userAlerts;
+	__unsafe_unretained NSString *userReports;
 } LMUserRelationships;
 
 extern const struct LMUserFetchedProperties {
 } LMUserFetchedProperties;
 
+@class LMUserAlert;
+@class LMUserReport;
 
 
 
@@ -52,10 +56,34 @@ extern const struct LMUserFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSSet *userAlerts;
+
+- (NSMutableSet*)userAlertsSet;
+
+
+
+
+@property (nonatomic, strong) NSSet *userReports;
+
+- (NSMutableSet*)userReportsSet;
+
+
+
+
 
 @end
 
 @interface _LMUser (CoreDataGeneratedAccessors)
+
+- (void)addUserAlerts:(NSSet*)value_;
+- (void)removeUserAlerts:(NSSet*)value_;
+- (void)addUserAlertsObject:(LMUserAlert*)value_;
+- (void)removeUserAlertsObject:(LMUserAlert*)value_;
+
+- (void)addUserReports:(NSSet*)value_;
+- (void)removeUserReports:(NSSet*)value_;
+- (void)addUserReportsObject:(LMUserReport*)value_;
+- (void)removeUserReportsObject:(LMUserReport*)value_;
 
 @end
 
@@ -72,6 +100,16 @@ extern const struct LMUserFetchedProperties {
 - (void)setPrimitivePassword:(NSString*)value;
 
 
+
+
+
+- (NSMutableSet*)primitiveUserAlerts;
+- (void)setPrimitiveUserAlerts:(NSMutableSet*)value;
+
+
+
+- (NSMutableSet*)primitiveUserReports;
+- (void)setPrimitiveUserReports:(NSMutableSet*)value;
 
 
 @end

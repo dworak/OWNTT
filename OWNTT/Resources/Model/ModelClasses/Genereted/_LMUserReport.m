@@ -7,6 +7,8 @@ const struct LMUserReportAttributes LMUserReportAttributes = {
 };
 
 const struct LMUserReportRelationships LMUserReportRelationships = {
+	.reportObject = @"reportObject",
+	.user = @"user",
 };
 
 const struct LMUserReportFetchedProperties LMUserReportFetchedProperties = {
@@ -44,6 +46,14 @@ const struct LMUserReportFetchedProperties LMUserReportFetchedProperties = {
 
 
 
+
+@dynamic reportObject;
+
+	
+
+@dynamic user;
+
+	
 
 
 
