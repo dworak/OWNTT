@@ -29,6 +29,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.delegate = self;
+    [[self tabBar] setSelectedImageTintColor:[UIColor colorWithRed:232./255. green:73./255. blue:149./255. alpha:1.0]];
+    
+    CGRect sepFrame = CGRectMake(0, 0, 320, 1);
+    UIView *seperatorView = [[UIView alloc] initWithFrame:sepFrame];
+    seperatorView.backgroundColor = [UIColor colorWithRed:232./255. green:73./255. blue:149./255. alpha:1.0];
+    seperatorView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [self.tabBar addSubview:seperatorView];
+    
+    //[UITabBarItem.appearance setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor purpleColor] }     forState:UIControlStateSelected];
 }
 
 - (void)didReceiveMemoryWarning

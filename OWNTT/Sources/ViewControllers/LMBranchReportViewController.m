@@ -8,6 +8,7 @@
 
 #import "LMBranchReportViewController.h"
 #import "LMAlertSummaryViewController.h"
+#import "LMNavigationViewController.h"
 #import "LMReport.h"
 #import "LMInstance.h"
 
@@ -73,7 +74,20 @@
 
 - (NSString *)nextSegueKey
 {
-    return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushReportSummary];
+    if([self.parentViewController.navigationController isKindOfClass:[LMNavigationViewController class]])
+    {
+        LMNavigationViewController *navController = (LMNavigationViewController *)self.parentViewController.navigationController;
+        if(navController.controllerType.intValue == NavigationControllerType_ReportTemplate)
+        {
+            return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushReportSummary];
+        }
+        else
+        {
+            return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushWeb];
+        }
+        
+    }
+    return nil;
 }
 
 @end

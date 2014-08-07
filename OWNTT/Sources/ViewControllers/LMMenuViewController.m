@@ -83,6 +83,7 @@
         cell = (LMMenuTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMMenuTableViewCell class])] owner:self options:nil] objectAtIndex:0];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
+    cell.textLabel.font = DEFAULT_APP_FONT;
     cell.textLabel.text = @"";
     return cell;
 }

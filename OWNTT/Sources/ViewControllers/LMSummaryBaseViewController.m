@@ -29,6 +29,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 118, 36)];
+    titleImage.image = [UIImage imageNamed:@"logo.png"];
+    [self.parentViewController.navigationItem setTitleView:titleImage];
+    
     [self.parentViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)]];
     
     self.automaticallyAdjustsScrollViewInsets = NO;

@@ -41,10 +41,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:NAVIGATION_ITEM_TEXT_COLOR_NORMAL,
+       NSFontAttributeName: NAVIGATION_ITEM_FONT
+       } forState:UIControlStateNormal];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:NAVIGATION_ITEM_TEXT_COLOR_HIGHLIGHTEN,
+       NSFontAttributeName: NAVIGATION_ITEM_FONT
+       } forState:UIControlStateHighlighted];
+    self.navigationBar.tintColor = NAVIGATION_ITEM_TEXT_COLOR_NORMAL;
+    
     //clear navigation bar
-    [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    self.navigationBar.shadowImage = [UIImage new];
-    self.navigationBar.translucent = YES;
+    //[self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    //self.navigationBar.shadowImage = [UIImage new];
+    //self.navigationBar.translucent = YES;
     
     //setup layout for controller type
     UIViewController *currentTopViewController;

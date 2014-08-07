@@ -34,6 +34,12 @@
 {
     [super viewDidLoad];
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [backButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:NAVIGATION_ITEM_TEXT_COLOR_NORMAL,
+                                            NSFontAttributeName: NAVIGATION_ITEM_FONT
+                                             } forState:UIControlStateNormal];
+    [backButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:NAVIGATION_ITEM_TEXT_COLOR_HIGHLIGHTEN,
+                                             NSFontAttributeName: NAVIGATION_ITEM_FONT
+                                             } forState:UIControlStateHighlighted];
     [self.parentViewController.navigationItem setBackBarButtonItem:backButtonItem];
     
     UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 118, 36)];
@@ -132,6 +138,7 @@
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
     LMReadOnlyObject *object = [self.tableData objectAtIndex:indexPath.row];
+    cell.textLabel.font = DEFAULT_APP_FONT;
     cell.textLabel.text = object.name;
     return cell;
 }
@@ -143,7 +150,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section

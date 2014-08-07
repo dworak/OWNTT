@@ -40,7 +40,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dbG-d6-dF5">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.90980392156862744" green="0.28235294117647058" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="controllerType">
@@ -89,6 +89,7 @@
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="XLK-Xm-Upl" kind="relationship" relationship="viewControllers" id="cdc-wl-ZxT"/>
@@ -240,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctm-89-FLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2656" y="-5014"/>
+            <point key="canvasLocation" x="3032" y="-4269"/>
         </scene>
         <!--Navigation View Controller - Alert-->
         <scene sceneID="ET4-lE-ZZI">
@@ -251,7 +252,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8qk-Hs-bZ3">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="controllerType">
@@ -275,7 +276,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IgR-6E-9ur">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="controllerType">
@@ -362,11 +363,12 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="K9t-Vf-4sE" kind="push" identifier="LMSegueKeyType_PushReportSummary" id="zbN-r1-3gJ"/>
+                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWeb" id="Cw4-sy-BWk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clT-eE-5zX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2112" y="-5014"/>
+            <point key="canvasLocation" x="2304" y="-5014"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="a6A-KI-DUG">
@@ -392,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hnp-mc-6yV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2112" y="-4102"/>
+            <point key="canvasLocation" x="2304" y="-3070"/>
         </scene>
         <!--Rotate View Controller-->
         <scene sceneID="iv2-sl-J48">
@@ -415,7 +417,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57M-gp-kbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3208" y="-5014"/>
+            <point key="canvasLocation" x="4744" y="-5022"/>
         </scene>
     </scenes>
     <resources>
@@ -430,10 +432,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="taN-ZK-iiH"/>
         <segue reference="bzR-dC-4dG"/>
+        <segue reference="taN-ZK-iiH"/>
         <segue reference="4JP-VP-Uak"/>
         <segue reference="HNE-4q-bxA"/>
-        <segue reference="wRg-FK-AFq"/>
+        <segue reference="Cw4-sy-BWk"/>
     </inferredMetricsTieBreakers>
 </document>
