@@ -49,8 +49,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.dateFormater = [[NSDateFormatter alloc] init];
-    [self.dateFormater setDateFormat:@"yyyy-dd-mm"];
+    [self.dateFormater setDateFormat:@"yyyy-MM-dd"];
     self.scrollView.contentSize = CGSizeMake(320, self.view.frame.size.height-64);
+    
+    [self.dateFrom setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateNormal];
+    [self.dateFrom setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
+    [self.dateTo setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateNormal];
+    [self.dateTo setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
+    self.valueTextField.text = @"0";
+    
+    
+    [self.alertNameTextField addValidation:LMTextFieldValidaitonType_Name];
+    [self.valueTextField addValidation:LMTextFieldValidaitonType_Value];
     
     self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
     LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.transactionData.instanceId inContext:self.managedObjectContext];
@@ -115,6 +125,35 @@
         [self.datePickerController updateFrameForOrientation:self.interfaceOrientation];
     }
 }*/
+
+- (BOOL)isValid
+{
+    NSString *message = [self.alertNameTextField validateField];
+    if (!message)
+    {
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dateFrom = [dateFormatter dateFromString:self.dateFrom.titleLabel.text];
+        NSDate *dateTo = [dateFormatter dateFromString:self.dateTo.titleLabel.text];
+        if([dateFrom compare:dateTo] == NSOrderedSame || [dateFrom compare:dateTo] == NSOrderedDescending)
+        {
+            message = @"Data do musi być większa niż data od";
+        }
+        if(!message)
+        {
+            message = [self.valueTextField validateField];
+        }
+    }
+    if(message)
+    {
+        [LMUtils showErrorAlertWithText:message];
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
 
 - (IBAction)buttonTapped:(id)sender
 {

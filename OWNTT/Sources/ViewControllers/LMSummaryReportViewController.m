@@ -34,6 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.pickerData = [LMReferenceData staticReportTimeIntervalValues];
+    [self.reportNameTextField addValidation:LMTextFieldValidaitonType_Name];
     [self.timeintervalButton setTitle:[self.pickerData objectAtIndex:2] forState:UIControlStateNormal];
     [self.timeintervalButton setTitle:[self.pickerData objectAtIndex:2] forState:UIControlStateHighlighted];
     self.reportNameTextField.delegate = self;

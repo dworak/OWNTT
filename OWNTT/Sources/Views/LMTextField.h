@@ -12,6 +12,8 @@ typedef enum {
     LMTextFieldValidaitonType_None = 0,
     LMTextFieldValidaitonType_Login,
     LMTextFieldValidaitonType_Password,
+    LMTextFieldValidaitonType_Name,
+    LMTextFieldValidaitonType_Value
 } LMTextFieldValidaitonType;
 
 @interface LMTextField : UITextField

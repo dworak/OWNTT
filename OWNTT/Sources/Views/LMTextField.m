@@ -86,6 +86,31 @@
                 return nil;
             }
         }
+        case LMTextFieldValidaitonType_Name:
+        {
+            if(self.text.length > 60 || self.text.length < 1)
+            {
+                return @"Nazwa musi zawierać od 1 do 60 znaków";
+            }
+            else
+            {
+                return nil;
+            }
+        }
+        case LMTextFieldValidaitonType_Value:
+        {
+            NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
+            [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+            NSNumber *number = [numberFormatter numberFromString:self.text];
+            if(!number || number.intValue < 0 || number.intValue > 999999999)
+            {
+                return @"Wartość musi być liczbą z przedziału od 0 do 999 999 999";
+            }
+            else
+            {
+                return nil;
+            }
+        }
         default:
             return NO;
     }
