@@ -54,7 +54,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSManagedObjectContext *managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    NSManagedObjectContext *managedObjectContext = [[LMCoreDataManager sharedInstance] masterManagedObjectContext];
     LMUser *user = [[LMUser fetchLMUsersInContext:managedObjectContext] objectAtIndex:0];
     if([self isKindOfClass:[LMReportMenuViewController class]])
     {

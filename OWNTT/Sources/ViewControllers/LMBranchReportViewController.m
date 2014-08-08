@@ -60,6 +60,10 @@
         {
             ((LMSummaryBaseViewController *)hostController.childViewController).transactionData = self.objectId;
         }
+        if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
+        {
+            ((LMWebViewController *)hostController.childViewController).transactionData = self.objectId;
+        }
     }
 }
 

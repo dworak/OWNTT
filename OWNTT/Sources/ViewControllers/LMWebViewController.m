@@ -11,6 +11,7 @@
 #import "LMWebViewController.h"
 #import "LMNavigationViewController.h"
 #import "LMTabBarViewController.h"
+#import "LMBranchAdvertiserViewController.h"
 
 @interface LMWebViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -32,16 +33,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSManagedObjectContext *mOC = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    NSManagedObjectContext *mOC = [[LMCoreDataManager sharedInstance] masterManagedObjectContext];
     if(self.transactionData.reportId)
     {
         LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:mOC];
-        NSString *path = [[NSBundle mainBundle]
-                          pathForResource:report.htmlName ofType:@"html"];
-        NSURL *url = [NSURL fileURLWithPath:path];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [self.webView setScalesPageToFit:YES];
-        [self.webView loadRequest:request];
+        if(report && report.htmlName)
+        {
+            NSString *path = [[NSBundle mainBundle]
+                              pathForResource:report.htmlName ofType:nil]
+            ;
+            NSURL *url = [NSURL fileURLWithPath:path];
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            [self.webView setScalesPageToFit:YES];
+            [self.webView loadRequest:request];
+        }
     }
 }
 
@@ -78,7 +83,21 @@
     }];
     if(!self.isPop)
     {
-    [((LMNavigationViewController *)((LMTabBarViewController*)((TTHostViewController *)self.parentViewController).presentingViewController).selectedViewController) popToRootViewControllerAnimated:NO];
+        LMNavigationViewController *navcontroller = ((LMNavigationViewController *)((LMTabBarViewController*)((TTHostViewController *)self.parentViewController).presentingViewController).selectedViewController);
+        UIViewController *top;
+        for(UIViewController *controller in navcontroller.viewControllers)
+        {
+            if([((TTHostViewController *)controller).childViewController isKindOfClass:[LMBranchAdvertiserViewController class]])
+            {
+                top = controller;
+                break;
+            }
+        }
+        if(top)
+        {
+        [navcontroller popToViewController:top animated:NO];
+        }
+        
     }
 }
 
