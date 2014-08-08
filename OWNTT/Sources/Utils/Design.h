@@ -13,16 +13,16 @@
 
 //LMTextField design
 #define UI_TEXTFIELD_BACKGROUND_COLOR [UIColor whiteColor]
-#define UI_TEXTFIELD_BORDER_WIDTH 2
-#define UI_TEXTFIELD_BORDER_COLOR [UIColor blackColor].CGColor
+#define UI_TEXTFIELD_BORDER_WIDTH 1
+#define UI_TEXTFIELD_BORDER_COLOR [UIColor colorWithRed:104./255. green:46./255. blue:144./255. alpha:1.0].CGColor
 #define UI_TEXTFIELD_TEXT_PADDING 5
 #define UI_TEXTFIELD_TEXT_COLOR [UIColor blackColor]
 #define UI_TEXTFIELD_FONT [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:14]
 
 //LMButton
 #define UI_BUTTON_BACKGROUND_COLOR [UIColor whiteColor]
-#define UI_BUTTON_BORDER_WIDTH 2
-#define UI_BUTTON_BORDER_COLOR [UIColor blackColor].CGColor
+#define UI_BUTTON_BORDER_WIDTH 1
+#define UI_BUTTON_BORDER_COLOR [UIColor colorWithRed:104./255. green:46./255. blue:144./255. alpha:1.0].CGColor
 #define UI_BUTTON_TEXT_PADDING 5
 #define UI_BUTTON_NORMAL_TEXT_COLOR [UIColor blackColor]
 #define UI_BUTTON_SELECTED_TEXT_COLOR [UIColor grayColor]
@@ -39,7 +39,7 @@
 #define TAB_BAR_SELECTED_COLOR [UIColor colorWithRed:232./255. green:73./255. blue:149./255. alpha:1.0]
 
 //LMNavigationController
-#define NAVIGATION_ITEM_TEXT_COLOR_NORMAL [UIColor purpleColor]
+#define NAVIGATION_ITEM_TEXT_COLOR_NORMAL [UIColor colorWithRed:104./255. green:46./255. blue:144./255. alpha:1.0]
 #define NAVIGATION_ITEM_TEXT_COLOR_HIGHLIGHTEN [UIColor grayColor]
 #define NAVIGATION_ITEM_FONT [UIFont fontWithName:@"HelveticaNeue" size:14]
 

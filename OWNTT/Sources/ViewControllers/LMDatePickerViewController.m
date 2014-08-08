@@ -97,6 +97,7 @@
     {
         self.pickerView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMDatePickerView class])] owner:self options:nil] objectAtIndex:0];
         self.pickerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        self.pickerView.tintColor = [UIColor redColor];
         [self.pickerView.cancelItem setTarget:self];
         [self.pickerView.cancelItem setAction:@selector(cancelAction)];
         [self.pickerView.doneItem setTarget:self];

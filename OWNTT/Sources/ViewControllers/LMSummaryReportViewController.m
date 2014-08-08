@@ -14,6 +14,9 @@
 #import "LMUserReport.h"
 #import "LMReport.h"
 #import "LMUser.h"
+#import "LMInstance.h"
+#import "LMAdvertiser.h"
+#import "LMProgram.h"
 
 @interface LMSummaryReportViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet LMTextField *reportNameTextField;
@@ -42,6 +45,28 @@
     [self.timeintervalButton setTitle:[self.pickerData objectAtIndex:2] forState:UIControlStateHighlighted];
     self.reportNameTextField.delegate = self;
     self.scrollView.contentSize = CGSizeMake(320, self.view.frame.size.height-64);
+    
+    self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.transactionData.instanceId inContext:self.managedObjectContext];
+    if(instance)
+    {
+        self.instanceLabel.text = instance.name;
+        for(LMAdvertiser *advertiser in instance.advertisers.allObjects)
+        {
+            if(advertiser.objectId.intValue == self.transactionData.advertiserId.intValue)
+            {
+                self.advertiserLabel.text = advertiser.name;
+                for(LMProgram *program in advertiser.programs.allObjects)
+                {
+                    if(program.objectId.intValue == self.transactionData.programId.intValue)
+                    {
+                        self.programLabel.text = program.name;
+                    }
+                }
+                break;
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -114,7 +139,10 @@
 
 - (void)saveObjectData
 {
-    self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    if(!self.managedObjectContext)
+    {
+        self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    }
     self.managedObjectContext.stalenessInterval = 0;
     LMUser *user = [[LMUser fetchLMUsersInContext:self.managedObjectContext] objectAtIndex:0];
     LMUserReport *userReport = [LMUserReport createObjectInContext:self.managedObjectContext];
