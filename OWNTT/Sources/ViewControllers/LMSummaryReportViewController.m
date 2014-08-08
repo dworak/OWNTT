@@ -114,15 +114,16 @@
 
 - (void)saveObjectData
 {
-    NSManagedObjectContext *managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
-    LMUser *user = [[LMUser fetchLMUsersInContext:managedObjectContext] objectAtIndex:0];
-    LMUserReport *userReport = [LMUserReport createObjectInContext:managedObjectContext];
-    LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:managedObjectContext];
+    self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    self.managedObjectContext.stalenessInterval = 0;
+    LMUser *user = [[LMUser fetchLMUsersInContext:self.managedObjectContext] objectAtIndex:0];
+    LMUserReport *userReport = [LMUserReport createObjectInContext:self.managedObjectContext];
+    LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:self.managedObjectContext];
     userReport.reportObject = report;
     userReport.createDate = [NSDate date];
     userReport.name = self.reportNameTextField.text;
     [user.userReportsSet addObject:userReport];
-    [LMUtils saveCoreDataContext:managedObjectContext];
+    [LMUtils saveCoreDataContext:self.managedObjectContext];
 }
 
 #pragma mark -

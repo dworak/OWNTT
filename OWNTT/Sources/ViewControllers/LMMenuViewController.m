@@ -20,6 +20,7 @@
 
 @interface LMMenuViewController ()
 @property (strong, nonatomic) NSArray *userObjects;
+@property (strong, nonatomic) NSManagedObjectContext *localContext;
 @end
 
 @implementation LMMenuViewController
@@ -54,11 +55,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSManagedObjectContext *managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
-    LMUser *user = [[LMUser fetchLMUsersInContext:managedObjectContext] objectAtIndex:0];
+    if  (!self.localContext)
+    {
+        self.localContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    }
+    LMUser *user = [[LMUser fetchLMUsersInContext:self.localContext] objectAtIndex:0];
     if([self isKindOfClass:[LMReportMenuViewController class]])
     {
-        self.userObjects = [LMUserReport fetchEntitiesOfClass:[LMUserReport class] inContext:managedObjectContext];//[NSArray arrayWithArray:user.userReports.allObjects];
+        self.userObjects = [LMUserReport fetchEntitiesOfClass:[LMUserReport class] inContext:self.localContext];//[NSArray arrayWithArray:user.userReports.allObjects];
     }
     else
     {
