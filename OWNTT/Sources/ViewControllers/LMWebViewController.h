@@ -13,4 +13,5 @@
 @interface LMWebViewController : LMHostChildBaseViewController
 @property (strong, nonatomic) LMData *transactionData;
 @property (unsafe_unretained, nonatomic) BOOL isPop;
+@property (unsafe_unretained, nonatomic) BOOL isInstance;
 @end

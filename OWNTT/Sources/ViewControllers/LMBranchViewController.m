@@ -8,8 +8,10 @@
 
 #import "LMBranchViewController.h"
 #import "LMBranchTableViewCell.h"
+#import "LMBranchInstanceViewController.h"
 #import "LMHeaderView.h"
 #import "LMNavigationViewController.h"
+#import "LMBranchReportViewController.h"
 #import "LMReadOnlyObject.h"
 #import "LMInstance.h"
 #import "LMAdvertiser.h"
@@ -53,7 +55,7 @@
     if([self.parentViewController.navigationController isKindOfClass:[LMNavigationViewController class]])
     {
         LMNavigationViewController *navController = (LMNavigationViewController *)self.parentViewController.navigationController;
-        if(navController.controllerType.intValue == NavigationControllerType_Report)
+        if(navController.controllerType.intValue == NavigationControllerType_Report && ![self isKindOfClass:[LMBranchReportViewController class]])
         {
             self.headerView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMHeaderView class])] owner:self options:nil] objectAtIndex:0];
             __weak LMBranchViewController *selfObject = self;
@@ -92,6 +94,14 @@
             if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
             {
                 ((LMWebViewController *)hostController.childViewController).isPop = YES;
+                if([self isKindOfClass:[LMBranchInstanceViewController class]])
+                {
+                    ((LMWebViewController *)hostController.childViewController).isInstance = YES;
+                }
+                else
+                {
+                    ((LMWebViewController *)hostController.childViewController).isInstance = NO;
+                }
             }
         }
     }

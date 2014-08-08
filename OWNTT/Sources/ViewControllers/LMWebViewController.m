@@ -15,6 +15,7 @@
 
 @interface LMWebViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) NSManagedObjectContext *localContext;
 
 @end
 
@@ -33,10 +34,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSManagedObjectContext *mOC = [[LMCoreDataManager sharedInstance] masterManagedObjectContext];
+    if(!self.localContext)
+    {
+        self.localContext = [[LMCoreDataManager sharedInstance] masterManagedObjectContext];
+    }
     if(self.transactionData.reportId)
     {
-        LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:mOC];
+        LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:self.localContext];
         if(report && report.htmlName)
         {
             NSString *path = [[NSBundle mainBundle]
@@ -84,20 +88,26 @@
     if(!self.isPop)
     {
         LMNavigationViewController *navcontroller = ((LMNavigationViewController *)((LMTabBarViewController*)((TTHostViewController *)self.parentViewController).presentingViewController).selectedViewController);
-        UIViewController *top;
-        for(UIViewController *controller in navcontroller.viewControllers)
+        if(self.isInstance)
         {
-            if([((TTHostViewController *)controller).childViewController isKindOfClass:[LMBranchAdvertiserViewController class]])
+            UIViewController *top;
+            for(UIViewController *controller in navcontroller.viewControllers)
             {
-                top = controller;
-                break;
+                if([((TTHostViewController *)controller).childViewController isKindOfClass:[LMBranchAdvertiserViewController class]])
+                {
+                    top = controller;
+                    break;
+                }
+            }
+            if(top)
+            {
+                [navcontroller popToViewController:top animated:NO];
             }
         }
-        if(top)
+        else
         {
-        [navcontroller popToViewController:top animated:NO];
+            [navcontroller popToRootViewControllerAnimated:NO];
         }
-        
     }
 }
 
