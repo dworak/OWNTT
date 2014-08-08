@@ -10,7 +10,7 @@
 #import "LMWebViewController.h"
 
 @interface LMTabBarViewController () <UITabBarControllerDelegate>
-
+@property (strong, nonatomic) UIImageView *pointerView;
 @end
 
 @implementation LMTabBarViewController
@@ -30,6 +30,8 @@
     // Do any additional setup after loading the view.
     self.delegate = self;
     [[self tabBar] setSelectedImageTintColor:[UIColor colorWithRed:232./255. green:73./255. blue:149./255. alpha:1.0]];
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:232./255. green:73./255. blue:149./255. alpha:1.0]];
+    //[[UITabBar appearance] setBarTintColor:[UIColor yellowColor]];
     
     CGRect sepFrame = CGRectMake(0, 0, 320, 1);
     UIView *seperatorView = [[UIView alloc] initWithFrame:sepFrame];
@@ -58,7 +60,6 @@
 */
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
-    
     return (![viewController isEqual:self.selectedViewController]);
 }
 

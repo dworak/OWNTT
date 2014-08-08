@@ -50,6 +50,7 @@
             if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
             {
                 ((LMWebViewController *)hostController.childViewController).isPop = YES;
+                ((LMWebViewController *)hostController.childViewController).isInstance = NO;
             }
         }
     }
@@ -63,6 +64,8 @@
         if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
         {
             ((LMWebViewController *)hostController.childViewController).transactionData = self.objectId;
+            ((LMWebViewController *)hostController.childViewController).isPop = NO;
+            ((LMWebViewController *)hostController.childViewController).isInstance = NO;
         }
     }
 }

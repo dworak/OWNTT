@@ -88,7 +88,7 @@
     if(!self.isPop)
     {
         LMNavigationViewController *navcontroller = ((LMNavigationViewController *)((LMTabBarViewController*)((TTHostViewController *)self.parentViewController).presentingViewController).selectedViewController);
-        if(self.isInstance)
+        if(!self.isInstance)
         {
             UIViewController *top;
             for(UIViewController *controller in navcontroller.viewControllers)

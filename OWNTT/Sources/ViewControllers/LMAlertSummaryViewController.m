@@ -268,7 +268,7 @@
             __weak LMAlertSummaryViewController *selfObj = self;
             self.datePickerController.pickerViewCancelAction = ^()
             {
-                [selfObj.pickerViewController hide];
+                [selfObj.datePickerController hide];
             };
             self.datePickerController.pickerViewDoneAction = ^(NSDate *value)
             {
