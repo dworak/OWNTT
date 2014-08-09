@@ -34,6 +34,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self createLeftButton:YES withSelector:@selector(doneAction) text:@"<"];
+    [self createLeftButton:NO withSelector:@selector(showDate) text:@"Date"];
+    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 118, 36)];
+    titleImage.image = [UIImage imageNamed:@"logo.png"];
+    [self.parentViewController.navigationItem setTitleView:titleImage];
+    
     if(!self.localContext)
     {
         self.localContext = [[LMCoreDataManager sharedInstance] masterManagedObjectContext];
@@ -81,7 +87,7 @@
     return YES;
 }
 
-- (IBAction)doneAction:(id)sender
+- (void)doneAction
 {
     [self.parentViewController dismissViewControllerAnimated:YES completion:^{
     }];
@@ -108,6 +114,32 @@
         {
             [navcontroller popToRootViewControllerAnimated:NO];
         }
+    }
+}
+
+- (void)showDate
+{
+    
+}
+
+- (void)createLeftButton:(BOOL)left withSelector:(SEL)selector text:(NSString *)text
+{
+    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithTitle:text style:UIBarButtonItemStylePlain target:nil action:nil];
+    [buttonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:NAVIGATION_ITEM_TEXT_COLOR_NORMAL,
+                                             NSFontAttributeName: NAVIGATION_ITEM_FONT
+                                             } forState:UIControlStateNormal];
+    [buttonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:NAVIGATION_ITEM_TEXT_COLOR_HIGHLIGHTEN,
+                                             NSFontAttributeName: NAVIGATION_ITEM_FONT
+                                             } forState:UIControlStateHighlighted];
+    [buttonItem setAction:selector];
+    [buttonItem setTarget:self];
+    if(left)
+    {
+        [self.parentViewController.navigationItem setLeftBarButtonItem:buttonItem];
+    }
+    else
+    {
+        [self.parentViewController.navigationItem setRightBarButtonItem:buttonItem];
     }
 }
 

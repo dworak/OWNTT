@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pMy-eb-DsW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pMy-eb-DsW">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -73,7 +73,7 @@
                     <connections>
                         <segue destination="M0q-mS-hcy" kind="push" identifier="LMSegueKeyType_PushAdvertiserList" id="GpV-0x-REA"/>
                         <segue destination="y7x-9C-JhN" kind="push" identifier="LMSegueKeyType_PushProgramList" id="0yr-Nw-2XK"/>
-                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWebPop" modalTransitionStyle="crossDissolve" id="ydz-0Q-tPw"/>
+                        <segue destination="5we-Gc-wv5" kind="modal" identifier="LMSegueKeyType_PushWebPop" modalTransitionStyle="crossDissolve" id="efO-NC-HdM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QVc-ma-Rce" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -159,7 +159,7 @@
                     <connections>
                         <segue destination="dp1-ZQ-flU" kind="push" identifier="LMSegueKeyType_PushReport" id="N6r-LL-aii"/>
                         <segue destination="aZI-3u-bLF" kind="push" identifier="LMSegueKeyType_PushAlertSummary" id="cLc-J3-1iJ"/>
-                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWebPop" modalTransitionStyle="crossDissolve" id="KPh-Vc-hFT"/>
+                        <segue destination="5we-Gc-wv5" kind="modal" identifier="LMSegueKeyType_PushWebPop" modalTransitionStyle="crossDissolve" id="Gs3-CI-S1w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2K-1O-NLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,7 +213,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="y7x-9C-JhN" kind="push" identifier="LMSegueKeyType_PushProgramList" id="HNE-4q-bxA"/>
-                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWebPop" modalTransitionStyle="crossDissolve" id="FU0-uX-eKh"/>
+                        <segue destination="5we-Gc-wv5" kind="modal" identifier="LMSegueKeyType_PushWebPop" modalTransitionStyle="crossDissolve" id="SsT-nH-vyX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5L-xC-nBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,12 +239,12 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMSummaryReportViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWeb" modalTransitionStyle="coverVertical" id="wRg-FK-AFq"/>
+                        <segue destination="5we-Gc-wv5" kind="modal" identifier="LMSegueKeyType_PushWeb" modalTransitionStyle="crossDissolve" id="n3X-2q-3YU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctm-89-FLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1864" y="-4236"/>
+            <point key="canvasLocation" x="1344" y="-4261"/>
         </scene>
         <!--Navigation View Controller - Alert-->
         <scene sceneID="ET4-lE-ZZI">
@@ -314,7 +314,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="eS8-cG-JSw" kind="push" identifier="LMSegueKeyType_PushInstanceList" id="FPb-vR-x9c"/>
-                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWeb" modalTransitionStyle="crossDissolve" id="xYs-E4-REd"/>
+                        <segue destination="5we-Gc-wv5" kind="modal" identifier="LMSegueKeyType_PushWeb" modalTransitionStyle="crossDissolve" id="q7Z-vS-7y3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAm-rs-MCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -341,7 +341,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="eS8-cG-JSw" kind="push" identifier="LMSegueKeyType_PushInstanceList" id="4JP-VP-Uak"/>
-                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWeb" modalTransitionStyle="crossDissolve" id="c3B-pN-opZ"/>
+                        <segue destination="5we-Gc-wv5" kind="modal" identifier="LMSegueKeyType_PushWeb" modalTransitionStyle="crossDissolve" id="nco-11-qim"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUj-pa-X8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -368,8 +368,8 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="K9t-Vf-4sE" kind="push" identifier="LMSegueKeyType_PushReportSummary" id="zbN-r1-3gJ"/>
-                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWeb" id="Cw4-sy-BWk"/>
-                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWebPop" modalTransitionStyle="crossDissolve" id="SLq-IL-yY4"/>
+                        <segue destination="5we-Gc-wv5" kind="modal" identifier="LMSegueKeyType_PushWeb" modalTransitionStyle="crossDissolve" id="cUc-f5-8yt"/>
+                        <segue destination="5we-Gc-wv5" kind="modal" identifier="LMSegueKeyType_PushWebPop" modalTransitionStyle="crossDissolve" id="3i4-Fc-iHu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clT-eE-5zX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -395,7 +395,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMAlertSummaryViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="xsX-7X-ySU" kind="modal" identifier="LMSegueKeyType_PushWeb" modalTransitionStyle="coverVertical" id="QI1-tS-7i7"/>
+                        <segue destination="5we-Gc-wv5" kind="modal" identifier="LMSegueKeyType_PushWeb" modalTransitionStyle="crossDissolve" id="OZX-un-pYL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hnp-mc-6yV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -423,7 +423,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57M-gp-kbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="-5835"/>
+            <point key="canvasLocation" x="2072" y="-7006"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JED-NG-oYi">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="5we-Gc-wv5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Ys-nw-pDi">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xsX-7X-ySU" kind="relationship" relationship="rootViewController" id="u9O-s7-QYG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J9O-ST-egJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1544" y="-7006"/>
         </scene>
     </scenes>
     <resources>
@@ -438,10 +453,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="FPb-vR-x9c"/>
+        <segue reference="0yr-Nw-2XK"/>
+        <segue reference="4JP-VP-Uak"/>
         <segue reference="taN-ZK-iiH"/>
         <segue reference="bzR-dC-4dG"/>
-        <segue reference="0yr-Nw-2XK"/>
-        <segue reference="FU0-uX-eKh"/>
+        <segue reference="n3X-2q-3YU"/>
     </inferredMetricsTieBreakers>
 </document>

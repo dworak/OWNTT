@@ -44,13 +44,17 @@
 {
     if([segue.identifier isEqualToString:@"LMSegueKeyType_PushWebPop"])
     {
-        if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
+        if([segue.destinationViewController isKindOfClass:[UINavigationController class]])
         {
-            TTHostViewController *hostController = (TTHostViewController *)segue.destinationViewController;
-            if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
+            UINavigationController *navController = segue.destinationViewController;
+            if([navController.topViewController isKindOfClass:[TTHostViewController class]])
             {
-                ((LMWebViewController *)hostController.childViewController).isPop = YES;
-                ((LMWebViewController *)hostController.childViewController).isInstance = NO;
+                TTHostViewController *hostController = (TTHostViewController *)navController.topViewController;
+                if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
+                {
+                    ((LMWebViewController *)hostController.childViewController).isPop = YES;
+                    ((LMWebViewController *)hostController.childViewController).isInstance = NO;
+                }
             }
         }
     }

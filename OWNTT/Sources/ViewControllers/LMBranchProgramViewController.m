@@ -55,7 +55,22 @@
 
 - (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
+    if([segue.identifier isEqualToString:@"LMSegueKeyType_PushWebPop"])
+    {
+        if([segue.destinationViewController isKindOfClass:[UINavigationController class]])
+        {
+            UINavigationController *navController = segue.destinationViewController;
+            if([navController.topViewController isKindOfClass:[TTHostViewController class]])
+            {
+                TTHostViewController *hostController = (TTHostViewController *)navController.topViewController;
+                if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
+                {
+                    ((LMWebViewController *)hostController.childViewController).isPop = YES;
+                }
+            }
+        }
+    }
+    else if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
     {
         TTHostViewController *hostController = segue.destinationViewController;
         if([hostController.childViewController isKindOfClass:[LMSummaryBaseViewController class]])
