@@ -58,6 +58,7 @@
 		2591A91E1993F4620036EEDB /* 1.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91B1993F4620036EEDB /* 1.html */; };
 		2591A91F1993F4620036EEDB /* 2.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91C1993F4620036EEDB /* 2.html */; };
 		2591A9201993F4620036EEDB /* 3.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91D1993F4620036EEDB /* 3.html */; };
+		25B18C6D1995F2BC00A519B5 /* LMFullButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B18C6C1995F2BC00A519B5 /* LMFullButton.m */; };
 		25FAFCA71990C41600FCD226 /* LMData.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA61990C41600FCD226 /* LMData.m */; };
 		25FAFCAA1990D42900FCD226 /* LMTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */; };
 		25FAFCAD1990D79300FCD226 /* LMReportMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCAC1990D79300FCD226 /* LMReportMenuViewController.m */; };
@@ -229,6 +230,8 @@
 		2591A91B1993F4620036EEDB /* 1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 1.html; sourceTree = "<group>"; };
 		2591A91C1993F4620036EEDB /* 2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2.html; sourceTree = "<group>"; };
 		2591A91D1993F4620036EEDB /* 3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 3.html; sourceTree = "<group>"; };
+		25B18C6B1995F2BC00A519B5 /* LMFullButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMFullButton.h; sourceTree = "<group>"; };
+		25B18C6C1995F2BC00A519B5 /* LMFullButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMFullButton.m; sourceTree = "<group>"; };
 		25FAFCA51990C41600FCD226 /* LMData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMData.h; sourceTree = "<group>"; };
 		25FAFCA61990C41600FCD226 /* LMData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMData.m; sourceTree = "<group>"; };
 		25FAFCA81990D42900FCD226 /* LMTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTabBarViewController.h; sourceTree = "<group>"; };
@@ -694,6 +697,8 @@
 				25146A83199238B3001DC8E3 /* LMDatePickerView.m */,
 				251199CB1993466500277D4F /* LMLabel.h */,
 				251199CC1993466500277D4F /* LMLabel.m */,
+				25B18C6B1995F2BC00A519B5 /* LMFullButton.h */,
+				25B18C6C1995F2BC00A519B5 /* LMFullButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -905,6 +910,7 @@
 				250F89C01991FBDF00D91836 /* LMDataPickerViewController.m in Sources */,
 				25036AD5198D2E6900EAE355 /* LMUser.m in Sources */,
 				25036AE9198D5EE300EAE355 /* LMBranchTableViewCell.m in Sources */,
+				25B18C6D1995F2BC00A519B5 /* LMFullButton.m in Sources */,
 				EDF39E551980FF7D00E00966 /* LMAppDelegate.m in Sources */,
 				25036AC4198D2CCE00EAE355 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				253F1F4E198E276400158407 /* LMAdvertiser.m in Sources */,

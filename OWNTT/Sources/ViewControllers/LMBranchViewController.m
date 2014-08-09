@@ -229,7 +229,7 @@
 {
     if(self.headerView)
     {
-        return 44;
+        return 62;
     }
     else
     {

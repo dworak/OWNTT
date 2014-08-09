@@ -40,7 +40,8 @@
 
 #pragma mark -
 #pragma mark === Private methods ===
-- (void)setupButton {
+- (void)setupButton
+{
     self.exclusiveTouch = YES;
     self.backgroundColor = UI_BUTTON_BACKGROUND_COLOR;
     
