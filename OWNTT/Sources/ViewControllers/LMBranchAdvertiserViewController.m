@@ -45,18 +45,16 @@
 
 - (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"LMSegueKeyType_PushWebPop"])
+    if([segue.identifier isEqualToString:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_ModalWebPop]])
     {
-        if([segue.destinationViewController isKindOfClass:[UINavigationController class]])
+        if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
         {
-            UINavigationController *navController = segue.destinationViewController;
-            if([navController.topViewController isKindOfClass:[TTHostViewController class]])
+            TTHostViewController *hostController = (TTHostViewController *)segue.destinationViewController;
+            if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
             {
-                TTHostViewController *hostController = (TTHostViewController *)navController.topViewController;
-                if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
-                {
-                    ((LMWebViewController *)hostController.childViewController).isPop = YES;
-                }
+                ((LMWebViewController *)hostController.childViewController).isPop = YES;
+                ((LMWebViewController *)hostController.childViewController).isInstance = NO;
+                ((LMWebViewController *)hostController.childViewController).transactionData = self.objectId;
             }
         }
     }

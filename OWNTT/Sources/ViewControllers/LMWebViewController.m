@@ -12,6 +12,7 @@
 #import "LMNavigationViewController.h"
 #import "LMTabBarViewController.h"
 #import "LMBranchAdvertiserViewController.h"
+#import "LMSegueKeys.h"
 
 @interface LMWebViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -34,12 +35,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self createLeftButton:YES withSelector:@selector(doneAction) text:@"<"];
-    [self createLeftButton:NO withSelector:@selector(showDate) text:@"Date"];
-    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 118, 36)];
+    //[self createLeftButton:YES withSelector:@selector(doneAction) text:@"<"];
+    //[self createLeftButton:NO withSelector:@selector(showDate) text:@"Date"];
+    /*UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 118, 36)];
     titleImage.image = [UIImage imageNamed:@"logo.png"];
     [self.parentViewController.navigationItem setTitleView:titleImage];
-    
+    */
     if(!self.localContext)
     {
         self.localContext = [[LMCoreDataManager sharedInstance] masterManagedObjectContext];
@@ -87,7 +88,7 @@
     return YES;
 }
 
-- (void)doneAction
+- (IBAction)doneAction:(id)sender
 {
     [self.parentViewController dismissViewControllerAnimated:YES completion:^{
     }];
@@ -117,9 +118,9 @@
     }
 }
 
-- (void)showDate
+- (IBAction)showDate:(id)sender
 {
-    
+    [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_ModalDate] sender:self];
 }
 
 - (void)createLeftButton:(BOOL)left withSelector:(SEL)selector text:(NSString *)text

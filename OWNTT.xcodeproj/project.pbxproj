@@ -59,6 +59,10 @@
 		2591A91F1993F4620036EEDB /* 2.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91C1993F4620036EEDB /* 2.html */; };
 		2591A9201993F4620036EEDB /* 3.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91D1993F4620036EEDB /* 3.html */; };
 		25B18C6D1995F2BC00A519B5 /* LMFullButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B18C6C1995F2BC00A519B5 /* LMFullButton.m */; };
+		25B18C701996093D00A519B5 /* LMDateConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B18C6F1996093D00A519B5 /* LMDateConfigurationViewController.m */; };
+		25B18C721996095B00A519B5 /* LMDateConfigurationViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25B18C711996095B00A519B5 /* LMDateConfigurationViewController_iPhone.xib */; };
+		25B18C751996186100A519B5 /* LMCustomNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B18C741996186100A519B5 /* LMCustomNavigationViewController.m */; };
+		25D0722B1998B2B100E326C8 /* LMSegueKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D0722A1998B2B100E326C8 /* LMSegueKeys.m */; };
 		25FAFCA71990C41600FCD226 /* LMData.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA61990C41600FCD226 /* LMData.m */; };
 		25FAFCAA1990D42900FCD226 /* LMTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */; };
 		25FAFCAD1990D79300FCD226 /* LMReportMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCAC1990D79300FCD226 /* LMReportMenuViewController.m */; };
@@ -111,7 +115,6 @@
 		EDF39E64198103B700E00966 /* mogend.sh in Resources */ = {isa = PBXBuildFile; fileRef = EDF39E62198103B700E00966 /* mogend.sh */; };
 		EDF39E68198104D700E00966 /* LMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E67198104D700E00966 /* LMLoginViewController.m */; };
 		EDF39E6B1981059C00E00966 /* LMSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E6A1981059C00E00966 /* LMSplashViewController.m */; };
-		EDF39E6E1981060200E00966 /* LMSegueKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E6D1981060200E00966 /* LMSegueKeys.m */; };
 		EDF39E7319810AE700E00966 /* LMHostChildBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E7219810AE700E00966 /* LMHostChildBaseViewController.m */; };
 		EDF39E7519810C6100E00966 /* LMSplashViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDF39E7419810C6100E00966 /* LMSplashViewController_iPhone.xib */; };
 /* End PBXBuildFile section */
@@ -232,6 +235,13 @@
 		2591A91D1993F4620036EEDB /* 3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 3.html; sourceTree = "<group>"; };
 		25B18C6B1995F2BC00A519B5 /* LMFullButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMFullButton.h; sourceTree = "<group>"; };
 		25B18C6C1995F2BC00A519B5 /* LMFullButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMFullButton.m; sourceTree = "<group>"; };
+		25B18C6E1996093D00A519B5 /* LMDateConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMDateConfigurationViewController.h; sourceTree = "<group>"; };
+		25B18C6F1996093D00A519B5 /* LMDateConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMDateConfigurationViewController.m; sourceTree = "<group>"; };
+		25B18C711996095B00A519B5 /* LMDateConfigurationViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMDateConfigurationViewController_iPhone.xib; sourceTree = "<group>"; };
+		25B18C731996186100A519B5 /* LMCustomNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMCustomNavigationViewController.h; sourceTree = "<group>"; };
+		25B18C741996186100A519B5 /* LMCustomNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCustomNavigationViewController.m; sourceTree = "<group>"; };
+		25D072291998B2B100E326C8 /* LMSegueKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSegueKeys.h; sourceTree = "<group>"; };
+		25D0722A1998B2B100E326C8 /* LMSegueKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSegueKeys.m; sourceTree = "<group>"; };
 		25FAFCA51990C41600FCD226 /* LMData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMData.h; sourceTree = "<group>"; };
 		25FAFCA61990C41600FCD226 /* LMData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMData.m; sourceTree = "<group>"; };
 		25FAFCA81990D42900FCD226 /* LMTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTabBarViewController.h; sourceTree = "<group>"; };
@@ -315,8 +325,6 @@
 		EDF39E67198104D700E00966 /* LMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLoginViewController.m; sourceTree = "<group>"; };
 		EDF39E691981059C00E00966 /* LMSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSplashViewController.h; sourceTree = "<group>"; };
 		EDF39E6A1981059C00E00966 /* LMSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSplashViewController.m; sourceTree = "<group>"; };
-		EDF39E6C1981060200E00966 /* LMSegueKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSegueKeys.h; sourceTree = "<group>"; };
-		EDF39E6D1981060200E00966 /* LMSegueKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSegueKeys.m; sourceTree = "<group>"; };
 		EDF39E6F198106B700E00966 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		EDF39E70198109B500E00966 /* Design.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Design.h; sourceTree = "<group>"; };
 		EDF39E7119810AE700E00966 /* LMHostChildBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHostChildBaseViewController.h; sourceTree = "<group>"; };
@@ -585,6 +593,7 @@
 				25FAFCB91990DC1B00FCD226 /* LMMenuTableViewCell_iPhone.xib */,
 				250F89C419920B6E00D91836 /* LMAlertSummaryViewController_iPhone.xib */,
 				25146A8819924FDA001DC8E3 /* LMWebViewController_iPhone.xib */,
+				25B18C711996095B00A519B5 /* LMDateConfigurationViewController_iPhone.xib */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -650,8 +659,12 @@
 				252CB2D719901454002677B8 /* LMBranchReportViewController.m */,
 				EDD131B419812ECF006F39E3 /* LMBranchViewController.h */,
 				EDD131B519812ECF006F39E3 /* LMBranchViewController.m */,
+				25B18C731996186100A519B5 /* LMCustomNavigationViewController.h */,
+				25B18C741996186100A519B5 /* LMCustomNavigationViewController.m */,
 				250F89BE1991FBDF00D91836 /* LMDataPickerViewController.h */,
 				250F89BF1991FBDF00D91836 /* LMDataPickerViewController.m */,
+				25B18C6E1996093D00A519B5 /* LMDateConfigurationViewController.h */,
+				25B18C6F1996093D00A519B5 /* LMDateConfigurationViewController.m */,
 				250F89C919921D5F00D91836 /* LMDatePickerViewController.h */,
 				250F89CA19921D5F00D91836 /* LMDatePickerViewController.m */,
 				EDF39E7119810AE700E00966 /* LMHostChildBaseViewController.h */,
@@ -664,6 +677,8 @@
 				EDF39E5A198101D500E00966 /* LMNavigationViewController.m */,
 				25FAFCAB1990D79300FCD226 /* LMReportMenuViewController.h */,
 				25FAFCAC1990D79300FCD226 /* LMReportMenuViewController.m */,
+				25146A8D199290D2001DC8E3 /* LMRotateViewController.h */,
+				25146A8E199290D2001DC8E3 /* LMRotateViewController.m */,
 				EDE87BFF19867C7E00043861 /* LMSettingsViewController.h */,
 				EDE87C0019867C7E00043861 /* LMSettingsViewController.m */,
 				EDF39E691981059C00E00966 /* LMSplashViewController.h */,
@@ -676,8 +691,6 @@
 				25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */,
 				25146A8519924FC5001DC8E3 /* LMWebViewController.h */,
 				25146A8619924FC5001DC8E3 /* LMWebViewController.m */,
-				25146A8D199290D2001DC8E3 /* LMRotateViewController.h */,
-				25146A8E199290D2001DC8E3 /* LMRotateViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -715,17 +728,17 @@
 		EDF39E65198103C000E00966 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				EDF39E6C1981060200E00966 /* LMSegueKeys.h */,
-				EDF39E6D1981060200E00966 /* LMSegueKeys.m */,
-				EDF39E6F198106B700E00966 /* Macros.h */,
+				25D072291998B2B100E326C8 /* LMSegueKeys.h */,
+				25D0722A1998B2B100E326C8 /* LMSegueKeys.m */,
+				25FF5B4A198F5DBD0043DA5D /* Constans.h */,
 				EDF39E70198109B500E00966 /* Design.h */,
-				EDE87C0419867E9100043861 /* LMUtils.h */,
-				EDE87C0519867E9100043861 /* LMUtils.m */,
 				25036AD9198D466600EAE355 /* LMAppUtils.h */,
 				25036ADA198D466600EAE355 /* LMAppUtils.m */,
-				25FF5B4A198F5DBD0043DA5D /* Constans.h */,
 				250F89AC1991577500D91836 /* LMReferenceData.h */,
 				250F89AD1991577500D91836 /* LMReferenceData.m */,
+				EDE87C0419867E9100043861 /* LMUtils.h */,
+				EDE87C0519867E9100043861 /* LMUtils.m */,
+				EDF39E6F198106B700E00966 /* Macros.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -830,6 +843,7 @@
 				25036AE1198D521F00EAE355 /* logoSplash.png in Resources */,
 				EDF39E511980FF7D00E00966 /* Images.xcassets in Resources */,
 				25036AAF198D294600EAE355 /* tabbar3@2x.png in Resources */,
+				25B18C721996095B00A519B5 /* LMDateConfigurationViewController_iPhone.xib in Resources */,
 				25036AAC198D294600EAE355 /* tabbar2.png in Resources */,
 				EDF39E501980FF7D00E00966 /* InfoPlist.strings in Resources */,
 				25036AB0198D294600EAE355 /* tabbar4.png in Resources */,
@@ -923,8 +937,8 @@
 				25036AC5198D2CCE00EAE355 /* UIImage+Additions.m in Sources */,
 				25FAFCCA1990E1D300FCD226 /* LMReadOnlyUserObject.m in Sources */,
 				EDF39E541980FF7D00E00966 /* main.m in Sources */,
+				25B18C701996093D00A519B5 /* LMDateConfigurationViewController.m in Sources */,
 				253F1F56198E27BD00158407 /* LMProgram.m in Sources */,
-				EDF39E6E1981060200E00966 /* LMSegueKeys.m in Sources */,
 				250FD81F1986DC1C0047EB42 /* LMSummaryReportViewController.m in Sources */,
 				253F1F5A198E9DBB00158407 /* LMReportWS.m in Sources */,
 				250F89BD19915C1B00D91836 /* LMDataPickerView.m in Sources */,
@@ -938,6 +952,7 @@
 				25146A84199238B3001DC8E3 /* LMDatePickerView.m in Sources */,
 				25FAFCB01990D7A000FCD226 /* LMAlertMenuViewController.m in Sources */,
 				EDD131BC19812F1E006F39E3 /* LMBranchAdvertiserViewController.m in Sources */,
+				25B18C751996186100A519B5 /* LMCustomNavigationViewController.m in Sources */,
 				253F1F50198E276400158407 /* LMReadOnlyObject.m in Sources */,
 				25FAFCC81990E1D300FCD226 /* _LMUserAlert.m in Sources */,
 				25036ADB198D466600EAE355 /* LMAppUtils.m in Sources */,
@@ -953,6 +968,7 @@
 				25146A8F199290D2001DC8E3 /* LMRotateViewController.m in Sources */,
 				25FAFCA71990C41600FCD226 /* LMData.m in Sources */,
 				EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */,
+				25D0722B1998B2B100E326C8 /* LMSegueKeys.m in Sources */,
 				EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */,
 				25FF5B49198F50B70043DA5D /* LMReport.m in Sources */,
 				25FAFCAD1990D79300FCD226 /* LMReportMenuViewController.m in Sources */,

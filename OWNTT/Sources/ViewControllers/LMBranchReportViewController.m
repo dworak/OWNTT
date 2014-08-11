@@ -42,7 +42,7 @@
 
 - (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"LMSegueKeyType_PushWebPop"])
+    if([segue.identifier isEqualToString:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_ModalWebPop]])
     {
         if([segue.destinationViewController isKindOfClass:[UINavigationController class]])
         {
@@ -105,7 +105,7 @@
         }
         else
         {
-            return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushWeb];
+            return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_ModalWeb];
         }
         
     }

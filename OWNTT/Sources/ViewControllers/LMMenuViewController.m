@@ -151,7 +151,7 @@
     {
         self.object.reportId = ((LMUserReport *)userObject).reportObject.objectId;
     }
-    [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushWeb] sender:self];
+    [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_ModalWeb] sender:self];
 }
 
 #pragma mark -

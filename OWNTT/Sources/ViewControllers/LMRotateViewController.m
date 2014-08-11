@@ -7,6 +7,7 @@
 //
 
 #import "LMRotateViewController.h"
+#import "LMDateConfigurationViewController.h"
 
 @interface LMRotateViewController ()
 
@@ -48,12 +49,26 @@
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+    if([self.childViewController isKindOfClass:[LMDateConfigurationViewController class]])
+    {
+        return UIInterfaceOrientationPortrait;
+    }
+    else
+    {
+        return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+    }
 }
 
 - (BOOL)shouldAutorotate
 {
+    if([self.childViewController isKindOfClass:[LMDateConfigurationViewController class]])
+    {
+        return NO;
+    }
+    else
+    {
     return YES;
+    }
 }
 
 @end

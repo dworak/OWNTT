@@ -60,7 +60,7 @@
             self.headerView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMHeaderView class])] owner:self options:nil] objectAtIndex:0];
             __weak LMBranchViewController *selfObject = self;
             self.headerView.showReport = ^() {
-                [selfObject.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushWebPop] sender:selfObject];
+                [selfObject.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_ModalWebPop] sender:selfObject];
             };
         }
     }
@@ -86,7 +86,7 @@
 
 - (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"LMSegueKeyType_PushWebPop"])
+    if([segue.identifier isEqualToString:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_ModalWebPop]])
     {
         if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
         {
