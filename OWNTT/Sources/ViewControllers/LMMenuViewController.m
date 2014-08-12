@@ -19,7 +19,7 @@
 #import "LMWebViewController.h"
 
 @interface LMMenuViewController ()
-@property (strong, nonatomic) NSArray *userObjects;
+@property (strong, nonatomic) NSMutableArray *userObjects;
 @property (strong, nonatomic) NSManagedObjectContext *localContext;
 @end
 
@@ -62,14 +62,14 @@
     LMUser *user = [[LMUser fetchLMUsersInContext:self.localContext] objectAtIndex:0];
     if([self isKindOfClass:[LMReportMenuViewController class]])
     {
-        self.userObjects = [LMUserReport fetchEntitiesOfClass:[LMUserReport class] inContext:self.localContext];//[NSArray arrayWithArray:user.userReports.allObjects];
+        self.userObjects = [NSMutableArray arrayWithArray:[LMUserReport fetchEntitiesOfClass:[LMUserReport class] inContext:self.localContext]];//[NSArray arrayWithArray:user.userReports.allObjects];
     }
     else
     {
-        self.userObjects = [NSArray arrayWithArray:user.userAlerts.allObjects];
+        self.userObjects = [NSMutableArray arrayWithArray:user.userAlerts.allObjects];
     }
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:YES];
-    self.userObjects = [self.userObjects sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    self.userObjects = [NSMutableArray arrayWithArray:[self.userObjects sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]]];
     [self.tableView reloadData];
 }
 
@@ -141,6 +141,18 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        LMReadOnlyUserObject *userObject = [self.userObjects objectAtIndex:indexPath.row];
+        [self.localContext deleteObject:userObject];
+        [LMUtils saveCoreDataContext:self.localContext];
+        [self.userObjects removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        NSLog(@"Unhandled editing style! %d", (int)editingStyle);
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
