@@ -12,6 +12,7 @@
 #import "LMHeaderView.h"
 #import "LMNavigationViewController.h"
 #import "LMBranchReportViewController.h"
+#import "LMBranchReportTableViewCell.h"
 #import "LMReadOnlyObject.h"
 #import "LMInstance.h"
 #import "LMAdvertiser.h"
@@ -148,6 +149,13 @@
     return nil;
 }
 
+- (UITableViewCell *)createNewCell
+{
+    UITableViewCell *cell = (LMBranchTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMBranchTableViewCell class])] owner:self options:nil] objectAtIndex:0];
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    return cell;
+}
+
 #pragma mark -
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -159,12 +167,23 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BranchCell"];
     if(!cell) {
-        cell = (LMBranchTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMBranchTableViewCell class])] owner:self options:nil] objectAtIndex:0];
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        cell = [self createNewCell];
     }
     LMReadOnlyObject *object = [self.tableData objectAtIndex:indexPath.row];
-    cell.textLabel.font = DEFAULT_APP_FONT;
-    cell.textLabel.text = object.name;
+    if([cell isKindOfClass:[LMBranchReportTableViewCell class]])
+    {
+        ((LMBranchReportTableViewCell *)cell).cellButton.tag = indexPath.row;
+        ((LMBranchReportTableViewCell *)cell).cellButton.titleLabel.font = DEFAULT_APP_FONT;
+        [((LMBranchReportTableViewCell *)cell).cellButton setTitle:object.name forState:UIControlStateNormal];
+        [((LMBranchReportTableViewCell *)cell).cellButton setTitle:object.name forState:UIControlStateHighlighted];
+        [((LMBranchReportTableViewCell *)cell).cellButton setTitleColor:DEFAULT_APP_FONT_COLOR forState:UIControlStateHighlighted];
+        [((LMBranchReportTableViewCell *)cell).cellButton setTitleColor:DEFAULT_APP_FONT_COLOR forState:UIControlStateNormal];
+    }
+    else
+    {
+        cell.textLabel.font = DEFAULT_APP_FONT;
+        cell.textLabel.text = object.name;
+    }
     return cell;
 }
 

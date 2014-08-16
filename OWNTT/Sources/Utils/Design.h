@@ -10,6 +10,7 @@
 #define OWNTT_Design_h
 
 #define DEFAULT_APP_FONT [UIFont fontWithName:@"HelveticaNeue" size:14]
+#define DEFAULT_APP_FONT_COLOR [UIColor whiteColor]
 
 //LMTextField design
 #define UI_TEXTFIELD_BACKGROUND_COLOR [UIColor whiteColor]
@@ -36,7 +37,7 @@
 #define UI_FULL_BUTTON_TEXT_PADDING 5
 #define UI_FULL_BUTTON_NORMAL_TEXT_COLOR [UIColor whiteColor]
 #define UI_FULL_BUTTON_SELECTED_TEXT_COLOR [UIColor grayColor]
-#define UI_FULL_BUTTON_FONT [UIFont fontWithName:@"HelveticaNeue-Light" size:14]
+#define UI_FULL_BUTTON_FONT [UIFont fontWithName:@"Droid Sans" size:18]
 #define UI_FULL_BUTTON_CORNER_RADIOUS 10
 
 //LMHeaderView

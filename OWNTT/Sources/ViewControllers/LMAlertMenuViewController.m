@@ -27,8 +27,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.addButton setTitle:@"Dodaj alert" forState:UIControlStateNormal];
-    [self.addButton setTitle:@"Dodaj alert" forState:UIControlStateHighlighted];
+    [self.addButton setBackgroundImage:[UIImage imageNamed:@"alert_png.png"] forState:UIControlStateNormal];
+    [self.addButton setBackgroundImage:[UIImage imageNamed:@"alert_png.png"] forState:UIControlStateHighlighted];
 }
 
 - (void)didReceiveMemoryWarning

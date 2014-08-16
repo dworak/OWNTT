@@ -18,18 +18,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wlh-IL-bxS">
-                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                    <rect key="frame" x="0.0" y="64" width="320" height="64"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="Suu-DJ-vpT"/>
+                        <constraint firstAttribute="height" constant="64" id="Suu-DJ-vpT"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SN7-fk-UgF" customClass="LMButton">
-                    <rect key="frame" x="10" y="71" width="108" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SN7-fk-UgF">
+                    <rect key="frame" x="10" y="71" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="eYl-ws-LyK"/>
-                        <constraint firstAttribute="width" constant="108" id="yCt-Uo-PFQ"/>
+                        <constraint firstAttribute="height" constant="50" id="eYl-ws-LyK"/>
+                        <constraint firstAttribute="width" constant="50" id="yCt-Uo-PFQ"/>
                     </constraints>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,7 +39,7 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NVm-cC-5l0">
-                    <rect key="frame" x="0.0" y="108" width="320" height="416"/>
+                    <rect key="frame" x="0.0" y="128" width="320" height="396"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>

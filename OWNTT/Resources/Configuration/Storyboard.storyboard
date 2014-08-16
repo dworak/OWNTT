@@ -86,7 +86,7 @@
                 <tabBarController definesPresentationContext="YES" id="LCS-Kh-fre" customClass="LMTabBarViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="djG-Dj-oas"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Hjr-aY-s2a">
+                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabbar_background.png" id="Hjr-aY-s2a">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -453,10 +453,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tabbar1.png" width="30" height="30"/>
-        <image name="tabbar2.png" width="30" height="30"/>
-        <image name="tabbar3.png" width="30" height="30"/>
-        <image name="tabbar4.png" width="30" height="30"/>
+        <image name="tabbar1.png" width="23" height="30"/>
+        <image name="tabbar2.png" width="25" height="30"/>
+        <image name="tabbar3.png" width="28" height="30"/>
+        <image name="tabbar4.png" width="31" height="30"/>
+        <image name="tabbar_background.png" width="320" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

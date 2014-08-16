@@ -18,6 +18,7 @@ typedef enum {
 } LMBranchControllerType;
 
 @interface LMBranchViewController : LMHostChildBaseViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *tableData;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -27,6 +28,7 @@ typedef enum {
 
 - (void)hideBackButtonItem:(BOOL)hidden;
 - (void)currentBranchObjectId:(LMData *)objectId;
+- (UITableViewCell *)createNewCell;
 - (NSString *)nextSegueKey;
 - (void)getTableData;;
 @end

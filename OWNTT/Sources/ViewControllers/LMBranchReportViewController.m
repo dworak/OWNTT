@@ -11,6 +11,8 @@
 #import "LMNavigationViewController.h"
 #import "LMReport.h"
 #import "LMInstance.h"
+#import "LMBranchTableViewCell.h"
+#import "LMBranchReportTableViewCell.h"
 
 @interface LMBranchReportViewController ()
 
@@ -31,7 +33,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.parentViewController.title = @"Raport";
+    self.title = @"Raport";
+    self.tableView.separatorColor = [UIColor clearColor];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.tableView.bounces = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,6 +115,36 @@
         
     }
     return nil;
+}
+
+- (UITableViewCell *)createNewCell
+{
+    LMBranchReportTableViewCell *cell = (LMBranchReportTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMBranchReportTableViewCell class])] owner:self options:nil] objectAtIndex:0];
+    [cell.cellButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    //UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 25)];
+    //view.backgroundColor = [UIColor greenColor];
+    //cell.accessoryView = view;
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    //[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 64;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
+}
+
+- (IBAction)buttonTapped:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:button.tag inSection:0];
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
 }
 
 @end

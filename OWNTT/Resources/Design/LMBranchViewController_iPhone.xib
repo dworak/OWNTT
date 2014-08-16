@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LMBranchViewController">
             <connections>
                 <outlet property="tableView" destination="O3E-Gn-v43" id="S24-UW-aRF"/>
+                <outlet property="topView" destination="ICJ-0S-dlL" id="lB2-b2-2f8"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Y32-vt-tpj"/>
             </connections>
         </placeholder>
@@ -16,18 +17,31 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="O3E-Gn-v43">
-                    <rect key="frame" x="0.0" y="68" width="320" height="456"/>
+                    <rect key="frame" x="0.0" y="188" width="320" height="326"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICJ-0S-dlL">
+                    <rect key="frame" x="0.0" y="68" width="320" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="5H4-ou-zPV"/>
+                    </constraints>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="O3E-Gn-v43" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="19X-aK-5f5"/>
-                <constraint firstItem="O3E-Gn-v43" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="68" id="9sl-aY-9Nh"/>
-                <constraint firstAttribute="centerX" secondItem="O3E-Gn-v43" secondAttribute="centerX" id="Fb1-Yq-M7L"/>
-                <constraint firstAttribute="bottom" secondItem="O3E-Gn-v43" secondAttribute="bottom" constant="44" id="L1V-KW-vRZ"/>
-                <constraint firstAttribute="trailing" secondItem="O3E-Gn-v43" secondAttribute="trailing" id="QkX-D6-d8W"/>
+                <constraint firstItem="ICJ-0S-dlL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8TR-t3-Pil"/>
+                <constraint firstItem="ICJ-0S-dlL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="68" id="Cbu-bT-e5p"/>
+                <constraint firstItem="O3E-Gn-v43" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Eye-v0-o9c"/>
+                <constraint firstAttribute="bottom" secondItem="O3E-Gn-v43" secondAttribute="bottom" constant="54" id="LqN-8v-RPo"/>
+                <constraint firstAttribute="trailing" secondItem="ICJ-0S-dlL" secondAttribute="trailing" id="UMI-Ne-43D"/>
+                <constraint firstAttribute="centerX" secondItem="O3E-Gn-v43" secondAttribute="centerX" id="hdL-ln-x6V"/>
+                <constraint firstAttribute="trailing" secondItem="O3E-Gn-v43" secondAttribute="trailing" id="neN-Sp-apa"/>
+                <constraint firstAttribute="centerX" secondItem="ICJ-0S-dlL" secondAttribute="centerX" id="oAn-Mj-a6b"/>
+                <constraint firstItem="O3E-Gn-v43" firstAttribute="top" secondItem="ICJ-0S-dlL" secondAttribute="bottom" id="z53-sq-YkW"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
