@@ -17,6 +17,7 @@
 #import "LMReadOnlyUserObject.h"
 #import "LMData.h"
 #import "LMWebViewController.h"
+#import "LMMenuNameView.h"
 
 @interface LMMenuViewController ()
 @property (weak, nonatomic) IBOutlet UIView *topView;
@@ -39,6 +40,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    LMMenuNameView *nameView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMMenuNameView class])] owner:self options:nil] objectAtIndex:0];
+    [self.topView addSubview:nameView];
+    
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.parentViewController.navigationItem setBackBarButtonItem:backButtonItem];
     

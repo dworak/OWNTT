@@ -21,6 +21,8 @@ typedef enum {
 } FullButtonType;
 
 @interface LMDateConfigurationViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *shadowImage;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet LMFullButton *currentInterval;
 @property (weak, nonatomic) IBOutlet UIView *dateView;
 @property (weak, nonatomic) IBOutlet LMFullButton *dateToButton;
@@ -48,6 +50,8 @@ typedef enum {
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.toolbar.clipsToBounds = YES;
+    self.shadowImage.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
     self.dateShow = NO;
     //[self createLeftButton:YES withSelector:NULL text:@" "];
     //[self createLeftButton:NO withSelector:@selector(doneAction) text:@"zakończ"];

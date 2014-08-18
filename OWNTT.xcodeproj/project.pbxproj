@@ -78,6 +78,8 @@
 		25659B9219A27C1A009BF814 /* LMBorderDescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25659B9119A27C1A009BF814 /* LMBorderDescriptionView.m */; };
 		25659B9919A2898B009BF814 /* LMBranchNameView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25659B9819A2898B009BF814 /* LMBranchNameView_iPhone.xib */; };
 		25659B9C19A289A2009BF814 /* LMBranchNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25659B9B19A289A2009BF814 /* LMBranchNameView.m */; };
+		25659B9F19A29AD8009BF814 /* LMMenuNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25659B9E19A29AD8009BF814 /* LMMenuNameView.m */; };
+		25659BA119A29AEF009BF814 /* LMMenuNameView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25659BA019A29AEF009BF814 /* LMMenuNameView_iPhone.xib */; };
 		2591A91E1993F4620036EEDB /* 1.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91B1993F4620036EEDB /* 1.html */; };
 		2591A91F1993F4620036EEDB /* 2.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91C1993F4620036EEDB /* 2.html */; };
 		2591A9201993F4620036EEDB /* 3.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91D1993F4620036EEDB /* 3.html */; };
@@ -283,6 +285,9 @@
 		25659B9819A2898B009BF814 /* LMBranchNameView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchNameView_iPhone.xib; sourceTree = "<group>"; };
 		25659B9A19A289A2009BF814 /* LMBranchNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchNameView.h; sourceTree = "<group>"; };
 		25659B9B19A289A2009BF814 /* LMBranchNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchNameView.m; sourceTree = "<group>"; };
+		25659B9D19A29AD8009BF814 /* LMMenuNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMMenuNameView.h; sourceTree = "<group>"; };
+		25659B9E19A29AD8009BF814 /* LMMenuNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMMenuNameView.m; sourceTree = "<group>"; };
+		25659BA019A29AEF009BF814 /* LMMenuNameView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMMenuNameView_iPhone.xib; sourceTree = "<group>"; };
 		2591A91B1993F4620036EEDB /* 1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 1.html; sourceTree = "<group>"; };
 		2591A91C1993F4620036EEDB /* 2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2.html; sourceTree = "<group>"; };
 		2591A91D1993F4620036EEDB /* 3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 3.html; sourceTree = "<group>"; };
@@ -553,6 +558,7 @@
 				25146A801992388F001DC8E3 /* LMDatePickerView_iPhone.xib */,
 				25659B7D19A07CEA009BF814 /* LMNameHeaderView_iPhone.xib */,
 				25659B9819A2898B009BF814 /* LMBranchNameView_iPhone.xib */,
+				25659BA019A29AEF009BF814 /* LMMenuNameView_iPhone.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -802,6 +808,8 @@
 				25659B9119A27C1A009BF814 /* LMBorderDescriptionView.m */,
 				25659B9A19A289A2009BF814 /* LMBranchNameView.h */,
 				25659B9B19A289A2009BF814 /* LMBranchNameView.m */,
+				25659B9D19A29AD8009BF814 /* LMMenuNameView.h */,
+				25659B9E19A29AD8009BF814 /* LMMenuNameView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -944,6 +952,7 @@
 				25B18C721996095B00A519B5 /* LMDateConfigurationViewController_iPhone.xib in Resources */,
 				25659B72199FE157009BF814 /* kalendarz_png@2x.png in Resources */,
 				25036AAC198D294600EAE355 /* tabbar2.png in Resources */,
+				25659BA119A29AEF009BF814 /* LMMenuNameView_iPhone.xib in Resources */,
 				25659B78199FE157009BF814 /* grey_arrow@2x.png in Resources */,
 				EDF39E501980FF7D00E00966 /* InfoPlist.strings in Resources */,
 				25659B7E19A07CEA009BF814 /* LMNameHeaderView_iPhone.xib in Resources */,
@@ -1080,6 +1089,7 @@
 				25FAFCC91990E1D300FCD226 /* _LMUserReport.m in Sources */,
 				EDD131B31981272C006F39E3 /* LMTextField.m in Sources */,
 				25146A8F199290D2001DC8E3 /* LMRotateViewController.m in Sources */,
+				25659B9F19A29AD8009BF814 /* LMMenuNameView.m in Sources */,
 				25FAFCA71990C41600FCD226 /* LMData.m in Sources */,
 				EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */,
 				25D0722B1998B2B100E326C8 /* LMSegueKeys.m in Sources */,
