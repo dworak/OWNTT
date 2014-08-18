@@ -15,6 +15,7 @@
 @interface LMSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *instanceButton;
+@property (weak, nonatomic) IBOutlet UIImageView *shadowImage;
 
 @end
 
@@ -33,6 +34,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.shadowImage.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
     self.toolbar.clipsToBounds = YES;
 }
 

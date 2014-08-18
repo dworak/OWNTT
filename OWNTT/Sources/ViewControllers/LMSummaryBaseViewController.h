@@ -11,16 +11,14 @@
 
 @class LMDataPickerViewController;
 @class LMDatePickerViewController;
+@class LMBranchNameView;
 
 @interface LMSummaryBaseViewController : LMViewControllerBase <TTChildViewControllerProtocol>
+@property (weak, nonatomic) IBOutlet UIView *topImage;
+@property (strong, nonatomic) LMBranchNameView *nameView;
 @property (strong, nonatomic) LMDataPickerViewController *pickerViewController;
 @property (strong, nonatomic) LMDatePickerViewController *datePickerController;
 @property (unsafe_unretained, nonatomic) BOOL pickerViewShow;
-
-@property (weak, nonatomic) IBOutlet UIImageView *subMenuImage;
-@property (weak, nonatomic) IBOutlet UILabel *instanceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *advertiserLabel;
-@property (weak, nonatomic) IBOutlet UILabel *programLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

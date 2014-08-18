@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LMSettingsViewController">
             <connections>
                 <outlet property="instanceButton" destination="hNk-6f-oiM" id="j4x-8H-sXE"/>
+                <outlet property="shadowImage" destination="0fq-Wn-1as" id="Lgv-N2-6tQ"/>
                 <outlet property="toolbar" destination="Xbs-kf-gRE" id="6SM-UK-qyz"/>
                 <outlet property="view" destination="iN0-l3-epB" id="8xM-LX-SfP"/>
             </connections>

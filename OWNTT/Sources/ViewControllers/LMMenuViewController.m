@@ -21,6 +21,7 @@
 
 @interface LMMenuViewController ()
 @property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet UIImageView *shadowView;
 @property (strong, nonatomic) NSMutableArray *userObjects;
 @property (strong, nonatomic) NSManagedObjectContext *localContext;
 @end
@@ -40,6 +41,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.shadowView.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
     LMMenuNameView *nameView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMMenuNameView class])] owner:self options:nil] objectAtIndex:0];
     [self.topView addSubview:nameView];
     

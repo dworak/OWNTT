@@ -18,6 +18,7 @@
 #import "LMProgram.h"
 #import "LMUserAlert.h"
 #import "LMUser.h"
+#import "LMBranchNameView.h"
 
 @interface LMAlertSummaryViewController ()
 @property (weak, nonatomic) IBOutlet LMTextField *alertNameTextField;
@@ -66,17 +67,16 @@
     LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.transactionData.instanceId inContext:self.managedObjectContext];
     if(instance)
     {
-        self.instanceLabel.text = instance.name;
         for(LMAdvertiser *advertiser in instance.advertisers.allObjects)
         {
             if(advertiser.objectId.intValue == self.transactionData.advertiserId.intValue)
             {
-                self.advertiserLabel.text = advertiser.name;
+                self.nameView.firstName.text = advertiser.name;
                 for(LMProgram *program in advertiser.programs.allObjects)
                 {
                     if(program.objectId.intValue == self.transactionData.programId.intValue)
                     {
-                        self.programLabel.text = program.name;
+                        self.nameView.SecondName.text = program.name;
                     }
                 }
                 break;

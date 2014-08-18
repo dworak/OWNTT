@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LMMenuViewController">
             <connections>
                 <outlet property="addButton" destination="SN7-fk-UgF" id="Vb1-g2-buJ"/>
+                <outlet property="shadowView" destination="TDM-Dj-nxg" id="Smy-WO-3WX"/>
                 <outlet property="tableView" destination="NVm-cC-5l0" id="rq9-Zp-O1o"/>
                 <outlet property="topView" destination="74N-E9-yeT" id="y70-Ga-N5M"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ElV-ol-VWy"/>

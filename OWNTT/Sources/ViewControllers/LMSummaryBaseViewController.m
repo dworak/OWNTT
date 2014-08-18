@@ -13,6 +13,7 @@
 #import "LMAlertSummaryViewController.h"
 #import <LM/LMViewControllerBase.h>
 #import "LMUserAlert.h"
+#import "LMBranchNameView.h"
 
 @interface LMSummaryBaseViewController ()
 
@@ -33,6 +34,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.nameView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMBranchNameView class])] owner:self options:nil] objectAtIndex:0];
+    [self.topImage addSubview:self.nameView];
+    
     UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 118, 36)];
     titleImage.image = [UIImage imageNamed:@"logo.png"];
     [self.parentViewController.navigationItem setTitleView:titleImage];

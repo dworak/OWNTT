@@ -17,6 +17,7 @@
 #import "LMInstance.h"
 #import "LMAdvertiser.h"
 #import "LMProgram.h"
+#import "LMBranchNameView.h"
 
 @interface LMSummaryReportViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet LMTextField *reportNameTextField;
@@ -50,17 +51,16 @@
     LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.transactionData.instanceId inContext:self.managedObjectContext];
     if(instance)
     {
-        self.instanceLabel.text = instance.name;
         for(LMAdvertiser *advertiser in instance.advertisers.allObjects)
         {
             if(advertiser.objectId.intValue == self.transactionData.advertiserId.intValue)
             {
-                self.advertiserLabel.text = advertiser.name;
+                self.nameView.firstName.text = advertiser.name;
                 for(LMProgram *program in advertiser.programs.allObjects)
                 {
                     if(program.objectId.intValue == self.transactionData.programId.intValue)
                     {
-                        self.programLabel.text = program.name;
+                        self.nameView.SecondName.text = program.name;
                     }
                 }
                 break;
