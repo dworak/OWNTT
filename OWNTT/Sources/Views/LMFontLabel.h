@@ -1,0 +1,17 @@
+//
+//  LMFontLabel.h
+//  OWNTT
+//
+//  Created by Maciej Kaszuba on 17/08/14.
+//
+//
+
+#import <UIKit/UIKit.h>
+
+@interface LMFontLabel : UILabel
+
+@end
+
+@interface DroidSansRegularLabel: LMFontLabel
+
+@end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -16,48 +16,28 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoSplash.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vbx-SW-VRM">
-                    <rect key="frame" x="42" y="50" width="236" height="72"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vbx-SW-VRM">
+                    <rect key="frame" x="42" y="68" width="200" height="96"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="236" id="I2t-PH-hRq"/>
-                        <constraint firstAttribute="height" constant="72" id="hHI-zx-J9E"/>
-                    </constraints>
                 </imageView>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fBf-10-8bC">
-                    <rect key="frame" x="150" y="272" width="20" height="20"/>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fBf-10-8bC">
+                    <rect key="frame" x="150" y="219" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="EIW-WG-AGm"/>
-                        <constraint firstAttribute="width" constant="20" id="aTa-Dl-9W5"/>
-                    </constraints>
                 </activityIndicatorView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trwa pobieranie danych ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ER-ci-iSo" customClass="LMLabel">
-                    <rect key="frame" x="20" y="290" width="280" height="39"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trwa pobieranie danych ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ER-ci-iSo" customClass="LMLabel">
+                    <rect key="frame" x="20" y="247" width="280" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="280" id="Okk-q3-dBs"/>
-                        <constraint firstAttribute="height" constant="39" id="qO8-zV-oJ5"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="Vbx-SW-VRM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="0kz-SD-5eZ"/>
-                <constraint firstAttribute="centerX" secondItem="Vbx-SW-VRM" secondAttribute="centerX" id="DYI-Yx-Gns"/>
-                <constraint firstItem="3ER-ci-iSo" firstAttribute="top" secondItem="Vbx-SW-VRM" secondAttribute="bottom" constant="168" id="TvH-7f-Dy0"/>
-                <constraint firstItem="fBf-10-8bC" firstAttribute="top" secondItem="Vbx-SW-VRM" secondAttribute="bottom" constant="150" id="nLS-QT-aZP"/>
-                <constraint firstAttribute="centerX" secondItem="fBf-10-8bC" secondAttribute="centerX" id="uEA-Be-ztw"/>
-                <constraint firstAttribute="centerX" secondItem="3ER-ci-iSo" secondAttribute="centerX" id="uYS-FK-eeG"/>
-            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
-        <image name="logoSplash.png" width="236" height="72"/>
+        <image name="logo_splash.png" width="200" height="96"/>
     </resources>
 </document>

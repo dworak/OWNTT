@@ -33,6 +33,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.toolbar.clipsToBounds = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -68,6 +69,7 @@
         {
             LMLoginViewController *loginController = (LMLoginViewController *)hostController.childViewController;
             loginController.isPresentModal = YES;
+            loginController.showToolbar = YES;
         }
     }
 }
@@ -91,6 +93,7 @@
 - (IBAction)instanceButtonTapped:(id)sender
 {
     int index = 0;
+    [LMUtils removeCurrentInstance];
     for(UIViewController *controller in self.tabBarController.viewControllers)
     {
         if([controller isKindOfClass:[LMNavigationViewController class]])

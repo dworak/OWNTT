@@ -10,4 +10,5 @@
 
 @interface LMLoginViewController : LMViewControllerBase <TTChildViewControllerProtocol>
 @property (unsafe_unretained, nonatomic) BOOL isPresentModal;
+@property (unsafe_unretained, nonatomic) BOOL showToolbar;
 @end

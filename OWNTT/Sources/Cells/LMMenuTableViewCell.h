@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LMMenuTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *separatorImage;
 
 @end

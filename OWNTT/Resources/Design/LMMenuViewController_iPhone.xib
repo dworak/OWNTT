@@ -7,8 +7,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LMMenuViewController">
             <connections>
                 <outlet property="addButton" destination="SN7-fk-UgF" id="Vb1-g2-buJ"/>
-                <outlet property="subMenuImage" destination="Wlh-IL-bxS" id="EFy-Qk-1yr"/>
                 <outlet property="tableView" destination="NVm-cC-5l0" id="rq9-Zp-O1o"/>
+                <outlet property="topView" destination="74N-E9-yeT" id="y70-Ga-N5M"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ElV-ol-VWy"/>
             </connections>
         </placeholder>
@@ -17,29 +17,26 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wlh-IL-bxS">
-                    <rect key="frame" x="0.0" y="64" width="320" height="64"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="74N-E9-yeT">
+                    <rect key="frame" x="10" y="83" width="300" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="64" id="Suu-DJ-vpT"/>
-                    </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SN7-fk-UgF">
-                    <rect key="frame" x="10" y="71" width="50" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="eYl-ws-LyK"/>
-                        <constraint firstAttribute="width" constant="50" id="yCt-Uo-PFQ"/>
-                    </constraints>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="1Gp-qe-peQ"/>
-                    </connections>
-                </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NVm-cC-5l0">
-                    <rect key="frame" x="0.0" y="128" width="320" height="396"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SN7-fk-UgF">
+                            <rect key="frame" x="10" y="10" width="50" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="1Gp-qe-peQ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NVm-cC-5l0">
+                    <rect key="frame" x="0.0" y="211" width="320" height="313"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -47,21 +44,12 @@
                         <outlet property="delegate" destination="-1" id="K2M-8C-itD"/>
                     </connections>
                 </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDM-Dj-nxg">
+                    <rect key="frame" x="0.0" y="64" width="320" height="15"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="Wlh-IL-bxS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="33r-8q-KUY"/>
-                <constraint firstItem="NVm-cC-5l0" firstAttribute="top" secondItem="Wlh-IL-bxS" secondAttribute="bottom" id="7W0-6Y-MdC"/>
-                <constraint firstItem="Wlh-IL-bxS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Czp-l3-9d8"/>
-                <constraint firstAttribute="centerX" secondItem="Wlh-IL-bxS" secondAttribute="centerX" id="E2a-iF-W7i"/>
-                <constraint firstAttribute="trailing" secondItem="NVm-cC-5l0" secondAttribute="trailing" id="Smj-1U-L2l"/>
-                <constraint firstItem="NVm-cC-5l0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WID-iz-WSi"/>
-                <constraint firstItem="SN7-fk-UgF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="hVg-2E-pxX"/>
-                <constraint firstItem="SN7-fk-UgF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="71" id="mNe-mc-rJm"/>
-                <constraint firstAttribute="trailing" secondItem="Wlh-IL-bxS" secondAttribute="trailing" id="p0H-0b-CXj"/>
-                <constraint firstAttribute="centerX" secondItem="NVm-cC-5l0" secondAttribute="centerX" id="q2s-bB-bsn"/>
-                <constraint firstAttribute="bottom" secondItem="NVm-cC-5l0" secondAttribute="bottom" constant="44" id="utq-iC-6hB"/>
-            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

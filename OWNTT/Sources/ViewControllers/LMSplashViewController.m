@@ -7,6 +7,7 @@
 //
 
 #import "LMSplashViewController.h"
+#import "LMLoginViewController.h"
 
 @interface LMSplashViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *indicatorTextLabel;
@@ -17,7 +18,15 @@
 @implementation LMSplashViewController
 
 - (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+    if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
+    {
+        TTHostViewController *hostController = (TTHostViewController *)segue.destinationViewController;
+        if([hostController.childViewController isKindOfClass:[LMLoginViewController class]])
+        {
+            LMLoginViewController *loginController = (LMLoginViewController *)hostController.childViewController;
+            loginController.showToolbar = NO;
+        }
+    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

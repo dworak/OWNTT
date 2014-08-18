@@ -39,7 +39,7 @@
                     <navigationItem key="navigationItem" id="2CF-zG-jsR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dbG-d6-dF5">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
@@ -254,7 +254,7 @@
                     <navigationItem key="navigationItem" id="XCh-9x-C4J"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8qk-Hs-bZ3">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
@@ -278,7 +278,7 @@
                     <navigationItem key="navigationItem" id="hnC-yp-HlV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IgR-6E-9ur">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
@@ -465,10 +465,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0yr-Nw-2XK"/>
-        <segue reference="4JP-VP-Uak"/>
+        <segue reference="FPb-vR-x9c"/>
         <segue reference="taN-ZK-iiH"/>
-        <segue reference="bzR-dC-4dG"/>
-        <segue reference="jZe-Kz-lmN"/>
+        <segue reference="Ug5-Jv-ffk"/>
+        <segue reference="OIE-4W-ojE"/>
+        <segue reference="0yr-Nw-2XK"/>
     </inferredMetricsTieBreakers>
 </document>

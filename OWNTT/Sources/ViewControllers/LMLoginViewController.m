@@ -9,7 +9,9 @@
 #import "LMAppDelegate.h"
 #import "LMBranchInstanceViewController.h"
 #import "LMLoginViewController.h"
+#import "LMSettingsViewController.h"
 #import "LMNavigationViewController.h"
+#import "LMTabBarViewController.h"
 #import "LMTextField.h"
 #import "LMUser.h"
 #import "LMReadOnlyObject.h"
@@ -17,6 +19,9 @@
 @interface LMLoginViewController ()
 @property (weak, nonatomic) IBOutlet LMTextField *loginTextField;
 @property (weak, nonatomic) IBOutlet LMTextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelItem;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIImageView *shadowImage;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
@@ -37,8 +42,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.toolbar.clipsToBounds = YES;
     self.navigationItem.hidesBackButton = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.shadowImage.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
     
     // Firstly for purpouse of storing all of the fields we remove all of the items from view
     NSArray *subviews = self.view.subviews;
@@ -68,7 +76,7 @@
     self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
     [self.loginTextField addValidation:LMTextFieldValidaitonType_Login];
     [self.passwordTextField addValidation:LMTextFieldValidaitonType_Password];
-    
+    self.toolbar.hidden = !self.showToolbar;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -87,7 +95,26 @@
 
 #pragma mark -
 #pragma mark === IBAction methods ===
-- (IBAction)loginButtonTapped:(id)sender {
+- (IBAction)cancelTapped:(id)sender
+{
+    for(UIViewController *controller in ((LMTabBarViewController *)self.presentingViewController).viewControllers)
+    {
+        if([controller isKindOfClass:[TTHostViewController class]])
+        {
+            TTHostViewController *hostController = (TTHostViewController *)controller;
+            if([hostController.childViewController isKindOfClass:[LMSettingsViewController class]])
+            {
+                ((LMTabBarViewController *)self.presentingViewController).selectedViewController = hostController;
+            }
+        }
+    }
+    [self.parentViewController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+- (IBAction)loginButtonTapped:(id)sender
+{
     //Add fields validation
     NSString *text = [self.loginTextField validateField];
     if(text != nil)

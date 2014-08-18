@@ -17,6 +17,8 @@
 @interface LMWebViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) NSManagedObjectContext *localContext;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIImageView *shadowImageView;
 
 @end
 
@@ -41,6 +43,8 @@
     titleImage.image = [UIImage imageNamed:@"logo.png"];
     [self.parentViewController.navigationItem setTitleView:titleImage];
     */
+    self.toolbar.clipsToBounds = YES;
+    
     if(!self.localContext)
     {
         self.localContext = [[LMCoreDataManager sharedInstance] masterManagedObjectContext];
@@ -65,6 +69,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    self.shadowImageView.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
 }
 
 /*

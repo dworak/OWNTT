@@ -50,6 +50,12 @@
     self.layer.cornerRadius = UI_BUTTON_CORNER_RADIOUS;
     [self setTitleColor:UI_BUTTON_NORMAL_TEXT_COLOR forState:UIControlStateNormal];
     [self setTitleColor:UI_BUTTON_SELECTED_TEXT_COLOR forState:UIControlStateSelected];
+    
+    [self setTintColor:[UIColor grayColor]];
+    [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    [self setTitleEdgeInsets:UIEdgeInsetsMake(0, 5, 0, 0)];
+    self.tintColor = [UIColor whiteColor];
+    
     [self.titleLabel setFont:UI_BUTTON_FONT];
 }
 

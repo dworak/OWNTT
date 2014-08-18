@@ -19,6 +19,7 @@
 #import "LMWebViewController.h"
 
 @interface LMMenuViewController ()
+@property (weak, nonatomic) IBOutlet UIView *topView;
 @property (strong, nonatomic) NSMutableArray *userObjects;
 @property (strong, nonatomic) NSManagedObjectContext *localContext;
 @end
@@ -41,13 +42,14 @@
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.parentViewController.navigationItem setBackBarButtonItem:backButtonItem];
     
-    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 118, 36)];
-    titleImage.image = [UIImage imageNamed:@"logo.png"];
+    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 88, 42)];
+    titleImage.image = [UIImage imageNamed:@"tabbar_logo.png"];
     [self.parentViewController.navigationItem setTitleView:titleImage];
     
     [self.tableView registerNib:nil forCellReuseIdentifier:@"MenuCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorColor = [UIColor whiteColor];
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     self.subMenuImage.backgroundColor = SUBMENU_BACKGROUND_COLOR;
 }
@@ -127,6 +129,14 @@
     {
         cell = (LMMenuTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMMenuTableViewCell class])] owner:self options:nil] objectAtIndex:0];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    }
+    if(indexPath.row == self.userObjects.count-1)
+    {
+        ((LMMenuTableViewCell *)cell).separatorImage.hidden = YES;
+    }
+    else
+    {
+        ((LMMenuTableViewCell *)cell).separatorImage.hidden = NO;
     }
     cell.textLabel.font = DEFAULT_APP_FONT;
     cell.textLabel.text = userObject.name;

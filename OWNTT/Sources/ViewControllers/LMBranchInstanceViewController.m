@@ -8,6 +8,7 @@
 
 #import "LMBranchInstanceViewController.h"
 #import "LMInstance.h"
+#import "LMNameHeaderView.h"
 
 @interface LMBranchInstanceViewController ()
 @end
@@ -28,6 +29,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.parentViewController.navigationItem setTitle:@"Instancje"];
+    
+    LMNameHeaderView *nameView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMNameHeaderView class])] owner:self options:nil] objectAtIndex:0];
+    [self.topView addSubview:nameView];
 }
 
 - (void)didReceiveMemoryWarning

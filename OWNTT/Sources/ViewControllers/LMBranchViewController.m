@@ -20,6 +20,7 @@
 #import "LMReport.h"
 
 @interface LMBranchViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *shadowView;
 @end
 
 @implementation LMBranchViewController
@@ -36,6 +37,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.shadowView.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
+    
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [backButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:NAVIGATION_ITEM_TEXT_COLOR_NORMAL,
                                             NSFontAttributeName: NAVIGATION_ITEM_FONT
@@ -44,9 +48,8 @@
                                              NSFontAttributeName: NAVIGATION_ITEM_FONT
                                              } forState:UIControlStateHighlighted];
     [self.parentViewController.navigationItem setBackBarButtonItem:backButtonItem];
-    
-    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 118, 36)];
-    titleImage.image = [UIImage imageNamed:@"logo.png"];
+    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 88, 42)];
+    titleImage.image = [UIImage imageNamed:@"tabbar_logo.png"];
     [self.parentViewController.navigationItem setTitleView:titleImage];
     
     // Do any additional setup after loading the view.
@@ -68,8 +71,9 @@
     
     [self.tableView registerNib:nil forCellReuseIdentifier:@"BranchCell"];
     self.tableView.delegate = self;
+    self.tableView.separatorColor = [UIColor whiteColor];
     self.tableView.dataSource = self;
-    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
     [self getTableData];
 }
 
@@ -183,6 +187,14 @@
     {
         cell.textLabel.font = DEFAULT_APP_FONT;
         cell.textLabel.text = object.name;
+        if(indexPath.row == self.tableData.count-1)
+        {
+            ((LMBranchTableViewCell *)cell).separatorImage.hidden = YES;
+        }
+        else
+        {
+            ((LMBranchTableViewCell *)cell).separatorImage.hidden = NO;
+        }
     }
     return cell;
 }
