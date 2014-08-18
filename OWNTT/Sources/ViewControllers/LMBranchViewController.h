@@ -30,5 +30,6 @@ typedef enum {
 - (void)currentBranchObjectId:(LMData *)objectId;
 - (UITableViewCell *)createNewCell;
 - (NSString *)nextSegueKey;
+- (NSString *)cellIdentifier;
 - (void)getTableData;;
 @end

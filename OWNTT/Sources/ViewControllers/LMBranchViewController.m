@@ -53,8 +53,6 @@
     [self.parentViewController.navigationItem setTitleView:titleImage];
     
     // Do any additional setup after loading the view.
-    self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
-    
     //check navigation controller type
     if([self.parentViewController.navigationController isKindOfClass:[LMNavigationViewController class]])
     {
@@ -69,7 +67,7 @@
         }
     }
     
-    [self.tableView registerNib:nil forCellReuseIdentifier:@"BranchCell"];
+    //[self.tableView registerClass:[LMBranchTableViewCell class] forCellReuseIdentifier:@"BranchCell"];
     self.tableView.delegate = self;
     self.tableView.separatorColor = [UIColor whiteColor];
     self.tableView.dataSource = self;
@@ -87,6 +85,15 @@
 {
     self.tableView.dataSource = nil;
     self.tableView.delegate = nil;
+}
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if(!_managedObjectContext)
+    {
+        _managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    }
+    return _managedObjectContext;
 }
 
 - (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -123,6 +130,11 @@
 - (void)getTableData
 {
     
+}
+
+- (NSString *)cellIdentifier
+{
+    return @"BranchCell";
 }
 
 /*
@@ -169,7 +181,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BranchCell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self cellIdentifier]];
     if(!cell) {
         cell = [self createNewCell];
     }

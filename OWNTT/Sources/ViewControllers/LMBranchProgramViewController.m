@@ -13,6 +13,7 @@
 #import "LMReadOnlyObject.h"
 #import "LMProgram.h"
 #import "LMAdvertiser.h"
+#import "LMBranchNameView.h"
 
 @interface LMBranchProgramViewController ()
 
@@ -34,6 +35,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.parentViewController.navigationItem setTitle:@"Program"];
+    LMBranchNameView *nameView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMBranchNameView class])] owner:self options:nil] objectAtIndex:0];
+    [self.topView addSubview:nameView];
+    LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId.instanceId inContext:self.managedObjectContext];
+    for(LMAdvertiser *advertiser in instance.advertisers.allObjects)
+    {
+        if(advertiser.objectId.intValue == self.objectId.advertiserId.intValue)
+        {
+            nameView.firstName.text = advertiser.name;
+            break;
+        }
+    }
+    nameView.SecondName.text = nil;
+    nameView.ThirdName.text = nil;
+
 }
 
 - (void)didReceiveMemoryWarning

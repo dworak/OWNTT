@@ -76,6 +76,8 @@
 		25659B8D19A08BA9009BF814 /* top_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25659B8B19A08BA9009BF814 /* top_shadow@2x.png */; };
 		25659B8F19A0E686009BF814 /* logo_splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25659B8E19A0E686009BF814 /* logo_splash@2x.png */; };
 		25659B9219A27C1A009BF814 /* LMBorderDescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25659B9119A27C1A009BF814 /* LMBorderDescriptionView.m */; };
+		25659B9919A2898B009BF814 /* LMBranchNameView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25659B9819A2898B009BF814 /* LMBranchNameView_iPhone.xib */; };
+		25659B9C19A289A2009BF814 /* LMBranchNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25659B9B19A289A2009BF814 /* LMBranchNameView.m */; };
 		2591A91E1993F4620036EEDB /* 1.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91B1993F4620036EEDB /* 1.html */; };
 		2591A91F1993F4620036EEDB /* 2.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91C1993F4620036EEDB /* 2.html */; };
 		2591A9201993F4620036EEDB /* 3.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91D1993F4620036EEDB /* 3.html */; };
@@ -278,6 +280,9 @@
 		25659B9019A27C1A009BF814 /* LMBorderDescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBorderDescriptionView.h; sourceTree = "<group>"; };
 		25659B9119A27C1A009BF814 /* LMBorderDescriptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBorderDescriptionView.m; sourceTree = "<group>"; };
 		25659B9319A27C9D009BF814 /* OWNTTHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OWNTTHeader.h; sourceTree = "<group>"; };
+		25659B9819A2898B009BF814 /* LMBranchNameView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchNameView_iPhone.xib; sourceTree = "<group>"; };
+		25659B9A19A289A2009BF814 /* LMBranchNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchNameView.h; sourceTree = "<group>"; };
+		25659B9B19A289A2009BF814 /* LMBranchNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchNameView.m; sourceTree = "<group>"; };
 		2591A91B1993F4620036EEDB /* 1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 1.html; sourceTree = "<group>"; };
 		2591A91C1993F4620036EEDB /* 2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2.html; sourceTree = "<group>"; };
 		2591A91D1993F4620036EEDB /* 3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 3.html; sourceTree = "<group>"; };
@@ -547,6 +552,7 @@
 				250F89B919915B0000D91836 /* LMDataPickerView_iPhone.xib */,
 				25146A801992388F001DC8E3 /* LMDatePickerView_iPhone.xib */,
 				25659B7D19A07CEA009BF814 /* LMNameHeaderView_iPhone.xib */,
+				25659B9819A2898B009BF814 /* LMBranchNameView_iPhone.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -794,6 +800,8 @@
 				25659B8619A082A1009BF814 /* LMFontLabel.m */,
 				25659B9019A27C1A009BF814 /* LMBorderDescriptionView.h */,
 				25659B9119A27C1A009BF814 /* LMBorderDescriptionView.m */,
+				25659B9A19A289A2009BF814 /* LMBranchNameView.h */,
+				25659B9B19A289A2009BF814 /* LMBranchNameView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -951,6 +959,7 @@
 				EDE87C0319867C8F00043861 /* LMSettingsViewController_iPhone.xib in Resources */,
 				25036AAA198D294600EAE355 /* tabbar1.png in Resources */,
 				253F1F3E198E219400158407 /* tree.json in Resources */,
+				25659B9919A2898B009BF814 /* LMBranchNameView_iPhone.xib in Resources */,
 				25036AAB198D294600EAE355 /* tabbar1@2x.png in Resources */,
 				25659B70199FE157009BF814 /* button_pink@2x.png in Resources */,
 				25659B8F19A0E686009BF814 /* logo_splash@2x.png in Resources */,
@@ -1035,6 +1044,7 @@
 				EDF39E5B198101D500E00966 /* LMNavigationViewController.m in Sources */,
 				25036AC5198D2CCE00EAE355 /* UIImage+Additions.m in Sources */,
 				25FAFCCA1990E1D300FCD226 /* LMReadOnlyUserObject.m in Sources */,
+				25659B9C19A289A2009BF814 /* LMBranchNameView.m in Sources */,
 				EDF39E541980FF7D00E00966 /* main.m in Sources */,
 				25B18C701996093D00A519B5 /* LMDateConfigurationViewController.m in Sources */,
 				253F1F56198E27BD00158407 /* LMProgram.m in Sources */,

@@ -71,7 +71,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kosz_png.png" translatesAutoresizingMaskIntoConstraints="NO" id="B4X-xd-GD6">
-                    <rect key="frame" x="280" y="182" width="12" height="14"/>
+                    <rect key="frame" x="283" y="179" width="17" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>

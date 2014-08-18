@@ -13,6 +13,9 @@
 #import "LMInstance.h"
 #import "LMBranchTableViewCell.h"
 #import "LMBranchReportTableViewCell.h"
+#import "LMBranchNameView.h"
+#import "LMAdvertiser.h"
+#import "LMProgram.h"
 
 @interface LMBranchReportViewController ()
 
@@ -37,6 +40,29 @@
     self.tableView.separatorColor = [UIColor clearColor];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView.bounces = NO;
+    
+    LMBranchNameView *nameView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMBranchNameView class])] owner:self options:nil] objectAtIndex:0];
+    [self.topView addSubview:nameView];
+    
+    LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId.instanceId inContext:self.managedObjectContext];
+    if(instance)
+    {
+        for(LMAdvertiser *advertiser in instance.advertisers.allObjects)
+        {
+            if(advertiser.objectId.intValue == self.objectId.advertiserId.intValue)
+            {
+                nameView.firstName.text = advertiser.name;
+                for(LMProgram *program in advertiser.programs.allObjects)
+                {
+                    if(program.objectId.intValue == self.objectId.programId.intValue)
+                    {
+                        nameView.SecondName.text = program.name;
+                    }
+                }
+                break;
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,11 +118,15 @@
 
 - (void)getTableData
 {
-    self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
     LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId.instanceId inContext:self.managedObjectContext];
     self.tableData = instance.reports.allObjects;
     NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     self.tableData = [self.tableData sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesc]];
+}
+
+- (NSString *)cellIdentifier
+{
+    return @"BranchReportCell";
 }
 
 - (NSString *)nextSegueKey
