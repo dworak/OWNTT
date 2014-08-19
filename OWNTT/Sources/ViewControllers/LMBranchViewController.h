@@ -31,5 +31,6 @@ typedef enum {
 - (UITableViewCell *)createNewCell;
 - (NSString *)nextSegueKey;
 - (NSString *)cellIdentifier;
+- (NSString *)headerbuttonTitle;
 - (void)getTableData;;
 @end

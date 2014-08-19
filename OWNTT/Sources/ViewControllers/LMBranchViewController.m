@@ -61,6 +61,7 @@
         {
             self.headerView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMHeaderView class])] owner:self options:nil] objectAtIndex:0];
             __weak LMBranchViewController *selfObject = self;
+            [self.headerView setHeaderButtonTitle:[self headerbuttonTitle]];
             self.headerView.showReport = ^() {
                 [selfObject.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_ModalWebPop] sender:selfObject];
             };
@@ -73,6 +74,11 @@
     self.tableView.dataSource = self;
     [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
     [self getTableData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -135,6 +141,11 @@
 - (NSString *)cellIdentifier
 {
     return @"BranchCell";
+}
+
+- (NSString *)headerbuttonTitle
+{
+    return @"Raport wszystkich reklamodawców";
 }
 
 /*

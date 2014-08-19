@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSManagedObjectContext *localContext;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIImageView *shadowImageView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backArrow;
 
 @end
 
@@ -43,6 +44,13 @@
     titleImage.image = [UIImage imageNamed:@"logo.png"];
     [self.parentViewController.navigationItem setTitleView:titleImage];
     */
+    [self.backArrow setTitleTextAttributes:@{NSForegroundColorAttributeName:TOOLBAR_ITEM_TEXT_COLOR_NORMAL,
+                                             NSFontAttributeName: TOOLBAR_ITEM_FONT
+                                             } forState:UIControlStateNormal];
+    [self.backArrow setTitleTextAttributes:@{NSForegroundColorAttributeName:TOOLBAR_ITEM_TEXT_COLOR_HIGHLIGHTEN,
+                                             NSFontAttributeName: TOOLBAR_ITEM_FONT
+                                             } forState:UIControlStateHighlighted];
+    
     self.toolbar.clipsToBounds = YES;
     
     if(!self.localContext)

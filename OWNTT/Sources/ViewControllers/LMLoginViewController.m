@@ -27,7 +27,7 @@
 
 @end
 
-@implementation LMLoginViewController
+@implementation LMLoginViewController 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -193,5 +193,12 @@
             }
         }];
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.currentEditingTextField resignFirstResponder];
+    [self loginButtonTapped:nil];
+    return YES;
 }
 @end

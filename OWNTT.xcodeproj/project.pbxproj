@@ -92,6 +92,8 @@
 		25B18C721996095B00A519B5 /* LMDateConfigurationViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25B18C711996095B00A519B5 /* LMDateConfigurationViewController_iPhone.xib */; };
 		25B18C751996186100A519B5 /* LMCustomNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B18C741996186100A519B5 /* LMCustomNavigationViewController.m */; };
 		25D0722B1998B2B100E326C8 /* LMSegueKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D0722A1998B2B100E326C8 /* LMSegueKeys.m */; };
+		25F9E62219A3DACD000D809A /* violet_inverse_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F9E62019A3DACD000D809A /* violet_inverse_arrow@2x.png */; };
+		25F9E62319A3DACD000D809A /* violetArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F9E62119A3DACD000D809A /* violetArrow@2x.png */; };
 		25FAFCA71990C41600FCD226 /* LMData.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA61990C41600FCD226 /* LMData.m */; };
 		25FAFCAA1990D42900FCD226 /* LMTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */; };
 		25FAFCAD1990D79300FCD226 /* LMReportMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCAC1990D79300FCD226 /* LMReportMenuViewController.m */; };
@@ -309,6 +311,8 @@
 		25B18C741996186100A519B5 /* LMCustomNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCustomNavigationViewController.m; sourceTree = "<group>"; };
 		25D072291998B2B100E326C8 /* LMSegueKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSegueKeys.h; sourceTree = "<group>"; };
 		25D0722A1998B2B100E326C8 /* LMSegueKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSegueKeys.m; sourceTree = "<group>"; };
+		25F9E62019A3DACD000D809A /* violet_inverse_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "violet_inverse_arrow@2x.png"; sourceTree = "<group>"; };
+		25F9E62119A3DACD000D809A /* violetArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "violetArrow@2x.png"; sourceTree = "<group>"; };
 		25FAFCA51990C41600FCD226 /* LMData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMData.h; sourceTree = "<group>"; };
 		25FAFCA61990C41600FCD226 /* LMData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMData.m; sourceTree = "<group>"; };
 		25FAFCA81990D42900FCD226 /* LMTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTabBarViewController.h; sourceTree = "<group>"; };
@@ -685,6 +689,8 @@
 		EDF39E431980FF7D00E00966 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				25F9E62019A3DACD000D809A /* violet_inverse_arrow@2x.png */,
+				25F9E62119A3DACD000D809A /* violetArrow@2x.png */,
 				25411B0C19A307DD00C1BEE8 /* button_pink_mini@2x.png */,
 				25411B0D19A307DD00C1BEE8 /* grey_arrow_mini@2x.png */,
 				25411B0E19A307DD00C1BEE8 /* white_arrow_mini@2x.png */,
@@ -945,6 +951,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25036AEB198D5F0700EAE355 /* LMBranchTableViewCell_iPhone.xib in Resources */,
+				25F9E62219A3DACD000D809A /* violet_inverse_arrow@2x.png in Resources */,
 				25659B63199FE0D4009BF814 /* tabbar_background.png in Resources */,
 				EDF39E64198103B700E00966 /* mogend.sh in Resources */,
 				25411B1119A307DD00C1BEE8 /* white_arrow_mini@2x.png in Resources */,
@@ -978,6 +985,7 @@
 				EDD131AE198120FA006F39E3 /* LMLoginViewController_iPhone.xib in Resources */,
 				25659B6F199FE157009BF814 /* alert_png@2x.png in Resources */,
 				25036AAD198D294600EAE355 /* tabbar2@2x.png in Resources */,
+				25F9E62319A3DACD000D809A /* violetArrow@2x.png in Resources */,
 				250F89C519920B6E00D91836 /* LMAlertSummaryViewController_iPhone.xib in Resources */,
 				25146A811992388F001DC8E3 /* LMDatePickerView_iPhone.xib in Resources */,
 				EDF39E63198103B700E00966 /* mogen.sh in Resources */,

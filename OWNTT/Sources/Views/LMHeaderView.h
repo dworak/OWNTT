@@ -10,4 +10,5 @@
 typedef void (^ShowReport)();
 @interface LMHeaderView : UITableViewHeaderFooterView
 @property (copy, nonatomic) ShowReport showReport;
+- (void)setHeaderButtonTitle:(NSString *)title;
 @end

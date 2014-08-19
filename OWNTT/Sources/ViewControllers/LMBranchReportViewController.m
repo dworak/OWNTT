@@ -7,6 +7,7 @@
 //
 
 #import "LMBranchReportViewController.h"
+#import "LMDateConfigurationViewController.h"
 #import "LMAlertSummaryViewController.h"
 #import "LMNavigationViewController.h"
 #import "LMReport.h"
@@ -42,6 +43,8 @@
     self.tableView.bounces = NO;
     
     LMBranchNameView *nameView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMBranchNameView class])] owner:self options:nil] objectAtIndex:0];
+    nameView.calendarButton.hidden = NO;
+    [nameView.calendarButton addTarget:self action:@selector(calendarButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.topView addSubview:nameView];
     
     LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId.instanceId inContext:self.managedObjectContext];
@@ -75,17 +78,14 @@
 {
     if([segue.identifier isEqualToString:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_ModalWebPop]])
     {
-        if([segue.destinationViewController isKindOfClass:[UINavigationController class]])
+        if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
         {
-            UINavigationController *navController = segue.destinationViewController;
-            if([navController.topViewController isKindOfClass:[TTHostViewController class]])
+            TTHostViewController *hostController = segue.destinationViewController;
+            if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
             {
-                TTHostViewController *hostController = (TTHostViewController *)navController.topViewController;
-                if([hostController.childViewController isKindOfClass:[LMWebViewController class]])
-                {
-                    ((LMWebViewController *)hostController.childViewController).isPop = YES;
-                    ((LMWebViewController *)hostController.childViewController).isInstance = NO;
-                }
+                ((LMWebViewController *)hostController.childViewController).isPop = YES;
+                ((LMWebViewController *)hostController.childViewController).isInstance = NO;
+                ((LMWebViewController *)hostController.childViewController).transactionData = self.objectId;
             }
         }
     }
@@ -102,6 +102,10 @@
             ((LMWebViewController *)hostController.childViewController).isPop = NO;
             ((LMWebViewController *)hostController.childViewController).isInstance = NO;
         }
+        if([hostController.childViewController isKindOfClass:[LMDateConfigurationViewController class]])
+        {
+            ((LMDateConfigurationViewController *)hostController.childViewController).fromBranchReport = YES;
+        }
     }
 }
 
@@ -115,6 +119,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)calendarButtonTapped:(id)sender
+{
+    [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushDate] sender:self];
+}
 
 - (void)getTableData
 {
@@ -140,7 +149,7 @@
         }
         else
         {
-            return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_ModalWeb];
+            return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_ModalWebPop];
         }
         
     }

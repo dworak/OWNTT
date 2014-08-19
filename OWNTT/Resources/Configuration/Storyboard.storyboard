@@ -370,6 +370,7 @@
                         <segue destination="K9t-Vf-4sE" kind="push" identifier="LMSegueKeyType_PushReportSummary" id="zbN-r1-3gJ"/>
                         <segue destination="fy6-gG-81v" kind="modal" identifier="LMSegueKeyType_ModalWeb" modalTransitionStyle="crossDissolve" id="cYs-15-KYp"/>
                         <segue destination="fy6-gG-81v" kind="modal" identifier="LMSegueKeyType_ModalWebPop" modalTransitionStyle="crossDissolve" id="E8y-bU-ame"/>
+                        <segue destination="6Hh-EU-iir" kind="push" identifier="LMSegueKeyType_PushDate" id="NH3-7p-hj2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clT-eE-5zX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -465,10 +466,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="FPb-vR-x9c"/>
-        <segue reference="taN-ZK-iiH"/>
         <segue reference="Ug5-Jv-ffk"/>
-        <segue reference="OIE-4W-ojE"/>
-        <segue reference="0yr-Nw-2XK"/>
+        <segue reference="taN-ZK-iiH"/>
+        <segue reference="FPb-vR-x9c"/>
+        <segue reference="HNE-4q-bxA"/>
+        <segue reference="NH3-7p-hj2"/>
+        <segue reference="cYs-15-KYp"/>
     </inferredMetricsTieBreakers>
 </document>

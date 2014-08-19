@@ -114,17 +114,31 @@ typedef enum {
 {
     if([self isValid])
     {
-        [self.parentViewController dismissViewControllerAnimated:YES completion:^{
+        if(self.fromBranchReport)
+        {
             
-        }];
+        }
+        else
+        {
+            [self.parentViewController dismissViewControllerAnimated:YES completion:^{
+            
+            }];
+        }
     }
 }
 
 - (IBAction)cancelAction:(id)sender
 {
-    [self.parentViewController dismissViewControllerAnimated:YES completion:^{
+    if(self.fromBranchReport)
+    {
         
-    }];
+    }
+    else
+    {
+        [self.parentViewController dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }
 }
 
 - (BOOL)isValid

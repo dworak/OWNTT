@@ -133,4 +133,9 @@
     return nil;
 }
 
+- (NSString *)headerbuttonTitle
+{
+    return @"Raport wszystkich kampanii";
+}
+
 @end

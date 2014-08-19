@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet DroidSansRegularLabel *SecondName;
 @property (weak, nonatomic) IBOutlet DroidSansRegularLabel *ThirdName;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+@property (weak, nonatomic) IBOutlet UIButton *calendarButton;
 
 @end

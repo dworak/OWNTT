@@ -10,7 +10,6 @@
 
 @interface LMHeaderView ()
 @property (weak, nonatomic) IBOutlet UIButton *headerButton;
-
 @end
 
 @implementation LMHeaderView
@@ -32,6 +31,12 @@
         // Initialization code
     }
     return self;
+}
+
+- (void)setHeaderButtonTitle:(NSString *)title
+{
+    [self.headerButton setTitle:title forState:UIControlStateNormal];
+    [self.headerButton setTitle:title forState:UIControlStateHighlighted];
 }
 
 /*

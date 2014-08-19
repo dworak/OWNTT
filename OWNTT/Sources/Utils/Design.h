@@ -58,4 +58,9 @@
 #define NAVIGATION_ITEM_TEXT_COLOR_HIGHLIGHTEN [UIColor grayColor]
 #define NAVIGATION_ITEM_FONT [UIFont fontWithName:@"HelveticaNeue" size:14]
 
+//Toolbar item
+#define TOOLBAR_ITEM_TEXT_COLOR_NORMAL [UIColor colorWithRed:104./255. green:46./255. blue:144./255. alpha:1.0]
+#define TOOLBAR_ITEM_TEXT_COLOR_HIGHLIGHTEN [UIColor grayColor]
+#define TOOLBAR_ITEM_FONT [UIFont fontWithName:@"HelveticaNeue-Bold" size:20]
+
 #endif

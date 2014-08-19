@@ -20,6 +20,7 @@ XX(LMSegueKeyType_PushReport,) \
 XX(LMSegueKeyType_PushSettings,) \
 XX(LMSegueKeyType_PushReportSummary,) \
 XX(LMSegueKeyType_PushAlertSummary,) \
+XX(LMSegueKeyType_PushDate,) \
 XX(LMSegueKeyType_ModalWeb,) \
 XX(LMSegueKeyType_ModalWebPop,) \
 XX(LMSegueKeyType_ModalDate,) \
