@@ -18,6 +18,7 @@
 @property (strong, nonatomic) LMBranchNameView *nameView;
 @property (strong, nonatomic) LMDataPickerViewController *pickerViewController;
 @property (strong, nonatomic) LMDatePickerViewController *datePickerController;
+@property (weak, nonatomic) IBOutlet UIImageView *shadowImage;
 @property (unsafe_unretained, nonatomic) BOOL pickerViewShow;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 

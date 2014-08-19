@@ -40,6 +40,10 @@
 #define UI_FULL_BUTTON_FONT [UIFont fontWithName:@"Droid Sans" size:14]
 #define UI_FULL_BUTTON_CORNER_RADIOUS 12
 
+//LMMiniFullbutton
+#define UI_MINI_FULL_BUTTON_FONT [UIFont fontWithName:@"Droid Sans" size:12]
+#define UI_MINI_FULL_BUTTON_CORNER_RADIOUS 15
+
 //LMHeaderView
 #define HEADER_VIEW_BACKGROUND_COLOR [UIColor whiteColor]
 

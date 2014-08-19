@@ -57,6 +57,10 @@
 		253F1F55198E27BD00158407 /* _LMProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F52198E27BD00158407 /* _LMProgram.m */; };
 		253F1F56198E27BD00158407 /* LMProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F54198E27BD00158407 /* LMProgram.m */; };
 		253F1F5A198E9DBB00158407 /* LMReportWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F1F59198E9DBB00158407 /* LMReportWS.m */; };
+		25411B0B19A306FA00C1BEE8 /* LMMiniFullButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 25411B0A19A306FA00C1BEE8 /* LMMiniFullButton.m */; };
+		25411B0F19A307DD00C1BEE8 /* button_pink_mini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25411B0C19A307DD00C1BEE8 /* button_pink_mini@2x.png */; };
+		25411B1019A307DD00C1BEE8 /* grey_arrow_mini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25411B0D19A307DD00C1BEE8 /* grey_arrow_mini@2x.png */; };
+		25411B1119A307DD00C1BEE8 /* white_arrow_mini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25411B0E19A307DD00C1BEE8 /* white_arrow_mini@2x.png */; };
 		25659B63199FE0D4009BF814 /* tabbar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 25659B61199FE0D4009BF814 /* tabbar_background.png */; };
 		25659B64199FE0D4009BF814 /* tabbar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25659B62199FE0D4009BF814 /* tabbar_background@2x.png */; };
 		25659B6F199FE157009BF814 /* alert_png@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25659B65199FE157009BF814 /* alert_png@2x.png */; };
@@ -258,6 +262,11 @@
 		253F1F54198E27BD00158407 /* LMProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMProgram.m; sourceTree = "<group>"; };
 		253F1F58198E9DBB00158407 /* LMReportWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMReportWS.h; sourceTree = "<group>"; };
 		253F1F59198E9DBB00158407 /* LMReportWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMReportWS.m; sourceTree = "<group>"; };
+		25411B0919A306FA00C1BEE8 /* LMMiniFullButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMMiniFullButton.h; sourceTree = "<group>"; };
+		25411B0A19A306FA00C1BEE8 /* LMMiniFullButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMMiniFullButton.m; sourceTree = "<group>"; };
+		25411B0C19A307DD00C1BEE8 /* button_pink_mini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_pink_mini@2x.png"; sourceTree = "<group>"; };
+		25411B0D19A307DD00C1BEE8 /* grey_arrow_mini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey_arrow_mini@2x.png"; sourceTree = "<group>"; };
+		25411B0E19A307DD00C1BEE8 /* white_arrow_mini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white_arrow_mini@2x.png"; sourceTree = "<group>"; };
 		25659B61199FE0D4009BF814 /* tabbar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_background.png; sourceTree = "<group>"; };
 		25659B62199FE0D4009BF814 /* tabbar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_background@2x.png"; sourceTree = "<group>"; };
 		25659B65199FE157009BF814 /* alert_png@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert_png@2x.png"; sourceTree = "<group>"; };
@@ -676,6 +685,9 @@
 		EDF39E431980FF7D00E00966 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				25411B0C19A307DD00C1BEE8 /* button_pink_mini@2x.png */,
+				25411B0D19A307DD00C1BEE8 /* grey_arrow_mini@2x.png */,
+				25411B0E19A307DD00C1BEE8 /* white_arrow_mini@2x.png */,
 				25659B8E19A0E686009BF814 /* logo_splash@2x.png */,
 				25659B8B19A08BA9009BF814 /* top_shadow@2x.png */,
 				25659B8819A0879D009BF814 /* tabbar_logo@2x.png */,
@@ -810,6 +822,8 @@
 				25659B9B19A289A2009BF814 /* LMBranchNameView.m */,
 				25659B9D19A29AD8009BF814 /* LMMenuNameView.h */,
 				25659B9E19A29AD8009BF814 /* LMMenuNameView.m */,
+				25411B0919A306FA00C1BEE8 /* LMMiniFullButton.h */,
+				25411B0A19A306FA00C1BEE8 /* LMMiniFullButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -933,6 +947,7 @@
 				25036AEB198D5F0700EAE355 /* LMBranchTableViewCell_iPhone.xib in Resources */,
 				25659B63199FE0D4009BF814 /* tabbar_background.png in Resources */,
 				EDF39E64198103B700E00966 /* mogend.sh in Resources */,
+				25411B1119A307DD00C1BEE8 /* white_arrow_mini@2x.png in Resources */,
 				25146A8919924FDA001DC8E3 /* LMWebViewController_iPhone.xib in Resources */,
 				250F89BA19915B0000D91836 /* LMDataPickerView_iPhone.xib in Resources */,
 				250FD8211986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib in Resources */,
@@ -945,6 +960,7 @@
 				EDF39E7519810C6100E00966 /* LMSplashViewController_iPhone.xib in Resources */,
 				25659B74199FE157009BF814 /* logo_media_effect.png in Resources */,
 				25659B64199FE0D4009BF814 /* tabbar_background@2x.png in Resources */,
+				25411B0F19A307DD00C1BEE8 /* button_pink_mini@2x.png in Resources */,
 				25036AE1198D521F00EAE355 /* logoSplash.png in Resources */,
 				EDF39E511980FF7D00E00966 /* Images.xcassets in Resources */,
 				25659B76199FE157009BF814 /* raporty_png@2x.png in Resources */,
@@ -979,6 +995,7 @@
 				2591A91E1993F4620036EEDB /* 1.html in Resources */,
 				25659B8919A0879D009BF814 /* tabbar_logo@2x.png in Resources */,
 				EDD131C119812F48006F39E3 /* LMBranchViewController_iPhone.xib in Resources */,
+				25411B1019A307DD00C1BEE8 /* grey_arrow_mini@2x.png in Resources */,
 				25FAFCBA1990DC1B00FCD226 /* LMMenuTableViewCell_iPhone.xib in Resources */,
 				25036ADD198D4D1300EAE355 /* settings.plist in Resources */,
 				25036AB1198D294600EAE355 /* tabbar4@2x.png in Resources */,
@@ -1047,6 +1064,7 @@
 				253F1F4E198E276400158407 /* LMAdvertiser.m in Sources */,
 				25FAFCAA1990D42900FCD226 /* LMTabBarViewController.m in Sources */,
 				EDD131B619812ECF006F39E3 /* LMBranchViewController.m in Sources */,
+				25411B0B19A306FA00C1BEE8 /* LMMiniFullButton.m in Sources */,
 				25036AC8198D2CDA00EAE355 /* ManagedObject.m in Sources */,
 				EDF39E68198104D700E00966 /* LMLoginViewController.m in Sources */,
 				EDF39E6B1981059C00E00966 /* LMSplashViewController.m in Sources */,

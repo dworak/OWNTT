@@ -19,6 +19,11 @@
     return self;
 }
 
+- (void)awakeFromNib
+{
+    [self setupButton];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -32,14 +37,14 @@
 {
     self.exclusiveTouch = YES;
     self.backgroundColor = UI_FULL_BUTTON_BACKGROUND_COLOR;
-    [self setBackgroundImage:[UIImage imageNamed:@"button_pink.png"] forState:UIControlStateNormal];
-    [self setBackgroundImage:[UIImage imageNamed:@"button_pink.png"] forState:UIControlStateHighlighted];
+    [self setBackgroundImage:[UIImage imageNamed:[self backgroundImageName]] forState:UIControlStateNormal];
+    [self setBackgroundImage:[UIImage imageNamed:[self backgroundImageName]] forState:UIControlStateHighlighted];
     [self setTintColor:[UIColor grayColor]];
     [[self titleLabel] setTextAlignment:NSTextAlignmentLeft];
     [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     [self setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-    [self setImage:[UIImage imageNamed:@"gray_arrow.png"] forState:UIControlStateHighlighted];
-    [self setImage:[UIImage imageNamed:@"white_arrow.png"] forState:UIControlStateNormal];
+    [self setImage:[UIImage imageNamed:[NSString stringWithFormat:@"gray%@.png", [self imageName]]] forState:UIControlStateHighlighted];
+    [self setImage:[UIImage imageNamed:[NSString stringWithFormat:@"white%@.png", [self imageName]]] forState:UIControlStateNormal];
     [self setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
     self.tintColor = [UIColor whiteColor];
     
@@ -49,6 +54,16 @@
     [self setTitleColor:UI_FULL_BUTTON_NORMAL_TEXT_COLOR forState:UIControlStateNormal];
     [self setTitleColor:UI_FULL_BUTTON_SELECTED_TEXT_COLOR forState:UIControlStateSelected];
     [self.titleLabel setFont:UI_FULL_BUTTON_FONT];
+}
+
+- (NSString *)imageName
+{
+   return @"_arrow";
+}
+
+- (NSString *)backgroundImageName
+{
+    return @"button_pink.png";
 }
 
 - (CGRect)imageRectForContentRect:(CGRect)contentRect

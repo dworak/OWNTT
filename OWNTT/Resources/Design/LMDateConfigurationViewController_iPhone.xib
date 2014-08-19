@@ -54,7 +54,7 @@
                     <rect key="frame" x="116" y="21" width="88" height="42"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Uou-uj-xqM" customClass="LMFullButton">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Uou-uj-xqM" customClass="LMMiniFullButton">
                     <rect key="frame" x="149" y="140" width="162" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Aktualny miesiąc">
@@ -64,8 +64,8 @@
                         <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="2tK-X6-TVS"/>
                     </connections>
                 </button>
-                <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" id="Pob-12-rGm">
-                    <rect key="frame" x="0.0" y="167" width="320" height="101"/>
+                <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" id="Pob-12-rGm" customClass="LMBorderDescriptionView">
+                    <rect key="frame" x="10" y="187" width="300" height="101"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data od:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H5I-2y-4BB" customClass="LMLabel">
@@ -80,8 +80,8 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4UQ-fr-oSM" customClass="LMFullButton">
-                            <rect key="frame" x="148" y="56" width="162" height="30"/>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4UQ-fr-oSM" customClass="LMMiniFullButton">
+                            <rect key="frame" x="128" y="56" width="162" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                             <state key="normal" title="5.10.1986">
@@ -91,8 +91,8 @@
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="nHu-zM-413"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jCB-ji-XqC" customClass="LMFullButton">
-                            <rect key="frame" x="148" y="10" width="162" height="30"/>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jCB-ji-XqC" customClass="LMMiniFullButton">
+                            <rect key="frame" x="128" y="10" width="162" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                             <state key="normal" title="10.09.2005">

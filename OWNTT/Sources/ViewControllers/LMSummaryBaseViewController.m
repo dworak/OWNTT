@@ -37,6 +37,8 @@
     self.nameView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMBranchNameView class])] owner:self options:nil] objectAtIndex:0];
     [self.topImage addSubview:self.nameView];
     
+    self.shadowImage.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
+    
     UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 118, 36)];
     titleImage.image = [UIImage imageNamed:@"logo.png"];
     [self.parentViewController.navigationItem setTitleView:titleImage];

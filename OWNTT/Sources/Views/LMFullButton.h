@@ -9,5 +9,6 @@
 #import "LMButton.h"
 
 @interface LMFullButton : LMButton
-
+- (NSString *)imageName;
+- (NSString *)backgroundImageName;
 @end
