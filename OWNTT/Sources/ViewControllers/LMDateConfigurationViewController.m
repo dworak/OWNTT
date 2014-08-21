@@ -116,7 +116,7 @@ typedef enum {
     {
         if(self.fromBranchReport)
         {
-            
+            [self.parentViewController.navigationController popViewControllerAnimated:YES];
         }
         else
         {
@@ -131,7 +131,7 @@ typedef enum {
 {
     if(self.fromBranchReport)
     {
-        
+        [self.parentViewController.navigationController popViewControllerAnimated:YES];
     }
     else
     {

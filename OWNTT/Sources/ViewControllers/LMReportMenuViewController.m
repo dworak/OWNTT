@@ -7,6 +7,7 @@
 //
 
 #import "LMReportMenuViewController.h"
+#import "LMMenuNameView.h"
 
 @interface LMReportMenuViewController ()
 
@@ -29,6 +30,13 @@
     // Do any additional setup after loading the view.
     [self.addButton setBackgroundImage:[UIImage imageNamed:@"raporty_png.png"] forState:UIControlStateNormal];
     [self.addButton setBackgroundImage:[UIImage imageNamed:@"raporty_png.png"] forState:UIControlStateHighlighted];
+    for(UIView *view in self.topView.subviews)
+    {
+        if([view isKindOfClass:[LMMenuNameView class]])
+        {
+            ((LMMenuNameView *)view).titleLabel.text = @"DODAJ RAPORT";
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning

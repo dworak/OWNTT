@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LMBranchReportViewController">
+            <connections>
+                <outlet property="shadowView" destination="85W-0O-FgJ" id="JHD-Vn-Jpt"/>
+                <outlet property="tableView" destination="4Br-oG-lRg" id="jT3-xe-Jio"/>
+                <outlet property="topView" destination="kpI-Px-kFg" id="IPL-pO-fcz"/>
+                <outlet property="view" destination="kSp-gh-o63" id="5ec-YS-omN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="kSp-gh-o63">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4Br-oG-lRg">
+                    <rect key="frame" x="0.0" y="215" width="320" height="299"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kpI-Px-kFg">
+                    <rect key="frame" x="10" y="100" width="300" height="95"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="95" id="k7d-0S-4fA"/>
+                    </constraints>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="85W-0O-FgJ">
+                    <rect key="frame" x="0.0" y="64" width="320" height="15"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="lhn-oc-eX3"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="85W-0O-FgJ" firstAttribute="leading" secondItem="kSp-gh-o63" secondAttribute="leading" id="G7G-If-v5e"/>
+                <constraint firstAttribute="trailing" secondItem="kpI-Px-kFg" secondAttribute="trailing" constant="10" id="HEH-3D-aSZ"/>
+                <constraint firstItem="kpI-Px-kFg" firstAttribute="leading" secondItem="kSp-gh-o63" secondAttribute="leading" constant="10" id="M6X-0N-vWD"/>
+                <constraint firstAttribute="trailing" secondItem="85W-0O-FgJ" secondAttribute="trailing" id="TTw-Vz-Dk2"/>
+                <constraint firstItem="4Br-oG-lRg" firstAttribute="leading" secondItem="kSp-gh-o63" secondAttribute="leading" id="UAK-4U-DOT"/>
+                <constraint firstAttribute="centerX" secondItem="4Br-oG-lRg" secondAttribute="centerX" id="YlI-Bf-HYr"/>
+                <constraint firstAttribute="centerX" secondItem="85W-0O-FgJ" secondAttribute="centerX" id="cRj-sr-eDE"/>
+                <constraint firstItem="85W-0O-FgJ" firstAttribute="top" secondItem="kSp-gh-o63" secondAttribute="top" constant="64" id="ft9-Le-Gog"/>
+                <constraint firstItem="kpI-Px-kFg" firstAttribute="top" secondItem="85W-0O-FgJ" secondAttribute="bottom" constant="21" id="hsc-Bh-22n"/>
+                <constraint firstItem="4Br-oG-lRg" firstAttribute="top" secondItem="kpI-Px-kFg" secondAttribute="bottom" constant="20" id="nU9-Ds-Vcf"/>
+                <constraint firstAttribute="trailing" secondItem="4Br-oG-lRg" secondAttribute="trailing" id="u9Z-fr-mpM"/>
+                <constraint firstAttribute="bottom" secondItem="4Br-oG-lRg" secondAttribute="bottom" constant="54" id="xZk-pn-Ise"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

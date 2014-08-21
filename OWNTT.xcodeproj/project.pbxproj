@@ -61,6 +61,7 @@
 		25411B0F19A307DD00C1BEE8 /* button_pink_mini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25411B0C19A307DD00C1BEE8 /* button_pink_mini@2x.png */; };
 		25411B1019A307DD00C1BEE8 /* grey_arrow_mini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25411B0D19A307DD00C1BEE8 /* grey_arrow_mini@2x.png */; };
 		25411B1119A307DD00C1BEE8 /* white_arrow_mini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25411B0E19A307DD00C1BEE8 /* white_arrow_mini@2x.png */; };
+		2560EEFB19A6788A008C4B1F /* LMBranchReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2560EEFA19A6788A008C4B1F /* LMBranchReportViewController_iPhone.xib */; };
 		25659B63199FE0D4009BF814 /* tabbar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 25659B61199FE0D4009BF814 /* tabbar_background.png */; };
 		25659B64199FE0D4009BF814 /* tabbar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25659B62199FE0D4009BF814 /* tabbar_background@2x.png */; };
 		25659B6F199FE157009BF814 /* alert_png@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25659B65199FE157009BF814 /* alert_png@2x.png */; };
@@ -269,6 +270,7 @@
 		25411B0C19A307DD00C1BEE8 /* button_pink_mini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_pink_mini@2x.png"; sourceTree = "<group>"; };
 		25411B0D19A307DD00C1BEE8 /* grey_arrow_mini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey_arrow_mini@2x.png"; sourceTree = "<group>"; };
 		25411B0E19A307DD00C1BEE8 /* white_arrow_mini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white_arrow_mini@2x.png"; sourceTree = "<group>"; };
+		2560EEFA19A6788A008C4B1F /* LMBranchReportViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchReportViewController_iPhone.xib; sourceTree = "<group>"; };
 		25659B61199FE0D4009BF814 /* tabbar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_background.png; sourceTree = "<group>"; };
 		25659B62199FE0D4009BF814 /* tabbar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_background@2x.png"; sourceTree = "<group>"; };
 		25659B65199FE157009BF814 /* alert_png@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert_png@2x.png"; sourceTree = "<group>"; };
@@ -682,6 +684,7 @@
 				250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */,
 				25146A8819924FDA001DC8E3 /* LMWebViewController_iPhone.xib */,
 				25FF5B4E198F68DE0043DA5D /* Views */,
+				2560EEFA19A6788A008C4B1F /* LMBranchReportViewController_iPhone.xib */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -976,6 +979,7 @@
 				25659B72199FE157009BF814 /* kalendarz_png@2x.png in Resources */,
 				25036AAC198D294600EAE355 /* tabbar2.png in Resources */,
 				25659BA119A29AEF009BF814 /* LMMenuNameView_iPhone.xib in Resources */,
+				2560EEFB19A6788A008C4B1F /* LMBranchReportViewController_iPhone.xib in Resources */,
 				25659B78199FE157009BF814 /* grey_arrow@2x.png in Resources */,
 				EDF39E501980FF7D00E00966 /* InfoPlist.strings in Resources */,
 				25659B7E19A07CEA009BF814 /* LMNameHeaderView_iPhone.xib in Resources */,

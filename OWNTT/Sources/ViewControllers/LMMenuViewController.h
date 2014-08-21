@@ -10,10 +10,13 @@
 
 @class LMData;
 
+@class LMMenuNameView;
+
 @interface LMMenuViewController : LMHostChildBaseViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (weak, nonatomic) IBOutlet UIImageView *subMenuImage;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 @property (strong, nonatomic) LMData *object;
 
 - (IBAction)addButtonTapped:(id)sender;

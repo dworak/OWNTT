@@ -364,7 +364,7 @@
                     <navigationItem key="navigationItem" id="xSW-Hg-xch"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMBranchReportViewController"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchViewController"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchReportViewController"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="K9t-Vf-4sE" kind="push" identifier="LMSegueKeyType_PushReportSummary" id="zbN-r1-3gJ"/>
@@ -466,10 +466,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ug5-Jv-ffk"/>
-        <segue reference="taN-ZK-iiH"/>
-        <segue reference="FPb-vR-x9c"/>
         <segue reference="HNE-4q-bxA"/>
+        <segue reference="FPb-vR-x9c"/>
+        <segue reference="taN-ZK-iiH"/>
+        <segue reference="Ug5-Jv-ffk"/>
         <segue reference="NH3-7p-hj2"/>
         <segue reference="cYs-15-KYp"/>
     </inferredMetricsTieBreakers>

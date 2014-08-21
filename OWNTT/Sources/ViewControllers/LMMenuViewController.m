@@ -20,7 +20,6 @@
 #import "LMMenuNameView.h"
 
 @interface LMMenuViewController ()
-@property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UIImageView *shadowView;
 @property (strong, nonatomic) NSMutableArray *userObjects;
 @property (strong, nonatomic) NSManagedObjectContext *localContext;

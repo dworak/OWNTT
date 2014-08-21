@@ -9,5 +9,6 @@
 #import "LMBorderDescriptionView.h"
 
 @interface LMMenuNameView : LMBorderDescriptionView
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

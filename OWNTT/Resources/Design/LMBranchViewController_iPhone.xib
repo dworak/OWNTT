@@ -8,7 +8,6 @@
             <connections>
                 <outlet property="shadowView" destination="hAP-Ln-wNK" id="Mth-vI-ACv"/>
                 <outlet property="tableView" destination="O3E-Gn-v43" id="S24-UW-aRF"/>
-                <outlet property="topView" destination="ICJ-0S-dlL" id="lB2-b2-2f8"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Y32-vt-tpj"/>
             </connections>
         </placeholder>
@@ -18,42 +17,29 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="O3E-Gn-v43">
-                    <rect key="frame" x="0.0" y="215" width="320" height="299"/>
+                    <rect key="frame" x="0.0" y="81" width="320" height="433"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICJ-0S-dlL">
-                    <rect key="frame" x="10" y="100" width="300" height="95"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="95" id="5H4-ou-zPV"/>
-                    </constraints>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hAP-Ln-wNK">
                     <rect key="frame" x="0.0" y="64" width="320" height="15"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="15" id="5BC-vo-ZpP"/>
+                        <constraint firstAttribute="height" constant="15" id="k3n-K1-SBa"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="ICJ-0S-dlL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="8TR-t3-Pil"/>
-                <constraint firstItem="ICJ-0S-dlL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="Cbu-bT-e5p"/>
-                <constraint firstItem="hAP-Ln-wNK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="CmP-R6-JAo"/>
-                <constraint firstItem="O3E-Gn-v43" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Eye-v0-o9c"/>
-                <constraint firstAttribute="centerX" secondItem="hAP-Ln-wNK" secondAttribute="centerX" id="LMA-jH-PAe"/>
-                <constraint firstAttribute="bottom" secondItem="O3E-Gn-v43" secondAttribute="bottom" constant="54" id="LqN-8v-RPo"/>
-                <constraint firstAttribute="trailing" secondItem="ICJ-0S-dlL" secondAttribute="trailing" constant="10" id="UMI-Ne-43D"/>
-                <constraint firstAttribute="trailing" secondItem="hAP-Ln-wNK" secondAttribute="trailing" id="csB-hy-ppS"/>
-                <constraint firstAttribute="centerX" secondItem="O3E-Gn-v43" secondAttribute="centerX" id="hdL-ln-x6V"/>
-                <constraint firstAttribute="trailing" secondItem="O3E-Gn-v43" secondAttribute="trailing" id="neN-Sp-apa"/>
-                <constraint firstAttribute="centerX" secondItem="ICJ-0S-dlL" secondAttribute="centerX" id="oAn-Mj-a6b"/>
-                <constraint firstItem="hAP-Ln-wNK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qF5-dB-6gz"/>
-                <constraint firstItem="O3E-Gn-v43" firstAttribute="top" secondItem="ICJ-0S-dlL" secondAttribute="bottom" constant="20" id="z53-sq-YkW"/>
+                <constraint firstItem="O3E-Gn-v43" firstAttribute="top" secondItem="hAP-Ln-wNK" secondAttribute="bottom" constant="2" id="49O-lX-nOP"/>
+                <constraint firstAttribute="trailing" secondItem="O3E-Gn-v43" secondAttribute="trailing" id="89i-tA-uEB"/>
+                <constraint firstAttribute="trailing" secondItem="hAP-Ln-wNK" secondAttribute="trailing" id="Bl6-gb-3h9"/>
+                <constraint firstAttribute="centerX" secondItem="hAP-Ln-wNK" secondAttribute="centerX" id="GMt-PG-lfq"/>
+                <constraint firstAttribute="bottom" secondItem="O3E-Gn-v43" secondAttribute="bottom" constant="54" id="OTS-kE-T80"/>
+                <constraint firstItem="O3E-Gn-v43" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="T4U-76-syJ"/>
+                <constraint firstItem="hAP-Ln-wNK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WkF-Fs-DWc"/>
+                <constraint firstAttribute="centerX" secondItem="O3E-Gn-v43" secondAttribute="centerX" id="cnD-g5-WPR"/>
+                <constraint firstItem="hAP-Ln-wNK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="lqq-p4-Ap5"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
