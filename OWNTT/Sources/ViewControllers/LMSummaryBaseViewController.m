@@ -39,8 +39,8 @@
     
     self.shadowImage.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
     
-    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 118, 36)];
-    titleImage.image = [UIImage imageNamed:@"logo.png"];
+    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 88, 42)];
+    titleImage.image = [UIImage imageNamed:@"tabbar_logo.png"];
     [self.parentViewController.navigationItem setTitleView:titleImage];
     
     [self.parentViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)]];

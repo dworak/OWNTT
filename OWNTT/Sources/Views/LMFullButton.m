@@ -39,12 +39,16 @@
     self.backgroundColor = UI_FULL_BUTTON_BACKGROUND_COLOR;
     [self setBackgroundImage:[UIImage imageNamed:[self backgroundImageName]] forState:UIControlStateNormal];
     [self setBackgroundImage:[UIImage imageNamed:[self backgroundImageName]] forState:UIControlStateHighlighted];
-    [self setTintColor:[UIColor grayColor]];
+    [self setBackgroundImage:[UIImage imageNamed:[self backgroundImageName]] forState:UIControlStateDisabled];
+    //[self setTintColor:[UIColor grayColor]];
     [[self titleLabel] setTextAlignment:NSTextAlignmentLeft];
     [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     [self setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [self setImage:[UIImage imageNamed:[NSString stringWithFormat:@"gray%@.png", [self imageName]]] forState:UIControlStateHighlighted];
     [self setImage:[UIImage imageNamed:[NSString stringWithFormat:@"white%@.png", [self imageName]]] forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    //[self setTitleColor:[UIColor colorWithRed:191.0f/255.0f green:191.0f/255.0f blue:191.0f/255.0f alpha:0.2] forState:UIControlStateDisabled];
+    [self setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.2] forState:UIControlStateDisabled];
     [self setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
     self.tintColor = [UIColor whiteColor];
     

@@ -45,6 +45,8 @@
 		25146A8919924FDA001DC8E3 /* LMWebViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25146A8819924FDA001DC8E3 /* LMWebViewController_iPhone.xib */; };
 		25146A8F199290D2001DC8E3 /* LMRotateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25146A8E199290D2001DC8E3 /* LMRotateViewController.m */; };
 		252CB2D819901454002677B8 /* LMBranchReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252CB2D719901454002677B8 /* LMBranchReportViewController.m */; };
+		253507DF19A773F700E2B42A /* pink_checkbox_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 253507DD19A773F700E2B42A /* pink_checkbox_normal@2x.png */; };
+		253507E019A773F700E2B42A /* pink_checkbox_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 253507DE19A773F700E2B42A /* pink_checkbox_selected@2x.png */; };
 		253E39311999EEF100B395ED /* LMBranchReportTableViewCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 253E39301999EEF100B395ED /* LMBranchReportTableViewCell_iPhone.xib */; };
 		253E39341999EF1700B395ED /* LMBranchReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 253E39331999EF1700B395ED /* LMBranchReportTableViewCell.m */; };
 		253F1F3E198E219400158407 /* tree.json in Resources */ = {isa = PBXBuildFile; fileRef = 253F1F3D198E219400158407 /* tree.json */; };
@@ -243,6 +245,8 @@
 		25146A8E199290D2001DC8E3 /* LMRotateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMRotateViewController.m; sourceTree = "<group>"; };
 		252CB2D619901454002677B8 /* LMBranchReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchReportViewController.h; sourceTree = "<group>"; };
 		252CB2D719901454002677B8 /* LMBranchReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchReportViewController.m; sourceTree = "<group>"; };
+		253507DD19A773F700E2B42A /* pink_checkbox_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_checkbox_normal@2x.png"; sourceTree = "<group>"; };
+		253507DE19A773F700E2B42A /* pink_checkbox_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_checkbox_selected@2x.png"; sourceTree = "<group>"; };
 		253E39301999EEF100B395ED /* LMBranchReportTableViewCell_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchReportTableViewCell_iPhone.xib; sourceTree = "<group>"; };
 		253E39321999EF1700B395ED /* LMBranchReportTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchReportTableViewCell.h; sourceTree = "<group>"; };
 		253E39331999EF1700B395ED /* LMBranchReportTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchReportTableViewCell.m; sourceTree = "<group>"; };
@@ -692,6 +696,8 @@
 		EDF39E431980FF7D00E00966 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				253507DD19A773F700E2B42A /* pink_checkbox_normal@2x.png */,
+				253507DE19A773F700E2B42A /* pink_checkbox_selected@2x.png */,
 				25F9E62019A3DACD000D809A /* violet_inverse_arrow@2x.png */,
 				25F9E62119A3DACD000D809A /* violetArrow@2x.png */,
 				25411B0C19A307DD00C1BEE8 /* button_pink_mini@2x.png */,
@@ -972,6 +978,7 @@
 				25659B64199FE0D4009BF814 /* tabbar_background@2x.png in Resources */,
 				25411B0F19A307DD00C1BEE8 /* button_pink_mini@2x.png in Resources */,
 				25036AE1198D521F00EAE355 /* logoSplash.png in Resources */,
+				253507E019A773F700E2B42A /* pink_checkbox_selected@2x.png in Resources */,
 				EDF39E511980FF7D00E00966 /* Images.xcassets in Resources */,
 				25659B76199FE157009BF814 /* raporty_png@2x.png in Resources */,
 				25036AAF198D294600EAE355 /* tabbar3@2x.png in Resources */,
@@ -1009,6 +1016,7 @@
 				EDD131C119812F48006F39E3 /* LMBranchViewController_iPhone.xib in Resources */,
 				25411B1019A307DD00C1BEE8 /* grey_arrow_mini@2x.png in Resources */,
 				25FAFCBA1990DC1B00FCD226 /* LMMenuTableViewCell_iPhone.xib in Resources */,
+				253507DF19A773F700E2B42A /* pink_checkbox_normal@2x.png in Resources */,
 				25036ADD198D4D1300EAE355 /* settings.plist in Resources */,
 				25036AB1198D294600EAE355 /* tabbar4@2x.png in Resources */,
 				25FF5B50198F68FA0043DA5D /* LMHeaderView_iPhone.xib in Resources */,

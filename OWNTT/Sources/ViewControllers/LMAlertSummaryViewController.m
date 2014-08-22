@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet LMButton *rateType;
 @property (weak, nonatomic) IBOutlet LMButton *hourOfSend;
 @property (weak, nonatomic) IBOutlet LMTextField *valueTextField;
+@property (weak, nonatomic) IBOutlet UIButton *checkButton;
 
 @property (weak, nonatomic) UIButton *currentButton;
 
@@ -49,6 +50,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.checkButton.exclusiveTouch = YES;
     self.dateFormater = [[NSDateFormatter alloc] init];
     [self.dateFormater setDateFormat:@"yyyy-MM-dd"];
     self.scrollView.contentSize = CGSizeMake(320, self.view.frame.size.height-64);
@@ -57,7 +59,7 @@
     [self.dateFrom setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
     [self.dateTo setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateNormal];
     [self.dateTo setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
-    self.valueTextField.text = @"0";
+    self.valueTextField.text = @"";
     
     
     [self.alertNameTextField addValidation:LMTextFieldValidaitonType_Name];
@@ -131,13 +133,16 @@
     NSString *message = [self.alertNameTextField validateField];
     if (!message)
     {
-        NSDateFormatter *dateFormatter = [NSDateFormatter new];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-        NSDate *dateFrom = [dateFormatter dateFromString:self.dateFrom.titleLabel.text];
-        NSDate *dateTo = [dateFormatter dateFromString:self.dateTo.titleLabel.text];
-        if([dateFrom compare:dateTo] == NSOrderedSame || [dateFrom compare:dateTo] == NSOrderedDescending)
+        if(self.checkButton.selected)
         {
-            message = @"Data do musi być większa niż data od";
+            NSDateFormatter *dateFormatter = [NSDateFormatter new];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+            NSDate *dateFrom = [dateFormatter dateFromString:self.dateFrom.titleLabel.text];
+            NSDate *dateTo = [dateFormatter dateFromString:self.dateTo.titleLabel.text];
+            if([dateFrom compare:dateTo] == NSOrderedSame || [dateFrom compare:dateTo] == NSOrderedDescending)
+            {
+                message = @"Data do musi być większa niż data od";
+            }
         }
         if(!message)
         {
@@ -164,6 +169,19 @@
     userAlert.createDate = [NSDate date];
     [user.userAlertsSet addObject:userAlert];
     [LMUtils saveCoreDataContext:managedObjectContext];
+}
+
+- (IBAction)checkboxTapped:(id)sender
+{
+    self.checkButton.selected = !self.checkButton.selected;
+    if(self.checkButton.selected)
+    {
+        self.dateTo.enabled = YES;
+    }
+    else
+    {
+        self.dateTo.enabled = NO;
+    }
 }
 
 - (IBAction)buttonTapped:(id)sender

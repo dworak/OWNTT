@@ -18,12 +18,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4Br-oG-lRg">
-                    <rect key="frame" x="0.0" y="215" width="320" height="299"/>
+                    <rect key="frame" x="0.0" y="203" width="320" height="311"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kpI-Px-kFg">
-                    <rect key="frame" x="10" y="100" width="300" height="95"/>
+                    <rect key="frame" x="10" y="88" width="300" height="95"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -49,7 +49,7 @@
                 <constraint firstAttribute="centerX" secondItem="4Br-oG-lRg" secondAttribute="centerX" id="YlI-Bf-HYr"/>
                 <constraint firstAttribute="centerX" secondItem="85W-0O-FgJ" secondAttribute="centerX" id="cRj-sr-eDE"/>
                 <constraint firstItem="85W-0O-FgJ" firstAttribute="top" secondItem="kSp-gh-o63" secondAttribute="top" constant="64" id="ft9-Le-Gog"/>
-                <constraint firstItem="kpI-Px-kFg" firstAttribute="top" secondItem="85W-0O-FgJ" secondAttribute="bottom" constant="21" id="hsc-Bh-22n"/>
+                <constraint firstItem="kpI-Px-kFg" firstAttribute="top" secondItem="85W-0O-FgJ" secondAttribute="bottom" constant="9" id="hsc-Bh-22n"/>
                 <constraint firstItem="4Br-oG-lRg" firstAttribute="top" secondItem="kpI-Px-kFg" secondAttribute="bottom" constant="20" id="nU9-Ds-Vcf"/>
                 <constraint firstAttribute="trailing" secondItem="4Br-oG-lRg" secondAttribute="trailing" id="u9Z-fr-mpM"/>
                 <constraint firstAttribute="bottom" secondItem="4Br-oG-lRg" secondAttribute="bottom" constant="54" id="xZk-pn-Ise"/>

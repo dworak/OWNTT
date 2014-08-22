@@ -31,6 +31,7 @@ typedef enum {
 @property (weak, nonatomic) UIButton *currentButton;
 
 @property (strong,nonatomic) NSDateFormatter *dateFormatter;
+@property (weak, nonatomic) IBOutlet UIButton *checkButton;
 
 @property (unsafe_unretained, nonatomic) BOOL dateShow;
 
@@ -51,6 +52,27 @@ typedef enum {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.toolbar.clipsToBounds = YES;
+    self.checkButton.exclusiveTouch = YES;
+    if(self.fromBranchReport)
+    {
+        self.toolbar.hidden = YES;
+        UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        [backButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:NAVIGATION_ITEM_TEXT_COLOR_NORMAL,
+                                                 NSFontAttributeName: NAVIGATION_ITEM_FONT
+                                                 } forState:UIControlStateNormal];
+        [backButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:NAVIGATION_ITEM_TEXT_COLOR_HIGHLIGHTEN,
+                                                 NSFontAttributeName: NAVIGATION_ITEM_FONT
+                                                 } forState:UIControlStateHighlighted];
+        [self.parentViewController.navigationItem setBackBarButtonItem:backButtonItem];
+        UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 88, 42)];
+        titleImage.image = [UIImage imageNamed:@"tabbar_logo.png"];
+        [self.parentViewController.navigationItem setTitleView:titleImage];
+
+    }
+    else
+    {
+        self.toolbar.hidden = NO;
+    }
     self.shadowImage.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
     self.dateShow = NO;
     //[self createLeftButton:YES withSelector:NULL text:@" "];
@@ -141,16 +163,32 @@ typedef enum {
     }
 }
 
+- (IBAction)checkboxTapped:(id)sender
+{
+    self.checkButton.selected = !self.checkButton.selected;
+    if(self.checkButton.selected)
+    {
+        self.dateToButton.enabled = YES;
+    }
+    else
+    {
+        self.dateToButton.enabled = NO;
+    }
+}
+
 - (BOOL)isValid
 {
     NSString *message;
     if(self.dateShow)
     {
-        NSDate *dateFrom = [self.dateFormatter dateFromString:self.dateFromButton.titleLabel.text];
-        NSDate *dateTo = [self.dateFormatter dateFromString:self.dateToButton.titleLabel.text];
-        if([dateFrom compare:dateTo] == NSOrderedSame || [dateFrom compare:dateTo] == NSOrderedDescending)
+        if(self.dateToButton.enabled)
         {
-            message = @"Data do musi być większa niż data od";
+            NSDate *dateFrom = [self.dateFormatter dateFromString:self.dateFromButton.titleLabel.text];
+            NSDate *dateTo = [self.dateFormatter dateFromString:self.dateToButton.titleLabel.text];
+            if([dateFrom compare:dateTo] == NSOrderedSame || [dateFrom compare:dateTo] == NSOrderedDescending)
+            {
+                message = @"Data do musi być większa niż data od";
+            }
         }
     }
     if(message)

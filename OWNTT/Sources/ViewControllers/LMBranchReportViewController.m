@@ -43,7 +43,18 @@
     self.tableView.bounces = NO;
     
     LMBranchNameView *nameView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMBranchNameView class])] owner:self options:nil] objectAtIndex:0];
-    nameView.calendarButton.hidden = NO;
+    if([self.parentViewController.navigationController isKindOfClass:[LMNavigationViewController class]])
+    {
+        LMNavigationViewController *navController = (LMNavigationViewController *)self.parentViewController.navigationController;
+        if(navController.controllerType.intValue == NavigationControllerType_Report)
+        {
+            nameView.calendarButton.hidden = NO;
+        }
+        else
+        {
+            nameView.calendarButton.hidden = YES;
+        }
+    }
     [nameView.calendarButton addTarget:self action:@selector(calendarButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.topView addSubview:nameView];
     
