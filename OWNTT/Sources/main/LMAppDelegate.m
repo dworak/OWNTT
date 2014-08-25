@@ -7,13 +7,31 @@
 //
 
 #import "LMAppDelegate.h"
+#import "LMUser.h"
+#import "AFNetworkReachabilityManager.h"
 
 @implementation LMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //Create app utils
     self.appUtils = [LMAppUtils new];
+    [self.appUtils checkInternetConnection];
+    
+    //Register for remote notification
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge];
+    
+    if (launchOptions != nil)
+	{
+		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+		if (dictionary != nil)
+		{
+			NSLog(@"Launched from push notification: %@", dictionary);
+			//TODO: Update badge
+		}
+	}
+    
     return YES;
 }
 							
@@ -43,6 +61,46 @@
 {
     // Saves changes in the application's managed object context before the application terminates.
     [[LMCoreDataManager sharedInstance] saveMasterContext];
+}
+
+- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
+{
+	NSLog(@"Received notification: %@", userInfo);
+	//TODO: Update badge
+}
+
+- (void)postUpdateRequest
+{
+    //Add update device token
+}
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+	NSString* newToken = [deviceToken description];
+	newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+	newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+	NSLog(@"My token is: %@", newToken);
+    
+    self.appUtils.currentUser = [[LMUser fetchLMUsersInContext:[[LMCoreDataManager sharedInstance] masterManagedObjectContext]] objectAtIndex:0];
+    if(self.appUtils.currentUser)
+    {
+        self.appUtils.currentUser.deviceToken = newToken;
+        [[LMCoreDataManager sharedInstance] saveMasterContext];
+    }
+    else
+    {
+        self.appUtils.notSaveDeviceKey = newToken;
+    }
+	/*if (![newToken isEqualToString:oldToken])
+	{
+		[self postUpdateRequest];
+	}*/
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+	NSLog(@"Failed to get token, error: %@", error);
 }
 
 @end

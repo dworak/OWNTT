@@ -22,4 +22,8 @@
 #define PICKER_VIEW_WILL_SHOW_NOTIFICATION @"PickerViewWillShow"
 #define PICKER_VIEW_WILL_HIDE_NOTIFICATION @"PickerViewWillHide"
 
+#define DEVICE_TOKEN_KEY @"DeviceTokenKey"
+
+#define OWNTT_APP_DELEGATE ((LMAppDelegate*)[[UIApplication sharedApplication] delegate])
+
 #endif

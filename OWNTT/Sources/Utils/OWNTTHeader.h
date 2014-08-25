@@ -16,6 +16,7 @@
 #import "LMHostChildBaseViewController.h"
 #import "LMUtils.h"
 #import "Design.h"
+#import "LMAppDelegate.h"
 #import "Macros.h"
 #import "LMSegueKeys.h"
 #import "NSManagedObject+Fetch.h"

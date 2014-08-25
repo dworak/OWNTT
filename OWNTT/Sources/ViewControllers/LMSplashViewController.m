@@ -50,7 +50,14 @@
     [super viewDidAppear:animated];
     //TODO: add tree download mechanism
     [self.activityIndicator startAnimating];
-    [self downloadJsonData];
+    if([LMUtils userExist])
+    {
+        [self downloadJsonData];
+    }
+    else
+    {
+        [self performSelector:@selector(splashViewControllerDidFinish) withObject:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning

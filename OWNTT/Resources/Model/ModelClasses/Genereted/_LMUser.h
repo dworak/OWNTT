@@ -5,8 +5,12 @@
 #import "ManagedObject.h"
 
 extern const struct LMUserAttributes {
+	__unsafe_unretained NSString *dateCreate;
+	__unsafe_unretained NSString *deviceToken;
+	__unsafe_unretained NSString *httpToken;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *password;
+	__unsafe_unretained NSString *surname;
 } LMUserAttributes;
 
 extern const struct LMUserRelationships {
@@ -23,6 +27,10 @@ extern const struct LMUserFetchedProperties {
 
 
 
+
+
+
+
 @interface LMUserID : NSManagedObjectID {}
 @end
 
@@ -31,6 +39,36 @@ extern const struct LMUserFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (LMUserID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSDate* dateCreate;
+
+
+
+//- (BOOL)validateDateCreate:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* deviceToken;
+
+
+
+//- (BOOL)validateDeviceToken:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* httpToken;
+
+
+
+//- (BOOL)validateHttpToken:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -51,6 +89,16 @@ extern const struct LMUserFetchedProperties {
 
 
 //- (BOOL)validatePassword:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* surname;
+
+
+
+//- (BOOL)validateSurname:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -90,6 +138,24 @@ extern const struct LMUserFetchedProperties {
 @interface _LMUser (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSDate*)primitiveDateCreate;
+- (void)setPrimitiveDateCreate:(NSDate*)value;
+
+
+
+
+- (NSString*)primitiveDeviceToken;
+- (void)setPrimitiveDeviceToken:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveHttpToken;
+- (void)setPrimitiveHttpToken:(NSString*)value;
+
+
+
+
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
 
@@ -98,6 +164,12 @@ extern const struct LMUserFetchedProperties {
 
 - (NSString*)primitivePassword;
 - (void)setPrimitivePassword:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveSurname;
+- (void)setPrimitiveSurname:(NSString*)value;
 
 
 

@@ -4,8 +4,12 @@
 #import "_LMUser.h"
 
 const struct LMUserAttributes LMUserAttributes = {
+	.dateCreate = @"dateCreate",
+	.deviceToken = @"deviceToken",
+	.httpToken = @"httpToken",
 	.name = @"name",
 	.password = @"password",
+	.surname = @"surname",
 };
 
 const struct LMUserRelationships LMUserRelationships = {
@@ -49,6 +53,27 @@ const struct LMUserFetchedProperties LMUserFetchedProperties = {
 
 
 
+@dynamic dateCreate;
+
+
+
+
+
+
+@dynamic deviceToken;
+
+
+
+
+
+
+@dynamic httpToken;
+
+
+
+
+
+
 @dynamic name;
 
 
@@ -57,6 +82,13 @@ const struct LMUserFetchedProperties LMUserFetchedProperties = {
 
 
 @dynamic password;
+
+
+
+
+
+
+@dynamic surname;
 
 
 
