@@ -17,6 +17,7 @@
     // Override point for customization after application launch.
     //Create app utils
     self.appUtils = [LMAppUtils new];
+    self.appUtils.notSaveDeviceKey = @"Test";
     [self.appUtils checkInternetConnection];
     
     //Register for remote notification

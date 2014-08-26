@@ -45,6 +45,7 @@
     self.toolbar.clipsToBounds = YES;
     self.navigationItem.hidesBackButton = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.loginTextField.text = OWNTT_TEST_USER_NAME;
     
     self.shadowImage.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
     
@@ -146,7 +147,16 @@
         [self.managedObjectContext deleteObject:obj];
     }
     
-    LMUser *user = [LMUser createObjectInContext:self.managedObjectContext];
+    __weak LMLoginViewController *selfObj = self;
+    AFHTTPRequestOperation *requestOperation = [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_RegisterDevice parameters:[LMOWNTTHTTPClient registerDeviceParamsLogin:self.loginTextField.text password:self.passwordTextField.text pushKey:OWNTT_APP_DELEGATE.appUtils.notSaveDeviceKey os:OWNTT_HTTP_CLIENT_OS_PARAM] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        nil;
+    } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        nil;
+    }];
+    
+    /*LMUser *user = [LMUser createObjectInContext:self.managedObjectContext];
     user.name = self.loginTextField.text;
     user.password = self.passwordTextField.text;
     LMAppDelegate *appDelegate = ((LMAppDelegate *)[[UIApplication sharedApplication] delegate]);
@@ -165,7 +175,7 @@
     else
     {
         [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushTabBar] sender:self];
-    }
+    }*/
 }
 
 #pragma mark -

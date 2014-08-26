@@ -26,4 +26,9 @@
 
 #define OWNTT_APP_DELEGATE ((LMAppDelegate*)[[UIApplication sharedApplication] delegate])
 
+#define OWNTT_TEST_USER_NAME @"r.skotnicki@nexvibe.pl"
+#define OWNTT_TEST_USER_PASSWORD @"pass"
+
+#define OWNTT_HTTP_CLIENT_OS_PARAM @"ios"
+
 #endif
