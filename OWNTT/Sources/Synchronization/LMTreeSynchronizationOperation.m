@@ -18,102 +18,39 @@
 #import "LMUser.h"
 
 @implementation LMTreeSynchronizationOperation
-+(void)ttFillEntityAndBind:(LMInstance*) entity fromWSObject:(LMInstanceWS*)modelObject inContext:(NSManagedObjectContext *)context
++(void)ttFillEntityAndBind:(LMInstance*) entity fromWSObject:(LMInstanceWS*)modelObject
 {
     entity.objectId = modelObject.objectId;
     entity.activeValue = YES;
     entity.name = modelObject.name;
-    for(NSString *reportName in modelObject.reportPermissions)
-    {
-        LMOWNTTReportType reportType = [LMOWNTTHTTPClient reportTypeForName:reportName];
-        switch (reportType) {
-            case LMOWNTTReportType_Type1:
-            {
-                entity.report1Value = YES;
-                break;
-            }
-            case LMOWNTTReportType_Type5:
-            {
-                entity.report5Value = YES;
-                break;
-            }
-            case LMOWNTTReportType_Type8:
-            {
-                entity.report8Value = YES;
-            }
-            default:
-                break;
-        }
-    }
-    for(LMAdvertiserWS *advertiserWS in modelObject.advertisers)
-    {
-        LMAdvertiser *advertiser = [LMAdvertiser fetchActiveEntityOfClass:[LMAdvertiser class] withObjectID:advertiserWS.objectId inContext:context];
-        if(!advertiser)
-        {
-            advertiser = [LMAdvertiser createObjectInContext:context];
-            advertiser.objectId = advertiserWS.objectId;
-        }
-        advertiser.name = advertiserWS.name;
-        advertiser.activeValue = YES;
-        for(LMProgramWS *programWS in advertiserWS.programs)
-        {
-            LMProgram *program = [LMProgram fetchActiveEntityOfClass:[LMProgram class] withObjectID:programWS.objectId inContext:context];
-            if(!program)
-            {
-                program = [LMProgram createObjectInContext:context];
-                program.objectId = programWS.objectId;
-            }
-            program.activeValue = YES;
-            program.name = programWS.name;
-            [advertiser addProgramsObject:program];
-        }
-        [entity addAdvertisersObject:advertiser];
-    }
 }
 
 
 - (void)ttBegin
 {
-    dispatch_group_t checkPointSyncGroup = dispatch_group_create();
-    dispatch_queue_t queuePointSync = dispatch_queue_create("pl.com.tt.tree", 0);
+    LMOWNTTHTTPClient *webServiceManager = [LMOWNTTHTTPClient sharedClient];
     
-    __weak LMTreeSynchronizationOperation *weakSelf = self;
+    if(!self.manager)
+    {
+        self.manager = [LMCoreDataManager sharedInstance];
+    }
     
-    dispatch_group_async(checkPointSyncGroup, queuePointSync, ^{
-        dispatch_group_enter(checkPointSyncGroup);
-        
-        LMOWNTTHTTPClient *webServiceManager = [LMOWNTTHTTPClient sharedClient];
-        
-        if(!weakSelf.manager)
-        {
-            weakSelf.manager = [LMCoreDataManager sharedInstance];
-        }
-        
-        if(!weakSelf.managedObjectContextForTheOperation)
-        {
-            weakSelf.managedObjectContextForTheOperation = [self.manager newManagedObjectContext];
-        }
-        [weakSelf unactiveAllTreeElements];
-        
-        LMUser *currentUser = [[LMUser fetchLMUsersInContext:weakSelf.managedObjectContextForTheOperation] objectAtIndex:0];
-        
-        [webServiceManager POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_LoadApplicationData parameters:[LMOWNTTHTTPClient unregisterDeviceParamsToken:currentUser.httpToken] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
-        {
-            [weakSelf setFetchedResponse:responseObject];
-            [weakSelf ttSignalFinish];
-            dispatch_group_leave(checkPointSyncGroup);;
-        } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
-        {
-            [weakSelf ttCancel];
-        }];
-    });
+    if(!self.managedObjectContextForTheOperation)
+    {
+        self.managedObjectContextForTheOperation = [self.manager newManagedObjectContext];
+    }
+    [self unactiveAllTreeElements];
     
-    dispatch_group_notify(checkPointSyncGroup, queuePointSync, ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"DEBUG: Tree data download has been completed.");
-            [[LMNotificationService instance] postNotification:LMNotification_TreeOperationDownload withObject:nil];
-        });
-    });
+    LMUser *currentUser = [[LMUser fetchLMUsersInContext:self.managedObjectContextForTheOperation] objectAtIndex:0];
+    
+    [webServiceManager POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_LoadApplicationData parameters:[LMOWNTTHTTPClient unregisterDeviceParamsToken:currentUser.httpToken] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         [self setFetchedResponse:responseObject];
+         [self ttSignalFinish];
+     } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         [self ttCancel];
+     }];
     
 }
 
@@ -123,6 +60,32 @@
     if(!self.manager)
     {
         self.manager = [LMCoreDataManager sharedInstance];
+    }
+    
+    for(int i=0; i<3; i++)
+    {
+        LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:i+1] inContext:self.managedObjectContextForTheOperation];
+        if(!report)
+        {
+            report = [LMReport createObjectInContext:self.managedObjectContextForTheOperation];
+            report.objectId = [NSNumber numberWithInt:i+1];
+        }
+        report.activeValue = YES;
+        switch (i+1) {
+            case 1:
+                report.name = @"Raport łączny kampanii";
+                report.htmlName = @"1.html";
+                break;
+            case 2:
+                report.name = @"Raport wszystkich wydawców";
+                report.htmlName = @"2.html";
+                break;
+            case 3:
+                report.name = @"Raport form reklamowych";
+                report.htmlName = @"3.html";
+            default:
+                break;
+        }
     }
     
     for(NSDictionary * objectDictionary in self.fetchedResponse[@"instances"])
@@ -149,12 +112,66 @@
         
         LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:instanceModel.objectId inContext:self.managedObjectContextForTheOperation];
         
-       if(!instance)
-       {
-           instance = [LMInstance createObjectInContext:self.managedObjectContextForTheOperation];
-       }
-    
-        [LMTreeSynchronizationOperation ttFillEntityAndBind:instance fromWSObject:instanceModel inContext:self.managedObjectContextForTheOperation];
+        if(!instance)
+        {
+            instance = [LMInstance createObjectInContext:self.managedObjectContextForTheOperation];
+        }
+        
+        [LMTreeSynchronizationOperation ttFillEntityAndBind:instance fromWSObject:instanceModel];
+        
+        for(NSString *reportName in instanceModel.reportPermissions)
+        {
+            LMOWNTTReportType reportType = [LMOWNTTHTTPClient reportTypeForName:reportName];
+            switch (reportType) {
+                case LMOWNTTReportType_Type1:
+                {
+                    LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:1] inContext:self.managedObjectContextForTheOperation];
+                    NSAssert(report, @"ERROR: report 1 can not exist");
+                    [instance addReportsObject:report];
+                    break;
+                }
+                case LMOWNTTReportType_Type5:
+                {
+                    LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:2] inContext:self.managedObjectContextForTheOperation];
+                    NSAssert(report, @"ERROR: report 2 can not exist");
+                    [instance addReportsObject:report];
+                    break;
+                }
+                case LMOWNTTReportType_Type8:
+                {
+                    LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:3] inContext:self.managedObjectContextForTheOperation];
+                    NSAssert(report, @"ERROR: report 3 can not exist");
+                    [instance addReportsObject:report];
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+        for(LMAdvertiserWS *advertiserWS in instanceModel.advertisers)
+        {
+            LMAdvertiser *advertiser = [LMAdvertiser fetchActiveEntityOfClass:[LMAdvertiser class] withObjectID:advertiserWS.objectId inContext:self.managedObjectContextForTheOperation];
+            if(!advertiser)
+            {
+                advertiser = [LMAdvertiser createObjectInContext:self.managedObjectContextForTheOperation];
+                advertiser.objectId = advertiserWS.objectId;
+            }
+            advertiser.name = advertiserWS.name;
+            advertiser.activeValue = YES;
+            for(LMProgramWS *programWS in advertiserWS.programs)
+            {
+                LMProgram *program = [LMProgram fetchActiveEntityOfClass:[LMProgram class] withObjectID:programWS.objectId inContext:self.managedObjectContextForTheOperation];
+                if(!program)
+                {
+                    program = [LMProgram createObjectInContext:self.managedObjectContextForTheOperation];
+                    program.objectId = programWS.objectId;
+                }
+                program.activeValue = YES;
+                program.name = programWS.name;
+                [advertiser addProgramsObject:program];
+            }
+            [instance addAdvertisersObject:advertiser];
+        }
     }
     
     [self ttSaveContext];
@@ -165,7 +182,10 @@
     NSArray *readonlyObject = [LMReadOnlyObject fetchEntitiesOfClass:[LMReadOnlyObject class] inContext:self.managedObjectContextForTheOperation];
     for(LMReadOnlyObject *object in readonlyObject)
     {
-        object.activeValue = NO;
+        if(![object isKindOfClass:[LMReport class]])
+        {
+            object.activeValue = NO;
+        }
     }
 }
 

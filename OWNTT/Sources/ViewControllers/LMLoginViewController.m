@@ -15,6 +15,7 @@
 #import "LMTextField.h"
 #import "LMUser.h"
 #import "LMReadOnlyObject.h"
+#import "LMReport.h"
 
 @interface LMLoginViewController ()
 @property (weak, nonatomic) IBOutlet LMTextField *loginTextField;
@@ -24,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *shadowImage;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (weak, nonatomic) IBOutlet UIView *loadingView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *loadingDataTextField;
 
 @end
 
@@ -46,6 +50,7 @@
     self.navigationItem.hidesBackButton = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.loginTextField.text = OWNTT_TEST_USER_NAME;
+    self.loadingView.alpha = 0;
     
     self.shadowImage.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
     
@@ -75,6 +80,7 @@
         }
     }];
     self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    
     [self.loginTextField addValidation:LMTextFieldValidaitonType_Login];
     [self.passwordTextField addValidation:LMTextFieldValidaitonType_Password];
     self.toolbar.hidden = !self.showToolbar;
@@ -148,35 +154,36 @@
     }
     
     __weak LMLoginViewController *selfObj = self;
-    [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_RegisterDevice parameters:[LMOWNTTHTTPClient registerDeviceParamsLogin:self.loginTextField.text password:self.passwordTextField.text pushKey:OWNTT_APP_DELEGATE.appUtils.notSaveDeviceKey os:OWNTT_HTTP_CLIENT_OS_PARAM] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
-    {
-        NSDictionary *response = (NSDictionary *)responseObject;
-        LMUser *user = [LMUser createObjectInContext:selfObj.managedObjectContext];
-        user.email = selfObj.loginTextField.text;
-        user.password = selfObj.passwordTextField.text;
-        user.name = [response valueForKey:@"name"];
-        user.surname = [response valueForKey:@"surname"];
-        user.httpToken = [response valueForKey:@"token"];
-        LMAppDelegate *appDelegate = ((LMAppDelegate *)[[UIApplication sharedApplication] delegate]);
-        appDelegate.appUtils.currentUser = user;
-        [selfObj saveManagedContext];
-        [LMUtils downloadAppData];
-        if(selfObj.isPresentModal)
-        {
-            if([selfObj.presentingViewController isKindOfClass:[UITabBarController class]])
-            {
-                //[((UITabBarController *)self.presentingViewController).presentingViewController
-            }
-            [selfObj.parentViewController dismissViewControllerAnimated:YES completion:^{
-            }];
-        }
-        else
-        {
-            [selfObj.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushTabBar] sender:selfObj];
-        }
-    } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
-    {
-        nil;
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.activityIndicator startAnimating];
+        self.loadingView.alpha = 1;
+    } completion:^(BOOL finished) {
+        [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_RegisterDevice parameters:[LMOWNTTHTTPClient registerDeviceParamsLogin:self.loginTextField.text password:self.passwordTextField.text pushKey:OWNTT_APP_DELEGATE.appUtils.notSaveDeviceKey os:OWNTT_HTTP_CLIENT_OS_PARAM] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
+         {
+             NSDictionary *response = (NSDictionary *)responseObject;
+             LMUser *user = [LMUser createObjectInContext:selfObj.managedObjectContext];
+             user.email = selfObj.loginTextField.text;
+             user.password = selfObj.passwordTextField.text;
+             user.name = [response valueForKey:@"name"];
+             user.surname = [response valueForKey:@"surname"];
+             user.httpToken = [response valueForKey:@"token"];
+             LMAppDelegate *appDelegate = ((LMAppDelegate *)[[UIApplication sharedApplication] delegate]);
+             appDelegate.appUtils.currentUser = user;
+             [selfObj saveManagedContext];
+             
+             [[LMNotificationService instance] addObserver:selfObj forNotification:LMNotification_TreeOperationFinished withSelector:@selector(synchronizationEnd)];
+             [[LMNotificationService instance] addObserver:selfObj forNotification:LMNotification_TreeOperationCancel withSelector:@selector(synchronizationCancel)];
+             [LMUtils performSynchronization:YES];
+         } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
+         {
+             [UIView animateWithDuration:0.2 animations:^{
+                 self.loadingView.alpha = 0;
+                 [self.activityIndicator stopAnimating];
+             } completion:^(BOOL finished) {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Błąd" message:@"Nie można zarejestrować użytkownika." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                 [alert show];
+             }];
+         }];
     }];
 }
 
@@ -213,4 +220,78 @@
     [self loginButtonTapped:nil];
     return YES;
 }
+
+- (void)synchronizationEndAction
+{
+    if(self.isPresentModal)
+    {
+        if([self.presentingViewController isKindOfClass:[UITabBarController class]])
+        {
+            //[((UITabBarController *)self.presentingViewController).presentingViewController
+        }
+        [self.parentViewController dismissViewControllerAnimated:YES completion:^{
+        }];
+    }
+    else
+    {
+        [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushTabBar] sender:self];
+    }
+}
+
+- (void)synchronizationEnd
+{
+    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_TreeOperationFinished];
+    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_TreeOperationCancel];
+    [UIView animateWithDuration:0.2 animations:^{
+        self.loadingView.alpha = 0;
+        [self.activityIndicator stopAnimating];
+    } completion:^(BOOL finished) {
+        [self synchronizationEndAction];
+    }];
+}
+
+- (void)synchronizationCancel
+{
+    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_TreeOperationFinished];
+    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_TreeOperationCancel];
+    [UIView animateWithDuration:0.2 animations:^{
+        self.loadingView.alpha = 0;
+        [self.activityIndicator stopAnimating];
+    } completion:^(BOOL finished) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Błąd" message:@"Pobieranie danych aplikacji nie powiodło się, spróbuj ponownie." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }];
+}
+
+
+- (void)createReportObjects
+{
+    for(int i=0; i<3; i++)
+    {
+        LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:i+1] inContext:self.managedObjectContext];
+        if(!report)
+        {
+            report = [LMReport createObjectInContext:self.managedObjectContext];
+            report.objectId = [NSNumber numberWithInt:i+1];
+        }
+        report.activeValue = YES;
+        switch (i+1) {
+            case 1:
+                report.name = @"Raport łączny kampanii";
+                report.htmlName = @"1.html";
+                break;
+            case 2:
+                report.name = @"Raport wszystkich wydawców";
+                report.htmlName = @"2.html";
+                break;
+            case 3:
+                report.name = @"Raport form reklamowych";
+                report.htmlName = @"3.html";
+            default:
+                break;
+        }
+    }
+}
+
+
 @end

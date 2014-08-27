@@ -5,9 +5,6 @@
 #import "LMReadOnlyObject.h"
 
 extern const struct LMInstanceAttributes {
-	__unsafe_unretained NSString *report1;
-	__unsafe_unretained NSString *report5;
-	__unsafe_unretained NSString *report8;
 } LMInstanceAttributes;
 
 extern const struct LMInstanceRelationships {
@@ -22,9 +19,6 @@ extern const struct LMInstanceFetchedProperties {
 @class LMReport;
 
 
-
-
-
 @interface LMInstanceID : NSManagedObjectID {}
 @end
 
@@ -33,48 +27,6 @@ extern const struct LMInstanceFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (LMInstanceID*)objectID;
-
-
-
-
-
-@property (nonatomic, strong) NSNumber* report1;
-
-
-
-@property BOOL report1Value;
-- (BOOL)report1Value;
-- (void)setReport1Value:(BOOL)value_;
-
-//- (BOOL)validateReport1:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSNumber* report5;
-
-
-
-@property BOOL report5Value;
-- (BOOL)report5Value;
-- (void)setReport5Value:(BOOL)value_;
-
-//- (BOOL)validateReport5:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSNumber* report8;
-
-
-
-@property BOOL report8Value;
-- (BOOL)report8Value;
-- (void)setReport8Value:(BOOL)value_;
-
-//- (BOOL)validateReport8:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -112,33 +64,6 @@ extern const struct LMInstanceFetchedProperties {
 @end
 
 @interface _LMInstance (CoreDataGeneratedPrimitiveAccessors)
-
-
-- (NSNumber*)primitiveReport1;
-- (void)setPrimitiveReport1:(NSNumber*)value;
-
-- (BOOL)primitiveReport1Value;
-- (void)setPrimitiveReport1Value:(BOOL)value_;
-
-
-
-
-- (NSNumber*)primitiveReport5;
-- (void)setPrimitiveReport5:(NSNumber*)value;
-
-- (BOOL)primitiveReport5Value;
-- (void)setPrimitiveReport5Value:(BOOL)value_;
-
-
-
-
-- (NSNumber*)primitiveReport8;
-- (void)setPrimitiveReport8:(NSNumber*)value;
-
-- (BOOL)primitiveReport8Value;
-- (void)setPrimitiveReport8Value:(BOOL)value_;
-
-
 
 
 

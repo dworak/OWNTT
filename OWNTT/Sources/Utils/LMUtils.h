@@ -15,9 +15,10 @@
 + (UIViewController *)currentStoryboardControllerForIdentifier:(NSString *)identifier;
 + (BOOL)validateEmail:(NSString *)candidate;
 + (BOOL)isNumeric:(NSString*)inputString;
-+ (void)downloadAppData;
 + (void)storeCurrentInstance:(NSNumber *)instanceId;
 + (void)removeCurrentInstance;
 + (NSNumber *)getCurrentInstance;
 + (void)showErrorAlertWithText:(NSString *)text;
++ (void)createReportObjects;
++(void)performSynchronization:(BOOL)initial;
 @end

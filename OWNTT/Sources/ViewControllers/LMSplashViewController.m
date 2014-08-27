@@ -8,6 +8,7 @@
 
 #import "LMSplashViewController.h"
 #import "LMLoginViewController.h"
+#import "LMReport.h"
 
 @interface LMSplashViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *indicatorTextLabel;
@@ -42,9 +43,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[LMNotificationService instance] addObserver:self forNotification:LMNotification_TreeOperationFinished withSelector:@selector(synchronizationEnd)];
-
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -92,6 +90,8 @@
 #pragma mark === Private methods ===
 - (void)splashViewControllerDidFinish
 {
+    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_TreeOperationFinished];
+    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_TreeOperationCancel];
     [self.activityIndicator stopAnimating];
     self.indicatorTextLabel.hidden = YES;
     if(![LMUtils userExist]) {
@@ -103,26 +103,19 @@
 
 - (void)downloadJsonData
 {
-    //[LMUtils downloadAppData];
-    [self performSynchronization:NO];
-    //[self performSelector:@selector(splashViewControllerDidFinish) withObject:nil afterDelay:3];
-}
-
-- (void) performSynchronization: (BOOL) initial
-{
-    LMSynchronizationService *synchInstance = [LMSynchronizationService instance];
-    
-    BOOL running = [synchInstance isSynchronizationRunning];
-    
-    if(!running)
-    {
-        [synchInstance downloadTree:NO];
-    }
+    [[LMNotificationService instance] addObserver:self forNotification:LMNotification_TreeOperationFinished withSelector:@selector(synchronizationEnd)];
+    [[LMNotificationService instance] addObserver:self forNotification:LMNotification_TreeOperationCancel withSelector:@selector(synchronizationCancel)];
+    [LMUtils performSynchronization:NO];
 }
 
 - (void)synchronizationEnd
 {
-    
+    [self splashViewControllerDidFinish];
+}
+
+- (void)synchronizationCancel
+{
+    [self splashViewControllerDidFinish];
 }
 
 @end

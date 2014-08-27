@@ -95,139 +95,6 @@
     return isValid;
 }
 
-+ (void)downloadAppData
-{
-    NSManagedObjectContext *context = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
-    NSError *error;
-    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:DOWNLOAD_JSON_FILE_NAME ofType:@"json"] options:NSDataReadingMapped error:&error];
-    if(error)
-    {
-        NSLog(@"error: can't load json file");
-    }
-    //NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
-    if(error)
-    {
-        NSLog(@"error: can't parse json file");
-    }
-    
-    //Store data to database
-    NSMutableArray *reportArray = [NSMutableArray new];
-    if(jsonArray)
-    {
-        for (NSDictionary *dict in jsonArray)
-        {
-            LMReportWS *reportWS = [[LMReportWS alloc] initWithDictionary:dict error:&error];
-            if(error)
-            {
-                NSLog(@"error: could not create report ws object");
-            }
-            else
-            {
-                [reportArray addObject:reportWS];
-            }
-        }
-    }
-    //Unactive all readonly objects
-    NSArray *array = [NSManagedObject fetchEntitiesOfClass:[LMReadOnlyObject class] inContext:context];
-    for(LMReadOnlyObject *readOnlyObj in array)
-    {
-        readOnlyObj.activeValue = NO;
-    }
-    
-    if(!error)
-    {
-        for(LMReportWS *reportWS in reportArray)
-        {
-            LMInstance *instance;
-            LMAdvertiser *advertiser;
-            LMProgram *program;
-            if(reportWS.InstancjaId)
-            {
-                instance = (LMInstance *)[LMReadOnlyObject fetchEntityOfClass:[LMInstance class] withObjectID:reportWS.InstancjaId inContext:context];
-                if(!instance)
-                {
-                    instance = [LMInstance createObjectInContext:context];
-                    instance.objectIdValue = reportWS.InstancjaId.intValue;
-                }
-                [instance.reportsSet removeAllObjects];
-                if(reportWS.Raport1.intValue)
-                {
-                    LMReport *report = (LMReport *)[LMReadOnlyObject fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:1] inContext:context];
-                    if(!report)
-                    {
-                        report = [LMReport createObjectInContext:context];
-                        report.objectId = [NSNumber numberWithInt:1];
-                    }
-                    report.name = @"Raport łączny kampanii";
-                    report.htmlName = @"1.html";
-                    report.activeValue = YES;
-                    [instance.reportsSet addObject:report];
-                }
-                if(reportWS.Raport5.intValue)
-                {
-                    LMReport *report = (LMReport *)[LMReadOnlyObject fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:2] inContext:context];
-                    if(!report)
-                    {
-                        report = [LMReport createObjectInContext:context];
-                        report.objectId = [NSNumber numberWithInt:2];
-                    }
-                    report.name = @"Raport wszystkich wydawców";
-                    report.htmlName = @"2.html";
-                    report.activeValue = YES;
-                    [instance.reportsSet addObject:report];
-                }
-                if(reportWS.Raport8.intValue)
-                {
-                    LMReport *report = (LMReport *)[LMReadOnlyObject fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:3] inContext:context];
-                    if(!report)
-                    {
-                        report = [LMReport createObjectInContext:context];
-                        report.objectId = [NSNumber numberWithInt:3];
-                    }
-                    report.name = @"Raport form reklamowych";
-                    report.htmlName = @"3.html";
-                    report.activeValue = YES;
-                    [instance.reportsSet addObject:report];
-                }
-                instance.name = reportWS.InstancjaNazwa;
-                instance.activeValue = YES;
-            }
-            if(reportWS.ReklamodawcaId)
-            {
-                advertiser = (LMAdvertiser *)[LMReadOnlyObject fetchEntityOfClass:[LMAdvertiser class] withObjectID:reportWS.ReklamodawcaId inContext:context];
-                if(!advertiser)
-                {
-                    advertiser = [LMAdvertiser createObjectInContext:context];
-                    advertiser.objectIdValue = reportWS.ReklamodawcaId.intValue;
-                }
-                advertiser.name = reportWS.ReklamodawcaNazwa;
-                advertiser.activeValue = YES;
-                if(instance)
-                {
-                    [instance.advertisersSet addObject:advertiser];
-                }
-            }
-            if(reportWS.ProgramId)
-            {
-                program = (LMProgram *)[LMReadOnlyObject fetchEntityOfClass:[LMProgram class] withObjectID:reportWS.ProgramId inContext:context];
-                if(!program)
-                {
-                    program = [LMProgram createObjectInContext:context];
-                    program.objectIdValue = reportWS.ProgramId.intValue;
-                }
-                program.name = reportWS.ProgramNazwa;
-                program.activeValue = YES;
-                if(advertiser)
-                {
-                    [advertiser.programsSet addObject:program];
-                }
-            }
-        }
-    }
-    [LMUtils saveCoreDataContext:context];
-}
-
 + (void)storeCurrentInstance:(NSNumber *)instanceId
 {
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
@@ -252,6 +119,22 @@
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Błąd" message:text delegate:self cancelButtonTitle:@"Popraw" otherButtonTitles:nil];
     [alertView show];
+}
+
++ (void)createReportObjects
+{
+}
+
++(void)performSynchronization: (BOOL) initial
+{
+    LMSynchronizationService *synchInstance = [LMSynchronizationService instance];
+    
+    BOOL running = [synchInstance isSynchronizationRunning];
+    
+    if(!running)
+    {
+        [synchInstance downloadTree:initial];
+    }
 }
 
 @end

@@ -12,5 +12,5 @@
 @class LMInstance;
 
 @interface LMTreeSynchronizationOperation : LMSynchronizationBaseOperation
-+(void)ttFillEntityAndBind:(LMInstance*) entity fromWSObject:(LMInstanceWS*)modelObject inContext:(NSManagedObjectContext *)context;
++(void)ttFillEntityAndBind:(LMInstance*) entity fromWSObject:(LMInstanceWS*)modelObject;
 @end
