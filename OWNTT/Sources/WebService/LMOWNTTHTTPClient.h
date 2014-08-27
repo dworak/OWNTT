@@ -25,11 +25,45 @@ typedef enum {
 } LMOWNTTHTTPClientResponse;
 
 typedef enum {
-    LMOWNTTHTTPCLIENTServiceParamName_Login,
+    LMOWNTTHTTPCLIENTServiceParamName_Login = 0,
     LMOWNTTHTTPCLIENTServiceParamName_Password,
     LMOWNTTHTTPCLIENTServiceParamName_PushKey,
-    LMOWNTTHTTPCLIENTServiceParamName_Os
+    LMOWNTTHTTPCLIENTServiceParamName_Os,
+    LMOWNTTHTTPCLIENTServiceParamName_Token,
+    LMOWNTTHTTPCLIENTServiceParamName_ReportType,
+    LMOWNTTHTTPCLIENTServiceParamName_DateFrom,
+    LMOWNTTHTTPCLIENTServiceParamName_DateTo,
+    LMOWNTTHTTPCLIENTServiceParamName_ProgramIds,
+    LMOWNTTHTTPCLIENTServiceParamName_LocalId,
+    LMOWNTTHTTPCLIENTServiceParamName_Name,
+    LMOWNTTHTTPCLIENTServiceParamName_ProgramId,
+    LMOWNTTHTTPCLIENTServiceParamName_MonitorType,
+    LMOWNTTHTTPCLIENTServiceParamName_Value,
+    LMOWNTTHTTPCLIENTServiceParamName_BorderType,
+    LMOWNTTHTTPCLIENTServiceParamName_Hour,
+    LMOWNTTHTTPCLIENTServiceParamName_ProgramType
 } LMOWNTTHTTPCLIENTServiceParamName;
+
+typedef enum {
+    LMOWNTTGetAlertParamType_Display = 1,
+    LMOWNTTGetAlertParamType_Click,
+    LMOWNTTGetAlertParamType_Visit,
+    LMOWNTTGetAlertParamType_NewVisit,
+    LMOWNTTGetAlertParamType_TimeOnPage,
+    LMOWNTTGetAlertParamType_Checkpoint,
+    LMOWNTTGetAlertParamType_Lead,
+    LMOWNTTGetAlertParamType_Sell
+} LMOWNTTGetAlertParamType;
+
+typedef enum {
+    LMOWNTTGetalertMonitoringType_Increasing = 1,
+    LMOWNTTGetalertMonitoringType_Daily
+} LMOWNTTGetalertMonitoringType;
+
+typedef enum {
+    LMOWNTTGetAlertBorderType_GreaterThan = 1,
+    LMOWNTTGetAlertBorderType_LessThan
+} LMOWNTTGetAlertBorderType;
 
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
@@ -42,11 +76,20 @@ typedef void (^failureBlock)(AFHTTPRequestOperation *operation, NSError *error);
 + (NSString*)httpCleintServiseName:(LMOWNTTHTTPClientServiceName)service;
 + (NSString*)httpClientResponseMessage:(LMOWNTTHTTPClientResponse)response;
 + (NSString*)httpCleintServiseParamName:(LMOWNTTHTTPCLIENTServiceParamName)paramName;
++ (NSString*)getAlertParamTypeName:(LMOWNTTGetAlertParamType)paramType;
++ (NSString*)getAlertMonitoringTypeName:(LMOWNTTGetalertMonitoringType)monitoringType;
++ (NSString*)getAlertBordertypeName:(LMOWNTTGetAlertBorderType)bordertype;
 
 + (NSDictionary*)registerDeviceParamsLogin:(NSString*)login
                                   password:(NSString*)pass
                                    pushKey:(NSString *)pushKey
                                         os:(NSString*)os;
++ (NSDictionary*)unregisterDeviceParamsToken:(NSString*)token;
++ (NSDictionary*)getReportParamsToken:(NSString *)token
+                           reportType:(NSString *)reportType
+                             dateFrom:(NSString *)dateFrom
+                               dateTo:(NSString*)dateTo
+                           programIds:(NSArray*)programIds;
 
 - (AFHTTPRequestOperation *)POSTHTTPRequestOperationForServiceName: (LMOWNTTHTTPClientServiceName)serviceName
                                                   parameters: (NSDictionary *) parameters

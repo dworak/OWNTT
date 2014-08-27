@@ -5,8 +5,9 @@
 #import "ManagedObject.h"
 
 extern const struct LMUserAttributes {
-	__unsafe_unretained NSString *dateCreate;
+	__unsafe_unretained NSString *createDate;
 	__unsafe_unretained NSString *deviceToken;
+	__unsafe_unretained NSString *email;
 	__unsafe_unretained NSString *httpToken;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *password;
@@ -31,6 +32,7 @@ extern const struct LMUserFetchedProperties {
 
 
 
+
 @interface LMUserID : NSManagedObjectID {}
 @end
 
@@ -44,11 +46,11 @@ extern const struct LMUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSDate* dateCreate;
+@property (nonatomic, strong) NSDate* createDate;
 
 
 
-//- (BOOL)validateDateCreate:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateCreateDate:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -59,6 +61,16 @@ extern const struct LMUserFetchedProperties {
 
 
 //- (BOOL)validateDeviceToken:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* email;
+
+
+
+//- (BOOL)validateEmail:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -138,14 +150,20 @@ extern const struct LMUserFetchedProperties {
 @interface _LMUser (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSDate*)primitiveDateCreate;
-- (void)setPrimitiveDateCreate:(NSDate*)value;
+- (NSDate*)primitiveCreateDate;
+- (void)setPrimitiveCreateDate:(NSDate*)value;
 
 
 
 
 - (NSString*)primitiveDeviceToken;
 - (void)setPrimitiveDeviceToken:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveEmail;
+- (void)setPrimitiveEmail:(NSString*)value;
 
 
 

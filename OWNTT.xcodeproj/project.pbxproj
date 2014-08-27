@@ -119,6 +119,10 @@
 		25FF5B4D198F68CB0043DA5D /* LMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FF5B4C198F68CB0043DA5D /* LMHeaderView.m */; };
 		25FF5B50198F68FA0043DA5D /* LMHeaderView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25FF5B4F198F68FA0043DA5D /* LMHeaderView_iPhone.xib */; };
 		C9F3FCFC4078458C841A60FD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3CEF0A0FE04D0FAC9F6EC3 /* libPods.a */; };
+		ED54F15919ADE16F00BC3446 /* LMInstanceWS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F15819ADE16F00BC3446 /* LMInstanceWS.m */; };
+		ED54F15C19ADE67600BC3446 /* LMAdvertiserWS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F15B19ADE67600BC3446 /* LMAdvertiserWS.m */; };
+		ED54F16219ADE75F00BC3446 /* LMProgramWS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F16119ADE75F00BC3446 /* LMProgramWS.m */; };
+		ED54F16519ADE80600BC3446 /* LMAlertWS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F16419ADE80600BC3446 /* LMAlertWS.m */; };
 		EDD131AA198117B1006F39E3 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD131A9198117B1006F39E3 /* Storyboard.storyboard */; };
 		EDD131AE198120FA006F39E3 /* LMLoginViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131AD198120FA006F39E3 /* LMLoginViewController_iPhone.xib */; };
 		EDD131B019812526006F39E3 /* LM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD131AF19812526006F39E3 /* LM.framework */; };
@@ -364,6 +368,14 @@
 		25FF5B4F198F68FA0043DA5D /* LMHeaderView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMHeaderView_iPhone.xib; sourceTree = "<group>"; };
 		7E43CB3D41384074996BB063 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		8E3CEF0A0FE04D0FAC9F6EC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED54F15719ADE16F00BC3446 /* LMInstanceWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMInstanceWS.h; sourceTree = "<group>"; };
+		ED54F15819ADE16F00BC3446 /* LMInstanceWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMInstanceWS.m; sourceTree = "<group>"; };
+		ED54F15A19ADE67600BC3446 /* LMAdvertiserWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAdvertiserWS.h; sourceTree = "<group>"; };
+		ED54F15B19ADE67600BC3446 /* LMAdvertiserWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAdvertiserWS.m; sourceTree = "<group>"; };
+		ED54F16019ADE75F00BC3446 /* LMProgramWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMProgramWS.h; sourceTree = "<group>"; };
+		ED54F16119ADE75F00BC3446 /* LMProgramWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMProgramWS.m; sourceTree = "<group>"; };
+		ED54F16319ADE80600BC3446 /* LMAlertWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAlertWS.h; sourceTree = "<group>"; };
+		ED54F16419ADE80600BC3446 /* LMAlertWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAlertWS.m; sourceTree = "<group>"; };
 		EDD131A9198117B1006F39E3 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		EDD131AD198120FA006F39E3 /* LMLoginViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMLoginViewController_iPhone.xib; sourceTree = "<group>"; };
 		EDD131AF19812526006F39E3 /* LM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LM.framework; sourceTree = "<group>"; };
@@ -545,6 +557,14 @@
 				253F1F59198E9DBB00158407 /* LMReportWS.m */,
 				25FAFCA51990C41600FCD226 /* LMData.h */,
 				25FAFCA61990C41600FCD226 /* LMData.m */,
+				ED54F15719ADE16F00BC3446 /* LMInstanceWS.h */,
+				ED54F15819ADE16F00BC3446 /* LMInstanceWS.m */,
+				ED54F15A19ADE67600BC3446 /* LMAdvertiserWS.h */,
+				ED54F15B19ADE67600BC3446 /* LMAdvertiserWS.m */,
+				ED54F16019ADE75F00BC3446 /* LMProgramWS.h */,
+				ED54F16119ADE75F00BC3446 /* LMProgramWS.m */,
+				ED54F16319ADE80600BC3446 /* LMAlertWS.h */,
+				ED54F16419ADE80600BC3446 /* LMAlertWS.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1104,8 +1124,10 @@
 				25036AE9198D5EE300EAE355 /* LMBranchTableViewCell.m in Sources */,
 				25B18C6D1995F2BC00A519B5 /* LMFullButton.m in Sources */,
 				EDF39E551980FF7D00E00966 /* LMAppDelegate.m in Sources */,
+				ED54F16219ADE75F00BC3446 /* LMProgramWS.m in Sources */,
 				25036AC4198D2CCE00EAE355 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				253F1F4E198E276400158407 /* LMAdvertiser.m in Sources */,
+				ED54F16519ADE80600BC3446 /* LMAlertWS.m in Sources */,
 				25FAFCAA1990D42900FCD226 /* LMTabBarViewController.m in Sources */,
 				EDD131B619812ECF006F39E3 /* LMBranchViewController.m in Sources */,
 				25411B0B19A306FA00C1BEE8 /* LMMiniFullButton.m in Sources */,
@@ -1131,6 +1153,7 @@
 				250F89C319920B4A00D91836 /* LMAlertSummaryViewController.m in Sources */,
 				25FAFCCC1990E1D300FCD226 /* LMUserReport.m in Sources */,
 				25659B8719A082A1009BF814 /* LMFontLabel.m in Sources */,
+				ED54F15919ADE16F00BC3446 /* LMInstanceWS.m in Sources */,
 				253E39341999EF1700B395ED /* LMBranchReportTableViewCell.m in Sources */,
 				25FAFCB51990D81F00FCD226 /* LMMenuViewController.m in Sources */,
 				25FAFCC71990E1D300FCD226 /* _LMReadOnlyUserObject.m in Sources */,
@@ -1168,6 +1191,7 @@
 				EDE87C0619867E9100043861 /* LMUtils.m in Sources */,
 				EDF39E7319810AE700E00966 /* LMHostChildBaseViewController.m in Sources */,
 				253F1F4B198E276400158407 /* _LMAdvertiser.m in Sources */,
+				ED54F15C19ADE67600BC3446 /* LMAdvertiserWS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

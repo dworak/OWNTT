@@ -148,34 +148,36 @@
     }
     
     __weak LMLoginViewController *selfObj = self;
-    AFHTTPRequestOperation *requestOperation = [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_RegisterDevice parameters:[LMOWNTTHTTPClient registerDeviceParamsLogin:self.loginTextField.text password:self.passwordTextField.text pushKey:OWNTT_APP_DELEGATE.appUtils.notSaveDeviceKey os:OWNTT_HTTP_CLIENT_OS_PARAM] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
+    [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_RegisterDevice parameters:[LMOWNTTHTTPClient registerDeviceParamsLogin:self.loginTextField.text password:self.passwordTextField.text pushKey:OWNTT_APP_DELEGATE.appUtils.notSaveDeviceKey os:OWNTT_HTTP_CLIENT_OS_PARAM] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-        nil;
+        NSDictionary *response = (NSDictionary *)responseObject;
+        LMUser *user = [LMUser createObjectInContext:selfObj.managedObjectContext];
+        user.email = selfObj.loginTextField.text;
+        user.password = selfObj.passwordTextField.text;
+        user.name = [response valueForKey:@"name"];
+        user.surname = [response valueForKey:@"surname"];
+        user.httpToken = [response valueForKey:@"token"];
+        LMAppDelegate *appDelegate = ((LMAppDelegate *)[[UIApplication sharedApplication] delegate]);
+        appDelegate.appUtils.currentUser = user;
+        [selfObj saveManagedContext];
+        [LMUtils downloadAppData];
+        if(selfObj.isPresentModal)
+        {
+            if([selfObj.presentingViewController isKindOfClass:[UITabBarController class]])
+            {
+                //[((UITabBarController *)self.presentingViewController).presentingViewController
+            }
+            [selfObj.parentViewController dismissViewControllerAnimated:YES completion:^{
+            }];
+        }
+        else
+        {
+            [selfObj.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushTabBar] sender:selfObj];
+        }
     } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
     {
         nil;
     }];
-    
-    /*LMUser *user = [LMUser createObjectInContext:self.managedObjectContext];
-    user.name = self.loginTextField.text;
-    user.password = self.passwordTextField.text;
-    LMAppDelegate *appDelegate = ((LMAppDelegate *)[[UIApplication sharedApplication] delegate]);
-    appDelegate.appUtils.currentUser = user;
-    [self saveManagedContext];
-    [LMUtils downloadAppData];
-    if(self.isPresentModal)
-    {
-        if([self.presentingViewController isKindOfClass:[UITabBarController class]])
-        {
-            //[((UITabBarController *)self.presentingViewController).presentingViewController
-        }
-        [self.parentViewController dismissViewControllerAnimated:YES completion:^{
-        }];
-    }
-    else
-    {
-        [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushTabBar] sender:self];
-    }*/
 }
 
 #pragma mark -

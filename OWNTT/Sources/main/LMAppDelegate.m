@@ -9,6 +9,7 @@
 #import "LMAppDelegate.h"
 #import "LMUser.h"
 #import "AFNetworkReachabilityManager.h"
+#import "JSONModel.h"
 
 @implementation LMAppDelegate
 
@@ -19,6 +20,13 @@
     self.appUtils = [LMAppUtils new];
     self.appUtils.notSaveDeviceKey = @"Test";
     [self.appUtils checkInternetConnection];
+    
+    //Setup json model
+    [JSONModel setGlobalKeyMapper:[
+                                   [JSONKeyMapper alloc] initWithDictionary:@{
+                                                                              @"id":@"objectId",
+                                                                              }]
+     ];
     
     //Register for remote notification
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge];

@@ -4,8 +4,9 @@
 #import "_LMUser.h"
 
 const struct LMUserAttributes LMUserAttributes = {
-	.dateCreate = @"dateCreate",
+	.createDate = @"createDate",
 	.deviceToken = @"deviceToken",
+	.email = @"email",
 	.httpToken = @"httpToken",
 	.name = @"name",
 	.password = @"password",
@@ -53,7 +54,7 @@ const struct LMUserFetchedProperties LMUserFetchedProperties = {
 
 
 
-@dynamic dateCreate;
+@dynamic createDate;
 
 
 
@@ -61,6 +62,13 @@ const struct LMUserFetchedProperties LMUserFetchedProperties = {
 
 
 @dynamic deviceToken;
+
+
+
+
+
+
+@dynamic email;
 
 
 
