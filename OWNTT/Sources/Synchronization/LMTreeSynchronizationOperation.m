@@ -69,22 +69,22 @@
         {
             report = [LMReport createObjectInContext:self.managedObjectContextForTheOperation];
             report.objectId = [NSNumber numberWithInt:i+1];
-        }
-        report.activeValue = YES;
-        switch (i+1) {
-            case 1:
-                report.name = @"Raport łączny kampanii";
-                report.htmlName = @"1.html";
-                break;
-            case 2:
-                report.name = @"Raport wszystkich wydawców";
-                report.htmlName = @"2.html";
-                break;
-            case 3:
-                report.name = @"Raport form reklamowych";
-                report.htmlName = @"3.html";
-            default:
-                break;
+            report.activeValue = YES;
+            switch (i+1) {
+                case 1:
+                    report.name = @"Raport łączny kampanii";
+                    report.htmlName = @"1.html";
+                    break;
+                case 2:
+                    report.name = @"Raport wszystkich wydawców";
+                    report.htmlName = @"2.html";
+                    break;
+                case 3:
+                    report.name = @"Raport form reklamowych";
+                    report.htmlName = @"3.html";
+                default:
+                    break;
+            }
         }
     }
     
