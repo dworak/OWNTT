@@ -42,6 +42,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[LMNotificationService instance] addObserver:self forNotification:LMNotification_TreeOperationFinished withSelector:@selector(synchronizationEnd)];
 
     
 }
@@ -102,8 +103,26 @@
 
 - (void)downloadJsonData
 {
-    [LMUtils downloadAppData];
-    [self performSelector:@selector(splashViewControllerDidFinish) withObject:nil afterDelay:3];
+    //[LMUtils downloadAppData];
+    [self performSynchronization:NO];
+    //[self performSelector:@selector(splashViewControllerDidFinish) withObject:nil afterDelay:3];
+}
+
+- (void) performSynchronization: (BOOL) initial
+{
+    LMSynchronizationService *synchInstance = [LMSynchronizationService instance];
+    
+    BOOL running = [synchInstance isSynchronizationRunning];
+    
+    if(!running)
+    {
+        [synchInstance downloadTree:NO];
+    }
+}
+
+- (void)synchronizationEnd
+{
+    
 }
 
 @end

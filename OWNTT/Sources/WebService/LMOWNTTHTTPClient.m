@@ -213,6 +213,58 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
     }
 }
 
++ (NSString*)reportTypeName:(LMOWNTTReportType)reportType
+{
+    switch (reportType) {
+        case LMOWNTTReportType_Type1:
+            return @"TYPE1";
+        case LMOWNTTReportType_Type5:
+            return @"TYPE5";
+        case LMOWNTTReportType_Type8:
+            return @"TYPE8";
+        default:
+        {
+            NSAssert(0, @"%@ Unknown report type", NSStringFromSelector(_cmd));
+            return nil;
+        }
+    }
+}
+
++ (NSString*)reportTypeAppName:(LMOWNTTReportType)reportType
+{
+    switch (reportType) {
+        case LMOWNTTReportType_Type1:
+            return @"Raport łączny kampanii";
+        case LMOWNTTReportType_Type5:
+            return @"Raport wszystkich wydawców";
+        case LMOWNTTReportType_Type8:
+            return @"Raport form reklamowych";
+        default:
+        {
+            NSAssert(0, @"%@ Unknown report type", NSStringFromSelector(_cmd));
+            return nil;
+        }
+    }
+}
+
++ (LMOWNTTReportType)reportTypeForName:(NSString*)name
+{
+    if([name isEqualToString:@"TYPE1"])
+    {
+        return LMOWNTTReportType_Type1;
+    }
+    else if([name isEqualToString:@"TYPE5"])
+    {
+        return LMOWNTTReportType_Type5;
+    }
+    else if([name isEqualToString:@"TYPE8"])
+    {
+        return LMOWNTTReportType_Type8;
+    }
+    NSAssert(0, @"%@ unknown name", NSStringFromSelector(_cmd));
+    return LMOWNTTReportType_Type1;
+}
+
 + (NSDictionary*)registerDeviceParamsLogin:(NSString *)login password:(NSString *)pass pushKey:(NSString *)pushKey os:(NSString *)os
 {
     NSAssert(login, @"registerDeviceParamsLogin: empty login");

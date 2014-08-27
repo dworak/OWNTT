@@ -123,6 +123,10 @@
 		ED54F15C19ADE67600BC3446 /* LMAdvertiserWS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F15B19ADE67600BC3446 /* LMAdvertiserWS.m */; };
 		ED54F16219ADE75F00BC3446 /* LMProgramWS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F16119ADE75F00BC3446 /* LMProgramWS.m */; };
 		ED54F16519ADE80600BC3446 /* LMAlertWS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F16419ADE80600BC3446 /* LMAlertWS.m */; };
+		ED54F16919ADED1B00BC3446 /* LMSynchronizationService.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F16819ADED1B00BC3446 /* LMSynchronizationService.m */; };
+		ED54F16C19ADEDC800BC3446 /* LMSynchronizationBaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F16B19ADEDC800BC3446 /* LMSynchronizationBaseOperation.m */; };
+		ED54F16F19ADF16F00BC3446 /* LMTreeSynchronizationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F16E19ADF16F00BC3446 /* LMTreeSynchronizationOperation.m */; };
+		ED54F17219ADFE3600BC3446 /* LMNotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F17119ADFE3600BC3446 /* LMNotificationService.m */; };
 		EDD131AA198117B1006F39E3 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD131A9198117B1006F39E3 /* Storyboard.storyboard */; };
 		EDD131AE198120FA006F39E3 /* LMLoginViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131AD198120FA006F39E3 /* LMLoginViewController_iPhone.xib */; };
 		EDD131B019812526006F39E3 /* LM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD131AF19812526006F39E3 /* LM.framework */; };
@@ -376,6 +380,14 @@
 		ED54F16119ADE75F00BC3446 /* LMProgramWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMProgramWS.m; sourceTree = "<group>"; };
 		ED54F16319ADE80600BC3446 /* LMAlertWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAlertWS.h; sourceTree = "<group>"; };
 		ED54F16419ADE80600BC3446 /* LMAlertWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAlertWS.m; sourceTree = "<group>"; };
+		ED54F16719ADED1B00BC3446 /* LMSynchronizationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSynchronizationService.h; sourceTree = "<group>"; };
+		ED54F16819ADED1B00BC3446 /* LMSynchronizationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSynchronizationService.m; sourceTree = "<group>"; };
+		ED54F16A19ADEDC800BC3446 /* LMSynchronizationBaseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSynchronizationBaseOperation.h; sourceTree = "<group>"; };
+		ED54F16B19ADEDC800BC3446 /* LMSynchronizationBaseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSynchronizationBaseOperation.m; sourceTree = "<group>"; };
+		ED54F16D19ADF16F00BC3446 /* LMTreeSynchronizationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTreeSynchronizationOperation.h; sourceTree = "<group>"; };
+		ED54F16E19ADF16F00BC3446 /* LMTreeSynchronizationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTreeSynchronizationOperation.m; sourceTree = "<group>"; };
+		ED54F17019ADFE3600BC3446 /* LMNotificationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMNotificationService.h; sourceTree = "<group>"; };
+		ED54F17119ADFE3600BC3446 /* LMNotificationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMNotificationService.m; sourceTree = "<group>"; };
 		EDD131A9198117B1006F39E3 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		EDD131AD198120FA006F39E3 /* LMLoginViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMLoginViewController_iPhone.xib; sourceTree = "<group>"; };
 		EDD131AF19812526006F39E3 /* LM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LM.framework; sourceTree = "<group>"; };
@@ -624,6 +636,21 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		ED54F16619ADED0300BC3446 /* Synchronization */ = {
+			isa = PBXGroup;
+			children = (
+				ED54F16719ADED1B00BC3446 /* LMSynchronizationService.h */,
+				ED54F16819ADED1B00BC3446 /* LMSynchronizationService.m */,
+				ED54F16A19ADEDC800BC3446 /* LMSynchronizationBaseOperation.h */,
+				ED54F16B19ADEDC800BC3446 /* LMSynchronizationBaseOperation.m */,
+				ED54F16D19ADF16F00BC3446 /* LMTreeSynchronizationOperation.h */,
+				ED54F16E19ADF16F00BC3446 /* LMTreeSynchronizationOperation.m */,
+				ED54F17019ADFE3600BC3446 /* LMNotificationService.h */,
+				ED54F17119ADFE3600BC3446 /* LMNotificationService.m */,
+			);
+			path = Synchronization;
+			sourceTree = "<group>";
+		};
 		EDF39DEF1980FC8700E00966 = {
 			isa = PBXGroup;
 			children = (
@@ -775,6 +802,7 @@
 		EDF39E471980FF7D00E00966 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				ED54F16619ADED0300BC3446 /* Synchronization */,
 				2531616019AD15DB0044CEC5 /* WebService */,
 				253F1F57198E9D6400158407 /* Model */,
 				25036AE6198D5EC900EAE355 /* Cells */,
@@ -1134,6 +1162,7 @@
 				25036AC8198D2CDA00EAE355 /* ManagedObject.m in Sources */,
 				EDF39E68198104D700E00966 /* LMLoginViewController.m in Sources */,
 				EDF39E6B1981059C00E00966 /* LMSplashViewController.m in Sources */,
+				ED54F16F19ADF16F00BC3446 /* LMTreeSynchronizationOperation.m in Sources */,
 				EDF39E5B198101D500E00966 /* LMNavigationViewController.m in Sources */,
 				25036AC5198D2CCE00EAE355 /* UIImage+Additions.m in Sources */,
 				2531616319AD162C0044CEC5 /* LMOWNTTHTTPClient.m in Sources */,
@@ -1141,6 +1170,7 @@
 				25659B9C19A289A2009BF814 /* LMBranchNameView.m in Sources */,
 				EDF39E541980FF7D00E00966 /* main.m in Sources */,
 				25B18C701996093D00A519B5 /* LMDateConfigurationViewController.m in Sources */,
+				ED54F16919ADED1B00BC3446 /* LMSynchronizationService.m in Sources */,
 				253F1F56198E27BD00158407 /* LMProgram.m in Sources */,
 				250FD81F1986DC1C0047EB42 /* LMSummaryReportViewController.m in Sources */,
 				253F1F5A198E9DBB00158407 /* LMReportWS.m in Sources */,
@@ -1159,6 +1189,7 @@
 				25FAFCC71990E1D300FCD226 /* _LMReadOnlyUserObject.m in Sources */,
 				25146A84199238B3001DC8E3 /* LMDatePickerView.m in Sources */,
 				25FAFCB01990D7A000FCD226 /* LMAlertMenuViewController.m in Sources */,
+				ED54F17219ADFE3600BC3446 /* LMNotificationService.m in Sources */,
 				2584AD8919ABB98800C9CBA2 /* LMSynchStatus.m in Sources */,
 				EDD131BC19812F1E006F39E3 /* LMBranchAdvertiserViewController.m in Sources */,
 				25B18C751996186100A519B5 /* LMCustomNavigationViewController.m in Sources */,
@@ -1181,6 +1212,7 @@
 				EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */,
 				25D0722B1998B2B100E326C8 /* LMSegueKeys.m in Sources */,
 				EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */,
+				ED54F16C19ADEDC800BC3446 /* LMSynchronizationBaseOperation.m in Sources */,
 				25FF5B49198F50B70043DA5D /* LMReport.m in Sources */,
 				25FAFCAD1990D79300FCD226 /* LMReportMenuViewController.m in Sources */,
 				252CB2D819901454002677B8 /* LMBranchReportViewController.m in Sources */,

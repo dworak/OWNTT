@@ -26,5 +26,7 @@
 #import "LMFullButton.h"
 #import "LMBorderDescriptionView.h"
 #import "LMOWNTTHTTPClient.h"
+#import "LMNotificationService.h"
+#import "LMSynchronizationService.h"
 
 #endif

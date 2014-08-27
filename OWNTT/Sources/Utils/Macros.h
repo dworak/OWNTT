@@ -35,4 +35,10 @@ ENUM_DEF(ENUM_STRCMP) \
 return (EnumType)0; \
 } 
 
+#define TT_MAKE_EXCEPTION(Class, Reason, UserInfo) ([NSException exceptionWithName:[NSString stringWithFormat:@"%@Exception", NSStringFromClass(Class)] reason:Reason userInfo:UserInfo])
+
+#define TT_MAKE_REASON_NOT_IMPLEMENTED ([NSString stringWithFormat:@"Method %@ is not implemented", NSStringFromSelector(_cmd)])
+
+#define TT_STRINGIZE(Data) ([NSString stringWithFormat:@"%s", #Data])
+
 #endif

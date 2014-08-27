@@ -65,6 +65,12 @@ typedef enum {
     LMOWNTTGetAlertBorderType_LessThan
 } LMOWNTTGetAlertBorderType;
 
+typedef enum {
+    LMOWNTTReportType_Type1 = 1,
+    LMOWNTTReportType_Type5 = 5,
+    LMOWNTTReportType_Type8 = 8
+} LMOWNTTReportType;
+
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
 
@@ -79,6 +85,9 @@ typedef void (^failureBlock)(AFHTTPRequestOperation *operation, NSError *error);
 + (NSString*)getAlertParamTypeName:(LMOWNTTGetAlertParamType)paramType;
 + (NSString*)getAlertMonitoringTypeName:(LMOWNTTGetalertMonitoringType)monitoringType;
 + (NSString*)getAlertBordertypeName:(LMOWNTTGetAlertBorderType)bordertype;
++ (NSString*)reportTypeName:(LMOWNTTReportType)reportType;
++ (NSString*)reportTypeAppName:(LMOWNTTReportType)reportType;
++ (LMOWNTTReportType)reportTypeForName:(NSString*)name;
 
 + (NSDictionary*)registerDeviceParamsLogin:(NSString*)login
                                   password:(NSString*)pass
