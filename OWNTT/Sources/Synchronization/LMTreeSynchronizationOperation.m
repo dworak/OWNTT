@@ -21,7 +21,7 @@
 +(void)ttFillEntityAndBind:(LMInstance*) entity fromWSObject:(LMInstanceWS*)modelObject
 {
     entity.objectId = modelObject.objectId;
-    entity.activeValue = YES;
+    entity.active = [NSNumber numberWithInt:1];
     entity.name = modelObject.name;
 }
 
@@ -60,32 +60,6 @@
     if(!self.manager)
     {
         self.manager = [LMCoreDataManager sharedInstance];
-    }
-    
-    for(int i=0; i<3; i++)
-    {
-        LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:i+1] inContext:self.managedObjectContextForTheOperation];
-        if(!report)
-        {
-            report = [LMReport createObjectInContext:self.managedObjectContextForTheOperation];
-            report.objectId = [NSNumber numberWithInt:i+1];
-            report.activeValue = YES;
-            switch (i+1) {
-                case 1:
-                    report.name = @"Raport łączny kampanii";
-                    report.htmlName = @"1.html";
-                    break;
-                case 2:
-                    report.name = @"Raport wszystkich wydawców";
-                    report.htmlName = @"2.html";
-                    break;
-                case 3:
-                    report.name = @"Raport form reklamowych";
-                    report.htmlName = @"3.html";
-                default:
-                    break;
-            }
-        }
     }
     
     for(NSDictionary * objectDictionary in self.fetchedResponse[@"instances"])
@@ -157,7 +131,7 @@
                 advertiser.objectId = advertiserWS.objectId;
             }
             advertiser.name = advertiserWS.name;
-            advertiser.activeValue = YES;
+            advertiser.active = [NSNumber numberWithInt:1];
             for(LMProgramWS *programWS in advertiserWS.programs)
             {
                 LMProgram *program = [LMProgram fetchActiveEntityOfClass:[LMProgram class] withObjectID:programWS.objectId inContext:self.managedObjectContextForTheOperation];
@@ -166,7 +140,7 @@
                     program = [LMProgram createObjectInContext:self.managedObjectContextForTheOperation];
                     program.objectId = programWS.objectId;
                 }
-                program.activeValue = YES;
+                program.active = [NSNumber numberWithInt:1];
                 program.name = programWS.name;
                 [advertiser addProgramsObject:program];
             }
@@ -187,6 +161,7 @@
             object.activeValue = NO;
         }
     }
+    [self ttSaveContext];
 }
 
 - (void)ttCancel

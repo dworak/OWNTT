@@ -123,6 +123,8 @@
 - (IBAction)loginButtonTapped:(id)sender
 {
     //Add fields validation
+    __weak LMLoginViewController *selfObj = self;
+    [self.currentEditingTextField resignFirstResponder];
     NSString *text = [self.loginTextField validateField];
     if(text != nil)
     {
@@ -145,14 +147,22 @@
     }
     if(users.count > 0)
     {
-        [self.managedObjectContext deleteObject:[users objectAtIndex:0]];
+        LMUser *user = [users objectAtIndex:0];
+        [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_UnregisterDevice parameters:[LMOWNTTHTTPClient unregisterDeviceParamsToken:user.httpToken] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [selfObj.managedObjectContext deleteObject:[users objectAtIndex:0]];
+            [selfObj successAction];
+            [LMUtils saveCoreDataContext:selfObj.managedObjectContext];
+        } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Błąd" message:@"Nie można usunąć poprzedniego usera. Spróbuj ponownie." delegate:selfObj cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [alert show];
+        }];
+    } else{
+        [self successAction];
     }
-    users = [LMReadOnlyObject fetchActiveEntityOfClass:[LMReadOnlyObject class] inContext:self.managedObjectContext];
-    for(LMReadOnlyObject *obj in users)
-    {
-        [self.managedObjectContext deleteObject:obj];
-    }
-    
+}
+
+- (void)successAction
+{
     __weak LMLoginViewController *selfObj = self;
     [UIView animateWithDuration:0.2 animations:^{
         [self.activityIndicator startAnimating];
@@ -169,7 +179,7 @@
              user.httpToken = [response valueForKey:@"token"];
              LMAppDelegate *appDelegate = ((LMAppDelegate *)[[UIApplication sharedApplication] delegate]);
              appDelegate.appUtils.currentUser = user;
-             [selfObj saveManagedContext];
+             [LMUtils saveCoreDataContext:selfObj.managedObjectContext];
              
              [[LMNotificationService instance] addObserver:selfObj forNotification:LMNotification_TreeOperationFinished withSelector:@selector(synchronizationEnd)];
              [[LMNotificationService instance] addObserver:selfObj forNotification:LMNotification_TreeOperationCancel withSelector:@selector(synchronizationCancel)];
@@ -177,8 +187,8 @@
          } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
          {
              [UIView animateWithDuration:0.2 animations:^{
-                 self.loadingView.alpha = 0;
-                 [self.activityIndicator stopAnimating];
+                 selfObj.loadingView.alpha = 0;
+                 [selfObj.activityIndicator stopAnimating];
              } completion:^(BOOL finished) {
                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Błąd" message:@"Nie można zarejestrować użytkownika." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                  [alert show];
@@ -191,27 +201,6 @@
 #pragma mark === Private methods ===
 - (void)checkDependingTreeAndShowBranch {
     
-}
-
-- (void)saveManagedContext{
-    if(!self.managedObjectContext) {
-        NSLog(@"Null context");
-        return;
-    }
-    if(self.managedObjectContext == [[LMCoreDataManager sharedInstance] masterManagedObjectContext]) {
-        [[LMCoreDataManager sharedInstance] saveMasterContext];
-    } else {
-        [self.managedObjectContext performBlockAndWait:^{
-            NSError *error = nil;
-            BOOL saved = [self.managedObjectContext save:&error];
-            if (!saved) {
-                // do some real error handling
-                NSLog(@"Could not save background context due to %@", error);
-            } else {
-                [[LMCoreDataManager sharedInstance] saveMasterContext];
-            }
-        }];
-    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

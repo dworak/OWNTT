@@ -344,6 +344,7 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
 {
     AFHTTPRequestOperation *operation;
     operation = [self POST:[LMOWNTTHTTPClient httpCleintServiseName:serviceName] parameters:parameters success:theSuccedBlock failure:theFailureBlock];
+    operation.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", nil];
     return operation;
 }
 
