@@ -10,15 +10,20 @@
 
 @interface LMUtils : NSObject
 + (BOOL)userExist;
-+ (UIViewController *)checkAndSetControllersByTreeHierarchyForStoryboard:(UIStoryboard *)storyboard;
-+ (void)saveCoreDataContext:(NSManagedObjectContext *)context;
-+ (UIViewController *)currentStoryboardControllerForIdentifier:(NSString *)identifier;
 + (BOOL)validateEmail:(NSString *)candidate;
 + (BOOL)isNumeric:(NSString*)inputString;
+
++ (UIViewController *)checkAndSetControllersByTreeHierarchyForStoryboard:(UIStoryboard *)storyboard;
++ (UIViewController *)currentStoryboardControllerForIdentifier:(NSString *)identifier;
+
++ (void)saveCoreDataContext:(NSManagedObjectContext *)context;
 + (void)storeCurrentInstance:(NSNumber *)instanceId;
 + (void)removeCurrentInstance;
-+ (NSNumber *)getCurrentInstance;
 + (void)showErrorAlertWithText:(NSString *)text;
 + (void)createReportObjects;
-+(void)performSynchronization:(BOOL)initial;
++ (void)performSynchronization:(BOOL)initial;
+
++ (NSNumber *)getCurrentInstance;
+
++ (NSArray*)datesForReportTimeInterval:(NSString*)timeinterval;
 @end

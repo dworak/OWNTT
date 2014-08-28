@@ -91,8 +91,8 @@
 #pragma mark === Private methods ===
 - (void)splashViewControllerDidFinish
 {
-    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_TreeOperationFinished];
-    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_TreeOperationCancel];
+    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_AlertOperationFinished];
+    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_AlertOperationCancel];
     [self.activityIndicator stopAnimating];
     self.indicatorTextLabel.hidden = YES;
     if(![LMUtils userExist]) {
@@ -104,8 +104,8 @@
 
 - (void)downloadJsonData
 {
-    [[LMNotificationService instance] addObserver:self forNotification:LMNotification_TreeOperationFinished withSelector:@selector(synchronizationEnd)];
-    [[LMNotificationService instance] addObserver:self forNotification:LMNotification_TreeOperationCancel withSelector:@selector(synchronizationCancel)];
+    [[LMNotificationService instance] addObserver:self forNotification:LMNotification_AlertOperationFinished withSelector:@selector(synchronizationEnd)];
+    [[LMNotificationService instance] addObserver:self forNotification:LMNotification_AlertOperationCancel withSelector:@selector(synchronizationCancel)];
     [LMUtils performSynchronization:NO];
 }
 

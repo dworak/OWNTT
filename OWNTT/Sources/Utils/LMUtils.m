@@ -138,4 +138,59 @@
     }
 }
 
++ (NSArray*)datesForReportTimeInterval:(NSString *)timeinterval
+{
+    NSDate *today = [NSDate date];
+    NSArray *datesArray;
+    NSCalendar *gregorian = [NSCalendar currentCalendar];
+    if([timeinterval isEqual:@"Ten rok"])
+    {
+        NSDateComponents *dateComponents = [gregorian components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:today];
+        [dateComponents setDay:1];
+        [dateComponents setMonth:1];
+        datesArray = [NSArray arrayWithObjects:[gregorian dateFromComponents:dateComponents], today, nil];
+    }
+    else if([timeinterval isEqual:@"Aktualny miesiąc"])
+    {
+        NSDateComponents *dateComponents = [gregorian components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:today];
+        [dateComponents setDay:1];
+        datesArray = [NSArray arrayWithObjects:[gregorian dateFromComponents:dateComponents], today, nil];
+    }
+    else if([timeinterval isEqual:@"Poprzedni miesiąc"])
+    {
+        NSDateComponents* comps = [gregorian components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:today];
+        
+        // Set your month here
+        [comps setDay:10];
+        [comps setMonth:comps.month-1];
+        
+        NSRange range = [gregorian rangeOfUnit:NSDayCalendarUnit
+                                  inUnit:NSMonthCalendarUnit
+                                 forDate:[gregorian dateFromComponents:comps]];
+        int numberOfNaysInMonth = range.length;
+        [comps setDay:1];
+        NSDate *dateFrom = [gregorian dateFromComponents:comps];
+        [comps setDay:numberOfNaysInMonth];;
+        NSDate *dateTo = [gregorian dateFromComponents:comps];
+        datesArray = [NSArray arrayWithObjects:dateFrom, dateTo, nil];
+    }
+    else if([timeinterval isEqual:@"Poprzedni tydzień"])
+    {
+        
+    }
+    else if([timeinterval isEqual:@"Ten tydzień"])
+    {
+        
+    }
+    else if([timeinterval isEqual:@"Wczoraj"])
+    {
+        
+    }
+    else if([timeinterval isEqual:@"Dzisiaj"])
+    {
+        
+    }
+    return datesArray;
+}
+
 @end

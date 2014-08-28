@@ -181,8 +181,8 @@
              appDelegate.appUtils.currentUser = user;
              [LMUtils saveCoreDataContext:selfObj.managedObjectContext];
              
-             [[LMNotificationService instance] addObserver:selfObj forNotification:LMNotification_TreeOperationFinished withSelector:@selector(synchronizationEnd)];
-             [[LMNotificationService instance] addObserver:selfObj forNotification:LMNotification_TreeOperationCancel withSelector:@selector(synchronizationCancel)];
+             [[LMNotificationService instance] addObserver:selfObj forNotification:LMNotification_AlertOperationFinished withSelector:@selector(synchronizationEnd)];
+             [[LMNotificationService instance] addObserver:selfObj forNotification:LMNotification_AlertOperationCancel withSelector:@selector(synchronizationCancel)];
              [LMUtils performSynchronization:YES];
          } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
          {
@@ -229,8 +229,8 @@
 
 - (void)synchronizationEnd
 {
-    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_TreeOperationFinished];
-    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_TreeOperationCancel];
+    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_AlertOperationFinished];
+    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_AlertOperationCancel];
     [UIView animateWithDuration:0.2 animations:^{
         self.loadingView.alpha = 0;
         [self.activityIndicator stopAnimating];
@@ -241,8 +241,8 @@
 
 - (void)synchronizationCancel
 {
-    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_TreeOperationFinished];
-    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_TreeOperationCancel];
+    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_AlertOperationCancel];
+    [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_AlertOperationFinished];
     [UIView animateWithDuration:0.2 animations:^{
         self.loadingView.alpha = 0;
         [self.activityIndicator stopAnimating];
