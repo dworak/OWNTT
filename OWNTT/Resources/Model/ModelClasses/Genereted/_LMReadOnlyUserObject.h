@@ -5,6 +5,7 @@
 #import "ManagedObject.h"
 
 extern const struct LMReadOnlyUserObjectAttributes {
+	__unsafe_unretained NSString *active;
 	__unsafe_unretained NSString *createDate;
 	__unsafe_unretained NSString *name;
 } LMReadOnlyUserObjectAttributes;
@@ -19,6 +20,7 @@ extern const struct LMReadOnlyUserObjectFetchedProperties {
 
 
 
+
 @interface LMReadOnlyUserObjectID : NSManagedObjectID {}
 @end
 
@@ -27,6 +29,20 @@ extern const struct LMReadOnlyUserObjectFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (LMReadOnlyUserObjectID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* active;
+
+
+
+@property BOOL activeValue;
+- (BOOL)activeValue;
+- (void)setActiveValue:(BOOL)value_;
+
+//- (BOOL)validateActive:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -60,6 +76,15 @@ extern const struct LMReadOnlyUserObjectFetchedProperties {
 @end
 
 @interface _LMReadOnlyUserObject (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSNumber*)primitiveActive;
+- (void)setPrimitiveActive:(NSNumber*)value;
+
+- (BOOL)primitiveActiveValue;
+- (void)setPrimitiveActiveValue:(BOOL)value_;
+
+
 
 
 - (NSDate*)primitiveCreateDate;

@@ -13,6 +13,7 @@
 
 - (BOOL) isSynchronizationRunning;
 - (void) downloadTree: (BOOL) initial;
+- (void) downloadUserAlerts: (BOOL) initial;
 
 @property (strong, nonatomic) NSOperationQueue *lmOperationQueue;
 @end

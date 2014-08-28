@@ -4,6 +4,7 @@
 #import "_LMReadOnlyUserObject.h"
 
 const struct LMReadOnlyUserObjectAttributes LMReadOnlyUserObjectAttributes = {
+	.active = @"active",
 	.createDate = @"createDate",
 	.name = @"name",
 };
@@ -40,9 +41,40 @@ const struct LMReadOnlyUserObjectFetchedProperties LMReadOnlyUserObjectFetchedPr
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"activeValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"active"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic active;
+
+
+
+- (BOOL)activeValue {
+	NSNumber *result = [self active];
+	return [result boolValue];
+}
+
+- (void)setActiveValue:(BOOL)value_ {
+	[self setActive:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveActiveValue {
+	NSNumber *result = [self primitiveActive];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveActiveValue:(BOOL)value_ {
+	[self setPrimitiveActive:[NSNumber numberWithBool:value_]];
+}
+
 
 
 

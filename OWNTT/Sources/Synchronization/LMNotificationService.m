@@ -39,6 +39,15 @@
         case LMNotification_TreeOperationDownload:
             notificationString = TT_STRINGIZE(LMNotificationSynchBegan);
             break;
+        case LMNotification_AlertOperationCancel:
+            notificationString = TT_STRINGIZE(LMNotificationSynchBegan);
+            break;
+        case LMNotification_AlertOperationDownload:
+            notificationString = TT_STRINGIZE(LMNotificationSynchBegan);
+            break;
+        case LMNotification_AlertOperationFinished:
+            notificationString = TT_STRINGIZE(LMNotificationSynchBegan);
+            break;
         default:
             @throw TT_MAKE_EXCEPTION([self class], @"Unknown notification type", nil);
     }

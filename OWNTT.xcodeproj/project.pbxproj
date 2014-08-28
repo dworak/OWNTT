@@ -127,6 +127,7 @@
 		ED54F16C19ADEDC800BC3446 /* LMSynchronizationBaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F16B19ADEDC800BC3446 /* LMSynchronizationBaseOperation.m */; };
 		ED54F16F19ADF16F00BC3446 /* LMTreeSynchronizationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F16E19ADF16F00BC3446 /* LMTreeSynchronizationOperation.m */; };
 		ED54F17219ADFE3600BC3446 /* LMNotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F17119ADFE3600BC3446 /* LMNotificationService.m */; };
+		ED54F17519AF570900BC3446 /* LMAlertSynchronizationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F17419AF570900BC3446 /* LMAlertSynchronizationOperation.m */; };
 		EDD131AA198117B1006F39E3 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD131A9198117B1006F39E3 /* Storyboard.storyboard */; };
 		EDD131AE198120FA006F39E3 /* LMLoginViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD131AD198120FA006F39E3 /* LMLoginViewController_iPhone.xib */; };
 		EDD131B019812526006F39E3 /* LM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD131AF19812526006F39E3 /* LM.framework */; };
@@ -388,6 +389,8 @@
 		ED54F16E19ADF16F00BC3446 /* LMTreeSynchronizationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTreeSynchronizationOperation.m; sourceTree = "<group>"; };
 		ED54F17019ADFE3600BC3446 /* LMNotificationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMNotificationService.h; sourceTree = "<group>"; };
 		ED54F17119ADFE3600BC3446 /* LMNotificationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMNotificationService.m; sourceTree = "<group>"; };
+		ED54F17319AF570900BC3446 /* LMAlertSynchronizationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAlertSynchronizationOperation.h; sourceTree = "<group>"; };
+		ED54F17419AF570900BC3446 /* LMAlertSynchronizationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAlertSynchronizationOperation.m; sourceTree = "<group>"; };
 		EDD131A9198117B1006F39E3 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		EDD131AD198120FA006F39E3 /* LMLoginViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMLoginViewController_iPhone.xib; sourceTree = "<group>"; };
 		EDD131AF19812526006F39E3 /* LM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LM.framework; sourceTree = "<group>"; };
@@ -647,6 +650,8 @@
 				ED54F16E19ADF16F00BC3446 /* LMTreeSynchronizationOperation.m */,
 				ED54F17019ADFE3600BC3446 /* LMNotificationService.h */,
 				ED54F17119ADFE3600BC3446 /* LMNotificationService.m */,
+				ED54F17319AF570900BC3446 /* LMAlertSynchronizationOperation.h */,
+				ED54F17419AF570900BC3446 /* LMAlertSynchronizationOperation.m */,
 			);
 			path = Synchronization;
 			sourceTree = "<group>";
@@ -1155,6 +1160,7 @@
 				ED54F16219ADE75F00BC3446 /* LMProgramWS.m in Sources */,
 				25036AC4198D2CCE00EAE355 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				253F1F4E198E276400158407 /* LMAdvertiser.m in Sources */,
+				ED54F17519AF570900BC3446 /* LMAlertSynchronizationOperation.m in Sources */,
 				ED54F16519ADE80600BC3446 /* LMAlertWS.m in Sources */,
 				25FAFCAA1990D42900FCD226 /* LMTabBarViewController.m in Sources */,
 				EDD131B619812ECF006F39E3 /* LMBranchViewController.m in Sources */,

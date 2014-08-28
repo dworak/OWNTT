@@ -134,6 +134,7 @@
     if(!running)
     {
         [synchInstance downloadTree:initial];
+        [synchInstance downloadUserAlerts:initial];
     }
 }
 

@@ -6,6 +6,7 @@
 //
 //
 
+#import "LMAlertSynchronizationOperation.h"
 #import "LMSynchronizationService.h"
 #import "LMTreeSynchronizationOperation.h"
 
@@ -62,5 +63,34 @@
     };
     [_lmOperationQueue addOperation:treeOperationBlock];
 }
+
+- (void) downloadUserAlerts: (BOOL) initial
+{
+    LMSynchronizationBlockOperation *userAlertOperationBlock = [[LMSynchronizationBlockOperation alloc] init];
+    userAlertOperationBlock.block = ^(LMSynchronizationBlockOperation *blockOperation){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(initial)
+            {
+            }
+        });
+    };
+    [_lmOperationQueue addOperation:userAlertOperationBlock];
+    
+    LMAlertSynchronizationOperation *userAlertOperation = [[LMAlertSynchronizationOperation alloc] init];
+    [_lmOperationQueue addOperation:userAlertOperation];
+    
+    
+    userAlertOperationBlock = [[LMSynchronizationBlockOperation alloc] init];
+    userAlertOperationBlock.block = ^(LMSynchronizationBlockOperation *blockOperation){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[LMNotificationService instance] postNotification:LMNotification_AlertOperationFinished withObject:nil];
+        });
+    };
+    [_lmOperationQueue addOperation:userAlertOperationBlock];
+}
+
+
+
+
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="LMAdvertiser" representedClassName="LMAdvertiser" parentEntity="LMReadOnlyObject" syncable="YES">
         <relationship name="instance" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMInstance" inverseName="advertisers" inverseEntity="LMInstance" syncable="YES"/>
         <relationship name="programs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LMProgram" inverseName="advertiser" inverseEntity="LMProgram" syncable="YES"/>
@@ -17,6 +17,7 @@
         <attribute name="objectId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="LMReadOnlyUserObject" representedClassName="LMReadOnlyUserObject" isAbstract="YES" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -41,6 +42,15 @@
         <relationship name="userReports" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LMUserReport" inverseName="user" inverseEntity="LMUserReport" syncable="YES"/>
     </entity>
     <entity name="LMUserAlert" representedClassName="LMUserAlert" parentEntity="LMReadOnlyUserObject" syncable="YES">
+        <attribute name="borderType" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dateFrom" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateTo" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="hour" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="monitorType" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="paramType" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="programId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMUser" inverseName="userAlerts" inverseEntity="LMUser" syncable="YES"/>
     </entity>
     <entity name="LMUserReport" representedClassName="LMUserReport" parentEntity="LMReadOnlyUserObject" syncable="YES">
@@ -52,11 +62,11 @@
         <element name="LMInstance" positionX="-54" positionY="18" width="128" height="75"/>
         <element name="LMProgram" positionX="0" positionY="45" width="128" height="58"/>
         <element name="LMReadOnlyObject" positionX="-63" positionY="0" width="128" height="28"/>
-        <element name="LMReadOnlyUserObject" positionX="-9" positionY="54" width="128" height="73"/>
+        <element name="LMReadOnlyUserObject" positionX="-9" positionY="54" width="128" height="88"/>
         <element name="LMReport" positionX="-36" positionY="27" width="128" height="88"/>
         <element name="LMSynchStatus" positionX="-27" positionY="54" width="128" height="75"/>
         <element name="LMUser" positionX="-63" positionY="-18" width="128" height="178"/>
-        <element name="LMUserAlert" positionX="-18" positionY="45" width="128" height="58"/>
+        <element name="LMUserAlert" positionX="-18" positionY="45" width="128" height="193"/>
         <element name="LMUserReport" positionX="-27" positionY="36" width="128" height="73"/>
     </elements>
 </model>

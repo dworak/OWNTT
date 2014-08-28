@@ -12,7 +12,10 @@ typedef enum {
     LMNotification_SynchBegan,
     LMNotification_TreeOperationDownload,
     LMNotification_TreeOperationCancel,
-    LMNotification_TreeOperationFinished
+    LMNotification_TreeOperationFinished,
+    LMNotification_AlertOperationDownload,
+    LMNotification_AlertOperationCancel,
+    LMNotification_AlertOperationFinished
 } LMNotification;
 
 @interface LMNotificationService : NSObject
