@@ -4,6 +4,7 @@
 #import "_LMUser.h"
 
 const struct LMUserAttributes LMUserAttributes = {
+	.alertsCount = @"alertsCount",
 	.createDate = @"createDate",
 	.deviceToken = @"deviceToken",
 	.email = @"email",
@@ -14,6 +15,7 @@ const struct LMUserAttributes LMUserAttributes = {
 };
 
 const struct LMUserRelationships LMUserRelationships = {
+	.settings = @"settings",
 	.userAlerts = @"userAlerts",
 	.userReports = @"userReports",
 };
@@ -47,9 +49,40 @@ const struct LMUserFetchedProperties LMUserFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"alertsCountValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"alertsCount"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic alertsCount;
+
+
+
+- (int64_t)alertsCountValue {
+	NSNumber *result = [self alertsCount];
+	return [result longLongValue];
+}
+
+- (void)setAlertsCountValue:(int64_t)value_ {
+	[self setAlertsCount:[NSNumber numberWithLongLong:value_]];
+}
+
+- (int64_t)primitiveAlertsCountValue {
+	NSNumber *result = [self primitiveAlertsCount];
+	return [result longLongValue];
+}
+
+- (void)setPrimitiveAlertsCountValue:(int64_t)value_ {
+	[self setPrimitiveAlertsCount:[NSNumber numberWithLongLong:value_]];
+}
+
 
 
 
@@ -102,6 +135,10 @@ const struct LMUserFetchedProperties LMUserFetchedProperties = {
 
 
 
+
+@dynamic settings;
+
+	
 
 @dynamic userAlerts;
 

@@ -12,5 +12,5 @@
 @class LMAlertWS;
 
 @interface LMAlertSynchronizationOperation : LMSynchronizationBaseOperation
-+(void)ttFillEntityAndBind:(LMUserAlert*) entity fromWSObject:(LMAlertWS*)modelObject;
++(void)fillEntityAndBind:(LMUserAlert*) entity fromWSObject:(LMAlertWS*)modelObject;
 @end

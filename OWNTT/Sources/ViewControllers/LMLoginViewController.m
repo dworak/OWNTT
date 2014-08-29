@@ -140,18 +140,13 @@
         return;
     }
     
-    NSArray *users = [LMUser fetchLMUsersInContext:self.managedObjectContext];
-    if(users.count > 2)
+    if(OWNTT_APP_DELEGATE.appUtils.currentUser)
     {
-        NSLog(@"Error: tow users in database");
-    }
-    if(users.count > 0)
-    {
-        LMUser *user = [users objectAtIndex:0];
+        LMUser *user = OWNTT_APP_DELEGATE.appUtils.currentUser;
         [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_UnregisterDevice parameters:[LMOWNTTHTTPClient unregisterDeviceParamsToken:user.httpToken] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [selfObj.managedObjectContext deleteObject:[users objectAtIndex:0]];
+            [[[LMCoreDataManager sharedInstance] masterManagedObjectContext] deleteObject:user];
             [selfObj successAction];
-            [LMUtils saveCoreDataContext:selfObj.managedObjectContext];
+            [[LMCoreDataManager sharedInstance] saveMasterContext];
         } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Błąd" message:@"Nie można usunąć poprzedniego usera. Spróbuj ponownie." delegate:selfObj cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alert show];
@@ -180,6 +175,9 @@
              LMAppDelegate *appDelegate = ((LMAppDelegate *)[[UIApplication sharedApplication] delegate]);
              appDelegate.appUtils.currentUser = user;
              [LMUtils saveCoreDataContext:selfObj.managedObjectContext];
+             
+             //Change current user
+             [LMUtils getCurrentUser];
              
              [[LMNotificationService instance] addObserver:selfObj forNotification:LMNotification_AlertOperationFinished withSelector:@selector(synchronizationEnd)];
              [[LMNotificationService instance] addObserver:selfObj forNotification:LMNotification_AlertOperationCancel withSelector:@selector(synchronizationCancel)];
@@ -250,36 +248,6 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Błąd" message:@"Pobieranie danych aplikacji nie powiodło się, spróbuj ponownie." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
     }];
-}
-
-
-- (void)createReportObjects
-{
-    for(int i=0; i<3; i++)
-    {
-        LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:i+1] inContext:self.managedObjectContext];
-        if(!report)
-        {
-            report = [LMReport createObjectInContext:self.managedObjectContext];
-            report.objectId = [NSNumber numberWithInt:i+1];
-        }
-        report.activeValue = YES;
-        switch (i+1) {
-            case 1:
-                report.name = @"Raport łączny kampanii";
-                report.htmlName = @"1.html";
-                break;
-            case 2:
-                report.name = @"Raport wszystkich wydawców";
-                report.htmlName = @"2.html";
-                break;
-            case 3:
-                report.name = @"Raport form reklamowych";
-                report.htmlName = @"3.html";
-            default:
-                break;
-        }
-    }
 }
 
 

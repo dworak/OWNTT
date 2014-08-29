@@ -41,10 +41,10 @@ typedef void(^LMSynchronizationInfoBlock)(id sender);
 @property (strong, nonatomic) LMCoreDataManager *manager;
 
 // Method for saving local context.
--(void)ttSaveContext;
+-(void)lmSaveContext;
 
 // Unlock mutex, if everything is done.
--(void)ttSignalFinish;
+-(void)lmSignalFinish;
 @end
 
 @class LMSynchronizationBlockOperation;

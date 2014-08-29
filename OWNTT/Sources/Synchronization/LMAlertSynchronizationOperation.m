@@ -11,7 +11,7 @@
 #import "LMUserAlert.h"
 
 @implementation LMAlertSynchronizationOperation
-+(void)ttFillEntityAndBind:(LMUserAlert*) entity fromWSObject:(LMAlertWS*)modelObject
++(void)fillEntityAndBind:(LMUserAlert*) entity fromWSObject:(LMAlertWS*)modelObject
 {
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
@@ -29,7 +29,7 @@
 }
 
 
-- (void)ttBegin
+- (void)lmBegin
 {
     LMOWNTTHTTPClient *webServiceManager = [LMOWNTTHTTPClient sharedClient];
     
@@ -49,16 +49,16 @@
     [webServiceManager POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_GetAlertPush parameters:[LMOWNTTHTTPClient unregisterDeviceParamsToken:currentUser.httpToken] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          [self setFetchedResponse:responseObject];
-         [self ttSignalFinish];
+         [self lmSignalFinish];
      } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
      {
          NSLog(@"ERROR: Alert operation: %@",error.description);
-         [self ttCancel];
+         [self lmCancel];
      }];
     
 }
 
-- (void)ttFinish
+- (void)lmFinish
 {
     
     if(!self.manager)
@@ -71,7 +71,7 @@
         
         if (self.isCancelled)
         {
-            [self ttSignalFinish];
+            [self lmSignalFinish];
             return;
         }
         
@@ -85,7 +85,7 @@
                 NSLog(@"ERROR: An error occured during parsing AlertWS model.");
             });
             
-            [self ttCancel];
+            [self lmCancel];
         }
         
         LMUserAlert *userAlert = [LMUserAlert fetchActiveEntityOfClass:[LMUserAlert class] withObjectID:userAlertModel.localId inContext:self.managedObjectContextForTheOperation];
@@ -95,10 +95,10 @@
             userAlert = [LMUserAlert createObjectInContext:self.managedObjectContextForTheOperation];
         }
         
-        [LMAlertSynchronizationOperation ttFillEntityAndBind:userAlert fromWSObject:userAlertModel];
+        [LMAlertSynchronizationOperation fillEntityAndBind:userAlert fromWSObject:userAlertModel];
     }
     
-    [self ttSaveContext];
+    [self lmSaveContext];
 }
 
 /*- (void)unactiveAllTreeElements
@@ -114,7 +114,7 @@
     [self ttSaveContext];
 }*/
 
-- (void)ttCancel
+- (void)lmCancel
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"ERROR: There is a problem with data from API server.");
@@ -124,7 +124,7 @@
     
 }
 
-- (void)ttCancelOnPreviousCancel
+- (void)lmCancelOnPreviousCancel
 {
     
 }

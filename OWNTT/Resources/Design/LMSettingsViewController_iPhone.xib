@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LMSettingsViewController">
             <connections>
                 <outlet property="instanceButton" destination="hNk-6f-oiM" id="j4x-8H-sXE"/>
+                <outlet property="nameButton" destination="iWL-rS-fAA" id="KNs-WZ-AZB"/>
                 <outlet property="shadowImage" destination="0fq-Wn-1as" id="Lgv-N2-6tQ"/>
                 <outlet property="toolbar" destination="Xbs-kf-gRE" id="6SM-UK-qyz"/>
                 <outlet property="view" destination="iN0-l3-epB" id="8xM-LX-SfP"/>
@@ -43,7 +44,7 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWL-rS-fAA" customClass="LMButton">
                     <rect key="frame" x="12" y="169" width="296" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Jan Kowalski">
+                    <state key="normal">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

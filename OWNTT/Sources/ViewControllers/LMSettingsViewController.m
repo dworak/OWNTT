@@ -15,6 +15,7 @@
 @interface LMSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *instanceButton;
+@property (weak, nonatomic) IBOutlet UIButton *nameButton;
 @property (weak, nonatomic) IBOutlet UIImageView *shadowImage;
 
 @end
@@ -58,8 +59,8 @@
     {
         self.instanceButton.hidden = YES;
     }
-    LMUser *user = [[LMUser fetchLMUsersInContext:managedObjectContext] objectAtIndex:0];
-    self.nameLabel.text = user.name;
+    [self.nameButton setTitle:[NSString stringWithFormat:@"%@ %@", OWNTT_APP_DELEGATE.appUtils.currentUser.name, OWNTT_APP_DELEGATE.appUtils.currentUser.surname] forState:UIControlStateNormal];
+    [self.nameButton setTitle:[NSString stringWithFormat:@"%@ %@", OWNTT_APP_DELEGATE.appUtils.currentUser.name, OWNTT_APP_DELEGATE.appUtils.currentUser.surname] forState:UIControlStateHighlighted];
 }
 
 - (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender

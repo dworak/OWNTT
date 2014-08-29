@@ -5,6 +5,7 @@
 #import "ManagedObject.h"
 
 extern const struct LMUserAttributes {
+	__unsafe_unretained NSString *alertsCount;
 	__unsafe_unretained NSString *createDate;
 	__unsafe_unretained NSString *deviceToken;
 	__unsafe_unretained NSString *email;
@@ -15,6 +16,7 @@ extern const struct LMUserAttributes {
 } LMUserAttributes;
 
 extern const struct LMUserRelationships {
+	__unsafe_unretained NSString *settings;
 	__unsafe_unretained NSString *userAlerts;
 	__unsafe_unretained NSString *userReports;
 } LMUserRelationships;
@@ -22,8 +24,10 @@ extern const struct LMUserRelationships {
 extern const struct LMUserFetchedProperties {
 } LMUserFetchedProperties;
 
+@class LMSettings;
 @class LMUserAlert;
 @class LMUserReport;
+
 
 
 
@@ -41,6 +45,20 @@ extern const struct LMUserFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (LMUserID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* alertsCount;
+
+
+
+@property int64_t alertsCountValue;
+- (int64_t)alertsCountValue;
+- (void)setAlertsCountValue:(int64_t)value_;
+
+//- (BOOL)validateAlertsCount:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -116,6 +134,13 @@ extern const struct LMUserFetchedProperties {
 
 
 
+@property (nonatomic, strong) LMSettings *settings;
+
+//- (BOOL)validateSettings:(id*)value_ error:(NSError**)error_;
+
+
+
+
 @property (nonatomic, strong) NSSet *userAlerts;
 
 - (NSMutableSet*)userAlertsSet;
@@ -148,6 +173,15 @@ extern const struct LMUserFetchedProperties {
 @end
 
 @interface _LMUser (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSNumber*)primitiveAlertsCount;
+- (void)setPrimitiveAlertsCount:(NSNumber*)value;
+
+- (int64_t)primitiveAlertsCountValue;
+- (void)setPrimitiveAlertsCountValue:(int64_t)value_;
+
+
 
 
 - (NSDate*)primitiveCreateDate;
@@ -190,6 +224,11 @@ extern const struct LMUserFetchedProperties {
 - (void)setPrimitiveSurname:(NSString*)value;
 
 
+
+
+
+- (LMSettings*)primitiveSettings;
+- (void)setPrimitiveSettings:(LMSettings*)value;
 
 
 

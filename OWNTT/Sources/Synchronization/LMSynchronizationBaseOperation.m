@@ -11,9 +11,9 @@
 
 @implementation LMSynchronizationBaseOperation
 
-+(void)ttFillEntity: (NSManagedObject*) entity fromWSObject: (JSONModel*) modelObject
++(void)fillEntity: (NSManagedObject*) entity fromWSObject: (JSONModel*) modelObject
 {
-    @throw TT_MAKE_EXCEPTION([self class], TT_MAKE_REASON_NOT_IMPLEMENTED, nil);
+    @throw LM_MAKE_EXCEPTION([self class], LM_MAKE_REASON_NOT_IMPLEMENTED, nil);
 }
 
 - (void)cancel
@@ -35,32 +35,32 @@
     return self;
 }
 
-- (void)ttSignalFinish
+- (void)lmSignalFinish
 {
     dispatch_semaphore_signal(lmExitSemaphore);
 }
 
-- (void)ttBegin
+- (void)lmBegin
 {
-    @throw TT_MAKE_EXCEPTION([self class], TT_MAKE_REASON_NOT_IMPLEMENTED, nil);
+    @throw LM_MAKE_EXCEPTION([self class], LM_MAKE_REASON_NOT_IMPLEMENTED, nil);
 }
 
-- (void)ttFinish
+- (void)lmFinish
 {
-    @throw TT_MAKE_EXCEPTION([self class], TT_MAKE_REASON_NOT_IMPLEMENTED, nil);
+    @throw LM_MAKE_EXCEPTION([self class], LM_MAKE_REASON_NOT_IMPLEMENTED, nil);
 }
 
-- (void)ttCancel
+- (void)lmCancel
 {
-    @throw TT_MAKE_EXCEPTION([self class], TT_MAKE_REASON_NOT_IMPLEMENTED, nil);
+    @throw LM_MAKE_EXCEPTION([self class], LM_MAKE_REASON_NOT_IMPLEMENTED, nil);
 }
 
-- (void)ttCancelOnPreviousCancel
+- (void)lmCancelOnPreviousCancel
 {
-    @throw TT_MAKE_EXCEPTION([self class], TT_MAKE_REASON_NOT_IMPLEMENTED, nil);
+    @throw LM_MAKE_EXCEPTION([self class], LM_MAKE_REASON_NOT_IMPLEMENTED, nil);
 }
 
--(void)ttSaveContext
+-(void)lmSaveContext
 {
     [self.managedObjectContextForTheOperation performBlockAndWait:^{
         NSError *error;
@@ -94,26 +94,26 @@
         self.nextOperation.didPreviousOperationFail = YES;
         self.nextOperation.didAnyPrecedingOperationFail = YES;
         
-        [self ttCancelOnPreviousCancel];
-        [self ttSignalFinish];
+        [self lmCancelOnPreviousCancel];
+        [self lmSignalFinish];
         
         return;
     }
     
     NSLog(@"INFO: %@ is going to run", NSStringFromClass([self class]));
     
-    [self ttBegin];
+    [self lmBegin];
     dispatch_semaphore_wait(lmExitSemaphore, DISPATCH_TIME_FOREVER);
     
     if (self.isCancelled)
     {
         self.nextOperation.didPreviousOperationFail = YES;
         self.nextOperation.didAnyPrecedingOperationFail = YES;
-        [self ttCancel];
+        [self lmCancel];
     }
     else
     {
-        [self ttFinish];
+        [self lmFinish];
     }
     
     if (self.didPreviousOperationFail || self.didAnyPrecedingOperationFail)
@@ -127,25 +127,25 @@
 @end
 
 @implementation LMSynchronizationBlockOperation
-- (void)ttBegin
+- (void)lmBegin
 {
     self.block(self);
-    [self ttSignalFinish];
+    [self lmSignalFinish];
 }
 
-- (void)ttFinish
+- (void)lmFinish
 {
 }
 
-- (void)ttCancel
+- (void)lmCancel
 {
     self.nextOperation.didPreviousOperationFail = YES;
 }
 
-- (void)ttCancelOnPreviousCancel
+- (void)lmCancelOnPreviousCancel
 {
     self.block(self);
-    [self ttSignalFinish];
+    [self lmSignalFinish];
 }
 @end
 

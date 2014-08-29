@@ -27,7 +27,16 @@
     LMAppDelegate *appDelegate = (LMAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSArray *users = [LMUser fetchLMUsersInContext:[[LMCoreDataManager sharedInstance] masterManagedObjectContext]];
     NSAssert(users.count < 2, @"Fatal error: users > 1");
+    if(users.count == 0)
+    {
+        return;
+    }
     appDelegate.appUtils.currentUser = [users objectAtIndex:0];
+    if(appDelegate.appUtils.currentUser)
+    {
+        //Configure default setting
+        LMUser *user = appDelegate.appUtils.currentUser;
+    }
 }
 
 + (UIViewController *)checkAndSetControllersByTreeHierarchyForStoryboard:(UIStoryboard *)storyboard

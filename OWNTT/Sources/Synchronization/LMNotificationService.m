@@ -28,28 +28,28 @@
     switch (notification)
     {
         case LMNotification_SynchBegan:
-            notificationString = TT_STRINGIZE(LMNotificationSynchBegan);
+            notificationString = LM_STRINGIZE(LMNotificationSynchBegan);
             break;
         case LMNotification_TreeOperationCancel:
-            notificationString = TT_STRINGIZE(LMNotificationSynchBegan);
+            notificationString = LM_STRINGIZE(LMNotificationSynchBegan);
             break;
         case LMNotification_TreeOperationFinished:
-            notificationString = TT_STRINGIZE(LMNotificationSynchBegan);
+            notificationString = LM_STRINGIZE(LMNotificationSynchBegan);
             break;
         case LMNotification_TreeOperationDownload:
-            notificationString = TT_STRINGIZE(LMNotificationSynchBegan);
+            notificationString = LM_STRINGIZE(LMNotificationSynchBegan);
             break;
         case LMNotification_AlertOperationCancel:
-            notificationString = TT_STRINGIZE(LMNotificationSynchBegan);
+            notificationString = LM_STRINGIZE(LMNotificationSynchBegan);
             break;
         case LMNotification_AlertOperationDownload:
-            notificationString = TT_STRINGIZE(LMNotificationSynchBegan);
+            notificationString = LM_STRINGIZE(LMNotificationSynchBegan);
             break;
         case LMNotification_AlertOperationFinished:
-            notificationString = TT_STRINGIZE(LMNotificationSynchBegan);
+            notificationString = LM_STRINGIZE(LMNotificationSynchBegan);
             break;
         default:
-            @throw TT_MAKE_EXCEPTION([self class], @"Unknown notification type", nil);
+            @throw LM_MAKE_EXCEPTION([self class], @"Unknown notification type", nil);
     }
     
     return notificationString;
