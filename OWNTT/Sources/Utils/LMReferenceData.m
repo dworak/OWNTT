@@ -14,25 +14,25 @@
 #define STATIC_ALERT_HOUR_TYPE_KEY @"alertHourTypes"
 #define STATIC_ALERT_POINTER_TYPE_KEY @"alertPointertypes"
 
-static NSDictionary *StaticData = nil;
+static NSDictionary *staticData = nil;
 
 @implementation LMReferenceData
 
 + (NSDictionary* )staticValuesPicklist
 {
-    if (!StaticData.allKeys.count)
+    if (!staticData.allKeys.count)
     {
         NSString *path = [[NSBundle mainBundle] pathForResource:STATIC_DATA_FILE_NAME ofType:@"json"];
         NSData *data = [NSData dataWithContentsOfFile:path];
         NSError *error;
-        StaticData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        staticData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
         if(error)
         {
             NSLog(@"Error reading data");
             return nil;
         }
     }
-    return StaticData;
+    return staticData;
 }
 
 + (NSArray *)staticReportTimeIntervalValues

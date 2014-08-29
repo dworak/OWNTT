@@ -55,22 +55,27 @@
     
     if(!self.localContext)
     {
-        self.localContext = [[LMCoreDataManager sharedInstance] masterManagedObjectContext];
+        self.localContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
     }
-    if(self.transactionData.reportId)
+    LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:self.localContext];
+    LMUser *user = [[LMUser fetchLMUsersInContext:self.localContext] objectAtIndex:0];
+    
+    [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_GetReport parameters:[LMOWNTTHTTPClient getReportParamsToken:user.httpToken reportType:[LMOWNTTHTTPClient reportTypeName:(int)report.objectIdValue] dateFrom:@"2014-07-01" dateTo:@"2014-08-01" programIds:[NSArray arrayWithObject:self.transactionData.programId]] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-        LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:self.localContext];
-        if(report && report.htmlName)
-        {
-            NSString *path = [[NSBundle mainBundle]
-                              pathForResource:report.htmlName ofType:nil]
-            ;
-            NSURL *url = [NSURL fileURLWithPath:path];
-            NSURLRequest *request = [NSURLRequest requestWithURL:url];
-            [self.webView setScalesPageToFit:YES];
-            [self.webView loadRequest:request];
-        }
+        NSString *base64String = [responseObject valueForKeyPath:@"encodedReportContentHtml"];
+        NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:base64String options:0];
+        //NSString *decodedString = [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
+        [self.webView setScalesPageToFit:YES];
+        [self.webView loadData:decodedData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
     }
+    failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        NSData *data = operation.request.HTTPBody;
+        NSString *body = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"Body: %@", body);
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Błąd" message:@"Błąd generowania raportu." delegate:self cancelButtonTitle:@"Zakończ:" otherButtonTitles:nil];
+        [alertView show];
+    }];
 }
 
 - (void)didReceiveMemoryWarning

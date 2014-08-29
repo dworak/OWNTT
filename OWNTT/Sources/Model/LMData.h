@@ -14,4 +14,6 @@
 @property (strong, nonatomic) NSNumber *advertiserId;
 @property (strong, nonatomic) NSNumber *programId;
 @property (strong, nonatomic) NSNumber *reportId;
+@property (strong, nonatomic) NSDate *dateFrom;
+@property (strong, nonatomic) NSDate *dateTo;
 @end

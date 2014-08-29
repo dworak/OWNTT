@@ -67,8 +67,8 @@ typedef enum {
 
 typedef enum {
     LMOWNTTReportType_Type1 = 1,
-    LMOWNTTReportType_Type5 = 5,
-    LMOWNTTReportType_Type8 = 8
+    LMOWNTTReportType_Type5 = 2,
+    LMOWNTTReportType_Type8 = 3
 } LMOWNTTReportType;
 
 #import <UIKit/UIKit.h>
@@ -78,7 +78,9 @@ typedef void (^succedBlock)(AFHTTPRequestOperation *operation, id responseObject
 typedef void (^failureBlock)(AFHTTPRequestOperation *operation, NSError *error);
 
 @interface LMOWNTTHTTPClient : AFHTTPRequestOperationManager
+
 + (instancetype)sharedClient;
+
 + (NSString*)httpCleintServiseName:(LMOWNTTHTTPClientServiceName)service;
 + (NSString*)httpClientResponseMessage:(LMOWNTTHTTPClientResponse)response;
 + (NSString*)httpCleintServiseParamName:(LMOWNTTHTTPCLIENTServiceParamName)paramName;
@@ -87,6 +89,7 @@ typedef void (^failureBlock)(AFHTTPRequestOperation *operation, NSError *error);
 + (NSString*)getAlertBordertypeName:(LMOWNTTGetAlertBorderType)bordertype;
 + (NSString*)reportTypeName:(LMOWNTTReportType)reportType;
 + (NSString*)reportTypeAppName:(LMOWNTTReportType)reportType;
+
 + (LMOWNTTReportType)reportTypeForName:(NSString*)name;
 
 + (NSDictionary*)registerDeviceParamsLogin:(NSString*)login
