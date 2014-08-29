@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface LMUtils : NSObject
-+ (BOOL)userExist;
++ (void)getCurrentUser;
 + (BOOL)validateEmail:(NSString *)candidate;
 + (BOOL)isNumeric:(NSString*)inputString;
 

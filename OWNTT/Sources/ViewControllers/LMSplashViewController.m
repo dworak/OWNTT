@@ -49,7 +49,7 @@
     [super viewDidAppear:animated];
     //TODO: add tree download mechanism
     [self.activityIndicator startAnimating];
-    if([LMUtils userExist])
+    if(OWNTT_APP_DELEGATE.appUtils.currentUser)
     {
         [self downloadJsonData];
     }
@@ -95,7 +95,7 @@
     [[LMNotificationService instance] removeObserver:self forNotification:LMNotification_AlertOperationCancel];
     [self.activityIndicator stopAnimating];
     self.indicatorTextLabel.hidden = YES;
-    if(![LMUtils userExist]) {
+    if(!(OWNTT_APP_DELEGATE.appUtils.currentUser)) {
         [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushLogin] sender:self.parentViewController];
     } else {
         [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushTabBar] sender:self.parentViewController];
@@ -122,6 +122,8 @@
 - (void)createStaticData
 {
     NSManagedObjectContext *context = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    //Create default settings
+    //Create reports
     for(int i=0; i<3; i++)
     {
         LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:i+1] inContext:context];

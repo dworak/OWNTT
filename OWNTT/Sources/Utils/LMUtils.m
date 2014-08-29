@@ -22,20 +22,12 @@
 #import "LMReadOnlyObject.h"
 
 @implementation LMUtils
-+ (BOOL)userExist {
-    NSManagedObjectContext *mOC = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
++ (void)getCurrentUser
+{
     LMAppDelegate *appDelegate = (LMAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSArray *users = [LMUser fetchLMUsersInContext:mOC];
+    NSArray *users = [LMUser fetchLMUsersInContext:[[LMCoreDataManager sharedInstance] masterManagedObjectContext]];
     NSAssert(users.count < 2, @"Fatal error: users > 1");
-    if(users.count > 0)
-    {
-        appDelegate.appUtils.currentUser = [users objectAtIndex:0];
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
+    appDelegate.appUtils.currentUser = [users objectAtIndex:0];
 }
 
 + (UIViewController *)checkAndSetControllersByTreeHierarchyForStoryboard:(UIStoryboard *)storyboard
@@ -190,7 +182,7 @@
     {
         
     }
-    return datesArray;
+    return [NSArray arrayWithObjects:[NSDate date], [NSDate date], nil];
 }
 
 @end

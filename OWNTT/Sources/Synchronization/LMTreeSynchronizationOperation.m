@@ -49,6 +49,7 @@
          [self ttSignalFinish];
      } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
      {
+         NSLog(@"ERROR: Tree operation: %@",error.description);
          [self ttCancel];
      }];
     

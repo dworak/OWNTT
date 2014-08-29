@@ -52,6 +52,7 @@
          [self ttSignalFinish];
      } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
      {
+         NSLog(@"ERROR: Alert operation: %@",error.description);
          [self ttCancel];
      }];
     

@@ -21,6 +21,9 @@
     self.appUtils.notSaveDeviceKey = @"Test";
     [self.appUtils checkInternetConnection];
     
+    //Get current user
+    [LMUtils getCurrentUser];
+    
     //Setup json model
     [JSONModel setGlobalKeyMapper:[
                                    [JSONKeyMapper alloc] initWithDictionary:@{
