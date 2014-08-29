@@ -39,12 +39,12 @@
     {
         self.managedObjectContextForTheOperation = [self.manager newManagedObjectContext];
     }
-    [self unactiveAllTreeElements];
     
     LMUser *currentUser = [[LMUser fetchLMUsersInContext:self.managedObjectContextForTheOperation] objectAtIndex:0];
     
     [webServiceManager POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_LoadApplicationData parameters:[LMOWNTTHTTPClient unregisterDeviceParamsToken:currentUser.httpToken] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
      {
+         [self unactiveAllTreeElements];
          [self setFetchedResponse:responseObject];
          [self ttSignalFinish];
      } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)

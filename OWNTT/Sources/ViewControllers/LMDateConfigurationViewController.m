@@ -31,7 +31,6 @@ typedef enum {
 @property (weak, nonatomic) UIButton *currentButton;
 
 @property (strong,nonatomic) NSDateFormatter *dateFormatter;
-@property (weak, nonatomic) IBOutlet UIButton *checkButton;
 
 @property (unsafe_unretained, nonatomic) BOOL dateShow;
 
@@ -52,7 +51,9 @@ typedef enum {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.toolbar.clipsToBounds = YES;
-    self.checkButton.exclusiveTouch = YES;
+    self.dateFromButton.exclusiveTouch = YES;
+    self.dateToButton.exclusiveTouch = YES;
+    self.currentInterval.exclusiveTouch = YES;
     if(self.fromBranchReport)
     {
         self.toolbar.hidden = YES;
@@ -160,19 +161,6 @@ typedef enum {
         [self.parentViewController dismissViewControllerAnimated:YES completion:^{
             
         }];
-    }
-}
-
-- (IBAction)checkboxTapped:(id)sender
-{
-    self.checkButton.selected = !self.checkButton.selected;
-    if(self.checkButton.selected)
-    {
-        self.dateToButton.enabled = YES;
-    }
-    else
-    {
-        self.dateToButton.enabled = NO;
     }
 }
 
