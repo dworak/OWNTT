@@ -8,7 +8,37 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    ReportTimeInterval_ThisYear = 0,
+    ReportTimeInterval_PreviousMonth,
+    RreportTimeInterval_ActualMonth,
+    ReportTimeInterval_PreviousWeek,
+    ReportTimeInterval_ThisWeek,
+    ReportTimeInterval_Yesterday,
+    ReportTimeInterval_Today
+} ReportTimeIntervalType;
+
+typedef enum {
+    AlertMonitoringTypes_Growing = 0,
+    AlertMonitoringTypes_Daily
+} AlertMonitoringTypes;
+
+typedef enum {
+    AlertPointertypes_Display = 0,
+    AlertPointertypes_Click,
+    AlertPointertypes_Visit,
+    AlertPointertypes_NewVisit,
+    AlertPointertypes_WebTime,
+    AlertPointertypes_Checkpoint,
+    AlertPointertypes_Lead,
+    AlertPointertypes_Sale
+} AlertPointerTypes;
+
 @interface LMUtils : NSObject
++ (NSString *)reportTimeIntervalTypeToString:(ReportTimeIntervalType)reportType;
++ (NSString *)alertMonitoringTypeToString:(AlertMonitoringTypes)monitoringType;
++ (NSString *)alertPointerTypeToString:(AlertPointerTypes)pointerType;
+
 + (void)getCurrentUser;
 + (BOOL)validateEmail:(NSString *)candidate;
 + (BOOL)isNumeric:(NSString*)inputString;

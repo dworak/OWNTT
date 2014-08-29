@@ -4,6 +4,9 @@
 #import "_LMInstance.h"
 
 const struct LMInstanceAttributes LMInstanceAttributes = {
+	.isReport1 = @"isReport1",
+	.isReport5 = @"isReport5",
+	.isReport8 = @"isReport8",
 };
 
 const struct LMInstanceRelationships LMInstanceRelationships = {
@@ -40,9 +43,102 @@ const struct LMInstanceFetchedProperties LMInstanceFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"isReport1Value"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"isReport1"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"isReport5Value"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"isReport5"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"isReport8Value"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"isReport8"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic isReport1;
+
+
+
+- (BOOL)isReport1Value {
+	NSNumber *result = [self isReport1];
+	return [result boolValue];
+}
+
+- (void)setIsReport1Value:(BOOL)value_ {
+	[self setIsReport1:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveIsReport1Value {
+	NSNumber *result = [self primitiveIsReport1];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveIsReport1Value:(BOOL)value_ {
+	[self setPrimitiveIsReport1:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
+@dynamic isReport5;
+
+
+
+- (BOOL)isReport5Value {
+	NSNumber *result = [self isReport5];
+	return [result boolValue];
+}
+
+- (void)setIsReport5Value:(BOOL)value_ {
+	[self setIsReport5:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveIsReport5Value {
+	NSNumber *result = [self primitiveIsReport5];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveIsReport5Value:(BOOL)value_ {
+	[self setPrimitiveIsReport5:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
+@dynamic isReport8;
+
+
+
+- (BOOL)isReport8Value {
+	NSNumber *result = [self isReport8];
+	return [result boolValue];
+}
+
+- (void)setIsReport8Value:(BOOL)value_ {
+	[self setIsReport8:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveIsReport8Value {
+	NSNumber *result = [self primitiveIsReport8];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveIsReport8Value:(BOOL)value_ {
+	[self setPrimitiveIsReport8:[NSNumber numberWithBool:value_]];
+}
+
 
 
 

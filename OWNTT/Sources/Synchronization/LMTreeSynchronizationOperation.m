@@ -23,6 +23,9 @@
     entity.objectId = modelObject.objectId;
     entity.active = [NSNumber numberWithInt:1];
     entity.name = modelObject.name;
+    entity.isReport1 = [NSNumber numberWithBool:NO];
+    entity.isReport5 = [NSNumber numberWithBool:NO];
+    entity.isReport8 = [NSNumber numberWithBool:NO];
 }
 
 
@@ -103,6 +106,7 @@
                     LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:1] inContext:self.managedObjectContextForTheOperation];
                     NSAssert(report, @"ERROR: report 1 can not exist");
                     [instance addReportsObject:report];
+                    instance.isReport1 = [NSNumber numberWithBool:YES];
                     break;
                 }
                 case LMOWNTTReportType_Type5:
@@ -110,6 +114,7 @@
                     LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:2] inContext:self.managedObjectContextForTheOperation];
                     NSAssert(report, @"ERROR: report 2 can not exist");
                     [instance addReportsObject:report];
+                    instance.isReport5 = [NSNumber numberWithBool:YES];
                     break;
                 }
                 case LMOWNTTReportType_Type8:
@@ -117,6 +122,7 @@
                     LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:3] inContext:self.managedObjectContextForTheOperation];
                     NSAssert(report, @"ERROR: report 3 can not exist");
                     [instance addReportsObject:report];
+                    instance.isReport8 = [NSNumber numberWithBool:YES];
                     break;
                 }
                 default:

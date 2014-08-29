@@ -20,8 +20,67 @@
 #import "LMProgram.h"
 #import "LMReport.h"
 #import "LMReadOnlyObject.h"
+#import "LMSettings.h"
 
 @implementation LMUtils
++ (NSString *)reportTimeIntervalTypeToString:(ReportTimeIntervalType)reportType
+{
+    switch (reportType) {
+        case ReportTimeInterval_PreviousMonth:
+            return LM_LOCALIZE(@"reportTimeInterval_PreviousMonth");
+        case ReportTimeInterval_PreviousWeek:
+            return LM_LOCALIZE(@"reportTimeInterval_PreviousWeek");
+        case ReportTimeInterval_ThisWeek:
+            return LM_LOCALIZE(@"reportTimeInterval_ThisWeek");
+        case ReportTimeInterval_ThisYear:
+            return LM_LOCALIZE(@"reportTimeInterval_ThisYear");
+        case ReportTimeInterval_Today:
+            return LM_LOCALIZE(@"reportTimeInterval_Today");
+        case ReportTimeInterval_Yesterday:
+            return LM_LOCALIZE(@"reportTimeInterval_Yesterday");
+        case RreportTimeInterval_ActualMonth:
+            return LM_LOCALIZE(@"reportTimeInterval_ActualMonth");
+        default:
+            return nil;
+    }
+}
+
++ (NSString *)alertMonitoringTypeToString:(AlertMonitoringTypes)monitoringType
+{
+    switch (monitoringType) {
+        case AlertMonitoringTypes_Daily:
+            return LM_LOCALIZE(@"alertMonitoringTypes_Daily");
+        case AlertMonitoringTypes_Growing:
+            return LM_LOCALIZE(@"lertMonitoringTypes_Growing");
+        default:
+            return nil;
+    }
+}
+
++ (NSString *)alertPointerTypeToString:(AlertPointerTypes)pointerType
+{
+    switch (pointerType) {
+        case AlertPointertypes_Display:
+            return LM_LOCALIZE(@"alertPointertypes_Display");
+        case AlertPointertypes_Click:
+            return LM_LOCALIZE(@"alertPointertypes_Click");
+        case AlertPointertypes_Visit:
+            return LM_LOCALIZE(@"alertPointertypes_Visit");
+        case AlertPointertypes_NewVisit:
+            return LM_LOCALIZE(@"alertPointertypes_NewVisit");
+        case AlertPointertypes_Checkpoint:
+            return LM_LOCALIZE(@"alertPointertypes_Checkpoint");
+        case AlertPointertypes_Lead:
+            return LM_LOCALIZE(@"alertPointertypes_Lead");
+        case AlertPointertypes_Sale:
+            return LM_LOCALIZE(@"alertPointertypes_Sale");
+        case AlertPointertypes_WebTime:
+            return LM_LOCALIZE(@"alertPointertypes_WebTime");
+        default:
+            return nil;
+    }
+}
+
 + (void)getCurrentUser
 {
     LMAppDelegate *appDelegate = (LMAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -32,11 +91,6 @@
         return;
     }
     appDelegate.appUtils.currentUser = [users objectAtIndex:0];
-    if(appDelegate.appUtils.currentUser)
-    {
-        //Configure default setting
-        LMUser *user = appDelegate.appUtils.currentUser;
-    }
 }
 
 + (UIViewController *)checkAndSetControllersByTreeHierarchyForStoryboard:(UIStoryboard *)storyboard
@@ -189,7 +243,7 @@
     }
     else if([timeinterval isEqual:@"Dzisiaj"])
     {
-        
+        return [NSArray arrayWithObjects:today, today, nil];
     }
     return [NSArray arrayWithObjects:[NSDate date], [NSDate date], nil];
 }

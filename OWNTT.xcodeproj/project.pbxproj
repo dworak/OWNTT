@@ -120,6 +120,8 @@
 		25FF5B50198F68FA0043DA5D /* LMHeaderView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25FF5B4F198F68FA0043DA5D /* LMHeaderView_iPhone.xib */; };
 		C9F3FCFC4078458C841A60FD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3CEF0A0FE04D0FAC9F6EC3 /* libPods.a */; };
 		ED14BACB19B075F4007D3CF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED14BAC619B075F4007D3CF4 /* Localizable.strings */; };
+		ED14BACE19B07E5E007D3CF4 /* _LMSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14BACD19B07E5E007D3CF4 /* _LMSettings.m */; };
+		ED14BAD119B07E69007D3CF4 /* LMSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14BAD019B07E69007D3CF4 /* LMSettings.m */; };
 		ED54F15919ADE16F00BC3446 /* LMInstanceWS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F15819ADE16F00BC3446 /* LMInstanceWS.m */; };
 		ED54F15C19ADE67600BC3446 /* LMAdvertiserWS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F15B19ADE67600BC3446 /* LMAdvertiserWS.m */; };
 		ED54F16219ADE75F00BC3446 /* LMProgramWS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F16119ADE75F00BC3446 /* LMProgramWS.m */; };
@@ -374,6 +376,10 @@
 		8E3CEF0A0FE04D0FAC9F6EC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED14BAC719B075F4007D3CF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		ED14BAC919B075F4007D3CF4 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED14BACC19B07E5E007D3CF4 /* _LMSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _LMSettings.h; path = Genereted/_LMSettings.h; sourceTree = "<group>"; };
+		ED14BACD19B07E5E007D3CF4 /* _LMSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _LMSettings.m; path = Genereted/_LMSettings.m; sourceTree = "<group>"; };
+		ED14BACF19B07E69007D3CF4 /* LMSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSettings.h; sourceTree = "<group>"; };
+		ED14BAD019B07E69007D3CF4 /* LMSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSettings.m; sourceTree = "<group>"; };
 		ED54F15719ADE16F00BC3446 /* LMInstanceWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMInstanceWS.h; sourceTree = "<group>"; };
 		ED54F15819ADE16F00BC3446 /* LMInstanceWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMInstanceWS.m; sourceTree = "<group>"; };
 		ED54F15A19ADE67600BC3446 /* LMAdvertiserWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAdvertiserWS.h; sourceTree = "<group>"; };
@@ -505,6 +511,8 @@
 		25036AC9198D2D7100EAE355 /* Genereted */ = {
 			isa = PBXGroup;
 			children = (
+				ED14BACF19B07E69007D3CF4 /* LMSettings.h */,
+				ED14BAD019B07E69007D3CF4 /* LMSettings.m */,
 				2584AD8719ABB98800C9CBA2 /* LMSynchStatus.h */,
 				2584AD8819ABB98800C9CBA2 /* LMSynchStatus.m */,
 				25FF5B47198F50B70043DA5D /* LMReport.h */,
@@ -586,6 +594,8 @@
 		25462AC71981BA590007482F /* ModelClasses */ = {
 			isa = PBXGroup;
 			children = (
+				ED14BACC19B07E5E007D3CF4 /* _LMSettings.h */,
+				ED14BACD19B07E5E007D3CF4 /* _LMSettings.m */,
 				2584AD8419ABB98000C9CBA2 /* _LMSynchStatus.h */,
 				2584AD8519ABB98000C9CBA2 /* _LMSynchStatus.m */,
 				25FAFCBB1990E1D300FCD226 /* _LMReadOnlyUserObject.h */,
@@ -1146,6 +1156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25146A8719924FC5001DC8E3 /* LMWebViewController.m in Sources */,
+				ED14BACE19B07E5E007D3CF4 /* _LMSettings.m in Sources */,
 				25FAFCCB1990E1D300FCD226 /* LMUserAlert.m in Sources */,
 				25FF5B46198F50B00043DA5D /* _LMReport.m in Sources */,
 				EDD131B919812EFD006F39E3 /* LMBranchInstanceViewController.m in Sources */,
@@ -1188,6 +1199,7 @@
 				25FAFCCC1990E1D300FCD226 /* LMUserReport.m in Sources */,
 				25659B8719A082A1009BF814 /* LMFontLabel.m in Sources */,
 				ED54F15919ADE16F00BC3446 /* LMInstanceWS.m in Sources */,
+				ED14BAD119B07E69007D3CF4 /* LMSettings.m in Sources */,
 				253E39341999EF1700B395ED /* LMBranchReportTableViewCell.m in Sources */,
 				25FAFCB51990D81F00FCD226 /* LMMenuViewController.m in Sources */,
 				25FAFCC71990E1D300FCD226 /* _LMReadOnlyUserObject.m in Sources */,

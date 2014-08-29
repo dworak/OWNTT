@@ -5,6 +5,9 @@
 #import "LMReadOnlyObject.h"
 
 extern const struct LMInstanceAttributes {
+	__unsafe_unretained NSString *isReport1;
+	__unsafe_unretained NSString *isReport5;
+	__unsafe_unretained NSString *isReport8;
 } LMInstanceAttributes;
 
 extern const struct LMInstanceRelationships {
@@ -19,6 +22,9 @@ extern const struct LMInstanceFetchedProperties {
 @class LMReport;
 
 
+
+
+
 @interface LMInstanceID : NSManagedObjectID {}
 @end
 
@@ -27,6 +33,48 @@ extern const struct LMInstanceFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (LMInstanceID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* isReport1;
+
+
+
+@property BOOL isReport1Value;
+- (BOOL)isReport1Value;
+- (void)setIsReport1Value:(BOOL)value_;
+
+//- (BOOL)validateIsReport1:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* isReport5;
+
+
+
+@property BOOL isReport5Value;
+- (BOOL)isReport5Value;
+- (void)setIsReport5Value:(BOOL)value_;
+
+//- (BOOL)validateIsReport5:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* isReport8;
+
+
+
+@property BOOL isReport8Value;
+- (BOOL)isReport8Value;
+- (void)setIsReport8Value:(BOOL)value_;
+
+//- (BOOL)validateIsReport8:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -64,6 +112,33 @@ extern const struct LMInstanceFetchedProperties {
 @end
 
 @interface _LMInstance (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSNumber*)primitiveIsReport1;
+- (void)setPrimitiveIsReport1:(NSNumber*)value;
+
+- (BOOL)primitiveIsReport1Value;
+- (void)setPrimitiveIsReport1Value:(BOOL)value_;
+
+
+
+
+- (NSNumber*)primitiveIsReport5;
+- (void)setPrimitiveIsReport5:(NSNumber*)value;
+
+- (BOOL)primitiveIsReport5Value;
+- (void)setPrimitiveIsReport5Value:(BOOL)value_;
+
+
+
+
+- (NSNumber*)primitiveIsReport8;
+- (void)setPrimitiveIsReport8:(NSNumber*)value;
+
+- (BOOL)primitiveIsReport8Value;
+- (void)setPrimitiveIsReport8Value:(BOOL)value_;
+
+
 
 
 

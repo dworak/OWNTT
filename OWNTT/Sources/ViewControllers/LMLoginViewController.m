@@ -16,6 +16,7 @@
 #import "LMUser.h"
 #import "LMReadOnlyObject.h"
 #import "LMReport.h"
+#import "LMSettings.h"
 
 @interface LMLoginViewController ()
 @property (weak, nonatomic) IBOutlet LMTextField *loginTextField;
@@ -174,6 +175,12 @@
              user.httpToken = [response valueForKey:@"token"];
              LMAppDelegate *appDelegate = ((LMAppDelegate *)[[UIApplication sharedApplication] delegate]);
              appDelegate.appUtils.currentUser = user;
+             if(appDelegate.appUtils.currentUser)
+             {
+                 //Configure default setting
+                 LMUser *user = appDelegate.appUtils.currentUser;
+                 user.settings.reportDefaultDate = @"Dzisiaj";
+             }
              [LMUtils saveCoreDataContext:selfObj.managedObjectContext];
              
              //Change current user
