@@ -28,5 +28,6 @@
 #import "LMBorderDescriptionView.h"
 #import "LMSynchronizationService.h"
 #import "LMOWNTTHTTPClient.h"
+#import "LocalizationSystem.h"
 
 #endif

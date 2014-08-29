@@ -41,6 +41,6 @@ return (EnumType)0; \
 
 #define LM_STRINGIZE(Data) ([NSString stringWithFormat:@"%s", #Data])
 
-#define LM_LOCALIZE(K) (NSLocalizedString(K, @"Empty localization"))
+#define LM_LOCALIZE(K) (AMLocalizedString(K, @"Empty localization"))
 
 #endif

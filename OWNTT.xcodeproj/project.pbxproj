@@ -98,6 +98,7 @@
 		25B18C721996095B00A519B5 /* LMDateConfigurationViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25B18C711996095B00A519B5 /* LMDateConfigurationViewController_iPhone.xib */; };
 		25B18C751996186100A519B5 /* LMCustomNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B18C741996186100A519B5 /* LMCustomNavigationViewController.m */; };
 		25D0722B1998B2B100E326C8 /* LMSegueKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D0722A1998B2B100E326C8 /* LMSegueKeys.m */; };
+		25EFBB4A19B1049C0012367A /* LocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EFBB4919B1049C0012367A /* LocalizationSystem.m */; };
 		25F9E62219A3DACD000D809A /* violet_inverse_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F9E62019A3DACD000D809A /* violet_inverse_arrow@2x.png */; };
 		25F9E62319A3DACD000D809A /* violetArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F9E62119A3DACD000D809A /* violetArrow@2x.png */; };
 		25FAFCA71990C41600FCD226 /* LMData.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA61990C41600FCD226 /* LMData.m */; };
@@ -336,6 +337,8 @@
 		25B18C741996186100A519B5 /* LMCustomNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCustomNavigationViewController.m; sourceTree = "<group>"; };
 		25D072291998B2B100E326C8 /* LMSegueKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSegueKeys.h; sourceTree = "<group>"; };
 		25D0722A1998B2B100E326C8 /* LMSegueKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSegueKeys.m; sourceTree = "<group>"; };
+		25EFBB4819B1049C0012367A /* LocalizationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationSystem.h; sourceTree = "<group>"; };
+		25EFBB4919B1049C0012367A /* LocalizationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationSystem.m; sourceTree = "<group>"; };
 		25F9E62019A3DACD000D809A /* violet_inverse_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "violet_inverse_arrow@2x.png"; sourceTree = "<group>"; };
 		25F9E62119A3DACD000D809A /* violetArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "violetArrow@2x.png"; sourceTree = "<group>"; };
 		25FAFCA51990C41600FCD226 /* LMData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMData.h; sourceTree = "<group>"; };
@@ -939,6 +942,8 @@
 		EDF39E65198103C000E00966 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				25EFBB4819B1049C0012367A /* LocalizationSystem.h */,
+				25EFBB4919B1049C0012367A /* LocalizationSystem.m */,
 				25D072291998B2B100E326C8 /* LMSegueKeys.h */,
 				25D0722A1998B2B100E326C8 /* LMSegueKeys.m */,
 				25FF5B4A198F5DBD0043DA5D /* Constans.h */,
@@ -1158,6 +1163,7 @@
 				25146A8719924FC5001DC8E3 /* LMWebViewController.m in Sources */,
 				ED14BACE19B07E5E007D3CF4 /* _LMSettings.m in Sources */,
 				25FAFCCB1990E1D300FCD226 /* LMUserAlert.m in Sources */,
+				25EFBB4A19B1049C0012367A /* LocalizationSystem.m in Sources */,
 				25FF5B46198F50B00043DA5D /* _LMReport.m in Sources */,
 				EDD131B919812EFD006F39E3 /* LMBranchInstanceViewController.m in Sources */,
 				2584AD8619ABB98000C9CBA2 /* _LMSynchStatus.m in Sources */,

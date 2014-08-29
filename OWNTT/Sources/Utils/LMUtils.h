@@ -52,6 +52,7 @@ typedef enum {
 + (void)showErrorAlertWithText:(NSString *)text;
 + (void)createReportObjects;
 + (void)performSynchronization:(BOOL)initial;
++ (void)setupCurrentLanguage;
 
 + (NSNumber *)getCurrentInstance;
 

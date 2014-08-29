@@ -16,6 +16,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [LMUtils setupCurrentLanguage];
+    NSLog(@"%@", LM_LOCALIZE(@"reportTimeInterval_ThisYear"));
     //Create app utils
     self.appUtils = [LMAppUtils new];
     self.appUtils.notSaveDeviceKey = @"Test";

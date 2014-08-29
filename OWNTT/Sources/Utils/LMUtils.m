@@ -248,4 +248,17 @@
     return [NSArray arrayWithObjects:[NSDate date], [NSDate date], nil];
 }
 
++ (void)setupCurrentLanguage
+{
+    NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
+    NSArray* languages = [defs objectForKey:@"AppleLanguages"];
+    NSString* preferredLang = [languages objectAtIndex:0];
+    if(![preferredLang isEqualToString:@"pl"])
+    {
+        preferredLang = @"en";
+    }
+    
+    LocalizationSetLanguage(preferredLang);
+}
+
 @end

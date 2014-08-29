@@ -7,7 +7,7 @@
 */
 
 //reportTimeInterval
-"reportTimeInterval_ThisYear" = "Ten rok";
+"reportTimeInterval_ThisYear" = "This year";
 "reportTimeInterval_PreviousMonth" = "Poprzedni miesiąc";
 "reportTimeInterval_ActualMonth" = "Aktualny miesiąc";
 "reportTimeInterval_PreviousWeek" = "Poprzedni tydzień";
