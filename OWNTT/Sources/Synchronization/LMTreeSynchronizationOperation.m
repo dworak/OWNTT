@@ -40,7 +40,7 @@
         self.managedObjectContextForTheOperation = [self.manager newManagedObjectContext];
     }
     
-    LMUser *currentUser = [[LMUser fetchLMUsersInContext:self.managedObjectContextForTheOperation] objectAtIndex:0];
+    LMUser *currentUser = OWNTT_APP_DELEGATE.appUtils.currentUser;
     
     [webServiceManager POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_LoadApplicationData parameters:[LMOWNTTHTTPClient unregisterDeviceParamsToken:currentUser.httpToken] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
      {
