@@ -52,9 +52,9 @@ extern const struct LMUserAlertFetchedProperties {
 
 
 
-@property double borderTypeValue;
-- (double)borderTypeValue;
-- (void)setBorderTypeValue:(double)value_;
+@property int16_t borderTypeValue;
+- (int16_t)borderTypeValue;
+- (void)setBorderTypeValue:(int16_t)value_;
 
 //- (BOOL)validateBorderType:(id*)value_ error:(NSError**)error_;
 
@@ -86,9 +86,9 @@ extern const struct LMUserAlertFetchedProperties {
 
 
 
-@property int64_t hourValue;
-- (int64_t)hourValue;
-- (void)setHourValue:(int64_t)value_;
+@property int16_t hourValue;
+- (int16_t)hourValue;
+- (void)setHourValue:(int16_t)value_;
 
 //- (BOOL)validateHour:(id*)value_ error:(NSError**)error_;
 
@@ -100,9 +100,9 @@ extern const struct LMUserAlertFetchedProperties {
 
 
 
-@property int64_t monitorTypeValue;
-- (int64_t)monitorTypeValue;
-- (void)setMonitorTypeValue:(int64_t)value_;
+@property int16_t monitorTypeValue;
+- (int16_t)monitorTypeValue;
+- (void)setMonitorTypeValue:(int16_t)value_;
 
 //- (BOOL)validateMonitorType:(id*)value_ error:(NSError**)error_;
 
@@ -128,9 +128,9 @@ extern const struct LMUserAlertFetchedProperties {
 
 
 
-@property int64_t paramTypeValue;
-- (int64_t)paramTypeValue;
-- (void)setParamTypeValue:(int64_t)value_;
+@property int16_t paramTypeValue;
+- (int16_t)paramTypeValue;
+- (void)setParamTypeValue:(int16_t)value_;
 
 //- (BOOL)validateParamType:(id*)value_ error:(NSError**)error_;
 
@@ -182,8 +182,8 @@ extern const struct LMUserAlertFetchedProperties {
 - (NSNumber*)primitiveBorderType;
 - (void)setPrimitiveBorderType:(NSNumber*)value;
 
-- (double)primitiveBorderTypeValue;
-- (void)setPrimitiveBorderTypeValue:(double)value_;
+- (int16_t)primitiveBorderTypeValue;
+- (void)setPrimitiveBorderTypeValue:(int16_t)value_;
 
 
 
@@ -203,8 +203,8 @@ extern const struct LMUserAlertFetchedProperties {
 - (NSNumber*)primitiveHour;
 - (void)setPrimitiveHour:(NSNumber*)value;
 
-- (int64_t)primitiveHourValue;
-- (void)setPrimitiveHourValue:(int64_t)value_;
+- (int16_t)primitiveHourValue;
+- (void)setPrimitiveHourValue:(int16_t)value_;
 
 
 
@@ -212,8 +212,8 @@ extern const struct LMUserAlertFetchedProperties {
 - (NSNumber*)primitiveMonitorType;
 - (void)setPrimitiveMonitorType:(NSNumber*)value;
 
-- (int64_t)primitiveMonitorTypeValue;
-- (void)setPrimitiveMonitorTypeValue:(int64_t)value_;
+- (int16_t)primitiveMonitorTypeValue;
+- (void)setPrimitiveMonitorTypeValue:(int16_t)value_;
 
 
 
@@ -230,8 +230,8 @@ extern const struct LMUserAlertFetchedProperties {
 - (NSNumber*)primitiveParamType;
 - (void)setPrimitiveParamType:(NSNumber*)value;
 
-- (int64_t)primitiveParamTypeValue;
-- (void)setPrimitiveParamTypeValue:(int64_t)value_;
+- (int16_t)primitiveParamTypeValue;
+- (void)setPrimitiveParamTypeValue:(int16_t)value_;
 
 
 

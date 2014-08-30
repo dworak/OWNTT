@@ -168,13 +168,24 @@
 
 - (void)saveObjectData
 {
+    NSNumberFormatter *decimalFormater = [NSNumberFormatter new];
+    [decimalFormater setNumberStyle:NSNumberFormatterDecimalStyle];
     NSManagedObjectContext *managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
     LMUser *user = [[LMUser fetchLMUsersInContext:managedObjectContext] objectAtIndex:0];
     LMUserAlert *userAlert = [LMUserAlert createObjectInContext:managedObjectContext];
     userAlert.name = self.alertNameTextField.text;
+    userAlert.paramTypeValue = [LMUtils alertPointerStringToType:self.rateType.titleLabel.text];
+    userAlert.monitorTypeValue = [LMUtils alertMonitoringStringToType:self.monitoringType.titleLabel.text];
+    userAlert.hour = [decimalFormater numberFromString:self.hourOfSend.titleLabel.text];
+    userAlert.programId = [self.transactionData.programIds objectAtIndex:0];
+    userAlert.dateFrom = [self.dateFormater dateFromString:self.dateFrom.titleLabel.text];
+    userAlert.dateTo = [self.dateFormater dateFromString:self.dateTo.titleLabel.text];
+    userAlert.value = self.valueTextField.text;
+    userAlert.objectIdValue = OWNTT_APP_DELEGATE.appUtils.currentUser.alertsCountValue+1;
     userAlert.createDate = [NSDate date];
     [user.userAlertsSet addObject:userAlert];
     [LMUtils saveCoreDataContext:managedObjectContext];
+    
 }
 
 - (IBAction)checkboxTapped:(id)sender

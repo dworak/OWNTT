@@ -89,22 +89,22 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 
 
 
-- (double)borderTypeValue {
+- (int16_t)borderTypeValue {
 	NSNumber *result = [self borderType];
-	return [result doubleValue];
+	return [result shortValue];
 }
 
-- (void)setBorderTypeValue:(double)value_ {
-	[self setBorderType:[NSNumber numberWithDouble:value_]];
+- (void)setBorderTypeValue:(int16_t)value_ {
+	[self setBorderType:[NSNumber numberWithShort:value_]];
 }
 
-- (double)primitiveBorderTypeValue {
+- (int16_t)primitiveBorderTypeValue {
 	NSNumber *result = [self primitiveBorderType];
-	return [result doubleValue];
+	return [result shortValue];
 }
 
-- (void)setPrimitiveBorderTypeValue:(double)value_ {
-	[self setPrimitiveBorderType:[NSNumber numberWithDouble:value_]];
+- (void)setPrimitiveBorderTypeValue:(int16_t)value_ {
+	[self setPrimitiveBorderType:[NSNumber numberWithShort:value_]];
 }
 
 
@@ -129,22 +129,22 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 
 
 
-- (int64_t)hourValue {
+- (int16_t)hourValue {
 	NSNumber *result = [self hour];
-	return [result longLongValue];
+	return [result shortValue];
 }
 
-- (void)setHourValue:(int64_t)value_ {
-	[self setHour:[NSNumber numberWithLongLong:value_]];
+- (void)setHourValue:(int16_t)value_ {
+	[self setHour:[NSNumber numberWithShort:value_]];
 }
 
-- (int64_t)primitiveHourValue {
+- (int16_t)primitiveHourValue {
 	NSNumber *result = [self primitiveHour];
-	return [result longLongValue];
+	return [result shortValue];
 }
 
-- (void)setPrimitiveHourValue:(int64_t)value_ {
-	[self setPrimitiveHour:[NSNumber numberWithLongLong:value_]];
+- (void)setPrimitiveHourValue:(int16_t)value_ {
+	[self setPrimitiveHour:[NSNumber numberWithShort:value_]];
 }
 
 
@@ -155,22 +155,22 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 
 
 
-- (int64_t)monitorTypeValue {
+- (int16_t)monitorTypeValue {
 	NSNumber *result = [self monitorType];
-	return [result longLongValue];
+	return [result shortValue];
 }
 
-- (void)setMonitorTypeValue:(int64_t)value_ {
-	[self setMonitorType:[NSNumber numberWithLongLong:value_]];
+- (void)setMonitorTypeValue:(int16_t)value_ {
+	[self setMonitorType:[NSNumber numberWithShort:value_]];
 }
 
-- (int64_t)primitiveMonitorTypeValue {
+- (int16_t)primitiveMonitorTypeValue {
 	NSNumber *result = [self primitiveMonitorType];
-	return [result longLongValue];
+	return [result shortValue];
 }
 
-- (void)setPrimitiveMonitorTypeValue:(int64_t)value_ {
-	[self setPrimitiveMonitorType:[NSNumber numberWithLongLong:value_]];
+- (void)setPrimitiveMonitorTypeValue:(int16_t)value_ {
+	[self setPrimitiveMonitorType:[NSNumber numberWithShort:value_]];
 }
 
 
@@ -207,22 +207,22 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 
 
 
-- (int64_t)paramTypeValue {
+- (int16_t)paramTypeValue {
 	NSNumber *result = [self paramType];
-	return [result longLongValue];
+	return [result shortValue];
 }
 
-- (void)setParamTypeValue:(int64_t)value_ {
-	[self setParamType:[NSNumber numberWithLongLong:value_]];
+- (void)setParamTypeValue:(int16_t)value_ {
+	[self setParamType:[NSNumber numberWithShort:value_]];
 }
 
-- (int64_t)primitiveParamTypeValue {
+- (int16_t)primitiveParamTypeValue {
 	NSNumber *result = [self primitiveParamType];
-	return [result longLongValue];
+	return [result shortValue];
 }
 
-- (void)setPrimitiveParamTypeValue:(int64_t)value_ {
-	[self setPrimitiveParamType:[NSNumber numberWithLongLong:value_]];
+- (void)setPrimitiveParamTypeValue:(int16_t)value_ {
+	[self setPrimitiveParamType:[NSNumber numberWithShort:value_]];
 }
 
 
