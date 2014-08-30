@@ -95,13 +95,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionNotificationChange) name:LM_CONNECTION_NOTIFICATION_CHANGE object:nil];
     [self connectionNotificationChange];
     [self setLocalizationStrings];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionNotificationChange) name:LM_CONNECTION_NOTIFICATION_CHANGE object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

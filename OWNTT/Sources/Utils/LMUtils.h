@@ -35,10 +35,16 @@ typedef enum {
     AlertPointertypes_Sale
 } AlertPointerTypes;
 
+typedef enum {
+    AlertBorderTypes_GreaterThan = 0,
+    AlertBorderTypes_LessThan
+} AlertBorderTypes;
+
 @interface LMUtils : NSObject
 + (NSString *)reportTimeIntervalTypeToString:(ReportTimeIntervalType)reportType;
 + (NSString *)alertMonitoringTypeToString:(AlertMonitoringTypes)monitoringType;
 + (NSString *)alertPointerTypeToString:(AlertPointerTypes)pointerType;
++ (NSString *)alertBorderTypeToString:(AlertBorderTypes)borderType;
 
 + (void)getCurrentUser;
 + (BOOL)validateEmail:(NSString *)candidate;
@@ -55,6 +61,9 @@ typedef enum {
 + (void)setupCurrentLanguage;
 
 + (ReportTimeIntervalType)reportTimeIntervalStringToType:(NSString *)reportStr;
++ (AlertMonitoringTypes)alertMonitoringStringToType:(NSString *)monitoringStr;
++ (AlertPointerTypes)alertPointerStringToType:(NSString *)pointerStr;
++ (AlertBorderTypes)alertBorderStringToType:(NSString *)borderStr;
 
 + (NSNumber *)getCurrentInstance;
 

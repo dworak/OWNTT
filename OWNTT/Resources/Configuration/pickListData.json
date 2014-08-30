@@ -10,23 +10,21 @@
                             "reportTimeInterval_Custom"
     ],
     "alertMonitoringTypes" : [
-        "Narastający",
-        "Dzienny"
-    ],
-    "alertHourTypes" : [
-        "9:00",
-        "10:00",
-        "11:00",
-        "12:00"
+                              "alertMonitoringTypes_Growing",
+                              "alertMonitoringTypes_Daily"
     ],
     "alertPointertypes" : [
-        "Odsłona",
-        "Kliknięcie",
-        "Wizyta",
-        "Nowa Wizyta",
-        "Czas na stronie",
-        "Checkpoint",
-        "Lead",
-        "Sprzedaż"
+                           "alertPointerTypes_Display",
+                           "alertPointerTypes_Clisk",
+                           "alertPointerTypes_Visit",
+                           "alertPointerTypes_NewVisit",
+                           "alertPointerTypes_WebTime",
+                           "alertPointerTypes_Checkpoint",
+                           "alertPointerTypes_Lead",
+                           "alertPointerTypes_Sale"
+    ],
+    "alertBorderTypes" : [
+                         "alertBorderType_GreaterThan",
+                         "alertBorderType_LessThan"
     ]
 }

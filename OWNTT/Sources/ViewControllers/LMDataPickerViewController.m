@@ -99,6 +99,7 @@
 
 - (void)addPickerData:(NSArray *)pickerData
 {
+    self.isLocalizable = YES;
     self.pickerData = pickerData;
     [self.pickerView.pickerView reloadAllComponents];
 }
@@ -186,7 +187,14 @@
 
 - (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return LM_LOCALIZE([self.pickerData objectAtIndex:row]);
+    if(self.isLocalizable)
+    {
+        return LM_LOCALIZE([self.pickerData objectAtIndex:row]);
+    }
+    else
+    {
+        return [self.pickerData objectAtIndex:row];
+    }
 }
 
 

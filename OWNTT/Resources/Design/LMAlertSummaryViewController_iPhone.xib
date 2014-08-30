@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LMAlertSummaryViewController">
             <connections>
                 <outlet property="alertNameTextField" destination="5Cv-zK-eZR" id="4Of-4w-Okx"/>
+                <outlet property="borderType" destination="IwG-To-iTg" id="u9U-rH-gD3"/>
                 <outlet property="checkButton" destination="nq3-gL-G2D" id="q31-fT-Ml1"/>
                 <outlet property="dateFrom" destination="Xwz-Eq-pCS" id="se9-yq-giQ"/>
                 <outlet property="dateTo" destination="LHH-NK-PFz" id="IdC-Bg-Hhe"/>
@@ -143,8 +144,8 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="GyS-oy-roz" customClass="LMTextField">
-                    <rect key="frame" x="93" y="398" width="217" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" minimumFontSize="17" id="GyS-oy-roz" customClass="LMTextField">
+                    <rect key="frame" x="165" y="398" width="145" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -161,6 +162,19 @@
                     <state key="selected" image="pink_checkbox_selected.png"/>
                     <connections>
                         <action selector="checkboxTapped:" destination="-1" eventType="touchUpInside" id="IqU-QQ-pdh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IwG-To-iTg" customClass="LMButton">
+                    <rect key="frame" x="128" y="398" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                    <state key="normal" title="&lt;">
+                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" title="&lt;"/>
+                    <connections>
+                        <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="Ffb-cZ-pNa"/>
                     </connections>
                 </button>
             </subviews>

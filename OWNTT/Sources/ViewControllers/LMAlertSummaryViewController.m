@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet LMButton *monitoringType;
 @property (weak, nonatomic) IBOutlet LMButton *rateType;
 @property (weak, nonatomic) IBOutlet LMButton *hourOfSend;
+@property (weak, nonatomic) IBOutlet LMButton *borderType;
 @property (weak, nonatomic) IBOutlet LMTextField *valueTextField;
 @property (weak, nonatomic) IBOutlet UIButton *checkButton;
 
@@ -59,6 +60,10 @@
     [self.dateFrom setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
     [self.dateTo setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateNormal];
     [self.dateTo setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
+    
+    [self.borderType setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+    [self.borderType setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 1)];
+    
     self.valueTextField.text = @"";
     
     
@@ -76,8 +81,8 @@
                 self.nameView.firstName.text = advertiser.name;
                 for(LMProgram *program in advertiser.programs.allObjects)
                 {
-                    LMProgram *selectedProgram = [self.transactionData.programIds objectAtIndex:0];
-                    if(program.objectId.intValue == selectedProgram.objectId.intValue)
+                    NSNumber *selectedProgram = [self.transactionData.programIds objectAtIndex:0];
+                    if(program.objectId.intValue == selectedProgram.intValue)
                     {
                         self.nameView.SecondName.text = program.name;
                     }
@@ -210,6 +215,10 @@
             defaultStartValue = 1;
             dataArray = [LMReferenceData staticAlertPointerTypes];
             break;
+        case LMAlertSummaryButtonType_Border:
+            defaultStartValue = 0;
+            dataArray = [LMReferenceData staticAlertBorderTypes];
+            break;
         default:
             break;
     }
@@ -234,21 +243,44 @@
             };
             self.pickerViewController.pickerViewDoneAction = ^(NSString *value)
             {
-                [selfObj.currentButton setTitle:value forState:UIControlStateNormal];
-                [selfObj.currentButton setTitle:value forState:UIControlStateHighlighted];
+                if([selfObj.currentButton isEqual:selfObj.hourOfSend])
+                {
+                    [selfObj.currentButton setTitle:value forState:UIControlStateNormal];
+                    [selfObj.currentButton setTitle:value forState:UIControlStateHighlighted];
+                }
+                else
+                {
+                    [selfObj.currentButton setTitle:LM_LOCALIZE(value) forState:UIControlStateNormal];
+                    [selfObj.currentButton setTitle:LM_LOCALIZE(value) forState:UIControlStateHighlighted];
+                }
                 [selfObj.pickerViewController hide];
             };
         }
         [self.pickerViewController addPickerData:dataArray];
+        if([self.currentButton isEqual:self.hourOfSend])
+        {
+            self.pickerViewController.isLocalizable = NO;
+        }
         [self.pickerViewController showInView:self.view];
         int defaultVal = 0;
         BOOL check = NO;
         for(NSString *str in dataArray)
         {
-            if([str isEqualToString:self.currentButton.titleLabel.text])
+            if([self.currentButton isEqual:self.hourOfSend])
             {
-                check = YES;
-                break;
+                if([str isEqualToString:self.currentButton.titleLabel.text])
+                {
+                    check = YES;
+                    break;
+                }
+            }
+            else
+            {
+                if([LM_LOCALIZE(str) isEqualToString:self.currentButton.titleLabel.text])
+                {
+                    check = YES;
+                    break;
+                }
             }
             defaultVal++;
         }

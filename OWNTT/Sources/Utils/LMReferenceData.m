@@ -13,6 +13,7 @@
 #define STATIC_ALERT_MONITORING_TYPE_KEY @"alertMonitoringTypes"
 #define STATIC_ALERT_HOUR_TYPE_KEY @"alertHourTypes"
 #define STATIC_ALERT_POINTER_TYPE_KEY @"alertPointertypes"
+#define STATIC_ALERT_BORDER_TYPE_KEY @"alertBorderTypes"
 
 static NSDictionary *staticData = nil;
 
@@ -63,15 +64,12 @@ static NSDictionary *staticData = nil;
 
 + (NSArray *)staticAlertHourTypes
 {
-    NSDictionary *staticData = [LMReferenceData staticValuesPicklist];
-    if(staticData)
+    NSMutableArray *hours = [NSMutableArray new];
+    for(int i = 1; i<25; i++)
     {
-        return [staticData valueForKey:STATIC_ALERT_HOUR_TYPE_KEY];
+        [hours addObject:[NSString stringWithFormat:@"%d", i]];
     }
-    else
-    {
-        return nil;
-    }
+    return [NSArray arrayWithArray:hours];
 }
 
 + (NSArray *)staticAlertPointerTypes
@@ -80,6 +78,19 @@ static NSDictionary *staticData = nil;
     if(staticData)
     {
         return [staticData valueForKey:STATIC_ALERT_POINTER_TYPE_KEY];
+    }
+    else
+    {
+        return nil;
+    }
+}
+
++ (NSArray *)staticAlertBorderTypes
+{
+    NSDictionary *staticData = [LMReferenceData staticValuesPicklist];
+    if(staticData)
+    {
+        return [staticData valueForKey:STATIC_ALERT_BORDER_TYPE_KEY];
     }
     else
     {

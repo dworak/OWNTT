@@ -95,6 +95,18 @@
     }
 }
 
++ (AlertMonitoringTypes)alertMonitoringStringToType:(NSString *)monitoringStr
+{
+    if([monitoringStr isEqualToString:LM_LOCALIZE(@"alertMonitoringTypes_Daily")])
+    {
+        return AlertMonitoringTypes_Daily;
+    }
+    else
+    {
+        return AlertMonitoringTypes_Growing;
+    }
+}
+
 + (NSString *)alertPointerTypeToString:(AlertPointerTypes)pointerType
 {
     switch (pointerType) {
@@ -116,6 +128,66 @@
             return LM_LOCALIZE(@"alertPointertypes_WebTime");
         default:
             return nil;
+    }
+}
+
++ (AlertPointerTypes)alertPointerStringToType:(NSString *)pointerStr
+{
+    if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_Display")])
+    {
+        return AlertPointertypes_Display;
+    }
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_Click")])
+    {
+        return AlertPointertypes_Click;
+    }
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_Visit")])
+    {
+        return AlertPointertypes_Visit;
+    }
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_NewVisit")])
+    {
+        return AlertPointertypes_NewVisit;
+    }
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_Checkpoint")])
+    {
+        return AlertPointertypes_Checkpoint;
+    }
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_Lead")])
+    {
+        return AlertPointertypes_Lead;
+    }
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_Sale")])
+    {
+        return AlertPointertypes_Sale;
+    }
+    else
+    {
+        return AlertPointertypes_WebTime;
+    }
+}
+
++ (NSString *)alertBorderTypeToString:(AlertBorderTypes)borderType
+{
+    switch (borderType) {
+        case AlertBorderTypes_GreaterThan:
+            return LM_LOCALIZE(@"alertBorderType_GreaterThan");
+        case AlertBorderTypes_LessThan:
+            return LM_LOCALIZE(@"alertBorderType_LessThan");
+        default:
+            return nil;
+    }
+}
+
++ (AlertBorderTypes)alertBorderStringToType:(NSString *)borderStr
+{
+    if([borderStr isEqualToString:LM_LOCALIZE(@"alertBorderType_GreaterThan")])
+    {
+        return AlertBorderTypes_GreaterThan;
+    }
+    else
+    {
+        return AlertBorderTypes_LessThan;
     }
 }
 

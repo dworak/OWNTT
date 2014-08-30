@@ -30,6 +30,10 @@
 "alertPointerTypes_Lead" = "Lead";
 "alertPointerTypes_Sale" = "Sprzedaż";
 
+//alertBorderType
+"alertBorderType_GreaterThan" = ">";
+"alertBorderType_LessThan" = "<";
+
 //LMAlerManager types
 "LMAlertManager_Error" = "Błąd";
 "LMAlertManager_Info" = "Informacja";

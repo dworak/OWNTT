@@ -11,7 +11,8 @@ typedef enum {
     LMAlertSummaryButtonType_DateTo,
     LMAlertSummaryButtonType_Monitoring,
     LMAlertSummaryButtonType_Hour,
-    LMAlertSummaryButtonType_Pointer
+    LMAlertSummaryButtonType_Pointer,
+    LMAlertSummaryButtonType_Border
 } LMAlertSummaryButtonType;
 
 #import <UIKit/UIKit.h>

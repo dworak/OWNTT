@@ -14,6 +14,7 @@ typedef void (^PickerViewCancelAction)();
 @interface LMDataPickerViewController : UIViewController
 @property (copy, nonatomic) PickerViewDoneAction pickerViewDoneAction;
 @property (copy, nonatomic) PickerViewCancelAction pickerViewCancelAction;
+@property (unsafe_unretained, nonatomic) BOOL isLocalizable;
 
 - (void)updateFrameForOrientation:(UIInterfaceOrientation)orintation;
 

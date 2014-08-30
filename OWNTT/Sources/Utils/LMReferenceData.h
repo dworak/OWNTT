@@ -13,4 +13,5 @@
 + (NSArray *)staticAlertMonitoringTypes;
 + (NSArray *)staticAlertHourTypes;
 + (NSArray *)staticAlertPointerTypes;
++ (NSArray *)staticAlertBorderTypes;
 @end
