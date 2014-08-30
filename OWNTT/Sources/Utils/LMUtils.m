@@ -38,10 +38,48 @@
             return LM_LOCALIZE(@"reportTimeInterval_Today");
         case ReportTimeInterval_Yesterday:
             return LM_LOCALIZE(@"reportTimeInterval_Yesterday");
-        case RreportTimeInterval_ActualMonth:
+        case ReportTimeInterval_ActualMonth:
             return LM_LOCALIZE(@"reportTimeInterval_ActualMonth");
+        case ReportTimeInterval_Custom:
+            return LM_LOCALIZE(@"reportTimeInterval_Custom");
         default:
             return nil;
+    }
+}
+
++ (ReportTimeIntervalType)reportTimeIntervalStringToType:(NSString *)reportStr
+{
+    if([reportStr isEqualToString:LM_LOCALIZE(@"reportTimeInterval_PreviousMonth")])
+    {
+        return ReportTimeInterval_PreviousMonth;
+    }
+    else if([reportStr isEqualToString:LM_LOCALIZE(@"reportTimeInterval_PreviousWeek")])
+    {
+        return ReportTimeInterval_PreviousWeek;
+    }
+    else if([reportStr isEqualToString:LM_LOCALIZE(@"reportTimeInterval_ThisWeek")])
+    {
+        return ReportTimeInterval_ThisWeek;
+    }
+    else if([reportStr isEqualToString:LM_LOCALIZE(@"reportTimeInterval_ThisYear")])
+    {
+        return ReportTimeInterval_ThisYear;
+    }
+    else if([reportStr isEqualToString:LM_LOCALIZE(@"reportTimeInterval_Today")])
+    {
+        return ReportTimeInterval_Today;
+    }
+    else if([reportStr isEqualToString:LM_LOCALIZE(@"reportTimeInterval_Yesterday")])
+    {
+        return ReportTimeInterval_Yesterday;
+    }
+    else if([reportStr isEqualToString:LM_LOCALIZE(@"reportTimeInterval_ActualMonth")])
+    {
+        return ReportTimeInterval_ActualMonth;
+    }
+    else
+    {
+        return ReportTimeInterval_Custom;
     }
 }
 
@@ -193,59 +231,62 @@
     }
 }
 
-+ (NSArray*)datesForReportTimeInterval:(NSString *)timeinterval
++ (NSArray*)datesForReportTimeInterval:(ReportTimeIntervalType)timeintervalType
 {
     NSDate *today = [NSDate date];
     NSArray *datesArray;
     NSCalendar *gregorian = [NSCalendar currentCalendar];
-    if([timeinterval isEqual:@"Ten rok"])
-    {
-        NSDateComponents *dateComponents = [gregorian components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:today];
-        [dateComponents setDay:1];
-        [dateComponents setMonth:1];
-        datesArray = [NSArray arrayWithObjects:[gregorian dateFromComponents:dateComponents], today, nil];
+    switch (timeintervalType) {
+        case ReportTimeInterval_ThisYear:
+        {
+            NSDateComponents *dateComponents = [gregorian components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:today];
+            [dateComponents setDay:1];
+            [dateComponents setMonth:1];
+            datesArray = [NSArray arrayWithObjects:[gregorian dateFromComponents:dateComponents], today, nil];
+            break;
+        }
+        case ReportTimeInterval_ActualMonth:
+        {
+            NSDateComponents *dateComponents = [gregorian components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:today];
+            [dateComponents setDay:1];
+            datesArray = [NSArray arrayWithObjects:[gregorian dateFromComponents:dateComponents], today, nil];
+            break;
+        }
+        case ReportTimeInterval_PreviousMonth:
+        {
+            NSDateComponents* comps = [gregorian components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:today];
+            
+            // Set your month here
+            [comps setDay:10];
+            [comps setMonth:comps.month-1];
+            
+            NSRange range = [gregorian rangeOfUnit:NSDayCalendarUnit
+                                            inUnit:NSMonthCalendarUnit
+                                           forDate:[gregorian dateFromComponents:comps]];
+            int numberOfNaysInMonth = range.length;
+            [comps setDay:1];
+            NSDate *dateFrom = [gregorian dateFromComponents:comps];
+            [comps setDay:numberOfNaysInMonth];;
+            NSDate *dateTo = [gregorian dateFromComponents:comps];
+            datesArray = [NSArray arrayWithObjects:dateFrom, dateTo, nil];
+            break;
+        }
+        case ReportTimeInterval_PreviousWeek:
+            break;
+        case ReportTimeInterval_ThisWeek:
+            break;
+        case ReportTimeInterval_Yesterday:
+        {
+            NSDate *yesterday = [today dateByAddingTimeInterval: -86400.0];
+            datesArray = [NSArray arrayWithObjects:yesterday, yesterday, nil];
+            break;
+        }
+        case ReportTimeInterval_Today:
+            return [NSArray arrayWithObjects:today, today, nil];
+        default:
+            return [NSArray arrayWithObjects:[NSDate date], [NSDate date], nil];
     }
-    else if([timeinterval isEqual:@"Aktualny miesiąc"])
-    {
-        NSDateComponents *dateComponents = [gregorian components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:today];
-        [dateComponents setDay:1];
-        datesArray = [NSArray arrayWithObjects:[gregorian dateFromComponents:dateComponents], today, nil];
-    }
-    else if([timeinterval isEqual:@"Poprzedni miesiąc"])
-    {
-        NSDateComponents* comps = [gregorian components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:today];
-        
-        // Set your month here
-        [comps setDay:10];
-        [comps setMonth:comps.month-1];
-        
-        NSRange range = [gregorian rangeOfUnit:NSDayCalendarUnit
-                                  inUnit:NSMonthCalendarUnit
-                                 forDate:[gregorian dateFromComponents:comps]];
-        int numberOfNaysInMonth = range.length;
-        [comps setDay:1];
-        NSDate *dateFrom = [gregorian dateFromComponents:comps];
-        [comps setDay:numberOfNaysInMonth];;
-        NSDate *dateTo = [gregorian dateFromComponents:comps];
-        datesArray = [NSArray arrayWithObjects:dateFrom, dateTo, nil];
-    }
-    else if([timeinterval isEqual:@"Poprzedni tydzień"])
-    {
-        
-    }
-    else if([timeinterval isEqual:@"Ten tydzień"])
-    {
-        
-    }
-    else if([timeinterval isEqual:@"Wczoraj"])
-    {
-        
-    }
-    else if([timeinterval isEqual:@"Dzisiaj"])
-    {
-        return [NSArray arrayWithObjects:today, today, nil];
-    }
-    return [NSArray arrayWithObjects:[NSDate date], [NSDate date], nil];
+    return datesArray;
 }
 
 + (void)setupCurrentLanguage

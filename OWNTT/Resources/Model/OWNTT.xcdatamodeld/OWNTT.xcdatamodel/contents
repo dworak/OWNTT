@@ -30,7 +30,10 @@
         <relationship name="userReports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LMUserReport" inverseName="reportObject" inverseEntity="LMUserReport" syncable="YES"/>
     </entity>
     <entity name="LMSettings" representedClassName="LMSettings" syncable="YES">
-        <attribute name="reportDefaultDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reportDefaultDateFrom" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="reportDefaultDateTo" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="reportDefaultEnum" optional="YES" attributeType="Integer 64" syncable="YES"/>
+        <attribute name="reportDefaultIsEnum" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMUser" inverseName="settings" inverseEntity="LMUser" syncable="YES"/>
     </entity>
     <entity name="LMSynchStatus" representedClassName="LMSynchStatus" syncable="YES">
@@ -73,10 +76,10 @@
         <element name="LMReadOnlyObject" positionX="-63" positionY="0" width="128" height="28"/>
         <element name="LMReadOnlyUserObject" positionX="-9" positionY="54" width="128" height="88"/>
         <element name="LMReport" positionX="-36" positionY="27" width="128" height="88"/>
+        <element name="LMSettings" positionX="-27" positionY="99" width="128" height="120"/>
         <element name="LMSynchStatus" positionX="-27" positionY="54" width="128" height="75"/>
         <element name="LMUser" positionX="-63" positionY="-18" width="128" height="208"/>
         <element name="LMUserAlert" positionX="-18" positionY="45" width="128" height="193"/>
         <element name="LMUserReport" positionX="-27" positionY="36" width="128" height="73"/>
-        <element name="LMSettings" positionX="-27" positionY="99" width="128" height="73"/>
     </elements>
 </model>

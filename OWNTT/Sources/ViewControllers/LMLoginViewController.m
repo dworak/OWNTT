@@ -179,7 +179,10 @@
              {
                  //Configure default setting
                  LMUser *user = appDelegate.appUtils.currentUser;
-                 user.settings.reportDefaultDate = @"Dzisiaj";
+                 LMSettings *settings = [LMSettings createObjectInContext:selfObj.managedObjectContext];
+                 settings.reportDefaultEnum = [NSNumber numberWithInt:6];
+                 settings.reportDefaultIsEnum = [NSNumber numberWithBool:YES];
+                 [user setSettings:settings];
              }
              [LMUtils saveCoreDataContext:selfObj.managedObjectContext];
              

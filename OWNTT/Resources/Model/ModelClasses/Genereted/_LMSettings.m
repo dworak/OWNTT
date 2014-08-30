@@ -4,7 +4,10 @@
 #import "_LMSettings.h"
 
 const struct LMSettingsAttributes LMSettingsAttributes = {
-	.reportDefaultDate = @"reportDefaultDate",
+	.reportDefaultDateFrom = @"reportDefaultDateFrom",
+	.reportDefaultDateTo = @"reportDefaultDateTo",
+	.reportDefaultEnum = @"reportDefaultEnum",
+	.reportDefaultIsEnum = @"reportDefaultIsEnum",
 };
 
 const struct LMSettingsRelationships LMSettingsRelationships = {
@@ -40,6 +43,16 @@ const struct LMSettingsFetchedProperties LMSettingsFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"reportDefaultEnumValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"reportDefaultEnum"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"reportDefaultIsEnumValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"reportDefaultIsEnum"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
@@ -47,8 +60,67 @@ const struct LMSettingsFetchedProperties LMSettingsFetchedProperties = {
 
 
 
-@dynamic reportDefaultDate;
+@dynamic reportDefaultDateFrom;
 
+
+
+
+
+
+@dynamic reportDefaultDateTo;
+
+
+
+
+
+
+@dynamic reportDefaultEnum;
+
+
+
+- (int64_t)reportDefaultEnumValue {
+	NSNumber *result = [self reportDefaultEnum];
+	return [result longLongValue];
+}
+
+- (void)setReportDefaultEnumValue:(int64_t)value_ {
+	[self setReportDefaultEnum:[NSNumber numberWithLongLong:value_]];
+}
+
+- (int64_t)primitiveReportDefaultEnumValue {
+	NSNumber *result = [self primitiveReportDefaultEnum];
+	return [result longLongValue];
+}
+
+- (void)setPrimitiveReportDefaultEnumValue:(int64_t)value_ {
+	[self setPrimitiveReportDefaultEnum:[NSNumber numberWithLongLong:value_]];
+}
+
+
+
+
+
+@dynamic reportDefaultIsEnum;
+
+
+
+- (BOOL)reportDefaultIsEnumValue {
+	NSNumber *result = [self reportDefaultIsEnum];
+	return [result boolValue];
+}
+
+- (void)setReportDefaultIsEnumValue:(BOOL)value_ {
+	[self setReportDefaultIsEnum:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveReportDefaultIsEnumValue {
+	NSNumber *result = [self primitiveReportDefaultIsEnum];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveReportDefaultIsEnumValue:(BOOL)value_ {
+	[self setPrimitiveReportDefaultIsEnum:[NSNumber numberWithBool:value_]];
+}
 
 
 

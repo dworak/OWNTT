@@ -10,9 +10,12 @@
 #import "LMDatePickerViewController.h"
 #import "LMDataPickerViewController.h"
 #import "LMFullButton.h"
+#import "LMUser.h"
+#import "LMRotateViewController.h"
+#import "LMSettings.h"
 #import "LMWebViewController.h"
 
-#define CUSTOM_REPORT_FIELD_NAME @"Niestandardowy"
+#define CUSTOM_REPORT_FIELD_NAME @"reportTimeInterval_Custom"
 
 typedef enum {
     FullButtonType_Interval = 1,
@@ -54,6 +57,16 @@ typedef enum {
     self.dateFromButton.exclusiveTouch = YES;
     self.dateToButton.exclusiveTouch = YES;
     self.currentInterval.exclusiveTouch = YES;
+    self.shadowImage.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
+    
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    [self.dateFromButton setTitle:[self.dateFormatter stringFromDate:[NSDate date]] forState:UIControlStateNormal];
+    [self.dateFromButton setTitle:[self.dateFormatter stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
+    [self.dateToButton setTitle:[self.dateFormatter stringFromDate:[NSDate date]] forState:UIControlStateNormal];
+    [self.dateToButton setTitle:[self.dateFormatter stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
+    
     if(self.fromBranchReport)
     {
         self.toolbar.hidden = YES;
@@ -74,22 +87,31 @@ typedef enum {
     {
         self.toolbar.hidden = NO;
     }
-    self.shadowImage.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
-    self.dateShow = NO;
-    //[self createLeftButton:YES withSelector:NULL text:@" "];
-    //[self createLeftButton:NO withSelector:@selector(doneAction) text:@"zakończ"];
     
-    /*UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 118, 36)];
-    titleImage.image = [UIImage imageNamed:@"logo.png"];
-    [self.parentViewController.navigationItem setTitleView:titleImage];*/
-    
-    self.dateFormatter = [[NSDateFormatter alloc] init];
-    [self.dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    
-    [self.dateFromButton setTitle:[self.dateFormatter stringFromDate:[NSDate date]] forState:UIControlStateNormal];
-    [self.dateFromButton setTitle:[self.dateFormatter stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
-    [self.dateToButton setTitle:[self.dateFormatter stringFromDate:[NSDate date]] forState:UIControlStateNormal];
-    [self.dateToButton setTitle:[self.dateFormatter stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
+    LMUser *currentUser = OWNTT_APP_DELEGATE.appUtils.currentUser;
+    if(currentUser.settings.reportDefaultIsEnumValue)
+    {
+        self.dateShow = NO;
+        [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:[currentUser.settings.reportDefaultEnum intValue]] forState:UIControlStateNormal];
+        [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:[currentUser.settings.reportDefaultEnum intValue]] forState:UIControlStateHighlighted];
+    }
+    else
+    {
+        self.dateShow = YES;
+        self.dateView.alpha = 1;
+        [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:ReportTimeInterval_Custom] forState:UIControlStateNormal];
+        [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:ReportTimeInterval_Custom] forState:UIControlStateHighlighted];
+        if(currentUser.settings.reportDefaultDateFrom)
+        {
+            [self.dateFromButton setTitle:[self.dateFormatter stringFromDate:currentUser.settings.reportDefaultDateFrom] forState:UIControlStateNormal];
+            [self.dateFromButton setTitle:[self.dateFormatter stringFromDate:currentUser.settings.reportDefaultDateFrom] forState:UIControlStateHighlighted];
+        }
+        if(currentUser.settings.reportDefaultDateTo)
+        {
+            [self.dateToButton setTitle:[self.dateFormatter stringFromDate:currentUser.settings.reportDefaultDateTo] forState:UIControlStateNormal];
+            [self.dateToButton setTitle:[self.dateFormatter stringFromDate:currentUser.settings.reportDefaultDateTo] forState:UIControlStateHighlighted];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -137,6 +159,25 @@ typedef enum {
 {
     if([self isValid])
     {
+        //NSError *error;
+        LMUser *user = OWNTT_APP_DELEGATE.appUtils.currentUser;
+        /*(LMUser *)[self.managedObjectContext existingObjectWithID:OWNTT_APP_DELEGATE.appUtils.currentUser.objectID error:&error];
+        if(!user)
+        {
+            NSLog(@"ERRRO: Unknown user id");
+        }*/
+        if(self.dateShow)
+        {
+            user.settings.reportDefaultIsEnumValue = NO;
+            user.settings.reportDefaultDateFrom = [self.dateFormatter dateFromString:self.dateFromButton.titleLabel.text];
+            user.settings.reportDefaultDateTo = [self.dateFormatter dateFromString:self.dateToButton.titleLabel.text];
+        }
+        else
+        {
+            user.settings.reportDefaultIsEnumValue = YES;
+            user.settings.reportDefaultEnum = [NSNumber numberWithInt:[LMUtils reportTimeIntervalStringToType:self.currentInterval.titleLabel.text]];
+        }
+        [[LMCoreDataManager sharedInstance] saveMasterContext];
         if(self.fromBranchReport)
         {
             [self.parentViewController.navigationController popViewControllerAnimated:YES];
@@ -195,12 +236,11 @@ typedef enum {
     BOOL isPickerData = YES;
     self.currentButton = (UIButton *)sender;
     NSArray *dataArray;
-    int defaultStartValue = -1;
+    //int defaultStartValue = -1;
     switch (self.currentButton.tag) {
         case FullButtonType_Interval:
         {
             NSMutableArray *data = [NSMutableArray arrayWithArray:[LMReferenceData staticReportTimeIntervalValues]];
-            [data addObject:CUSTOM_REPORT_FIELD_NAME];
             dataArray = [NSArray arrayWithArray:data];
             isPickerData = YES;
             break;
@@ -235,8 +275,8 @@ typedef enum {
             };
             self.pickerViewController.pickerViewDoneAction = ^(NSString *value)
             {
-                [selfObj.currentButton setTitle:value forState:UIControlStateNormal];
-                [selfObj.currentButton setTitle:value forState:UIControlStateHighlighted];
+                [selfObj.currentButton setTitle:LM_LOCALIZE(value) forState:UIControlStateNormal];
+                [selfObj.currentButton setTitle:LM_LOCALIZE(value) forState:UIControlStateHighlighted];
                 [selfObj.pickerViewController hide];
                 if([value isEqualToString:CUSTOM_REPORT_FIELD_NAME])
                 {
@@ -256,7 +296,7 @@ typedef enum {
         }
         [self.pickerViewController addPickerData:dataArray];
         [self.pickerViewController showInView:self.view];
-        int defaultVal = 0;
+        /*int defaultVal = 0;
         BOOL check = NO;
         for(NSString *str in dataArray)
         {
@@ -284,7 +324,8 @@ typedef enum {
             {
                 [self.pickerViewController selectPickerObject:-1];
             }
-        }
+        }*/
+        [self.pickerViewController selectPickerObject:[LMUtils reportTimeIntervalStringToType:self.currentInterval.titleLabel.text]];
     }
     else
     {

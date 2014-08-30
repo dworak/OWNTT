@@ -1,12 +1,13 @@
 {
     "reportTimeInterval" : [
-        "Ten rok",
-        "Poprzedni miesiąc",
-        "Aktualny miesiąc",
-        "Poprzedni tydzień",
-        "Ten tydzień",
-        "Wczoraj",
-        "Dzisiaj"
+                            "reportTimeInterval_ThisYear",
+                            "reportTimeInterval_PreviousMonth",
+                            "reportTimeInterval_ActualMonth",
+                            "reportTimeInterval_PreviousWeek",
+                            "reportTimeInterval_ThisWeek",
+                            "reportTimeInterval_Yesterday",
+                            "reportTimeInterval_Today",
+                            "reportTimeInterval_Custom"
     ],
     "alertMonitoringTypes" : [
         "Narastający",

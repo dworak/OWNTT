@@ -186,7 +186,7 @@
 
 - (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [self.pickerData objectAtIndex:row];
+    return LM_LOCALIZE([self.pickerData objectAtIndex:row]);
 }
 
 

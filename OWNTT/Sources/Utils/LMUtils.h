@@ -11,11 +11,12 @@
 typedef enum {
     ReportTimeInterval_ThisYear = 0,
     ReportTimeInterval_PreviousMonth,
-    RreportTimeInterval_ActualMonth,
+    ReportTimeInterval_ActualMonth,
     ReportTimeInterval_PreviousWeek,
     ReportTimeInterval_ThisWeek,
     ReportTimeInterval_Yesterday,
-    ReportTimeInterval_Today
+    ReportTimeInterval_Today,
+    ReportTimeInterval_Custom
 } ReportTimeIntervalType;
 
 typedef enum {
@@ -54,7 +55,9 @@ typedef enum {
 + (void)performSynchronization:(BOOL)initial;
 + (void)setupCurrentLanguage;
 
++ (ReportTimeIntervalType)reportTimeIntervalStringToType:(NSString *)reportStr;
+
 + (NSNumber *)getCurrentInstance;
 
-+ (NSArray*)datesForReportTimeInterval:(NSString*)timeinterval;
++ (NSArray*)datesForReportTimeInterval:(ReportTimeIntervalType)timeintervalType;
 @end

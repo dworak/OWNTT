@@ -14,6 +14,7 @@
 "reportTimeInterval_ThisWeek" = "Ten tydzień";
 "reportTimeInterval_Yesterday" = "Wczoraj";
 "reportTimeInterval_Today" = "Dzisiaj";
+"reportTimeInterval_Custom" = "Niestandardowy";
 
 //alertMonitoringTypes
 "alertMonitoringTypes_Growing" = "Narastający";

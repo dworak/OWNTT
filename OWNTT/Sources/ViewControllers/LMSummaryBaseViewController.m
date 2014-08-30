@@ -102,6 +102,15 @@
 }
 */
 
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if(!_managedObjectContext)
+    {
+        _managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+    }
+    return _managedObjectContext;
+}
+
 - (IBAction)doneAction:(id)sender
 {
     if(self.currentEditingTextField)

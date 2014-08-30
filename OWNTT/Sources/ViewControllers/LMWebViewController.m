@@ -13,6 +13,8 @@
 #import "LMTabBarViewController.h"
 #import "LMBranchAdvertiserViewController.h"
 #import "LMSegueKeys.h"
+#import "LMSettings.h"
+#import "LMAppUtils.h"
 
 @interface LMWebViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -57,25 +59,15 @@
     {
         self.localContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
     }
-    LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:self.localContext];
-    LMUser *user = [[LMUser fetchLMUsersInContext:self.localContext] objectAtIndex:0];
-    
-    [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_GetReport parameters:[LMOWNTTHTTPClient getReportParamsToken:user.httpToken reportType:[LMOWNTTHTTPClient reportTypeName:(int)report.objectIdValue] dateFrom:@"2014-07-01" dateTo:@"2014-08-01" programIds:[NSArray arrayWithObject:self.transactionData.programId]] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if([LMAppUtils connected])
     {
-        NSString *base64String = [responseObject valueForKeyPath:@"encodedReportContentHtml"];
-        NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:base64String options:0];
-        //NSString *decodedString = [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
-        [self.webView setScalesPageToFit:YES];
-        [self.webView loadData:decodedData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
+        [self showReport];
     }
-    failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
-    {
-        NSData *data = operation.request.HTTPBody;
-        NSString *body = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"Body: %@", body);
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Błąd" message:@"Błąd generowania raportu." delegate:self cancelButtonTitle:@"Zakończ:" otherButtonTitles:nil];
-        [alertView show];
-    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -165,6 +157,58 @@
     {
         [self.parentViewController.navigationItem setRightBarButtonItem:buttonItem];
     }
+}
+
+- (void)showReport
+{
+    LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:self.localContext];
+    LMUser *user = OWNTT_APP_DELEGATE.appUtils.currentUser;
+    NSString *dateFrom;
+    NSString *dateTo;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    if(user.settings.reportDefaultIsEnumValue)
+    {
+        NSArray *dates = [LMUtils datesForReportTimeInterval:user.settings.reportDefaultEnum.intValue];
+        if(dates.count > 1)
+        {
+            dateFrom = [dateFormatter stringFromDate:[dates objectAtIndex:0]];
+            dateTo = [dateFormatter stringFromDate:[dates objectAtIndex:1]];
+        }
+        else
+        {
+            NSLog(@"Error: dates array has only one element");
+        }
+    }
+    else
+    {
+        if(user.settings.reportDefaultDateFrom)
+        {
+            dateFrom = [dateFormatter stringFromDate:user.settings.reportDefaultDateFrom];
+        }
+        if(user.settings.reportDefaultDateTo)
+        {
+            dateTo = [dateFormatter stringFromDate:user.settings.reportDefaultDateTo];
+        }
+    }
+    
+    NSLog(@"Report for dates: %@ %@", dateFrom, dateTo);
+    [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_GetReport parameters:[LMOWNTTHTTPClient getReportParamsToken:user.httpToken reportType:[LMOWNTTHTTPClient reportTypeName:(int)report.objectIdValue] dateFrom:dateFrom dateTo:dateTo programIds:[NSArray arrayWithObject:self.transactionData.programId]] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         NSString *base64String = [responseObject valueForKeyPath:@"encodedReportContentHtml"];
+         NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:base64String options:0];
+         //NSString *decodedString = [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
+         [self.webView setScalesPageToFit:YES];
+         [self.webView loadData:decodedData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
+     }
+                                                                failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         NSData *data = operation.request.HTTPBody;
+         NSString *body = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+         NSLog(@"Body: %@", body);
+         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Błąd" message:@"Błąd generowania raportu." delegate:self cancelButtonTitle:@"Zakończ:" otherButtonTitles:nil];
+         [alertView show];
+     }];
 }
 
 @end
