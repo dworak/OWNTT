@@ -12,7 +12,7 @@
 @property (unsafe_unretained, nonatomic) BOOL isReport;
 @property (strong, nonatomic) NSNumber *instanceId;
 @property (strong, nonatomic) NSNumber *advertiserId;
-@property (strong, nonatomic) NSNumber *programId;
+@property (strong, nonatomic) NSArray *programIds;
 @property (strong, nonatomic) NSNumber *reportId;
 @property (strong, nonatomic) NSDate *dateFrom;
 @property (strong, nonatomic) NSDate *dateTo;

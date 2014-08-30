@@ -76,7 +76,8 @@
                 self.nameView.firstName.text = advertiser.name;
                 for(LMProgram *program in advertiser.programs.allObjects)
                 {
-                    if(program.objectId.intValue == self.transactionData.programId.intValue)
+                    LMProgram *selectedProgram = [self.transactionData.programIds objectAtIndex:0];
+                    if(program.objectId.intValue == selectedProgram.objectId.intValue)
                     {
                         self.nameView.SecondName.text = program.name;
                     }
@@ -151,7 +152,7 @@
     }
     if(message)
     {
-        [LMUtils showErrorAlertWithText:message];
+        [LMAlertManager showErrorAlertWithOkWithText:message];
         return NO;
     }
     else

@@ -32,5 +32,8 @@ typedef enum {
 - (NSString *)nextSegueKey;
 - (NSString *)cellIdentifier;
 - (NSString *)headerbuttonTitle;
-- (void)getTableData;;
+- (void)getTableData;
+- (void)connectionNotificationChange;
+- (void)setLocalizationStrings;
+- (void)getAllProgramIds;
 @end

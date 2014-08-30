@@ -58,7 +58,8 @@
                 self.nameView.firstName.text = advertiser.name;
                 for(LMProgram *program in advertiser.programs.allObjects)
                 {
-                    if(program.objectId.intValue == self.transactionData.programId.intValue)
+                    LMProgram *selectedProgram = [self.transactionData.programIds objectAtIndex:0];
+                    if(program.objectId.intValue == selectedProgram.objectId.intValue)
                     {
                         self.nameView.SecondName.text = program.name;
                     }
@@ -96,7 +97,7 @@
     NSString *validate = [self.reportNameTextField validateField];
     if(validate)
     {
-        [LMUtils showErrorAlertWithText:validate];
+        [LMAlertManager showErrorAlertWithOkWithText:validate];
         return NO;
     }
     return YES;

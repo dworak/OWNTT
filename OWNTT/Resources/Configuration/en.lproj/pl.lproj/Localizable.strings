@@ -36,7 +36,7 @@
 "LMAlertManager_Ok" = "Dalej";
 
 //LMAlertManager messages
-"LMAlertManager_LoginRemoveUser" = "Nie można usunąć poprzedniego usera. Spróbuj ponownie.":
+"LMAlertManager_LoginRemoveUser" = "Nie można usunąć poprzedniego usera. Spróbuj ponownie.";
 "LMAlertManager_LoginRegisterDevice" = "Nie można zarejestrować użytkownika.";
 "LMAlertManager_LoginSynchronizationError" = "Pobieranie danych aplikacji nie powiodło się, spróbuj ponownie.";
 

@@ -12,6 +12,7 @@
 #import "LMBranchAdvertiserViewController.h"
 #import "LMBranchProgramViewController.h"
 #import "LMNameHeaderView.h"
+#import "LMProgram.h"
 
 @interface LMBranchAdvertiserViewController ()
 @end
@@ -96,6 +97,25 @@
 - (NSString *)nextSegueKey
 {
     return [LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushProgramList];
+}
+
+- (void)getAllProgramIds
+{
+    NSMutableArray *programIds = [NSMutableArray new];
+    LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId.instanceId inContext:self.managedObjectContext];
+    if(instance)
+    {
+        for(LMAdvertiser *advertiser in instance.advertisers.allObjects)
+        {
+            for(LMProgram *program in advertiser.programs.allObjects)
+            {
+                [programIds addObject:program.objectId];
+            }
+            break;
+        }
+    }
+    self.objectId.programIds = [NSArray arrayWithArray:programIds];
+    self.objectId.reportId = [NSNumber numberWithInt:LMOWNTTReportType_Type1];
 }
 
 @end

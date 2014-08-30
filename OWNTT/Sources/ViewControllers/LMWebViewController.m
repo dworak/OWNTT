@@ -194,7 +194,7 @@
     }
     
     NSLog(@"Report for dates: %@ %@", dateFrom, dateTo);
-    [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_GetReport parameters:[LMOWNTTHTTPClient getReportParamsToken:user.httpToken reportType:[LMOWNTTHTTPClient reportTypeName:(int)report.objectIdValue] dateFrom:dateFrom dateTo:dateTo programIds:[NSArray arrayWithObject:self.transactionData.programId]] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
+    [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_GetReport parameters:[LMOWNTTHTTPClient getReportParamsToken:user.httpToken reportType:[LMOWNTTHTTPClient reportTypeName:(int)report.objectIdValue] dateFrom:dateFrom dateTo:dateTo programIds:self.transactionData.programIds] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          NSString *base64String = [responseObject valueForKeyPath:@"encodedReportContentHtml"];
          NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:base64String options:0];

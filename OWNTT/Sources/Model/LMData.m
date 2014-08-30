@@ -13,7 +13,7 @@
 {
     // We'll ignore the zone for now
     LMData *another = [[LMData alloc] init];
-    another.programId = [self.programId copyWithZone: zone];
+    another.programIds = [self.programIds copyWithZone: zone];
     another.instanceId = [self.instanceId copyWithZone:zone];
     another.reportId = [self.reportId copyWithZone:zone];
     another.advertiserId = [self.advertiserId copyWithZone:zone];

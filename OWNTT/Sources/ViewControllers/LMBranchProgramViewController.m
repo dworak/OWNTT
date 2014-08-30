@@ -138,4 +138,15 @@
     return @"Raport wszystkich kampanii";
 }
 
+- (void)getAllProgramIds
+{
+    NSMutableArray *programIds = [NSMutableArray new];
+    for(LMProgram *pr in self.tableData)
+    {
+        [programIds addObject:pr.objectId];
+    }
+    self.objectId.programIds = [NSArray arrayWithArray:programIds];
+    self.objectId.reportId = [NSNumber numberWithInt:LMOWNTTReportType_Type8];
+}
+
 @end

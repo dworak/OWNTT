@@ -8,7 +8,9 @@
 
 #import "LMBranchViewController.h"
 #import "LMBranchTableViewCell.h"
+#import "LMBranchAdvertiserViewController.h"
 #import "LMBranchInstanceViewController.h"
+#import "LMBranchProgramViewController.h"
 #import "LMHeaderView.h"
 #import "LMNavigationViewController.h"
 #import "LMBranchReportViewController.h"
@@ -57,12 +59,26 @@
     if([self.parentViewController.navigationController isKindOfClass:[LMNavigationViewController class]])
     {
         LMNavigationViewController *navController = (LMNavigationViewController *)self.parentViewController.navigationController;
-        if(navController.controllerType.intValue == NavigationControllerType_Report && ![self isKindOfClass:[LMBranchReportViewController class]])
+        BOOL addHeader = NO;
+        if(self.objectId && self.objectId.instanceId)
+        {
+            LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId.instanceId inContext:self.managedObjectContext];
+            if([self isKindOfClass:[LMBranchAdvertiserViewController class]] && instance.isReport8)
+            {
+                addHeader = YES;
+            }
+            else if([self isKindOfClass:[LMBranchProgramViewController class]] && instance.isReport1)
+            {
+                addHeader = YES;
+            }
+        }
+        if(navController.controllerType.intValue == NavigationControllerType_Report && ![self isKindOfClass:[LMBranchReportViewController class]] && addHeader)
         {
             self.headerView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMHeaderView class])] owner:self options:nil] objectAtIndex:0];
             __weak LMBranchViewController *selfObject = self;
             [self.headerView setHeaderButtonTitle:[self headerbuttonTitle]];
             self.headerView.showReport = ^() {
+                [selfObject getAllProgramIds];
                 [selfObject.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_ModalWebPop] sender:selfObject];
             };
         }
@@ -76,10 +92,24 @@
     [self getTableData];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    
+    [super viewWillAppear:animated];
+    [self connectionNotificationChange];
+    [self setLocalizationStrings];
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionNotificationChange) name:LM_CONNECTION_NOTIFICATION_CHANGE object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -184,6 +214,23 @@
 }
 
 #pragma mark -
+#pragma mark Private methods
+- (void)setLocalizationStrings
+{
+    
+}
+
+- (void)connectionNotificationChange
+{
+    
+}
+
+- (void)getAllProgramIds
+{
+    
+}
+
+#pragma mark -
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -262,7 +309,7 @@
         }
         else if([object isKindOfClass:[LMProgram class]])
         {
-            self.objectId.programId = object.objectId;
+            self.objectId.programIds = [NSArray arrayWithObject:object.objectId];
         }
         else if([object isKindOfClass:[LMReport class]])
         {
