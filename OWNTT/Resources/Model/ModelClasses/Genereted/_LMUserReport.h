@@ -5,6 +5,7 @@
 #import "LMReadOnlyUserObject.h"
 
 extern const struct LMUserReportAttributes {
+	__unsafe_unretained NSString *timeintervalType;
 } LMUserReportAttributes;
 
 extern const struct LMUserReportRelationships {
@@ -19,6 +20,7 @@ extern const struct LMUserReportFetchedProperties {
 @class LMUser;
 
 
+
 @interface LMUserReportID : NSManagedObjectID {}
 @end
 
@@ -27,6 +29,20 @@ extern const struct LMUserReportFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (LMUserReportID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* timeintervalType;
+
+
+
+@property int16_t timeintervalTypeValue;
+- (int16_t)timeintervalTypeValue;
+- (void)setTimeintervalTypeValue:(int16_t)value_;
+
+//- (BOOL)validateTimeintervalType:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -54,6 +70,15 @@ extern const struct LMUserReportFetchedProperties {
 @end
 
 @interface _LMUserReport (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSNumber*)primitiveTimeintervalType;
+- (void)setPrimitiveTimeintervalType:(NSNumber*)value;
+
+- (int16_t)primitiveTimeintervalTypeValue;
+- (void)setPrimitiveTimeintervalTypeValue:(int16_t)value_;
+
+
 
 
 

@@ -110,6 +110,10 @@
         [[LMNotificationService instance] addObserver:self forNotification:LMNotification_AlertOperationCancel withSelector:@selector(synchronizationCancel)];
         [LMUtils performSynchronization:NO];
     }
+    else
+    {
+        [self splashViewControllerDidFinish];
+    }
 }
 
 - (void)synchronizationEnd

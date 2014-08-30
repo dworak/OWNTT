@@ -68,8 +68,8 @@
                 nameView.firstName.text = advertiser.name;
                 for(LMProgram *program in advertiser.programs.allObjects)
                 {
-                    LMProgram *selectedProgram = [self.objectId.programIds objectAtIndex:0];
-                    if(program.objectId.intValue == selectedProgram.objectId.intValue)
+                    NSNumber *selectedProgram = [self.objectId.programIds objectAtIndex:0];
+                    if(program.objectId.intValue == selectedProgram.intValue)
                     {
                         nameView.SecondName.text = program.name;
                     }

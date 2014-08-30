@@ -4,6 +4,7 @@
 #import "_LMUserReport.h"
 
 const struct LMUserReportAttributes LMUserReportAttributes = {
+	.timeintervalType = @"timeintervalType",
 };
 
 const struct LMUserReportRelationships LMUserReportRelationships = {
@@ -40,9 +41,40 @@ const struct LMUserReportFetchedProperties LMUserReportFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"timeintervalTypeValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"timeintervalType"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic timeintervalType;
+
+
+
+- (int16_t)timeintervalTypeValue {
+	NSNumber *result = [self timeintervalType];
+	return [result shortValue];
+}
+
+- (void)setTimeintervalTypeValue:(int16_t)value_ {
+	[self setTimeintervalType:[NSNumber numberWithShort:value_]];
+}
+
+- (int16_t)primitiveTimeintervalTypeValue {
+	NSNumber *result = [self primitiveTimeintervalType];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveTimeintervalTypeValue:(int16_t)value_ {
+	[self setPrimitiveTimeintervalType:[NSNumber numberWithShort:value_]];
+}
+
 
 
 

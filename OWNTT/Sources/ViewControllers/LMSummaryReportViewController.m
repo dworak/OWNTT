@@ -40,10 +40,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.pickerData = [LMReferenceData staticReportTimeIntervalValues];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[LMReferenceData staticReportTimeIntervalValues]];
+    [array removeLastObject];
+    self.pickerData = [NSArray arrayWithArray:array];
     [self.reportNameTextField addValidation:LMTextFieldValidaitonType_Name];
-    [self.timeintervalButton setTitle:[self.pickerData objectAtIndex:2] forState:UIControlStateNormal];
-    [self.timeintervalButton setTitle:[self.pickerData objectAtIndex:2] forState:UIControlStateHighlighted];
+    [self.timeintervalButton setTitle:LM_LOCALIZE([self.pickerData objectAtIndex:2]) forState:UIControlStateNormal];
+    [self.timeintervalButton setTitle:LM_LOCALIZE([self.pickerData objectAtIndex:2]) forState:UIControlStateHighlighted];
     self.reportNameTextField.delegate = self;
     self.scrollView.contentSize = CGSizeMake(320, self.view.frame.size.height-64);
     
@@ -58,8 +60,8 @@
                 self.nameView.firstName.text = advertiser.name;
                 for(LMProgram *program in advertiser.programs.allObjects)
                 {
-                    LMProgram *selectedProgram = [self.transactionData.programIds objectAtIndex:0];
-                    if(program.objectId.intValue == selectedProgram.objectId.intValue)
+                    NSNumber *selectedProgram = [self.transactionData.programIds objectAtIndex:0];
+                    if(program.objectId.intValue == selectedProgram.intValue)
                     {
                         self.nameView.SecondName.text = program.name;
                     }
@@ -119,8 +121,8 @@
         };
         self.pickerViewController.pickerViewDoneAction = ^(NSString *value)
         {
-            [selfObj.timeintervalButton setTitle:value forState:UIControlStateNormal];
-            [selfObj.timeintervalButton setTitle:value forState:UIControlStateHighlighted];
+            [selfObj.timeintervalButton setTitle:LM_LOCALIZE(value) forState:UIControlStateNormal];
+            [selfObj.timeintervalButton setTitle:LM_LOCALIZE(value) forState:UIControlStateHighlighted];
             [selfObj.pickerViewController hide];
         };
     }
@@ -149,6 +151,7 @@
     LMUserReport *userReport = [LMUserReport createObjectInContext:self.managedObjectContext];
     LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:self.managedObjectContext];
     userReport.reportObject = report;
+    userReport.timeintervalType = [NSNumber numberWithInt:[LMUtils reportTimeIntervalStringToType:self.timeintervalButton.titleLabel.text]];
     userReport.createDate = [NSDate date];
     userReport.name = self.reportNameTextField.text;
     [user.userReportsSet addObject:userReport];
