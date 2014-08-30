@@ -178,6 +178,7 @@
         else
         {
             NSLog(@"Error: dates array has only one element");
+            return;
         }
     }
     else

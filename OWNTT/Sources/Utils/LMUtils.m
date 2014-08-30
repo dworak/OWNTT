@@ -208,12 +208,6 @@
     return [standardUserDefaults valueForKey:USER_DEFAULTS_CURRENT_INSTANCE];
 }
 
-+ (void)showErrorAlertWithText:(NSString *)text
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Błąd" message:text delegate:self cancelButtonTitle:@"Popraw" otherButtonTitles:nil];
-    [alertView show];
-}
-
 + (void)createReportObjects
 {
 }

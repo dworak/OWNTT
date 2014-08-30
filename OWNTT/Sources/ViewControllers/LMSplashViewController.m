@@ -104,9 +104,12 @@
 
 - (void)downloadJsonData
 {
-    [[LMNotificationService instance] addObserver:self forNotification:LMNotification_AlertOperationFinished withSelector:@selector(synchronizationEnd)];
-    [[LMNotificationService instance] addObserver:self forNotification:LMNotification_AlertOperationCancel withSelector:@selector(synchronizationCancel)];
-    [LMUtils performSynchronization:NO];
+    if([LMAppUtils connected])
+    {
+        [[LMNotificationService instance] addObserver:self forNotification:LMNotification_AlertOperationFinished withSelector:@selector(synchronizationEnd)];
+        [[LMNotificationService instance] addObserver:self forNotification:LMNotification_AlertOperationCancel withSelector:@selector(synchronizationCancel)];
+        [LMUtils performSynchronization:NO];
+    }
 }
 
 - (void)synchronizationEnd

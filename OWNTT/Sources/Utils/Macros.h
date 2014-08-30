@@ -43,4 +43,6 @@ return (EnumType)0; \
 
 #define LM_LOCALIZE(K) (AMLocalizedString(K, @"Empty localization"))
 
+#define LM_CONNECTION_NOTIFICATION_CHANGE @"ConnectionNotificationChange"
+
 #endif

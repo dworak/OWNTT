@@ -99,6 +99,7 @@
 		25B18C751996186100A519B5 /* LMCustomNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B18C741996186100A519B5 /* LMCustomNavigationViewController.m */; };
 		25D0722B1998B2B100E326C8 /* LMSegueKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D0722A1998B2B100E326C8 /* LMSegueKeys.m */; };
 		25EFBB4A19B1049C0012367A /* LocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EFBB4919B1049C0012367A /* LocalizationSystem.m */; };
+		25EFBB5019B203B60012367A /* LMAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EFBB4F19B203B60012367A /* LMAlertManager.m */; };
 		25F9E62219A3DACD000D809A /* violet_inverse_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F9E62019A3DACD000D809A /* violet_inverse_arrow@2x.png */; };
 		25F9E62319A3DACD000D809A /* violetArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F9E62119A3DACD000D809A /* violetArrow@2x.png */; };
 		25FAFCA71990C41600FCD226 /* LMData.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FAFCA61990C41600FCD226 /* LMData.m */; };
@@ -339,6 +340,8 @@
 		25D0722A1998B2B100E326C8 /* LMSegueKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSegueKeys.m; sourceTree = "<group>"; };
 		25EFBB4819B1049C0012367A /* LocalizationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationSystem.h; sourceTree = "<group>"; };
 		25EFBB4919B1049C0012367A /* LocalizationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationSystem.m; sourceTree = "<group>"; };
+		25EFBB4E19B203B60012367A /* LMAlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAlertManager.h; sourceTree = "<group>"; };
+		25EFBB4F19B203B60012367A /* LMAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAlertManager.m; sourceTree = "<group>"; };
 		25F9E62019A3DACD000D809A /* violet_inverse_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "violet_inverse_arrow@2x.png"; sourceTree = "<group>"; };
 		25F9E62119A3DACD000D809A /* violetArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "violetArrow@2x.png"; sourceTree = "<group>"; };
 		25FAFCA51990C41600FCD226 /* LMData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMData.h; sourceTree = "<group>"; };
@@ -956,6 +959,8 @@
 				EDE87C0519867E9100043861 /* LMUtils.m */,
 				EDF39E6F198106B700E00966 /* Macros.h */,
 				25659B9319A27C9D009BF814 /* OWNTTHeader.h */,
+				25EFBB4E19B203B60012367A /* LMAlertManager.h */,
+				25EFBB4F19B203B60012367A /* LMAlertManager.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1190,6 +1195,7 @@
 				25FAFCCA1990E1D300FCD226 /* LMReadOnlyUserObject.m in Sources */,
 				25659B9C19A289A2009BF814 /* LMBranchNameView.m in Sources */,
 				EDF39E541980FF7D00E00966 /* main.m in Sources */,
+				25EFBB5019B203B60012367A /* LMAlertManager.m in Sources */,
 				25B18C701996093D00A519B5 /* LMDateConfigurationViewController.m in Sources */,
 				ED54F16919ADED1B00BC3446 /* LMSynchronizationService.m in Sources */,
 				253F1F56198E27BD00158407 /* LMProgram.m in Sources */,

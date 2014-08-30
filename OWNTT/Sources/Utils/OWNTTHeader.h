@@ -29,5 +29,6 @@
 #import "LMSynchronizationService.h"
 #import "LMOWNTTHTTPClient.h"
 #import "LocalizationSystem.h"
+#import "LMAlertManager.h"
 
 #endif

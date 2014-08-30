@@ -50,7 +50,6 @@ typedef enum {
 + (void)saveCoreDataContext:(NSManagedObjectContext *)context;
 + (void)storeCurrentInstance:(NSNumber *)instanceId;
 + (void)removeCurrentInstance;
-+ (void)showErrorAlertWithText:(NSString *)text;
 + (void)createReportObjects;
 + (void)performSynchronization:(BOOL)initial;
 + (void)setupCurrentLanguage;

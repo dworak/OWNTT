@@ -23,14 +23,15 @@
 
 - (void)internetConnectionChange:(BOOL)connected
 {
-    if(connected)
+    /*if(connected)
     {
         [[NSNotificationCenter defaultCenter] postNotificationName:LMAppUtilsInternetConnected object:nil];
     }
     else
     {
         [[NSNotificationCenter defaultCenter] postNotificationName:LMAppUtilsInternetDisconnected object:nil];
-    }
+    }*/
+    [[NSNotificationCenter defaultCenter] postNotificationName:LM_CONNECTION_NOTIFICATION_CHANGE object:nil];
 }
 
 + (BOOL)connected

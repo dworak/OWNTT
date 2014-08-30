@@ -216,13 +216,13 @@ typedef enum {
             NSDate *dateTo = [self.dateFormatter dateFromString:self.dateToButton.titleLabel.text];
             if([dateFrom compare:dateTo] == NSOrderedSame || [dateFrom compare:dateTo] == NSOrderedDescending)
             {
-                message = @"Data do musi być większa niż data od";
+                message = LM_LOCALIZE(@"LMDateValidation");
             }
         }
     }
     if(message)
     {
-        [LMUtils showErrorAlertWithText:message];
+        [LMAlertManager showErrorAlertWithOkWithText:message];
         return NO;
     }
     else

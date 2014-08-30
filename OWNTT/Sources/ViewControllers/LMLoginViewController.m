@@ -24,12 +24,15 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelItem;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIImageView *shadowImage;
+@property (weak, nonatomic) IBOutlet LMFullButton *loginButton;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UIView *loadingView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *loadingDataTextField;
+@property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 
+- (void)setLocalizationStrings;
 @end
 
 @implementation LMLoginViewController 
@@ -51,8 +54,6 @@
     self.navigationItem.hidesBackButton = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.loginTextField.text = OWNTT_TEST_USER_NAME;
-    self.loadingView.alpha = 0;
-    
     self.shadowImage.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
     
     // Firstly for purpouse of storing all of the fields we remove all of the items from view
@@ -87,8 +88,23 @@
     self.toolbar.hidden = !self.showToolbar;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.loadingView.alpha = 0;
+    [self connectionNotificationChange];
+    [self setLocalizationStrings];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionNotificationChange) name:LM_CONNECTION_NOTIFICATION_CHANGE object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,14 +146,14 @@
     if(text != nil)
     {
         [self shakeAnimation:[NSArray arrayWithObjects:self.loginTextField, nil]];
-        [LMUtils showErrorAlertWithText:text];
+        [LMAlertManager showErrorAlertWithOkWithText:text];
         return;
     }
     text = [self.passwordTextField validateField];
     if(text != nil)
     {
         [self shakeAnimation:[NSArray arrayWithObjects:self.passwordTextField, nil]];
-        [LMUtils showErrorAlertWithText:text];
+        [LMAlertManager showErrorAlertWithOkWithText:text];
         return;
     }
     
@@ -149,8 +165,7 @@
             [selfObj successAction];
             [[LMCoreDataManager sharedInstance] saveMasterContext];
         } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Błąd" message:@"Nie można usunąć poprzedniego usera. Spróbuj ponownie." delegate:selfObj cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-            [alert show];
+            [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_LoginRemoveUser")];
         }];
     } else{
         [self successAction];
@@ -198,8 +213,7 @@
                  selfObj.loadingView.alpha = 0;
                  [selfObj.activityIndicator stopAnimating];
              } completion:^(BOOL finished) {
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Błąd" message:@"Nie można zarejestrować użytkownika." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                 [alert show];
+                 [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_LoginRegisterDevice")];
              }];
          }];
     }];
@@ -207,6 +221,34 @@
 
 #pragma mark -
 #pragma mark === Private methods ===
+- (void)setLocalizationStrings
+{
+    self.warningLabel.text = LM_LOCALIZE(@"LMLogin_WarningLabel");
+    [self.loginButton setTitle:LM_LOCALIZE(@"LMLogin_LoginButton") forState:UIControlStateNormal];
+    [self.loginButton setTitle:LM_LOCALIZE(@"LMLogin_LoginButton") forState:UIControlStateHighlighted];
+    self.loadingDataTextField.text = LM_LOCALIZE(@"LMLogin_LoadingDataLabel");
+    self.loginTextField.placeholder = LM_LOCALIZE(@"LMLogin_LoginPlaceholder");
+    self.passwordTextField.placeholder = LM_LOCALIZE(@"LMLogin_PasswordPlaceholder");
+}
+
+- (void)connectionNotificationChange
+{
+    if(![LMAppUtils connected])
+    {
+        self.warningLabel.hidden = NO;
+        self.loginButton.enabled = NO;
+        self.loginTextField.enabled = NO;
+        self.passwordTextField.enabled = NO;
+    }
+    else
+    {
+        self.warningLabel.hidden = YES;
+        self.loginButton.enabled = YES;
+        self.loginTextField.enabled = YES;
+        self.passwordTextField.enabled = YES;
+    }
+}
+
 - (void)checkDependingTreeAndShowBranch {
     
 }
@@ -255,8 +297,7 @@
         self.loadingView.alpha = 0;
         [self.activityIndicator stopAnimating];
     } completion:^(BOOL finished) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Błąd" message:@"Pobieranie danych aplikacji nie powiodło się, spróbuj ponownie." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alert show];
+        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_LoginSynchronizationError")];
     }];
 }
 

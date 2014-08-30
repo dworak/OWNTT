@@ -73,13 +73,13 @@
             }
             else
             {
-                return @"Login musi być w formacie e-mail i zawierać od 1 do 255 znaków";
+                return LM_LOCALIZE(@"LMTextField_Login");
             }
         case LMTextFieldValidaitonType_Password:
         {
             if(self.text.length > 60 || self.text.length < 1)
             {
-                return @"Hasło musi zawierać od 1 do 60 znaków";
+                return LM_LOCALIZE(@"LMTextField_Password");
             }
             else
             {
@@ -90,7 +90,7 @@
         {
             if(self.text.length > 60 || self.text.length < 1)
             {
-                return @"Nazwa musi zawierać od 1 do 60 znaków";
+                return LM_LOCALIZE(@"LMTextField_Name");
             }
             else
             {
@@ -104,7 +104,7 @@
             NSNumber *number = [numberFormatter numberFromString:self.text];
             if(!number || number.intValue < 0 || number.intValue > 999999999)
             {
-                return @"Wartość musi być liczbą z przedziału od 0 do 999 999 999";
+                return LM_LOCALIZE(@"LMTextField_Value");
             }
             else
             {
