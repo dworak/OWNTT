@@ -175,7 +175,7 @@
 
 - (NSString *)headerbuttonTitle
 {
-    return @"Raport wszystkich reklamodawców";
+    return [LMOWNTTHTTPClient reportTypeName:LMOWNTTReportType_Type8];
 }
 
 /*
@@ -222,7 +222,7 @@
 
 - (void)connectionNotificationChange
 {
-    
+    [self getTableData];
 }
 
 - (void)getAllProgramIds

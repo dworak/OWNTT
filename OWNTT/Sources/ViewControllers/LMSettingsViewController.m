@@ -69,6 +69,8 @@
     
     [self.refreshButton setTitle:LM_LOCALIZE(@"LMSettingRefreshButton") forState:UIControlStateNormal];
     [self.refreshButton setTitle:LM_LOCALIZE(@"LMSettingRefreshButton") forState:UIControlStateHighlighted];
+    
+    self.parentViewController.tabBarItem.title = LM_LOCALIZE(@"LMTabBar_Settings");
 }
 
 - (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender

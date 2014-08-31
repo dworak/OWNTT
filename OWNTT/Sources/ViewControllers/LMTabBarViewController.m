@@ -8,6 +8,8 @@
 
 #import "LMTabBarViewController.h"
 #import "LMWebViewController.h"
+#import "LMNavigationViewController.h"
+#import "LMSettingsViewController.h"
 
 @interface LMTabBarViewController () <UITabBarControllerDelegate>
 @property (strong, nonatomic) UIImageView *pointerView;
@@ -40,6 +42,31 @@
     [self.tabBar addSubview:seperatorView];
     
     //[UITabBarItem.appearance setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor purpleColor] }     forState:UIControlStateSelected];
+    
+    for(UIViewController *controller in self.viewControllers)
+    {
+        if([controller isKindOfClass:[LMNavigationViewController class]])
+        {
+            LMNavigationViewController *naVController = (LMNavigationViewController *)controller;
+            switch (naVController.controllerType.intValue) {
+                case NavigationControllerType_Report:
+                    self.tabBarItem.title = LM_LOCALIZE(@"LMTabBar_Report");
+                    break;
+                case NavigationControllerType_Alert:
+                    self.tabBarItem.title = LM_LOCALIZE(@"LMTabBar_Alert");
+                    break;
+                case NavigationControllerType_ReportTemplate:
+                    self.tabBarItem.title = LM_LOCALIZE(@"LMTabBar_Template");
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            self.tabBarItem.title = LM_LOCALIZE(@"LMTabBar_Settings");
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning

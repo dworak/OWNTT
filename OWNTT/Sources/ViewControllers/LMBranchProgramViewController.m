@@ -135,7 +135,7 @@
 
 - (NSString *)headerbuttonTitle
 {
-    return @"Raport wszystkich kampanii";
+    return [LMOWNTTHTTPClient reportTypeName:LMOWNTTReportType_Type1];
 }
 
 - (void)getAllProgramIds

@@ -31,11 +31,11 @@
             </objects>
             <point key="canvasLocation" x="-3445" y="-2161"/>
         </scene>
-        <!--Navigation View Controller - Raport-->
+        <!--Navigation View Controller-->
         <scene sceneID="Ddp-gf-zuL">
             <objects>
                 <navigationController storyboardIdentifier="LMReportNavigationViewController" definesPresentationContext="YES" modalTransitionStyle="crossDissolve" id="XLK-Xm-Upl" customClass="LMNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Raport" image="tabbar1.png" id="CIi-AV-jPN"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabbar1.png" id="CIi-AV-jPN"/>
                     <navigationItem key="navigationItem" id="2CF-zG-jsR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dbG-d6-dF5">
                         <autoresizingMask key="autoresizingMask"/>
@@ -166,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="224" y="-4261"/>
         </scene>
-        <!--Host View Controller - Ustawienia-->
+        <!--Settings Host View Controller-->
         <scene sceneID="Bf2-ge-1CQ">
             <objects>
-                <viewController id="RYl-XQ-yBK" customClass="TTHostViewController" sceneMemberID="viewController">
+                <viewController id="RYl-XQ-yBK" customClass="LMSettingsHostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o40-fZ-arM"/>
                         <viewControllerLayoutGuide type="bottom" id="ZdR-Kn-CGf"/>
@@ -179,7 +179,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ustawienia" image="tabbar4.png" id="diy-MC-CoD"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabbar4.png" id="diy-MC-CoD"/>
                     <navigationItem key="navigationItem" id="RSg-Ly-LoZ"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMSettingsViewController"/>
@@ -246,11 +246,11 @@
             </objects>
             <point key="canvasLocation" x="1344" y="-4261"/>
         </scene>
-        <!--Navigation View Controller - Alert-->
+        <!--Navigation View Controller-->
         <scene sceneID="ET4-lE-ZZI">
             <objects>
                 <navigationController storyboardIdentifier="LMAlertNavigationViewController" definesPresentationContext="YES" modalTransitionStyle="crossDissolve" id="yFe-XZ-eT1" customClass="LMNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Alert" image="tabbar3.png" id="grI-Oe-HO0"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabbar3.png" id="grI-Oe-HO0"/>
                     <navigationItem key="navigationItem" id="XCh-9x-C4J"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8qk-Hs-bZ3">
                         <autoresizingMask key="autoresizingMask"/>
@@ -270,11 +270,11 @@
             </objects>
             <point key="canvasLocation" x="-2238" y="-2723"/>
         </scene>
-        <!--Navigation View Controller - Szablon-->
+        <!--Navigation View Controller-->
         <scene sceneID="ieT-U7-n6W">
             <objects>
                 <navigationController storyboardIdentifier="LMReportTemplateNavigationViewController" definesPresentationContext="YES" modalTransitionStyle="crossDissolve" id="TiH-9s-jPY" customClass="LMNavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Szablon" image="tabbar2.png" id="Pse-sV-1n6"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabbar2.png" id="Pse-sV-1n6"/>
                     <navigationItem key="navigationItem" id="hnC-yp-HlV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IgR-6E-9ur">
                         <autoresizingMask key="autoresizingMask"/>

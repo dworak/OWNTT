@@ -44,7 +44,7 @@
 "LMAlertManager_LoginRegisterDevice" = "Nie można zarejestrować użytkownika.";
 "LMAlertManager_LoginSynchronizationError" = "Pobieranie danych aplikacji nie powiodło się, spróbuj ponownie.";
 "LMAlertManager_AlertSummaryInternet" = "Aby wysłać alert należy połączyć się z Internetem.";
-"LMalertManager_AlertSummaryBadRequest" = "Nie można wysłać alertu."
+"LMalertManager_AlertSummaryBadRequest" = "Nie można wysłać alertu.";
 
 //LMLoginViewController
 "LMLogin_WarningLabel" = "Do przejścia dalej wymagane jest połączenie z Internetem!";
@@ -60,6 +60,7 @@
 "LMTextField_Value" = "Wartość musi być liczbą z przedziału od 0 do 999 999 999.";
 "LMDateValidation" = "Data do musi być większa niż data od.";
 
+
 //LMSettingViewController
 "LMSettingsTitleLabel" = "Aplikacja zarejestrowana dla:";
 "LMSettingInstanceButton" = "Instancje";
@@ -67,6 +68,12 @@
 
 //LMSplashViewController
 "LMSplash_LoadingData" = "Trwa pobieranie danych...";
+
+//LMTabBar
+"LMTabBar_Report" = "Raport";
+"LMTabBar_Template" = "Szablon";
+"LMTabBar_Alert" = "Alert";
+"LMTabBar_Settings" = "Ustawienia";
 
 
 

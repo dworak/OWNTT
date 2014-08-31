@@ -22,6 +22,15 @@
 
 @implementation LMNavigationViewController
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if(self = [super initWithCoder:aDecoder])
+    {
+        [self setLocalizationStrings];
+    }
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -85,6 +94,29 @@
             [self prepareBranchController:currentTopViewController];
             break;
         }
+        default:
+            break;
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setLocalizationStrings];
+}
+
+- (void)setLocalizationStrings
+{
+    switch (self.controllerType.intValue) {
+        case NavigationControllerType_Report:
+            self.tabBarItem.title = LM_LOCALIZE(@"LMTabBar_Report");
+            break;
+        case NavigationControllerType_Alert:
+            self.tabBarItem.title = LM_LOCALIZE(@"LMTabBar_Alert");
+            break;
+        case NavigationControllerType_ReportTemplate:
+            self.tabBarItem.title = LM_LOCALIZE(@"LMTabBar_Template");
+            break;
         default:
             break;
     }

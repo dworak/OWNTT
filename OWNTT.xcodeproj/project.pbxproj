@@ -93,6 +93,7 @@
 		2591A91E1993F4620036EEDB /* 1.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91B1993F4620036EEDB /* 1.html */; };
 		2591A91F1993F4620036EEDB /* 2.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91C1993F4620036EEDB /* 2.html */; };
 		2591A9201993F4620036EEDB /* 3.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91D1993F4620036EEDB /* 3.html */; };
+		259AF74E19B2FEC90086CF4E /* LMSettingsHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259AF74D19B2FEC90086CF4E /* LMSettingsHostViewController.m */; };
 		25B18C6D1995F2BC00A519B5 /* LMFullButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B18C6C1995F2BC00A519B5 /* LMFullButton.m */; };
 		25B18C701996093D00A519B5 /* LMDateConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B18C6F1996093D00A519B5 /* LMDateConfigurationViewController.m */; };
 		25B18C721996095B00A519B5 /* LMDateConfigurationViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25B18C711996095B00A519B5 /* LMDateConfigurationViewController_iPhone.xib */; };
@@ -329,6 +330,8 @@
 		2591A91B1993F4620036EEDB /* 1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 1.html; sourceTree = "<group>"; };
 		2591A91C1993F4620036EEDB /* 2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2.html; sourceTree = "<group>"; };
 		2591A91D1993F4620036EEDB /* 3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 3.html; sourceTree = "<group>"; };
+		259AF74C19B2FEC90086CF4E /* LMSettingsHostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSettingsHostViewController.h; sourceTree = "<group>"; };
+		259AF74D19B2FEC90086CF4E /* LMSettingsHostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSettingsHostViewController.m; sourceTree = "<group>"; };
 		25B18C6B1995F2BC00A519B5 /* LMFullButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMFullButton.h; sourceTree = "<group>"; };
 		25B18C6C1995F2BC00A519B5 /* LMFullButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMFullButton.m; sourceTree = "<group>"; };
 		25B18C6E1996093D00A519B5 /* LMDateConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMDateConfigurationViewController.h; sourceTree = "<group>"; };
@@ -894,6 +897,8 @@
 				25FAFCA91990D42900FCD226 /* LMTabBarViewController.m */,
 				25146A8519924FC5001DC8E3 /* LMWebViewController.h */,
 				25146A8619924FC5001DC8E3 /* LMWebViewController.m */,
+				259AF74C19B2FEC90086CF4E /* LMSettingsHostViewController.h */,
+				259AF74D19B2FEC90086CF4E /* LMSettingsHostViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1173,6 +1178,7 @@
 				EDD131B919812EFD006F39E3 /* LMBranchInstanceViewController.m in Sources */,
 				2584AD8619ABB98000C9CBA2 /* _LMSynchStatus.m in Sources */,
 				250F89C01991FBDF00D91836 /* LMDataPickerViewController.m in Sources */,
+				259AF74E19B2FEC90086CF4E /* LMSettingsHostViewController.m in Sources */,
 				25036AD5198D2E6900EAE355 /* LMUser.m in Sources */,
 				25036AE9198D5EE300EAE355 /* LMBranchTableViewCell.m in Sources */,
 				25B18C6D1995F2BC00A519B5 /* LMFullButton.m in Sources */,
