@@ -175,7 +175,7 @@
 
 - (NSString *)headerbuttonTitle
 {
-    return [LMOWNTTHTTPClient reportTypeName:LMOWNTTReportType_Type8];
+    return [LMOWNTTHTTPClient reportTypeAppName:LMOWNTTReportType_Type8];
 }
 
 /*

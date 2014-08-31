@@ -57,6 +57,11 @@
     self.tableView.separatorColor = [UIColor whiteColor];
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     self.subMenuImage.backgroundColor = SUBMENU_BACKGROUND_COLOR;
+    
+    if(!IS_IPHONE_5)
+    {
+        self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 86)];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

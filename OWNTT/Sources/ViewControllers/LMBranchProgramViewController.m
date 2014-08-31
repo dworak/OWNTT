@@ -135,7 +135,7 @@
 
 - (NSString *)headerbuttonTitle
 {
-    return [LMOWNTTHTTPClient reportTypeName:LMOWNTTReportType_Type1];
+    return [LMOWNTTHTTPClient reportTypeAppName:LMOWNTTReportType_Type1];
 }
 
 - (void)getAllProgramIds

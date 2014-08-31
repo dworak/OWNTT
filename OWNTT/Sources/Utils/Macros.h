@@ -45,4 +45,6 @@ return (EnumType)0; \
 
 #define LM_CONNECTION_NOTIFICATION_CHANGE @"ConnectionNotificationChange"
 
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
 #endif
