@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *instanceButton;
 @property (weak, nonatomic) IBOutlet UIButton *nameButton;
 @property (weak, nonatomic) IBOutlet UIImageView *shadowImage;
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -61,6 +63,12 @@
     }
     [self.nameButton setTitle:[NSString stringWithFormat:@"%@ %@", OWNTT_APP_DELEGATE.appUtils.currentUser.name, OWNTT_APP_DELEGATE.appUtils.currentUser.surname] forState:UIControlStateNormal];
     [self.nameButton setTitle:[NSString stringWithFormat:@"%@ %@", OWNTT_APP_DELEGATE.appUtils.currentUser.name, OWNTT_APP_DELEGATE.appUtils.currentUser.surname] forState:UIControlStateHighlighted];
+    self.titleLabel.text = LM_LOCALIZE(@"LMSettingsTitleLabel");
+    [self.instanceButton setTitle:LM_LOCALIZE(@"LMSettingInstanceButton") forState:UIControlStateNormal];
+    [self.instanceButton setTitle:LM_LOCALIZE(@"LMSettingInstanceButton") forState:UIControlStateHighlighted];
+    
+    [self.refreshButton setTitle:LM_LOCALIZE(@"LMSettingRefreshButton") forState:UIControlStateNormal];
+    [self.refreshButton setTitle:LM_LOCALIZE(@"LMSettingRefreshButton") forState:UIControlStateHighlighted];
 }
 
 - (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -114,7 +122,7 @@
 
 - (IBAction)refreshButtonTapped:(id)sender
 {
-    //TODO: add load tree
+    [LMUtils performSynchronization:NO];
     [self instanceButtonTapped:nil];
 }
 

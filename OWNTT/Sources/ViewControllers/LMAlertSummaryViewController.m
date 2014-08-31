@@ -168,6 +168,11 @@
 
 - (void)saveObjectData
 {
+    if(![LMAppUtils connected])
+    {
+        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_AlertSummaryInternet")];
+        return;
+    }
     NSNumberFormatter *decimalFormater = [NSNumberFormatter new];
     [decimalFormater setNumberStyle:NSNumberFormatterDecimalStyle];
     NSManagedObjectContext *managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
@@ -176,6 +181,7 @@
     userAlert.name = self.alertNameTextField.text;
     userAlert.paramTypeValue = [LMUtils alertPointerStringToType:self.rateType.titleLabel.text];
     userAlert.monitorTypeValue = [LMUtils alertMonitoringStringToType:self.monitoringType.titleLabel.text];
+    userAlert.borderTypeValue = [LMUtils alertBorderStringToType:self.borderType.titleLabel.text];
     userAlert.hour = [decimalFormater numberFromString:self.hourOfSend.titleLabel.text];
     userAlert.programId = [self.transactionData.programIds objectAtIndex:0];
     userAlert.dateFrom = [self.dateFormater dateFromString:self.dateFrom.titleLabel.text];
@@ -186,6 +192,12 @@
     [user.userAlertsSet addObject:userAlert];
     [LMUtils saveCoreDataContext:managedObjectContext];
     
+    //Send alert
+    [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_RegisterAlertPush parameters:[LMOWNTTHTTPClient registerAlertPushParams:userAlert] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self endAction];
+    } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMalertManager_AlertSummaryBadRequest")];
+    }];
 }
 
 - (IBAction)checkboxTapped:(id)sender

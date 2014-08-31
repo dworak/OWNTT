@@ -29,5 +29,6 @@
 @property (strong, nonatomic) NSArray *pickerData;
 
 - (void)saveObjectData;
+- (void)endAction;
 - (BOOL)isValid;
 @end

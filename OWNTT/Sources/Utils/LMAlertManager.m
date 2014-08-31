@@ -12,12 +12,12 @@
 
 + (void)showErrorAlertWithOkWithText:(NSString *)text
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LM_LOCALIZE(@"LMAlertManager_Error") message:text delegate:self cancelButtonTitle:@"LMAlertManager_Ok" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LM_LOCALIZE(@"LMAlertManager_Error") message:text delegate:self cancelButtonTitle:LM_LOCALIZE(@"LMAlertManager_Ok") otherButtonTitles:nil];
     [alertView show];
 }
 + (void)showInfoAlertWithOkWithText:(NSString *)text
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LM_LOCALIZE(@"LMAlertManager_Info") message:text delegate:self cancelButtonTitle:@"LMAlertManager_Ok" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LM_LOCALIZE(@"LMAlertManager_Info") message:text delegate:self cancelButtonTitle:LM_LOCALIZE(@"LMAlertManager_Ok") otherButtonTitles:nil];
     [alertView show];
 }
 @end

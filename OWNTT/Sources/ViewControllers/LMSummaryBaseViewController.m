@@ -129,8 +129,12 @@
     if([self isValid])
     {
         [self saveObjectData];
-        [self.parentViewController.navigationController popToRootViewControllerAnimated:YES];
     }
+}
+
+- (void)endAction
+{
+    [self.parentViewController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)saveObjectData

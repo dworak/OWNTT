@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    ReportTimeInterval_ThisYear = 0,
+    ReportTimeInterval_ThisYear = 1,
     ReportTimeInterval_PreviousMonth,
     ReportTimeInterval_ActualMonth,
     ReportTimeInterval_PreviousWeek,
@@ -20,12 +20,12 @@ typedef enum {
 } ReportTimeIntervalType;
 
 typedef enum {
-    AlertMonitoringTypes_Growing = 0,
+    AlertMonitoringTypes_Growing = 1,
     AlertMonitoringTypes_Daily
 } AlertMonitoringTypes;
 
 typedef enum {
-    AlertPointertypes_Display = 0,
+    AlertPointertypes_Display = 1,
     AlertPointertypes_Click,
     AlertPointertypes_Visit,
     AlertPointertypes_NewVisit,
@@ -36,7 +36,7 @@ typedef enum {
 } AlertPointerTypes;
 
 typedef enum {
-    AlertBorderTypes_GreaterThan = 0,
+    AlertBorderTypes_GreaterThan = 1,
     AlertBorderTypes_LessThan
 } AlertBorderTypes;
 

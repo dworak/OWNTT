@@ -41,7 +41,8 @@ typedef enum {
     LMOWNTTHTTPCLIENTServiceParamName_Value,
     LMOWNTTHTTPCLIENTServiceParamName_BorderType,
     LMOWNTTHTTPCLIENTServiceParamName_Hour,
-    LMOWNTTHTTPCLIENTServiceParamName_ProgramType
+    LMOWNTTHTTPCLIENTServiceParamName_ProgramType,
+    LMOWNTTHTTPCLIENTServiceParamName_ParamType
 } LMOWNTTHTTPCLIENTServiceParamName;
 
 typedef enum {
@@ -74,6 +75,8 @@ typedef enum {
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
 
+@class LMUserAlert;
+
 typedef void (^succedBlock)(AFHTTPRequestOperation *operation, id responseObject);
 typedef void (^failureBlock)(AFHTTPRequestOperation *operation, NSError *error);
 
@@ -102,6 +105,7 @@ typedef void (^failureBlock)(AFHTTPRequestOperation *operation, NSError *error);
                              dateFrom:(NSString *)dateFrom
                                dateTo:(NSString*)dateTo
                            programIds:(NSArray*)programIds;
++ (NSDictionary*)registerAlertPushParams:(LMUserAlert *)userAlert;
 
 - (AFHTTPRequestOperation *)POSTHTTPRequestOperationForServiceName: (LMOWNTTHTTPClientServiceName)serviceName
                                                   parameters: (NSDictionary *) parameters

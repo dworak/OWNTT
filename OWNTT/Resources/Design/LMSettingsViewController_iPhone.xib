@@ -8,7 +8,9 @@
             <connections>
                 <outlet property="instanceButton" destination="hNk-6f-oiM" id="j4x-8H-sXE"/>
                 <outlet property="nameButton" destination="iWL-rS-fAA" id="KNs-WZ-AZB"/>
+                <outlet property="refreshButton" destination="4dG-Vi-1vi" id="ATO-td-rop"/>
                 <outlet property="shadowImage" destination="0fq-Wn-1as" id="Lgv-N2-6tQ"/>
+                <outlet property="titleLabel" destination="42G-1J-sal" id="fOc-T7-ntV"/>
                 <outlet property="toolbar" destination="Xbs-kf-gRE" id="6SM-UK-qyz"/>
                 <outlet property="view" destination="iN0-l3-epB" id="8xM-LX-SfP"/>
             </connections>
@@ -34,7 +36,7 @@
                     <rect key="frame" x="116" y="21" width="88" height="42"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aplikacja zarejestrowana dla:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42G-1J-sal" customClass="LMLabel">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42G-1J-sal" customClass="LMLabel">
                     <rect key="frame" x="12" y="139" width="296" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -55,7 +57,7 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNk-6f-oiM" customClass="LMFullButton">
                     <rect key="frame" x="12" y="219" width="296" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Instancje">
+                    <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -65,7 +67,7 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dG-Vi-1vi" customClass="LMFullButton">
                     <rect key="frame" x="12" y="269" width="296" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Odśwież">
+                    <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

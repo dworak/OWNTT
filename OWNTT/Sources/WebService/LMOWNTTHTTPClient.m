@@ -7,6 +7,7 @@
 //
 
 #import "LMOWNTTHTTPClient.h"
+#import "LMUserAlert.h"
 
 static NSString * const kAPIBaseURLString = @"kAPIBaseURLString";
 static NSString * const kAPIApplicationId = @"kAPIApplicationId";
@@ -148,6 +149,8 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
             return @"value";
         case LMOWNTTHTTPCLIENTServiceParamName_ProgramType:
             return @"programType";
+        case LMOWNTTHTTPCLIENTServiceParamName_ParamType:
+            return @"paramType";
         default:
         {
             NSAssert(0, @"%@ Unknown param type", NSStringFromSelector(_cmd));
@@ -297,6 +300,45 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
              [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_DateFrom] : dateFrom,
              [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_DateTo] : dateTo,
              [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_ProgramIds] : programIds
+             };
+}
+/*
+ userAlert.name = self.alertNameTextField.text;
+ userAlert.paramTypeValue = [LMUtils alertPointerStringToType:self.rateType.titleLabel.text];
+ userAlert.monitorTypeValue = [LMUtils alertMonitoringStringToType:self.monitoringType.titleLabel.text];
+ userAlert.hour = [decimalFormater numberFromString:self.hourOfSend.titleLabel.text];
+ userAlert.programId = [self.transactionData.programIds objectAtIndex:0];
+ userAlert.dateFrom = [self.dateFormater dateFromString:self.dateFrom.titleLabel.text];
+ userAlert.dateTo = [self.dateFormater dateFromString:self.dateTo.titleLabel.text];
+ userAlert.value = self.valueTextField.text;
+ userAlert.objectIdValue = OWNTT_APP_DELEGATE.appUtils.currentUser.alertsCountValue+1;
+ */
++ (NSDictionary*)registerAlertPushParams:(LMUserAlert *)userAlert
+{
+    NSAssert(userAlert.name, @"registerAlertPushParams: empty name");
+    NSAssert(userAlert.value, @"registerAlertPushParams: empty value");
+    NSAssert(userAlert.programId, @"registerAlertPushParams: empty programId");
+    NSAssert(userAlert.paramType, @"registerAlertPushParams: empty param type");
+    NSAssert(userAlert.borderType, @"registerAlertPushParams: empty border type");
+    NSAssert(userAlert.monitorType, @"registerAlertPushParams: empty monitor type");
+    NSAssert(userAlert.objectId, @"registerAlertPushParams: empty local id");
+    NSAssert(userAlert.hour, @"registerAlertPushParams: empty hour");
+    NSAssert(userAlert.dateFrom, @"registerAlertPushParams: empty date from");
+    NSAssert(userAlert.dateTo, @"registerAlertPushParams: empty date to");
+    NSAssert(OWNTT_APP_DELEGATE.appUtils.currentUser.httpToken, @"registerAlertPushParams: empty token");
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    return @{[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Token] : OWNTT_APP_DELEGATE.appUtils.currentUser.httpToken,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_BorderType] : userAlert.borderType,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_MonitorType] : userAlert.monitorType,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_ParamType] : userAlert.paramType,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_DateFrom] : [dateFormatter stringFromDate:userAlert.dateFrom],
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_DateTo] : [dateFormatter stringFromDate:userAlert.dateTo],
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_ProgramId] : userAlert.programId,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Name] : userAlert.name,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Value] : userAlert.value,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Hour] : userAlert.hour,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_LocalId] : userAlert.objectId
              };
 }
 
