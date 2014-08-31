@@ -70,7 +70,6 @@
     [self.alertNameTextField addValidation:LMTextFieldValidaitonType_Name];
     [self.valueTextField addValidation:LMTextFieldValidaitonType_Value];
     
-    self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
     LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.transactionData.instanceId inContext:self.managedObjectContext];
     if(instance)
     {
@@ -168,6 +167,7 @@
 
 - (void)saveObjectData
 {
+    [[[LMCoreDataManager sharedInstance] masterManagedObjectContext] refreshObject:OWNTT_APP_DELEGATE.appUtils.currentUser mergeChanges:YES];
     if(![LMAppUtils connected])
     {
         [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_AlertSummaryInternet")];
@@ -175,9 +175,8 @@
     }
     NSNumberFormatter *decimalFormater = [NSNumberFormatter new];
     [decimalFormater setNumberStyle:NSNumberFormatterDecimalStyle];
-    NSManagedObjectContext *managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
-    LMUser *user = [[LMUser fetchLMUsersInContext:managedObjectContext] objectAtIndex:0];
-    LMUserAlert *userAlert = [LMUserAlert createObjectInContext:managedObjectContext];
+    LMUser *user = [[LMUser fetchLMUsersInContext:self.managedObjectContext] objectAtIndex:0];
+    LMUserAlert *userAlert = [LMUserAlert createObjectInContext:self.managedObjectContext];
     userAlert.name = self.alertNameTextField.text;
     userAlert.paramTypeValue = [LMUtils alertPointerStringToType:self.rateType.titleLabel.text];
     userAlert.monitorTypeValue = [LMUtils alertMonitoringStringToType:self.monitoringType.titleLabel.text];
@@ -188,9 +187,10 @@
     userAlert.dateTo = [self.dateFormater dateFromString:self.dateTo.titleLabel.text];
     userAlert.value = self.valueTextField.text;
     userAlert.objectIdValue = OWNTT_APP_DELEGATE.appUtils.currentUser.alertsCountValue+1;
+    OWNTT_APP_DELEGATE.appUtils.currentUser.alertsCount = [NSNumber numberWithInt:userAlert.objectId.intValue];
     userAlert.createDate = [NSDate date];
     [user.userAlertsSet addObject:userAlert];
-    [LMUtils saveCoreDataContext:managedObjectContext];
+    [LMUtils saveCoreDataContext:self.managedObjectContext];
     
     //Send alert
     [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_RegisterAlertPush parameters:[LMOWNTTHTTPClient registerAlertPushParams:userAlert] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {

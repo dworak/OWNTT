@@ -94,7 +94,7 @@
 #pragma mark === Public methods ===
 - (void)selectPickerObject:(int)row
 {
-    self.defaultRow = row;
+    self.defaultRow = row-1;
 }
 
 - (void)addPickerData:(NSArray *)pickerData

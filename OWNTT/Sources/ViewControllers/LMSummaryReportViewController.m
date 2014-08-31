@@ -18,6 +18,7 @@
 #import "LMAdvertiser.h"
 #import "LMProgram.h"
 #import "LMBranchNameView.h"
+#import "LMSettings.h"
 
 @interface LMSummaryReportViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet LMTextField *reportNameTextField;
@@ -49,7 +50,6 @@
     self.reportNameTextField.delegate = self;
     self.scrollView.contentSize = CGSizeMake(320, self.view.frame.size.height-64);
     
-    self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
     LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.transactionData.instanceId inContext:self.managedObjectContext];
     if(instance)
     {
@@ -142,15 +142,12 @@
 
 - (void)saveObjectData
 {
-    if(!self.managedObjectContext)
-    {
-        self.managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
-    }
     self.managedObjectContext.stalenessInterval = 0;
     LMUser *user = OWNTT_APP_DELEGATE.appUtils.currentUser;
     LMUserReport *userReport = [LMUserReport createObjectInContext:self.managedObjectContext];
     LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:self.managedObjectContext];
     userReport.reportObject = report;
+    userReport.programId = [self.transactionData.programIds objectAtIndex:0];
     userReport.timeintervalType = [NSNumber numberWithInt:[LMUtils reportTimeIntervalStringToType:self.timeintervalButton.titleLabel.text]];
     userReport.createDate = [NSDate date];
     userReport.name = self.reportNameTextField.text;

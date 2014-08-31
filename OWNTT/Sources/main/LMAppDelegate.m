@@ -20,7 +20,7 @@
     NSLog(@"%@", LM_LOCALIZE(@"reportTimeInterval_ThisYear"));
     //Create app utils
     self.appUtils = [LMAppUtils new];
-    self.appUtils.notSaveDeviceKey = @"Test";
+    self.appUtils.notSaveDeviceKey = @"Not supported yet";
     [self.appUtils checkInternetConnection];
     
     //Get current user
@@ -34,7 +34,7 @@
      ];
     
     //Register for remote notification
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge];
+    /*[[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge];
     
     if (launchOptions != nil)
 	{
@@ -44,7 +44,7 @@
 			NSLog(@"Launched from push notification: %@", dictionary);
 			//TODO: Update badge
 		}
-	}
+	}*/
     
     return YES;
 }

@@ -9,6 +9,7 @@
 #import "LMAlertSynchronizationOperation.h"
 #import "LMAlertWS.h"
 #import "LMUserAlert.h"
+#import "LMSettings.h"
 
 @implementation LMAlertSynchronizationOperation
 +(void)fillEntityAndBind:(LMUserAlert*) entity fromWSObject:(LMAlertWS*)modelObject
@@ -65,7 +66,7 @@
     {
         self.manager = [LMCoreDataManager sharedInstance];
     }
-    
+    int currentLocalId = OWNTT_APP_DELEGATE.appUtils.currentUser.alertsCount.intValue;
     for(NSDictionary * objectDictionary in self.fetchedResponse[@"alerts"])
     {
         
@@ -96,8 +97,12 @@
         }
         
         [LMAlertSynchronizationOperation fillEntityAndBind:userAlert fromWSObject:userAlertModel];
+        if(currentLocalId < userAlert.objectId.intValue)
+        {
+            currentLocalId = userAlert.objectId.intValue;
+        }
     }
-    
+    OWNTT_APP_DELEGATE.appUtils.currentUser.alertsCount = [NSNumber numberWithInt:currentLocalId];
     [self lmSaveContext];
 }
 

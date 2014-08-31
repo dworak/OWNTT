@@ -17,6 +17,7 @@
 #import "LMBranchNameView.h"
 #import "LMAdvertiser.h"
 #import "LMProgram.h"
+#import "LMSettings.h"
 
 @interface LMBranchReportViewController ()
 
@@ -77,6 +78,14 @@
                 break;
             }
         }
+    }
+    if(OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultIsEnumValue)
+    {
+        nameView.ThirdName.text = [LMUtils reportTimeIntervalTypeToString:OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultEnum.intValue];
+    }
+    else
+    {
+        nameView.ThirdName.text = [LMUtils reportTimeIntervalTypeToString:ReportTimeInterval_Custom];
     }
 }
 

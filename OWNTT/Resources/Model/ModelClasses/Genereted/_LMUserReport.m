@@ -4,6 +4,7 @@
 #import "_LMUserReport.h"
 
 const struct LMUserReportAttributes LMUserReportAttributes = {
+	.programId = @"programId",
 	.timeintervalType = @"timeintervalType",
 };
 
@@ -41,6 +42,11 @@ const struct LMUserReportFetchedProperties LMUserReportFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"programIdValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"programId"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"timeintervalTypeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"timeintervalType"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -49,6 +55,32 @@ const struct LMUserReportFetchedProperties LMUserReportFetchedProperties = {
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic programId;
+
+
+
+- (int64_t)programIdValue {
+	NSNumber *result = [self programId];
+	return [result longLongValue];
+}
+
+- (void)setProgramIdValue:(int64_t)value_ {
+	[self setProgramId:[NSNumber numberWithLongLong:value_]];
+}
+
+- (int64_t)primitiveProgramIdValue {
+	NSNumber *result = [self primitiveProgramId];
+	return [result longLongValue];
+}
+
+- (void)setPrimitiveProgramIdValue:(int64_t)value_ {
+	[self setPrimitiveProgramId:[NSNumber numberWithLongLong:value_]];
+}
+
 
 
 

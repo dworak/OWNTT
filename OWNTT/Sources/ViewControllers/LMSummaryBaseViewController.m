@@ -52,7 +52,7 @@
     
     for (UIView *v in subviews)
     {
-        if ((v!=self.contentScrollView) && (![v conformsToProtocol:@protocol(UILayoutSupport)]))
+        if ((v!=self.contentScrollView) && (![v conformsToProtocol:@protocol(UILayoutSupport)]) && v!=self.shadowImage)
         {
             if (v.tag!=BACKGROUND_IMAGE_VIEW_TAG && v.tag!=BACKGROUND_STATUS_BAR_TAG)
             {
@@ -64,7 +64,7 @@
     // Now  we add them directly to our scrolled one
     [subviews enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL *stop) {
         
-        if((obj!=self.contentScrollView) && (![obj conformsToProtocol:@protocol(UILayoutSupport)]))
+        if((obj!=self.contentScrollView) && (![obj conformsToProtocol:@protocol(UILayoutSupport)]) && obj!=self.shadowImage)
         {
             if (obj.tag!=BACKGROUND_IMAGE_VIEW_TAG && obj.tag!=BACKGROUND_STATUS_BAR_TAG)
             {
@@ -72,6 +72,7 @@
             }
         }
     }];
+    [self.view bringSubviewToFront:self.shadowImage];
 }
 
 - (void)viewDidLayoutSubviews
@@ -105,7 +106,7 @@
 {
     if(!_managedObjectContext)
     {
-        _managedObjectContext = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
+        _managedObjectContext = [[LMCoreDataManager sharedInstance] masterManagedObjectContext];
     }
     return _managedObjectContext;
 }
@@ -128,6 +129,7 @@
     if([self isValid])
     {
         [self saveObjectData];
+        [self endAction];
     }
 }
 

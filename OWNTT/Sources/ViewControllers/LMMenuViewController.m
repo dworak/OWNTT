@@ -179,6 +179,7 @@
 {
     LMReadOnlyUserObject *userObject = [self.userObjects objectAtIndex:indexPath.row];
     self.object = [LMData new];
+    self.object.programIds = [NSArray arrayWithObject:((LMUserReport *)userObject).programId];
     if([userObject isKindOfClass:[LMUserReport class]])
     {
         self.object.reportId = ((LMUserReport *)userObject).reportObject.objectId;
