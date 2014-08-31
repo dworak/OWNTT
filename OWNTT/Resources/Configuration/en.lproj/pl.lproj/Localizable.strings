@@ -65,6 +65,9 @@
 "LMSettingInstanceButton" = "Instancje";
 "LMSettingRefreshButton" = "Odśwież";
 
+//LMSplashViewController
+"LMSplash_LoadingData" = "Trwa pobieranie danych...";
+
 
 
 

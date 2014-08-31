@@ -45,6 +45,11 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.indicatorTextLabel.text = LM_LOCALIZE(@"LMSplash_LoadingData");
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     //TODO: add tree download mechanism

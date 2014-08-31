@@ -60,7 +60,13 @@
 "LMTextField_Value" = "Wartość musi być liczbą z przedziału od 0 do 999 999 999.";
 "LMDateValidation" = "Data do musi być większa niż data od.";
 
+//LMSettingViewController
+"LMSettingsTitleLabel" = "Aplikacja zarejestrowana dla:";
+"LMSettingInstanceButton" = "Instancje";
+"LMSettingRefreshButton" = "Odśwież";
 
+//LMSplashViewController
+"LMSplash_LoadingData" = "Trwa pobieranie danych...";
 
 
 
