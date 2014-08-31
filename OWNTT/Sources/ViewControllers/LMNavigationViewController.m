@@ -26,9 +26,13 @@
 {
     if(self = [super initWithCoder:aDecoder])
     {
-        [self setLocalizationStrings];
     }
     return self;
+}
+
+- (void)awakeFromNib
+{
+    [self setLocalizationStrings];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
