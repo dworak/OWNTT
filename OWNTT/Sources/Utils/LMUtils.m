@@ -329,7 +329,7 @@
             NSRange range = [gregorian rangeOfUnit:NSDayCalendarUnit
                                             inUnit:NSMonthCalendarUnit
                                            forDate:[gregorian dateFromComponents:comps]];
-            int numberOfNaysInMonth = range.length;
+            int numberOfNaysInMonth = (int)range.length;
             [comps setDay:1];
             NSDate *dateFrom = [gregorian dateFromComponents:comps];
             [comps setDay:numberOfNaysInMonth];;
@@ -338,9 +338,43 @@
             break;
         }
         case ReportTimeInterval_PreviousWeek:
+        {
+            NSCalendar *cal = [NSCalendar currentCalendar];
+            [cal setFirstWeekday:2];    //2 is monday. 1:Sunday .. 7:Saturday don't set it, if user's locale should determine the start of a week
+            NSDateFormatter *dFor = [NSDateFormatter new];
+            [dFor setDateFormat:@"yyyy-MM-dd"];
+            NSDate *now = [NSDate date];
+            NSDate *monday;
+            [cal rangeOfUnit:NSWeekCalendarUnit  // we want to have the start of the week
+                   startDate:&monday             // we will write the date object to monday
+                    interval:NULL                // we don't care for the seconds a week has
+                     forDate:now];               // we want the monday of today's week
+            NSDateComponents *san = [cal components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:monday];
+            [san setDay:san.day-1];
+            monday = [cal dateFromComponents:san];
+            [san setDay:san.day - 6];
+            NSDate *saturday = [cal dateFromComponents:san];
+            datesArray = [NSArray arrayWithObjects:monday, saturday, nil];
             break;
+        }
         case ReportTimeInterval_ThisWeek:
+        {
+            NSCalendar *cal = [NSCalendar currentCalendar];
+            [cal setFirstWeekday:2];    //2 is monday. 1:Sunday .. 7:Saturday don't set it, if user's locale should determine the start of a week
+            NSDateFormatter *dFor = [NSDateFormatter new];
+            [dFor setDateFormat:@"yyyy-MM-dd"];
+            NSDate *now = [NSDate date];
+            NSDate *monday;
+            [cal rangeOfUnit:NSWeekCalendarUnit  // we want to have the start of the week
+                   startDate:&monday             // we will write the date object to monday
+                    interval:NULL                // we don't care for the seconds a week has
+                     forDate:now];               // we want the monday of today's week
+            NSDateComponents *san = [cal components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:monday];
+            [san setDay:san.day+6];
+            NSDate *saturday = [cal dateFromComponents:san];
+            datesArray = [NSArray arrayWithObjects:monday, saturday, nil];
             break;
+        }
         case ReportTimeInterval_Yesterday:
         {
             NSDate *yesterday = [today dateByAddingTimeInterval: -86400.0];

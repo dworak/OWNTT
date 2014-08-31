@@ -53,7 +53,7 @@
     self.toolbar.clipsToBounds = YES;
     self.navigationItem.hidesBackButton = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.loginTextField.text = OWNTT_TEST_USER_NAME;
+    //self.loginTextField.text = OWNTT_TEST_USER_NAME;
     self.shadowImage.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
     
     // Firstly for purpouse of storing all of the fields we remove all of the items from view
