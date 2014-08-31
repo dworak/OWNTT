@@ -66,7 +66,8 @@
     {
         self.manager = [LMCoreDataManager sharedInstance];
     }
-    int currentLocalId = OWNTT_APP_DELEGATE.appUtils.currentUser.alertsCount.intValue;
+    LMUser *user = [[LMUser fetchLMUsersInContext:self.managedObjectContextForTheOperation] objectAtIndex:0];
+    int currentLocalId = user.alertsCount.intValue;
     for(NSDictionary * objectDictionary in self.fetchedResponse[@"alerts"])
     {
         
@@ -102,7 +103,7 @@
             currentLocalId = userAlert.objectId.intValue;
         }
     }
-    OWNTT_APP_DELEGATE.appUtils.currentUser.alertsCount = [NSNumber numberWithInt:currentLocalId];
+    user.alertsCount = [NSNumber numberWithInt:currentLocalId];
     [self lmSaveContext];
 }
 

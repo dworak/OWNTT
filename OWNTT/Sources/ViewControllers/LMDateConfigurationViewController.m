@@ -160,7 +160,7 @@ typedef enum {
     if([self isValid])
     {
         //NSError *error;
-        LMUser *user = OWNTT_APP_DELEGATE.appUtils.currentUser;
+        LMUser *user = [[LMUser fetchLMUsersInContext:[[LMCoreDataManager sharedInstance] masterManagedObjectContext]] objectAtIndex:0];
         /*(LMUser *)[self.managedObjectContext existingObjectWithID:OWNTT_APP_DELEGATE.appUtils.currentUser.objectID error:&error];
         if(!user)
         {
@@ -214,7 +214,7 @@ typedef enum {
         {
             NSDate *dateFrom = [self.dateFormatter dateFromString:self.dateFromButton.titleLabel.text];
             NSDate *dateTo = [self.dateFormatter dateFromString:self.dateToButton.titleLabel.text];
-            if([dateFrom compare:dateTo] == NSOrderedSame || [dateFrom compare:dateTo] == NSOrderedDescending)
+            if([dateFrom compare:dateTo] == NSOrderedDescending)
             {
                 message = LM_LOCALIZE(@"LMDateValidation");
             }
@@ -281,6 +281,15 @@ typedef enum {
                 if([value isEqualToString:CUSTOM_REPORT_FIELD_NAME])
                 {
                     selfObj.dateShow = YES;
+                    NSDate *today = [NSDate date];
+                    NSCalendar *calendar = [NSCalendar currentCalendar];
+                    NSDateComponents *comp = [calendar components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:today];
+                    [comp setMonth:comp.month-1];
+                    NSDate *startDate = [calendar dateFromComponents:comp];
+                    [selfObj.dateFromButton setTitle:[selfObj.dateFormatter stringFromDate:startDate] forState:UIControlStateNormal];
+                    [selfObj.dateFromButton setTitle:[selfObj.dateFormatter stringFromDate:startDate] forState:UIControlStateHighlighted];
+                    [selfObj.dateToButton setTitle:[selfObj.dateFormatter stringFromDate:today] forState:UIControlStateNormal];
+                    [selfObj.dateToButton setTitle:[selfObj.dateFormatter stringFromDate:today] forState:UIControlStateHighlighted];
                     [UIView animateWithDuration:0.2 animations:^{
                         selfObj.dateView.alpha = 1;
                     }];

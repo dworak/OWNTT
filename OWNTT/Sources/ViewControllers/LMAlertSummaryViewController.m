@@ -186,8 +186,8 @@
     userAlert.dateFrom = [self.dateFormater dateFromString:self.dateFrom.titleLabel.text];
     userAlert.dateTo = [self.dateFormater dateFromString:self.dateTo.titleLabel.text];
     userAlert.value = self.valueTextField.text;
-    userAlert.objectIdValue = OWNTT_APP_DELEGATE.appUtils.currentUser.alertsCountValue+1;
-    OWNTT_APP_DELEGATE.appUtils.currentUser.alertsCount = [NSNumber numberWithInt:userAlert.objectId.intValue];
+    userAlert.objectIdValue = user.alertsCountValue+1;
+    user.alertsCount = [NSNumber numberWithInt:userAlert.objectId.intValue];
     userAlert.createDate = [NSDate date];
     [user.userAlertsSet addObject:userAlert];
     [LMUtils saveCoreDataContext:self.managedObjectContext];

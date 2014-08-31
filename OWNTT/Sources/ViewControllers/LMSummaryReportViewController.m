@@ -143,7 +143,7 @@
 - (void)saveObjectData
 {
     self.managedObjectContext.stalenessInterval = 0;
-    LMUser *user = OWNTT_APP_DELEGATE.appUtils.currentUser;
+    LMUser *user = [[LMUser fetchLMUsersInContext:self.managedObjectContext] objectAtIndex:0];
     LMUserReport *userReport = [LMUserReport createObjectInContext:self.managedObjectContext];
     LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:self.transactionData.reportId inContext:self.managedObjectContext];
     userReport.reportObject = report;
