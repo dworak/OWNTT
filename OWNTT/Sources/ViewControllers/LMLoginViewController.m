@@ -146,14 +146,14 @@
     if(text != nil)
     {
         [self shakeAnimation:[NSArray arrayWithObjects:self.loginTextField, nil]];
-        [LMAlertManager showErrorAlertWithOkWithText:text];
+        [LMAlertManager showErrorAlertWithOkWithText:text delegate:nil];
         return;
     }
     text = [self.passwordTextField validateField];
     if(text != nil)
     {
         [self shakeAnimation:[NSArray arrayWithObjects:self.passwordTextField, nil]];
-        [LMAlertManager showErrorAlertWithOkWithText:text];
+        [LMAlertManager showErrorAlertWithOkWithText:text delegate:nil];
         return;
     }
     
@@ -165,7 +165,7 @@
             [selfObj successAction];
             [[LMCoreDataManager sharedInstance] saveMasterContext];
         } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_LoginRemoveUser")];
+            [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_LoginRemoveUser") delegate:nil];
         }];
     } else{
         [self successAction];
@@ -213,7 +213,7 @@
                  selfObj.loadingView.alpha = 0;
                  [selfObj.activityIndicator stopAnimating];
              } completion:^(BOOL finished) {
-                 [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_LoginRegisterDevice")];
+                 [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_LoginRegisterDevice") delegate:nil];
              }];
          }];
     }];
@@ -297,7 +297,7 @@
         self.loadingView.alpha = 0;
         [self.activityIndicator stopAnimating];
     } completion:^(BOOL finished) {
-        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_LoginSynchronizationError")];
+        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_LoginSynchronizationError") delegate:nil];
     }];
 }
 

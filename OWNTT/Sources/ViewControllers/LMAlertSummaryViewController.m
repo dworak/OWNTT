@@ -19,6 +19,7 @@
 #import "LMUserAlert.h"
 #import "LMUser.h"
 #import "LMBranchNameView.h"
+#import "LMUtils.h"
 
 @interface LMAlertSummaryViewController ()
 @property (weak, nonatomic) IBOutlet LMTextField *alertNameTextField;
@@ -33,6 +34,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *checkButton;
 
 @property (weak, nonatomic) UIButton *currentButton;
+@property (weak, nonatomic) IBOutlet UILabel *dateFromLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateToLabel;
+@property (weak, nonatomic) IBOutlet UILabel *monitorTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pointerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hourLabel;
+@property (weak, nonatomic) IBOutlet UILabel *alertNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
 @end
 
@@ -92,6 +100,15 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if(![LMAppUtils connected])
+    {
+        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_AlertConnectionError") delegate:self];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -106,6 +123,17 @@
 - (BOOL)shouldAutorotate
 {
     return YES;
+}
+
+- (void)setLocalizationStrings
+{
+    self.dateFromLabel.text = LM_LOCALIZE(@"LMSumAlert_DateFormLabel");
+    self.dateToLabel.text = LM_LOCALIZE(@"LMSumAlert_DateToLabel");
+    self.monitorTypeLabel.text = LM_LOCALIZE(@"LMSumAlert_MonitorType");
+    self.pointerLabel.text = LM_LOCALIZE(@"LMSumAlert_PointerLabel");
+    self.hourLabel.text = LM_LOCALIZE(@"LMSumAlert_HourLabel");
+    self.alertNameLabel.text = LM_LOCALIZE(@"LMSumAlert_AlertNameLabel");
+    self.valueLabel.text = LM_LOCALIZE(@"LMSumAlert_ValueLabel");
 }
 
 
@@ -156,7 +184,7 @@
     }
     if(message)
     {
-        [LMAlertManager showErrorAlertWithOkWithText:message];
+        [LMAlertManager showErrorAlertWithOkWithText:message delegate:nil];
         return NO;
     }
     else
@@ -170,7 +198,7 @@
     [[[LMCoreDataManager sharedInstance] masterManagedObjectContext] refreshObject:OWNTT_APP_DELEGATE.appUtils.currentUser mergeChanges:YES];
     if(![LMAppUtils connected])
     {
-        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_AlertSummaryInternet")];
+        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_AlertConnectionError") delegate:nil];
         return;
     }
     NSNumberFormatter *decimalFormater = [NSNumberFormatter new];
@@ -196,7 +224,24 @@
     [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_RegisterAlertPush parameters:[LMOWNTTHTTPClient registerAlertPushParams:userAlert] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self endAction];
     } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMalertManager_AlertSummaryBadRequest")];
+        NSString *message;
+        if(error.code == 403)
+        {
+            message = LM_LOCALIZE(@"LMAlertManager_AlertAccessError");
+        }
+        else if(error.code == 500)
+        {
+            message = LM_LOCALIZE(@"LMAlertManager_AlertServerError");
+        }
+        else if (error.code == 400)
+        {
+            message = LM_LOCALIZE(@"LMAlertManager_AlertBadRequest");
+        }
+        else
+        {
+            message = LM_LOCALIZE(@"LMAlertManager_AlertAuthorizationError");
+        }
+        [LMAlertManager showErrorAlertWithOkWithText:message delegate:nil];
     }];
 }
 
@@ -377,6 +422,11 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self endAction];
 }
 
 @end

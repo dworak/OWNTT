@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface LMAlertManager : NSObject
-+ (void)showErrorAlertWithOkWithText:(NSString *)text;
-+ (void)showInfoAlertWithOkWithText:(NSString *)text;
++ (void)showErrorAlertWithOkWithText:(NSString *)text delegate:(id)delegate;
++ (void)showInfoAlertWithOkWithText:(NSString *)text delegate:(id)delegate;
 @end

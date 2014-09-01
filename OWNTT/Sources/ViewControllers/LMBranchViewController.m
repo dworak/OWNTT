@@ -96,6 +96,7 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionNotificationChange) name:LM_CONNECTION_NOTIFICATION_CHANGE object:nil];
+    [self.headerView setHeaderButtonTitle:[self headerbuttonTitle]];
     [self connectionNotificationChange];
     [self setLocalizationStrings];
 }
@@ -175,7 +176,7 @@
 
 - (NSString *)headerbuttonTitle
 {
-    return [LMOWNTTHTTPClient reportTypeAppName:LMOWNTTReportType_Type8];
+    return LM_LOCALIZE(@"LMBranch_Report8");
 }
 
 /*

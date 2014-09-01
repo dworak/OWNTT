@@ -21,6 +21,8 @@
 #import "LMSettings.h"
 
 @interface LMSummaryReportViewController () <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *reportNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *periodLabel;
 @property (weak, nonatomic) IBOutlet LMTextField *reportNameTextField;
 @property (weak, nonatomic) IBOutlet LMButton *timeintervalButton;
 
@@ -83,6 +85,12 @@
     self.reportNameTextField.delegate = nil;
 }
 
+- (void)setLocalizationStrings
+{
+    self.reportNameLabel.text = LM_LOCALIZE(@"LMSumReport_ReportNameLabel");
+    self.periodLabel.text = LM_LOCALIZE(@"LMSumReport_Period");
+}
+
 /*
  #pragma mark - Navigation
  
@@ -99,7 +107,7 @@
     NSString *validate = [self.reportNameTextField validateField];
     if(validate)
     {
-        [LMAlertManager showErrorAlertWithOkWithText:validate];
+        [LMAlertManager showErrorAlertWithOkWithText:validate delegate:nil];
         return NO;
     }
     return YES;

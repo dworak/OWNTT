@@ -20,7 +20,7 @@
 #import "LMSettings.h"
 
 @interface LMBranchReportViewController ()
-
+@property (strong, nonatomic) LMBranchNameView *nameView;
 @end
 
 @implementation LMBranchReportViewController
@@ -43,21 +43,21 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView.bounces = NO;
     
-    LMBranchNameView *nameView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMBranchNameView class])] owner:self options:nil] objectAtIndex:0];
+    self.nameView = [[[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@_iPhone", NSStringFromClass([LMBranchNameView class])] owner:self options:nil] objectAtIndex:0];
     if([self.parentViewController.navigationController isKindOfClass:[LMNavigationViewController class]])
     {
         LMNavigationViewController *navController = (LMNavigationViewController *)self.parentViewController.navigationController;
         if(navController.controllerType.intValue == NavigationControllerType_Report)
         {
-            nameView.calendarButton.hidden = NO;
+            self.nameView.calendarButton.hidden = NO;
         }
         else
         {
-            nameView.calendarButton.hidden = YES;
+            self.nameView.calendarButton.hidden = YES;
         }
     }
-    [nameView.calendarButton addTarget:self action:@selector(calendarButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.topView addSubview:nameView];
+    [self.nameView.calendarButton addTarget:self action:@selector(calendarButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.topView addSubview:self.nameView];
     
     LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId.instanceId inContext:self.managedObjectContext];
     if(instance)
@@ -66,26 +66,18 @@
         {
             if(advertiser.objectId.intValue == self.objectId.advertiserId.intValue)
             {
-                nameView.firstName.text = advertiser.name;
+                self.nameView.firstName.text = advertiser.name;
                 for(LMProgram *program in advertiser.programs.allObjects)
                 {
                     NSNumber *selectedProgram = [self.objectId.programIds objectAtIndex:0];
                     if(program.objectId.intValue == selectedProgram.intValue)
                     {
-                        nameView.SecondName.text = program.name;
+                        self.nameView.SecondName.text = program.name;
                     }
                 }
                 break;
             }
         }
-    }
-    if(OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultIsEnumValue)
-    {
-        nameView.ThirdName.text = [LMUtils reportTimeIntervalTypeToString:OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultEnum.intValue];
-    }
-    else
-    {
-        nameView.ThirdName.text = [LMUtils reportTimeIntervalTypeToString:ReportTimeInterval_Custom];
     }
 }
 
@@ -127,6 +119,20 @@
         {
             ((LMDateConfigurationViewController *)hostController.childViewController).fromBranchReport = YES;
         }
+    }
+}
+
+- (void)setLocalizationStrings
+{
+    if(OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultIsEnumValue)
+    {
+        self.nameView.ThirdName.text = [LMUtils reportTimeIntervalTypeToString:OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultEnum.intValue];
+    }
+    else
+    {
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        self.nameView.ThirdName.text = [NSString stringWithFormat:@"%@ - %@", [dateFormatter stringFromDate:OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultDateFrom], [dateFormatter stringFromDate:OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultDateTo]];
     }
 }
 

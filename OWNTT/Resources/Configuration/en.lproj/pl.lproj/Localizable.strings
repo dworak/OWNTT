@@ -43,8 +43,16 @@
 "LMAlertManager_LoginRemoveUser" = "Nie można usunąć poprzedniego usera. Spróbuj ponownie.";
 "LMAlertManager_LoginRegisterDevice" = "Nie można zarejestrować użytkownika.";
 "LMAlertManager_LoginSynchronizationError" = "Pobieranie danych aplikacji nie powiodło się, spróbuj ponownie.";
-"LMAlertManager_AlertSummaryInternet" = "Aby wysłać alert należy połączyć się z Internetem.";
-"LMalertManager_AlertSummaryBadRequest" = "Nie można wysłać alertu.";
+"LMAlertManager_AlertAccessError" = "Użytkownik nie ma uprawnień do tego alertu.";
+"LMAlertManager_AlertServerError" = "Nie można wysłać alertu. Podczas wysyłania alertu wystąpił błąd połączenia z serwerem. Spróbuj ponownie.";
+"LMalertManager_AlertSummaryBadRequest" = "Nie można wysłać alertu. Błędna lista parametrów.";
+"LMAlertManager_AlertConnectionError" = "Do utworzenia alertu wymagane jest połączenie z Internetem.";
+"LMAlertManager_ReportAccessError" = "Użytkownik nie ma uprawnień do obejrzenia tego raportu.";
+"LMAlertManager_ReportServerError" = "Nie można wysłać raportu. Podczas wysyłania raportu wystąpił błąd połączenia z serwerem. Spróbuj ponownie.";
+"LMAlertManager_AlertAuthorizationError" = "Nie można wysłać alertu. Błąd autoryzacji.";
+"LMAlertManager_ReportAuthorizationError" = "Nie można pobrać raportu. Błąd autoryzacji.";
+"LMAlertManager_RepotBadRequest" = "Nie można wysłać raportu. Błędna lista parametrów.";
+"LMAlertManager_ReportConnectionError" = "Do wyświetlenia raportu wymagane jest połączenie z Internetem.";
 
 //LMLoginViewController
 "LMLogin_WarningLabel" = "Do przejścia dalej wymagane jest połączenie z Internetem!";
@@ -75,6 +83,22 @@
 "LMTabBar_Alert" = "Alert";
 "LMTabBar_Settings" = "Ustawienia";
 
+//LMBranchViewController
+"LMBranch_Report1" = "Raport Wszystkich Programów";
+"LMBranch_Report8" = "Raport Wszystkich Reklamodawców";
+
+//LMSummaryReportViewController
+"LMSumReport_ReportNameLabel" = "Nazwa raportu:";
+"LMSumReport_Period" = "Wybierz okres:";
+
+//LMAlertSummaryViewcontroller
+"LMSumAlert_DateFormLabel" = "Data od:";
+"LMSumAlert_DateToLabel" = "Data do:";
+"LMSumAlert_MonitorType" = "Typ monitorowania:";
+"LMSumAlert_PointerLabel" = "Wskaźnik:";
+"LMSumAlert_HourLabel" = "Godzina wysyłania powiadomień:";
+"LMSumAlert_AlertNameLabel" = "Nazwa alertu:";
+"LMSumAlert_ValueLabel" = "Wartość:";
 
 
 
