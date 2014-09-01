@@ -103,7 +103,7 @@
 {
     NSMutableArray *programIds = [NSMutableArray new];
     LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId.instanceId inContext:self.managedObjectContext];
-    NSLog(@"Adev count: %d", instance.advertisers.allObjects.count);
+    //NSLog(@"Adev count: %lu", (unsigned long)instance.advertisers.allObjects.count);
     if(instance)
     {
         for(LMAdvertiser *advertiser in instance.advertisers.allObjects)
