@@ -370,6 +370,7 @@
                     <connections>
                         <segue destination="eS8-cG-JSw" kind="push" identifier="LMSegueKeyType_PushInstanceList" id="4JP-VP-Uak"/>
                         <segue destination="fy6-gG-81v" kind="modal" identifier="LMSegueKeyType_ModalWeb" modalTransitionStyle="crossDissolve" id="WCJ-vT-hfW"/>
+                        <segue destination="aZI-3u-bLF" kind="push" identifier="LMSegueKeyType_PushAlertSummary" id="msx-YT-kDr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUj-pa-X8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -494,11 +495,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="HNE-4q-bxA"/>
         <segue reference="4JP-VP-Uak"/>
         <segue reference="taN-ZK-iiH"/>
         <segue reference="bzR-dC-4dG"/>
         <segue reference="WCJ-vT-hfW"/>
+        <segue reference="msx-YT-kDr"/>
+        <segue reference="0yr-Nw-2XK"/>
         <segue reference="NH3-7p-hj2"/>
     </inferredMetricsTieBreakers>
 </document>

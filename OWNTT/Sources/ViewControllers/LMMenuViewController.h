@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (strong, nonatomic) LMData *object;
+@property (strong, nonatomic) NSMutableArray *userObjects;
+@property (strong, nonatomic) NSManagedObjectContext *localContext;
 
 - (IBAction)addButtonTapped:(id)sender;
 

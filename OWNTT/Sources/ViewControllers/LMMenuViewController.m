@@ -21,8 +21,6 @@
 
 @interface LMMenuViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *shadowView;
-@property (strong, nonatomic) NSMutableArray *userObjects;
-@property (strong, nonatomic) NSManagedObjectContext *localContext;
 @end
 
 @implementation LMMenuViewController

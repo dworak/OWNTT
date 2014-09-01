@@ -209,7 +209,7 @@
                                                                 failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
      {
          NSString *message;
-         NSLog(@"%d", operation.response.statusCode);
+         NSLog(@"%ld", (long)operation.response.statusCode);
          if(operation.response.statusCode == 403)
          {
              message = LM_LOCALIZE(@"LMAlertManager_ReportAccessError");

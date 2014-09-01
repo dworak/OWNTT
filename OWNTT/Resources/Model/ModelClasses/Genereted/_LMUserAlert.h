@@ -5,6 +5,7 @@
 #import "LMReadOnlyUserObject.h"
 
 extern const struct LMUserAlertAttributes {
+	__unsafe_unretained NSString *advertiserId;
 	__unsafe_unretained NSString *borderType;
 	__unsafe_unretained NSString *dateFrom;
 	__unsafe_unretained NSString *dateTo;
@@ -35,6 +36,7 @@ extern const struct LMUserAlertFetchedProperties {
 
 
 
+
 @interface LMUserAlertID : NSManagedObjectID {}
 @end
 
@@ -43,6 +45,20 @@ extern const struct LMUserAlertFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (LMUserAlertID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* advertiserId;
+
+
+
+@property int16_t advertiserIdValue;
+- (int16_t)advertiserIdValue;
+- (void)setAdvertiserIdValue:(int16_t)value_;
+
+//- (BOOL)validateAdvertiserId:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -177,6 +193,15 @@ extern const struct LMUserAlertFetchedProperties {
 @end
 
 @interface _LMUserAlert (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSNumber*)primitiveAdvertiserId;
+- (void)setPrimitiveAdvertiserId:(NSNumber*)value;
+
+- (int16_t)primitiveAdvertiserIdValue;
+- (void)setPrimitiveAdvertiserIdValue:(int16_t)value_;
+
+
 
 
 - (NSNumber*)primitiveBorderType;

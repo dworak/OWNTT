@@ -5,6 +5,11 @@
 #import "ManagedObject.h"
 
 extern const struct LMSettingsAttributes {
+	__unsafe_unretained NSString *alertDefaultBorderType;
+	__unsafe_unretained NSString *alertDefaultHour;
+	__unsafe_unretained NSString *alertDefaultMonitorType;
+	__unsafe_unretained NSString *alertDefaultPointer;
+	__unsafe_unretained NSString *alertDefaultValue;
 	__unsafe_unretained NSString *reportDefaultDateFrom;
 	__unsafe_unretained NSString *reportDefaultDateTo;
 	__unsafe_unretained NSString *reportDefaultEnum;
@@ -25,6 +30,11 @@ extern const struct LMSettingsFetchedProperties {
 
 
 
+
+
+
+
+
 @interface LMSettingsID : NSManagedObjectID {}
 @end
 
@@ -33,6 +43,76 @@ extern const struct LMSettingsFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (LMSettingsID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* alertDefaultBorderType;
+
+
+
+@property int16_t alertDefaultBorderTypeValue;
+- (int16_t)alertDefaultBorderTypeValue;
+- (void)setAlertDefaultBorderTypeValue:(int16_t)value_;
+
+//- (BOOL)validateAlertDefaultBorderType:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* alertDefaultHour;
+
+
+
+@property int16_t alertDefaultHourValue;
+- (int16_t)alertDefaultHourValue;
+- (void)setAlertDefaultHourValue:(int16_t)value_;
+
+//- (BOOL)validateAlertDefaultHour:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* alertDefaultMonitorType;
+
+
+
+@property int16_t alertDefaultMonitorTypeValue;
+- (int16_t)alertDefaultMonitorTypeValue;
+- (void)setAlertDefaultMonitorTypeValue:(int16_t)value_;
+
+//- (BOOL)validateAlertDefaultMonitorType:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* alertDefaultPointer;
+
+
+
+@property int16_t alertDefaultPointerValue;
+- (int16_t)alertDefaultPointerValue;
+- (void)setAlertDefaultPointerValue:(int16_t)value_;
+
+//- (BOOL)validateAlertDefaultPointer:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* alertDefaultValue;
+
+
+
+@property int16_t alertDefaultValueValue;
+- (int16_t)alertDefaultValueValue;
+- (void)setAlertDefaultValueValue:(int16_t)value_;
+
+//- (BOOL)validateAlertDefaultValue:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -62,9 +142,9 @@ extern const struct LMSettingsFetchedProperties {
 
 
 
-@property int64_t reportDefaultEnumValue;
-- (int64_t)reportDefaultEnumValue;
-- (void)setReportDefaultEnumValue:(int64_t)value_;
+@property int16_t reportDefaultEnumValue;
+- (int16_t)reportDefaultEnumValue;
+- (void)setReportDefaultEnumValue:(int16_t)value_;
 
 //- (BOOL)validateReportDefaultEnum:(id*)value_ error:(NSError**)error_;
 
@@ -103,6 +183,51 @@ extern const struct LMSettingsFetchedProperties {
 @interface _LMSettings (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSNumber*)primitiveAlertDefaultBorderType;
+- (void)setPrimitiveAlertDefaultBorderType:(NSNumber*)value;
+
+- (int16_t)primitiveAlertDefaultBorderTypeValue;
+- (void)setPrimitiveAlertDefaultBorderTypeValue:(int16_t)value_;
+
+
+
+
+- (NSNumber*)primitiveAlertDefaultHour;
+- (void)setPrimitiveAlertDefaultHour:(NSNumber*)value;
+
+- (int16_t)primitiveAlertDefaultHourValue;
+- (void)setPrimitiveAlertDefaultHourValue:(int16_t)value_;
+
+
+
+
+- (NSNumber*)primitiveAlertDefaultMonitorType;
+- (void)setPrimitiveAlertDefaultMonitorType:(NSNumber*)value;
+
+- (int16_t)primitiveAlertDefaultMonitorTypeValue;
+- (void)setPrimitiveAlertDefaultMonitorTypeValue:(int16_t)value_;
+
+
+
+
+- (NSNumber*)primitiveAlertDefaultPointer;
+- (void)setPrimitiveAlertDefaultPointer:(NSNumber*)value;
+
+- (int16_t)primitiveAlertDefaultPointerValue;
+- (void)setPrimitiveAlertDefaultPointerValue:(int16_t)value_;
+
+
+
+
+- (NSNumber*)primitiveAlertDefaultValue;
+- (void)setPrimitiveAlertDefaultValue:(NSNumber*)value;
+
+- (int16_t)primitiveAlertDefaultValueValue;
+- (void)setPrimitiveAlertDefaultValueValue:(int16_t)value_;
+
+
+
+
 - (NSDate*)primitiveReportDefaultDateFrom;
 - (void)setPrimitiveReportDefaultDateFrom:(NSDate*)value;
 
@@ -118,8 +243,8 @@ extern const struct LMSettingsFetchedProperties {
 - (NSNumber*)primitiveReportDefaultEnum;
 - (void)setPrimitiveReportDefaultEnum:(NSNumber*)value;
 
-- (int64_t)primitiveReportDefaultEnumValue;
-- (void)setPrimitiveReportDefaultEnumValue:(int64_t)value_;
+- (int16_t)primitiveReportDefaultEnumValue;
+- (void)setPrimitiveReportDefaultEnumValue:(int16_t)value_;
 
 
 

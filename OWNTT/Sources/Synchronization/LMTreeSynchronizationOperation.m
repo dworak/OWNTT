@@ -88,7 +88,7 @@
             [self lmCancel];
         }
         
-        LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:instanceModel.objectId inContext:self.managedObjectContextForTheOperation];
+        LMInstance *instance = [LMInstance fetchEntityOfClass:[LMInstance class] withObjectID:instanceModel.objectId inContext:self.managedObjectContextForTheOperation];
         
         if(!instance)
         {
@@ -131,7 +131,7 @@
         }
         for(LMAdvertiserWS *advertiserWS in instanceModel.advertisers)
         {
-            LMAdvertiser *advertiser = [LMAdvertiser fetchActiveEntityOfClass:[LMAdvertiser class] withObjectID:advertiserWS.objectId inContext:self.managedObjectContextForTheOperation];
+            LMAdvertiser *advertiser = [LMAdvertiser fetchEntityOfClass:[LMAdvertiser class] withObjectID:advertiserWS.objectId inContext:self.managedObjectContextForTheOperation];
             if(!advertiser)
             {
                 advertiser = [LMAdvertiser createObjectInContext:self.managedObjectContextForTheOperation];
@@ -141,7 +141,7 @@
             advertiser.active = [NSNumber numberWithInt:1];
             for(LMProgramWS *programWS in advertiserWS.programs)
             {
-                LMProgram *program = [LMProgram fetchActiveEntityOfClass:[LMProgram class] withObjectID:programWS.objectId inContext:self.managedObjectContextForTheOperation];
+                LMProgram *program = [LMProgram fetchEntityOfClass:[LMProgram class] withObjectID:programWS.objectId inContext:self.managedObjectContextForTheOperation];
                 if(!program)
                 {
                     program = [LMProgram createObjectInContext:self.managedObjectContextForTheOperation];

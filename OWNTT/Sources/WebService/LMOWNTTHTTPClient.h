@@ -106,6 +106,8 @@ typedef void (^failureBlock)(AFHTTPRequestOperation *operation, NSError *error);
                                dateTo:(NSString*)dateTo
                            programIds:(NSArray*)programIds;
 + (NSDictionary*)registerAlertPushParams:(LMUserAlert *)userAlert;
++ (NSDictionary*)unregisterAlertPushParamsToken:(NSString *)token
+                                        localId:(NSNumber*)localId;
 
 - (AFHTTPRequestOperation *)POSTHTTPRequestOperationForServiceName: (LMOWNTTHTTPClientServiceName)serviceName
                                                   parameters: (NSDictionary *) parameters

@@ -16,6 +16,7 @@
 #import "LMReport.h"
 #import "LMAdvertiser.h"
 #import "LMProgram.h"
+#import "LMSettings.h"
 #import "LMUserAlert.h"
 #import "LMUser.h"
 #import "LMBranchNameView.h"
@@ -64,40 +65,24 @@
     [self.dateFormater setDateFormat:@"yyyy-MM-dd"];
     self.scrollView.contentSize = CGSizeMake(320, self.view.frame.size.height-64);
     
-    [self.dateFrom setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateNormal];
-    [self.dateFrom setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
-    [self.dateTo setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateNormal];
-    [self.dateTo setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
-    
     [self.borderType setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
     [self.borderType setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 1)];
-    
     self.valueTextField.text = @"";
     
-    
-    [self.alertNameTextField addValidation:LMTextFieldValidaitonType_Name];
-    [self.valueTextField addValidation:LMTextFieldValidaitonType_Value];
-    
-    LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.transactionData.instanceId inContext:self.managedObjectContext];
-    if(instance)
+    if(self.readOnly)
     {
-        for(LMAdvertiser *advertiser in instance.advertisers.allObjects)
+        for(UIView *view in self.view.subviews)
         {
-            if(advertiser.objectId.intValue == self.transactionData.advertiserId.intValue)
+            if([view isKindOfClass:[UIButton class]] || [view isKindOfClass:[UITextField class]])
             {
-                self.nameView.firstName.text = advertiser.name;
-                for(LMProgram *program in advertiser.programs.allObjects)
-                {
-                    NSNumber *selectedProgram = [self.transactionData.programIds objectAtIndex:0];
-                    if(program.objectId.intValue == selectedProgram.intValue)
-                    {
-                        self.nameView.SecondName.text = program.name;
-                    }
-                }
-                break;
+                view.userInteractionEnabled = NO;
             }
         }
     }
+    
+    [self.alertNameTextField addValidation:LMTextFieldValidaitonType_Name];
+    [self.valueTextField addValidation:LMTextFieldValidaitonType_Value];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -134,6 +119,67 @@
     self.hourLabel.text = LM_LOCALIZE(@"LMSumAlert_HourLabel");
     self.alertNameLabel.text = LM_LOCALIZE(@"LMSumAlert_AlertNameLabel");
     self.valueLabel.text = LM_LOCALIZE(@"LMSumAlert_ValueLabel");
+    LMUser *user = OWNTT_APP_DELEGATE.appUtils.currentUser;
+    if(self.readOnly)
+    {
+        LMAdvertiser *advertiser = [LMAdvertiser fetchEntityOfClass:[LMAdvertiser class] withObjectID:self.userAlert.advertiserId inContext:self.managedObjectContext];
+        LMProgram *program = [LMProgram fetchEntityOfClass:[LMProgram class] withObjectID:self.userAlert.programId inContext:self.managedObjectContext];
+        self.nameView.firstName.text = advertiser.name;
+        self.nameView.SecondName.text = program.name;
+        [self.alertNameTextField setText:self.userAlert.name];
+        [self.monitoringType setTitle:[LMUtils alertMonitoringTypeToString:self.userAlert.monitorType.intValue] forState:UIControlStateNormal];
+        [self.monitoringType setTitle:[LMUtils alertMonitoringTypeToString:self.userAlert.monitorType.intValue] forState:UIControlStateHighlighted];
+        [self.borderType setTitle:[LMUtils alertBorderTypeToString:self.userAlert.borderType.intValue] forState:UIControlStateNormal];
+        [self.borderType setTitle:[LMUtils alertBorderTypeToString:self.userAlert.borderType.intValue] forState:UIControlStateHighlighted];
+        [self.rateType setTitle:[LMUtils alertPointerTypeToString:self.userAlert.paramType.intValue] forState:UIControlStateNormal];
+        [self.rateType setTitle:[LMUtils alertPointerTypeToString:self.userAlert.paramType.intValue] forState:UIControlStateHighlighted];
+        [self.hourOfSend setTitle:[NSString stringWithFormat:@"%d",self.userAlert.hourValue] forState:UIControlStateNormal];
+        [self.hourOfSend setTitle:[NSString stringWithFormat:@"%d",self.userAlert.hourValue] forState:UIControlStateHighlighted];
+        [self.valueTextField setText:self.userAlert.value];
+        [self.dateFrom setTitle:[self.dateFormater stringFromDate:self.userAlert.dateFrom] forState:UIControlStateNormal];
+        [self.dateFrom setTitle:[self.dateFormater stringFromDate:self.userAlert.dateFrom] forState:UIControlStateHighlighted];
+        if(self.userAlert.dateTo)
+        {
+            [self checkboxTapped:self.checkButton];
+            [self.dateTo setTitle:[self.dateFormater stringFromDate:self.userAlert.dateTo] forState:UIControlStateNormal];
+            [self.dateTo setTitle:[self.dateFormater stringFromDate:self.userAlert.dateTo] forState:UIControlStateHighlighted];
+        }
+    }
+    else
+    {
+        LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.transactionData.instanceId inContext:self.managedObjectContext];
+        if(instance)
+        {
+            for(LMAdvertiser *advertiser in instance.advertisers.allObjects)
+            {
+                if(advertiser.objectId.intValue == self.transactionData.advertiserId.intValue)
+                {
+                    self.nameView.firstName.text = advertiser.name;
+                    for(LMProgram *program in advertiser.programs.allObjects)
+                    {
+                        NSNumber *selectedProgram = [self.transactionData.programIds objectAtIndex:0];
+                        if(program.objectId.intValue == selectedProgram.intValue)
+                        {
+                            self.nameView.SecondName.text = program.name;
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+        [self.dateFrom setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateNormal];
+        [self.dateFrom setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
+        [self.dateTo setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateNormal];
+        [self.dateTo setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
+        [self.monitoringType setTitle:[LMUtils alertMonitoringTypeToString:user.settings.alertDefaultMonitorTypeValue] forState:UIControlStateNormal];
+        [self.monitoringType setTitle:[LMUtils alertMonitoringTypeToString:user.settings.alertDefaultMonitorTypeValue] forState:UIControlStateHighlighted];
+        [self.borderType setTitle:[LMUtils alertBorderTypeToString:user.settings.alertDefaultBorderTypeValue] forState:UIControlStateNormal];
+        [self.borderType setTitle:[LMUtils alertBorderTypeToString:user.settings.alertDefaultBorderTypeValue] forState:UIControlStateHighlighted];
+        [self.rateType setTitle:[LMUtils alertPointerTypeToString:user.settings.alertDefaultPointerValue] forState:UIControlStateNormal];
+        [self.rateType setTitle:[LMUtils alertPointerTypeToString:user.settings.alertDefaultPointerValue] forState:UIControlStateHighlighted];
+        [self.hourOfSend setTitle:[NSString stringWithFormat:@"%d",user.settings.alertDefaultHourValue] forState:UIControlStateNormal];
+        [self.hourOfSend setTitle:[NSString stringWithFormat:@"%d",user.settings.alertDefaultHourValue] forState:UIControlStateHighlighted];
+    }
 }
 
 
@@ -166,15 +212,19 @@
     NSString *message = [self.alertNameTextField validateField];
     if (!message)
     {
-        if(self.checkButton.selected)
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dateFrom = [dateFormatter dateFromString:self.dateFrom.titleLabel.text];
+        if([dateFrom compare:[NSDate date]] == NSOrderedDescending)
         {
-            NSDateFormatter *dateFormatter = [NSDateFormatter new];
-            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-            NSDate *dateFrom = [dateFormatter dateFromString:self.dateFrom.titleLabel.text];
-            NSDate *dateTo = [dateFormatter dateFromString:self.dateTo.titleLabel.text];
-            if([dateFrom compare:dateTo] == NSOrderedSame || [dateFrom compare:dateTo] == NSOrderedDescending)
+            message = LM_LOCALIZE(@"LMDateFromFutureValidation");
+        }
+        if(self.checkButton.selected && !message)
+        {
+            NSDate *dateTo = [dateFormatter dateFromString:self.dateTo.titleLabel.text];            
+            if(!message && ([dateFrom compare:dateTo] == NSOrderedSame || [dateFrom compare:dateTo] == NSOrderedDescending))
             {
-                message = @"Data do musi być większa niż data od";
+                message = LM_LOCALIZE(@"LMDateValidation");
             }
         }
         if(!message)
@@ -211,8 +261,12 @@
     userAlert.borderTypeValue = [LMUtils alertBorderStringToType:self.borderType.titleLabel.text];
     userAlert.hour = [decimalFormater numberFromString:self.hourOfSend.titleLabel.text];
     userAlert.programId = [self.transactionData.programIds objectAtIndex:0];
+    userAlert.advertiserId = self.transactionData.advertiserId;
     userAlert.dateFrom = [self.dateFormater dateFromString:self.dateFrom.titleLabel.text];
-    userAlert.dateTo = [self.dateFormater dateFromString:self.dateTo.titleLabel.text];
+    if(self.checkButton.selected)
+    {
+        userAlert.dateTo = [self.dateFormater dateFromString:self.dateTo.titleLabel.text];
+    }
     userAlert.value = self.valueTextField.text;
     userAlert.objectIdValue = user.alertsCountValue+1;
     user.alertsCount = [NSNumber numberWithInt:userAlert.objectId.intValue];

@@ -7,10 +7,13 @@
 //
 
 #import "LMAlertMenuViewController.h"
+#import "LMAlertSummaryViewController.h"
 #import "LMMenuNameView.h"
+#import "LMReadOnlyUserObject.h"
+#import "LMUserAlert.h"
 
 @interface LMAlertMenuViewController ()
-
+@property (unsafe_unretained, nonatomic) int selectedUserAlertIndex;
 @end
 
 @implementation LMAlertMenuViewController
@@ -22,6 +25,19 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
+    {
+        TTHostViewController *hostVC = (TTHostViewController *)segue.destinationViewController;
+        if([hostVC.childViewController isKindOfClass:[LMAlertSummaryViewController class]])
+        {
+            ((LMAlertSummaryViewController *)hostVC.childViewController).readOnly = YES;
+            ((LMAlertSummaryViewController *)hostVC.childViewController).userAlert = [self.userObjects objectAtIndex:self.selectedUserAlertIndex];
+        }
+    }
 }
 
 - (void)viewDidLoad
@@ -58,6 +74,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.selectedUserAlertIndex = indexPath.row;
+    [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushAlertSummary] sender:self];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        LMReadOnlyUserObject *userObject = [self.userObjects objectAtIndex:indexPath.row];
+        [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_UnregisterAlertPush parameters:[LMOWNTTHTTPClient unregisterAlertPushParamsToken:OWNTT_APP_DELEGATE.appUtils.currentUser.httpToken localId:((LMUserAlert *)userObject).objectId] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self.localContext deleteObject:userObject];
+            [LMUtils saveCoreDataContext:self.localContext];
+            [self.userObjects removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_AlertSummaryDeleteError") delegate:nil];
+        }];
+    } else {
+        NSLog(@"Unhandled editing style! %d", (int)editingStyle);
+    }
 }
 
 @end

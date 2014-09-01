@@ -89,7 +89,7 @@
         case AlertMonitoringTypes_Daily:
             return LM_LOCALIZE(@"alertMonitoringTypes_Daily");
         case AlertMonitoringTypes_Growing:
-            return LM_LOCALIZE(@"lertMonitoringTypes_Growing");
+            return LM_LOCALIZE(@"alertMonitoringTypes_Growing");
         default:
             return nil;
     }
@@ -111,21 +111,21 @@
 {
     switch (pointerType) {
         case AlertPointertypes_Display:
-            return LM_LOCALIZE(@"alertPointertypes_Display");
+            return LM_LOCALIZE(@"alertPointerTypes_Display");
         case AlertPointertypes_Click:
-            return LM_LOCALIZE(@"alertPointertypes_Click");
+            return LM_LOCALIZE(@"alertPointerTypes_Click");
         case AlertPointertypes_Visit:
-            return LM_LOCALIZE(@"alertPointertypes_Visit");
+            return LM_LOCALIZE(@"alertPointerTypes_Visit");
         case AlertPointertypes_NewVisit:
-            return LM_LOCALIZE(@"alertPointertypes_NewVisit");
+            return LM_LOCALIZE(@"alertPointerTypes_NewVisit");
         case AlertPointertypes_Checkpoint:
-            return LM_LOCALIZE(@"alertPointertypes_Checkpoint");
+            return LM_LOCALIZE(@"alertPointerTypes_Checkpoint");
         case AlertPointertypes_Lead:
-            return LM_LOCALIZE(@"alertPointertypes_Lead");
+            return LM_LOCALIZE(@"alertPointerTypes_Lead");
         case AlertPointertypes_Sale:
-            return LM_LOCALIZE(@"alertPointertypes_Sale");
+            return LM_LOCALIZE(@"alertPointerTypes_Sale");
         case AlertPointertypes_WebTime:
-            return LM_LOCALIZE(@"alertPointertypes_WebTime");
+            return LM_LOCALIZE(@"alertPointerTypes_WebTime");
         default:
             return nil;
     }
@@ -171,9 +171,9 @@
 {
     switch (borderType) {
         case AlertBorderTypes_GreaterThan:
-            return LM_LOCALIZE(@"alertBorderType_GreaterThan");
+            return LM_LOCALIZE(@"alertBorderTypes_GreaterThan");
         case AlertBorderTypes_LessThan:
-            return LM_LOCALIZE(@"alertBorderType_LessThan");
+            return LM_LOCALIZE(@"alertBorderTypes_LessThan");
         default:
             return nil;
     }

@@ -4,6 +4,7 @@
 #import "_LMUserAlert.h"
 
 const struct LMUserAlertAttributes LMUserAlertAttributes = {
+	.advertiserId = @"advertiserId",
 	.borderType = @"borderType",
 	.dateFrom = @"dateFrom",
 	.dateTo = @"dateTo",
@@ -48,6 +49,11 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"advertiserIdValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"advertiserId"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"borderTypeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"borderType"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -81,6 +87,32 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic advertiserId;
+
+
+
+- (int16_t)advertiserIdValue {
+	NSNumber *result = [self advertiserId];
+	return [result shortValue];
+}
+
+- (void)setAdvertiserIdValue:(int16_t)value_ {
+	[self setAdvertiserId:[NSNumber numberWithShort:value_]];
+}
+
+- (int16_t)primitiveAdvertiserIdValue {
+	NSNumber *result = [self primitiveAdvertiserId];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveAdvertiserIdValue:(int16_t)value_ {
+	[self setPrimitiveAdvertiserId:[NSNumber numberWithShort:value_]];
+}
+
 
 
 

@@ -53,7 +53,7 @@
     self.toolbar.clipsToBounds = YES;
     self.navigationItem.hidesBackButton = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    //self.loginTextField.text = OWNTT_TEST_USER_NAME;
+    self.loginTextField.text = OWNTT_TEST_USER_NAME;
     self.shadowImage.image = [[UIImage imageNamed:@"top_shadow.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
     
     // Firstly for purpouse of storing all of the fields we remove all of the items from view
@@ -197,6 +197,10 @@
                  LMSettings *settings = [LMSettings createObjectInContext:selfObj.managedObjectContext];
                  settings.reportDefaultEnum = [NSNumber numberWithInt:ReportTimeInterval_Today];
                  settings.reportDefaultIsEnum = [NSNumber numberWithBool:YES];
+                 settings.alertDefaultBorderType = [NSNumber numberWithInt:AlertBorderTypes_LessThan];
+                 settings.alertDefaultHour = [NSNumber numberWithInt:9];
+                 settings.alertDefaultMonitorType = [NSNumber numberWithInt:AlertMonitoringTypes_Growing];
+                 settings.alertDefaultPointer = [NSNumber numberWithInt:AlertPointertypes_Click];
                  [user setSettings:settings];
              }
              [LMUtils saveCoreDataContext:selfObj.managedObjectContext];

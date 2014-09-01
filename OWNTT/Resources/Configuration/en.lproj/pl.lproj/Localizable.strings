@@ -22,7 +22,7 @@
 
 //alertPointertypes
 "alertPointerTypes_Display" = "Odsłona";
-"alertPointerTypes_Clisk" = "Kliknięcie";
+"alertPointerTypes_Click" = "Kliknięcie";
 "alertPointerTypes_Visit" = "Wizyta";
 "alertPointerTypes_NewVisit" = "Nowa Wizyta";
 "alertPointerTypes_WebTime" = "Czas na stronie";
@@ -31,8 +31,8 @@
 "alertPointerTypes_Sale" = "Sprzedaż";
 
 //alertBorderType
-"alertBorderType_GreaterThan" = ">";
-"alertBorderType_LessThan" = "<";
+"alertBorderTypes_GreaterThan" = ">";
+"alertBorderTypes_LessThan" = "<";
 
 //LMAlerManager types
 "LMAlertManager_Error" = "Błąd";
@@ -53,6 +53,7 @@
 "LMAlertManager_ReportAuthorizationError" = "Nie można pobrać raportu. Błąd autoryzacji.";
 "LMAlertManager_RepotBadRequest" = "Nie można wysłać raportu. Błędna lista parametrów.";
 "LMAlertManager_ReportConnectionError" = "Do wyświetlenia raportu wymagane jest połączenie z Internetem.";
+"LMAlertManager_AlertSummaryDeleteError" = "Nie można usunąć raportu";
 
 //LMLoginViewController
 "LMLogin_WarningLabel" = "Do przejścia dalej wymagane jest połączenie z Internetem!";
@@ -67,7 +68,8 @@
 "LMTextField_Name" = "Nazwa musi zawierać od 1 do 60 znaków.";
 "LMTextField_Value" = "Wartość musi być liczbą z przedziału od 0 do 999 999 999.";
 "LMDateValidation" = "Data do musi być większa niż data od.";
-
+"LMDateFromFutureValidation" = "Data od nie może być datą z przyszłości";
+"LMDateToFutureValidation" = "Data do nie może być datą z przyszłości";
 
 //LMSettingViewController
 "LMSettingsTitleLabel" = "Aplikacja zarejestrowana dla:";

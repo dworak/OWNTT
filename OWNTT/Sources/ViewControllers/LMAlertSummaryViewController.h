@@ -19,5 +19,6 @@ typedef enum {
 #import "LMSummaryBaseViewController.h"
 
 @interface LMAlertSummaryViewController : LMSummaryBaseViewController <UIAlertViewDelegate>
-
+@property (unsafe_unretained, nonatomic) BOOL readOnly;
+@property (weak, nonatomic) LMUserAlert *userAlert;
 @end
