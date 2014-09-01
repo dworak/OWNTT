@@ -31,4 +31,6 @@
 - (void)saveObjectData;
 - (void)endAction;
 - (BOOL)isValid;
+- (void)connectionNotificationChange;
+- (void)setLocalizationStrings;
 @end

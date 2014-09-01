@@ -79,6 +79,10 @@
 "LMBranch_Report1" = "Raport Wszystkich Programów";
 "LMBranch_Report8" = "Raport Wszystkich Reklamodawców";
 
+//LMSummaryReportViewController
+"LMSumReport_ReportNameLabel" = "Nazwa raportu:";
+"LMSumReport_Period" = "Wybierz okres:";
+
 
 
 

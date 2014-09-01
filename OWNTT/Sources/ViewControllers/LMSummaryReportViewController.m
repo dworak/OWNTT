@@ -21,6 +21,8 @@
 #import "LMSettings.h"
 
 @interface LMSummaryReportViewController () <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *reportNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *periodLabel;
 @property (weak, nonatomic) IBOutlet LMTextField *reportNameTextField;
 @property (weak, nonatomic) IBOutlet LMButton *timeintervalButton;
 
@@ -81,6 +83,12 @@
 - (void)dealloc
 {
     self.reportNameTextField.delegate = nil;
+}
+
+- (void)setLocalizationStrings
+{
+    self.reportNameLabel.text = LM_LOCALIZE(@"LMSumReport_ReportNameLabel");
+    self.periodLabel.text = LM_LOCALIZE(@"LMSumReport_Period");
 }
 
 /*
