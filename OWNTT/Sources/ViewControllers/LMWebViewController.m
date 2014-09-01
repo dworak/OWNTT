@@ -211,7 +211,7 @@
          NSString *message;
          if(error.code == 403)
          {
-             message = LM_LOCALIZE(@"LMAlertManager_ReportAccesError");
+             message = LM_LOCALIZE(@"LMAlertManager_ReportAccessError");
          }
          else if(error.code == 500)
          {

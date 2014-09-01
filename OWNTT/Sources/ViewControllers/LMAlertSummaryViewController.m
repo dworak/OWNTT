@@ -224,7 +224,20 @@
     [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_RegisterAlertPush parameters:[LMOWNTTHTTPClient registerAlertPushParams:userAlert] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self endAction];
     } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMalertManager_AlertSummaryBadRequest") delegate:nil];
+        NSString *message;
+        if(error.code == 403)
+        {
+            message = LM_LOCALIZE(@"LMAlertManager_AlertAccessError");
+        }
+        else if(error.code == 500)
+        {
+            message = LM_LOCALIZE(@"LMAlertManager_AlertServerError");
+        }
+        else if (error.code == 400)
+        {
+            message = LM_LOCALIZE(@"LMAlertManager_AlertBadRequest");
+        }
+        [LMAlertManager showErrorAlertWithOkWithText:message delegate:nil];
     }];
 }
 
