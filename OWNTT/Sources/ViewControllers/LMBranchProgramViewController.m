@@ -135,7 +135,7 @@
 
 - (NSString *)headerbuttonTitle
 {
-    return [LMOWNTTHTTPClient reportTypeAppName:LMOWNTTReportType_Type1];
+    return LM_LOCALIZE(@"LMBranch_Report1");
 }
 
 - (void)getAllProgramIds
@@ -146,7 +146,7 @@
         [programIds addObject:pr.objectId];
     }
     self.objectId.programIds = [NSArray arrayWithArray:programIds];
-    self.objectId.reportId = [NSNumber numberWithInt:LMOWNTTReportType_Type8];
+    self.objectId.reportId = [NSNumber numberWithInt:LMOWNTTReportType_Type1];
 }
 
 @end

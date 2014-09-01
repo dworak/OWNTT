@@ -9,6 +9,7 @@
 #import "LMBranchInstanceViewController.h"
 #import "LMInstance.h"
 #import "LMNameHeaderView.h"
+#import "LMNavigationViewController.h"
 
 @interface LMBranchInstanceViewController ()
 @end
@@ -66,7 +67,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(self.headerView) {
+    if(((LMNavigationViewController *)self.navigationController).controllerType.intValue == NavigationControllerType_Report)
+    {
         LMReadOnlyObject *object = [self.tableData objectAtIndex:indexPath.row];
         [LMUtils storeCurrentInstance:object.objectId];
     }

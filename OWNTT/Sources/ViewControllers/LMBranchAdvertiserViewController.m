@@ -111,7 +111,6 @@
             {
                 [programIds addObject:program.objectId];
             }
-            break;
         }
     }
     self.objectId.programIds = [NSArray arrayWithArray:programIds];
