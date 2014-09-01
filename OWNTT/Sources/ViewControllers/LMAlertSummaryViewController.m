@@ -19,6 +19,7 @@
 #import "LMUserAlert.h"
 #import "LMUser.h"
 #import "LMBranchNameView.h"
+#import "LMUtils.h"
 
 @interface LMAlertSummaryViewController ()
 @property (weak, nonatomic) IBOutlet LMTextField *alertNameTextField;
@@ -99,6 +100,15 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if(![LMAppUtils connected])
+    {
+        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_AlertConnectionError") delegate:self];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -174,7 +184,7 @@
     }
     if(message)
     {
-        [LMAlertManager showErrorAlertWithOkWithText:message];
+        [LMAlertManager showErrorAlertWithOkWithText:message delegate:nil];
         return NO;
     }
     else
@@ -188,7 +198,7 @@
     [[[LMCoreDataManager sharedInstance] masterManagedObjectContext] refreshObject:OWNTT_APP_DELEGATE.appUtils.currentUser mergeChanges:YES];
     if(![LMAppUtils connected])
     {
-        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_AlertSummaryInternet")];
+        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_AlertConnectionError") delegate:nil];
         return;
     }
     NSNumberFormatter *decimalFormater = [NSNumberFormatter new];
@@ -214,7 +224,7 @@
     [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_RegisterAlertPush parameters:[LMOWNTTHTTPClient registerAlertPushParams:userAlert] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self endAction];
     } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMalertManager_AlertSummaryBadRequest")];
+        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMalertManager_AlertSummaryBadRequest") delegate:nil];
     }];
 }
 
@@ -395,6 +405,11 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self endAction];
 }
 
 @end

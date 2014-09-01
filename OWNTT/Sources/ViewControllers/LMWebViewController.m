@@ -68,6 +68,10 @@
     {
         [self showReport];
     }
+    else
+    {
+        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_ReportConnectionError") delegate:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -193,7 +197,7 @@
         }
     }
     
-    NSLog(@"Report for dates: %@ %@", dateFrom, dateTo);
+    //NSLog(@"Report for dates: %@ %@", dateFrom, dateTo);
     [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_GetReport parameters:[LMOWNTTHTTPClient getReportParamsToken:user.httpToken reportType:[LMOWNTTHTTPClient reportTypeName:(int)report.objectIdValue] dateFrom:dateFrom dateTo:dateTo programIds:self.transactionData.programIds] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          NSString *base64String = [responseObject valueForKeyPath:@"encodedReportContentHtml"];
@@ -204,12 +208,28 @@
      }
                                                                 failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
      {
-         NSData *data = operation.request.HTTPBody;
-         NSString *body = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-         NSLog(@"Body: %@", body);
-         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Błąd" message:@"Błąd generowania raportu." delegate:self cancelButtonTitle:@"Zakończ:" otherButtonTitles:nil];
-         [alertView show];
+         NSString *message;
+         if(error.code == 403)
+         {
+             message = LM_LOCALIZE(@"LMAlertManager_ReportAccesError");
+         }
+         else if(error.code == 500)
+         {
+             message = LM_LOCALIZE(@"LMAlertManager_ReportServerError");
+         }
+         else if (error.code == 400)
+         {
+             message = LM_LOCALIZE(@"LMAlertManager_RepotBadRequest");
+         }
+         [LMAlertManager showErrorAlertWithOkWithText:message delegate:nil];
      }];
+}
+
+#pragma mark -
+#pragma mark === UIAlertViewDelegate ===
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self doneAction:nil];
 }
 
 @end

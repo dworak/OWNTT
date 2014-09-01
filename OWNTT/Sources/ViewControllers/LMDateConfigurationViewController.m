@@ -222,7 +222,7 @@ typedef enum {
     }
     if(message)
     {
-        [LMAlertManager showErrorAlertWithOkWithText:message];
+        [LMAlertManager showErrorAlertWithOkWithText:message delegate:nil];
         return NO;
     }
     else

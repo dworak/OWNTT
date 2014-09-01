@@ -10,14 +10,24 @@
 
 @implementation LMAlertManager
 
-+ (void)showErrorAlertWithOkWithText:(NSString *)text
++ (void)showErrorAlertWithOkWithText:(NSString *)text delegate:(id)delegate
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LM_LOCALIZE(@"LMAlertManager_Error") message:text delegate:self cancelButtonTitle:LM_LOCALIZE(@"LMAlertManager_Ok") otherButtonTitles:nil];
+    id alertDelegate = self;
+    if(delegate)
+    {
+        alertDelegate = delegate;
+    }
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LM_LOCALIZE(@"LMAlertManager_Error") message:text delegate:alertDelegate cancelButtonTitle:LM_LOCALIZE(@"LMAlertManager_Ok") otherButtonTitles:nil];
     [alertView show];
 }
-+ (void)showInfoAlertWithOkWithText:(NSString *)text
++ (void)showInfoAlertWithOkWithText:(NSString *)text delegate:(id)delegate
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LM_LOCALIZE(@"LMAlertManager_Info") message:text delegate:self cancelButtonTitle:LM_LOCALIZE(@"LMAlertManager_Ok") otherButtonTitles:nil];
+    id alertDelegate = self;
+    if(delegate)
+    {
+        alertDelegate = delegate;
+    }
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LM_LOCALIZE(@"LMAlertManager_Info") message:text delegate:alertDelegate cancelButtonTitle:LM_LOCALIZE(@"LMAlertManager_Ok") otherButtonTitles:nil];
     [alertView show];
 }
 @end

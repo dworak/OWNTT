@@ -18,6 +18,6 @@ typedef enum {
 #import <UIKit/UIKit.h>
 #import "LMSummaryBaseViewController.h"
 
-@interface LMAlertSummaryViewController : LMSummaryBaseViewController
+@interface LMAlertSummaryViewController : LMSummaryBaseViewController <UIAlertViewDelegate>
 
 @end

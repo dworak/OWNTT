@@ -107,7 +107,7 @@
     NSString *validate = [self.reportNameTextField validateField];
     if(validate)
     {
-        [LMAlertManager showErrorAlertWithOkWithText:validate];
+        [LMAlertManager showErrorAlertWithOkWithText:validate delegate:nil];
         return NO;
     }
     return YES;
