@@ -209,17 +209,22 @@
                                                                 failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
      {
          NSString *message;
-         if(error.code == 403)
+         NSLog(@"%d", operation.response.statusCode);
+         if(operation.response.statusCode == 403)
          {
              message = LM_LOCALIZE(@"LMAlertManager_ReportAccessError");
          }
-         else if(error.code == 500)
+         else if(operation.response.statusCode == 500)
          {
              message = LM_LOCALIZE(@"LMAlertManager_ReportServerError");
          }
-         else if (error.code == 400)
+         else if (operation.response.statusCode == 400)
          {
              message = LM_LOCALIZE(@"LMAlertManager_RepotBadRequest");
+         }
+         else
+         {
+             message = LM_LOCALIZE(@"LMAlertManager_ReportAuthorizationError");
          }
          [LMAlertManager showErrorAlertWithOkWithText:message delegate:nil];
      }];

@@ -49,6 +49,8 @@
 "LMAlertManager_AlertConnectionError" = "Do utworzenia alertu wymagane jest połączenie z Internetem.";
 "LMAlertManager_ReportAccessError" = "Użytkownik nie ma uprawnień do obejrzenia tego raportu.";
 "LMAlertManager_ReportServerError" = "Nie można wysłać raportu. Podczas wysyłania raportu wystąpił błąd połączenia z serwerem. Spróbuj ponownie.";
+"LMAlertManager_AlertAuthorizationError" = "Nie można wysłać alertu. Błąd autoryzacji.";
+"LMAlertManager_ReportAuthorizationError" = "Nie można pobrać raportu. Błąd autoryzacji.";
 "LMAlertManager_RepotBadRequest" = "Nie można wysłać raportu. Błędna lista parametrów.";
 "LMAlertManager_ReportConnectionError" = "Do wyświetlenia raportu wymagane jest połączenie z Internetem.";
 

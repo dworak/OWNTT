@@ -237,6 +237,10 @@
         {
             message = LM_LOCALIZE(@"LMAlertManager_AlertBadRequest");
         }
+        else
+        {
+            message = LM_LOCALIZE(@"LMAlertManager_AlertAuthorizationError");
+        }
         [LMAlertManager showErrorAlertWithOkWithText:message delegate:nil];
     }];
 }
