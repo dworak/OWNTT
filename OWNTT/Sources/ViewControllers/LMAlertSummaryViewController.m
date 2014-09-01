@@ -33,6 +33,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *checkButton;
 
 @property (weak, nonatomic) UIButton *currentButton;
+@property (weak, nonatomic) IBOutlet UILabel *dateFromLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateToLabel;
+@property (weak, nonatomic) IBOutlet UILabel *monitorTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pointerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hourLabel;
+@property (weak, nonatomic) IBOutlet UILabel *alertNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
 @end
 
@@ -106,6 +113,17 @@
 - (BOOL)shouldAutorotate
 {
     return YES;
+}
+
+- (void)setLocalizationStrings
+{
+    self.dateFromLabel.text = LM_LOCALIZE(@"LMSumAlert_DateFormLabel");
+    self.dateToLabel.text = LM_LOCALIZE(@"LMSumAlert_DateToLabel");
+    self.monitorTypeLabel.text = LM_LOCALIZE(@"LMSumAlert_MonitorType");
+    self.pointerLabel.text = LM_LOCALIZE(@"LMSumAlert_PointerLabel");
+    self.hourLabel.text = LM_LOCALIZE(@"LMSumAlert_HourLabel");
+    self.alertNameLabel.text = LM_LOCALIZE(@"LMSumAlert_AlertNameLabel");
+    self.valueLabel.text = LM_LOCALIZE(@"LMSumAlert_ValueLabel");
 }
 
 

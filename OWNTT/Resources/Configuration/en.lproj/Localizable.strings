@@ -83,6 +83,15 @@
 "LMSumReport_ReportNameLabel" = "Nazwa raportu:";
 "LMSumReport_Period" = "Wybierz okres:";
 
+//LMAlertSummaryViewcontroller
+"LMSumAlert_DateFormLabel" = "Data od:";
+"LMSumAlert_DateToLabel" = "Data do:";
+"LMSumAlert_MonitorType" = "Typ monitorowania:";
+"LMSumAlert_PointerLabel" = "Wskaźnik:";
+"LMSumAlert_HourLabel" = "Godzina wysyłania powiadomień:";
+"LMSumAlert_AlertNameLabel" = "Nazwa alertu:";
+"LMSumAlert_ValueLabel" = "Wartość:";
+
 
 
 
