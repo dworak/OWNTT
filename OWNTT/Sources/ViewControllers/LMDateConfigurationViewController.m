@@ -214,7 +214,7 @@ typedef enum {
         {
             NSDate *dateFrom = [self.dateFormatter dateFromString:self.dateFromButton.titleLabel.text];
             NSDate *dateTo = [self.dateFormatter dateFromString:self.dateToButton.titleLabel.text];
-            if([dateFrom compare:dateTo] == NSOrderedSame || [dateFrom compare:dateTo] == NSOrderedDescending)
+            if([dateFrom compare:dateTo] == NSOrderedDescending)
             {
                 message = LM_LOCALIZE(@"LMDateValidation");
             }
@@ -296,35 +296,6 @@ typedef enum {
         }
         [self.pickerViewController addPickerData:dataArray];
         [self.pickerViewController showInView:self.view];
-        /*int defaultVal = 0;
-        BOOL check = NO;
-        for(NSString *str in dataArray)
-        {
-            if([str isEqualToString:self.currentButton.titleLabel.text])
-            {
-                check = YES;
-                break;
-            }
-            defaultVal++;
-        }
-        if(!check) {
-            defaultVal = -1;
-        }
-        if(defaultVal != -1)
-        {
-            [self.pickerViewController selectPickerObject:defaultVal];
-        }
-        else
-        {
-            if(defaultStartValue != -1)
-            {
-                [self.pickerViewController selectPickerObject:defaultStartValue];
-            }
-            else
-            {
-                [self.pickerViewController selectPickerObject:-1];
-            }
-        }*/
         [self.pickerViewController selectPickerObject:[LMUtils reportTimeIntervalStringToType:self.currentInterval.titleLabel.text]];
     }
     else
@@ -354,10 +325,9 @@ typedef enum {
             };
         }
         [self.datePickerController showInView:self.view];
-        NSString *pickerDate = [self.dateFormatter stringFromDate:[NSDate date]];
-        if([pickerDate isEqualToString:self.currentButton.titleLabel.text])
+        if(self.currentButton.titleLabel.text)
         {
-            [self.datePickerController setPickerDate:[NSDate date]];
+            [self.datePickerController setPickerDate:[self.dateFormatter dateFromString:self.currentButton.titleLabel.text]];
         }
         else
         {
