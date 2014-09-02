@@ -125,6 +125,7 @@
 		ED14BACB19B075F4007D3CF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED14BAC619B075F4007D3CF4 /* Localizable.strings */; };
 		ED14BACE19B07E5E007D3CF4 /* _LMSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14BACD19B07E5E007D3CF4 /* _LMSettings.m */; };
 		ED14BAD119B07E69007D3CF4 /* LMSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = ED14BAD019B07E69007D3CF4 /* LMSettings.m */; };
+		ED3C381A19B5A34100BAE39A /* AFHTTPRequestOperationLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3C381919B5A34100BAE39A /* AFHTTPRequestOperationLogger.m */; };
 		ED54F15919ADE16F00BC3446 /* LMInstanceWS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F15819ADE16F00BC3446 /* LMInstanceWS.m */; };
 		ED54F15C19ADE67600BC3446 /* LMAdvertiserWS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F15B19ADE67600BC3446 /* LMAdvertiserWS.m */; };
 		ED54F16219ADE75F00BC3446 /* LMProgramWS.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54F16119ADE75F00BC3446 /* LMProgramWS.m */; };
@@ -389,6 +390,8 @@
 		ED14BACD19B07E5E007D3CF4 /* _LMSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _LMSettings.m; path = Genereted/_LMSettings.m; sourceTree = "<group>"; };
 		ED14BACF19B07E69007D3CF4 /* LMSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSettings.h; sourceTree = "<group>"; };
 		ED14BAD019B07E69007D3CF4 /* LMSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSettings.m; sourceTree = "<group>"; };
+		ED3C381819B5A34100BAE39A /* AFHTTPRequestOperationLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationLogger.h; sourceTree = "<group>"; };
+		ED3C381919B5A34100BAE39A /* AFHTTPRequestOperationLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationLogger.m; sourceTree = "<group>"; };
 		ED54F15719ADE16F00BC3446 /* LMInstanceWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMInstanceWS.h; sourceTree = "<group>"; };
 		ED54F15819ADE16F00BC3446 /* LMInstanceWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMInstanceWS.m; sourceTree = "<group>"; };
 		ED54F15A19ADE67600BC3446 /* LMAdvertiserWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAdvertiserWS.h; sourceTree = "<group>"; };
@@ -660,6 +663,8 @@
 		ED54F16619ADED0300BC3446 /* Synchronization */ = {
 			isa = PBXGroup;
 			children = (
+				ED3C381819B5A34100BAE39A /* AFHTTPRequestOperationLogger.h */,
+				ED3C381919B5A34100BAE39A /* AFHTTPRequestOperationLogger.m */,
 				ED54F16719ADED1B00BC3446 /* LMSynchronizationService.h */,
 				ED54F16819ADED1B00BC3446 /* LMSynchronizationService.m */,
 				ED54F16A19ADEDC800BC3446 /* LMSynchronizationBaseOperation.h */,
@@ -1178,6 +1183,7 @@
 				EDD131B919812EFD006F39E3 /* LMBranchInstanceViewController.m in Sources */,
 				2584AD8619ABB98000C9CBA2 /* _LMSynchStatus.m in Sources */,
 				250F89C01991FBDF00D91836 /* LMDataPickerViewController.m in Sources */,
+				ED3C381A19B5A34100BAE39A /* AFHTTPRequestOperationLogger.m in Sources */,
 				259AF74E19B2FEC90086CF4E /* LMSettingsHostViewController.m in Sources */,
 				25036AD5198D2E6900EAE355 /* LMUser.m in Sources */,
 				25036AE9198D5EE300EAE355 /* LMBranchTableViewCell.m in Sources */,
