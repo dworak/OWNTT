@@ -107,6 +107,9 @@
 "LMAppReportType_5" = "Raport wszystkich wydawców";
 "LMAppReportType_8" = "Raport form reklamowych";
 
+//Menu
+"LMMenu_AddAlert" = "DODAJ ALERT";
+"LMMenu_AddReport" = "DODAJ RAPORT";
 
 
 
