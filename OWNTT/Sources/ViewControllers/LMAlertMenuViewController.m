@@ -50,7 +50,7 @@
     {
         if([view isKindOfClass:[LMMenuNameView class]])
         {
-            ((LMMenuNameView *)view).titleLabel.text = @"DODAJ ALERT";
+            ((LMMenuNameView *)view).titleLabel.text = LM_LOCALIZE(@"LMMenu_AddAlert");
         }
     }
 }

@@ -272,24 +272,26 @@
     user.alertsCount = [NSNumber numberWithInt:userAlert.objectId.intValue];
     userAlert.createDate = [NSDate date];
     [user.userAlertsSet addObject:userAlert];
-    [LMUtils saveCoreDataContext:self.managedObjectContext];
     
     //Send alert
+    __weak LMAlertSummaryViewController *selfObj = self;
     [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_RegisterAlertPush parameters:[LMOWNTTHTTPClient registerAlertPushParams:userAlert] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self endAction];
+        [selfObj endAction];
+        [LMUtils saveCoreDataContext:selfObj.managedObjectContext];
     } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [selfObj.managedObjectContext rollback];
         NSString *message;
-        if(error.code == 403)
+        if(operation.response.statusCode == 403)
         {
             message = LM_LOCALIZE(@"LMAlertManager_AlertAccessError");
         }
-        else if(error.code == 500)
+        else if(operation.response.statusCode == 500)
         {
             message = LM_LOCALIZE(@"LMAlertManager_AlertServerError");
         }
-        else if (error.code == 400)
+        else if (operation.response.statusCode == 400)
         {
-            message = LM_LOCALIZE(@"LMAlertManager_AlertBadRequest");
+            message = LM_LOCALIZE(@"LMAlertManager_AlertSummaryBadRequest");
         }
         else
         {

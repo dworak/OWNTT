@@ -237,11 +237,11 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
 {
     switch (reportType) {
         case LMOWNTTReportType_Type1:
-            return @"Raport łączny kampanii";
+            return LM_LOCALIZE(@"LMAppReportType_1");
         case LMOWNTTReportType_Type5:
-            return @"Raport wszystkich wydawców";
+            return LM_LOCALIZE(@"LMAppReportType_5");
         case LMOWNTTReportType_Type8:
-            return @"Raport form reklamowych";
+            return LM_LOCALIZE(@"LMAppReportType_8");
         default:
         {
             NSAssert(0, @"%@ Unknown report type", NSStringFromSelector(_cmd));
@@ -328,19 +328,32 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
     NSAssert(OWNTT_APP_DELEGATE.appUtils.currentUser.httpToken, @"registerAlertPushParams: empty token");
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Token], OWNTT_APP_DELEGATE.appUtils.currentUser.httpToken,
-             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_BorderType], [NSString stringWithFormat:@"%d", userAlert.borderType.intValue],
-             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_MonitorType], [NSString stringWithFormat:@"%d", userAlert.monitorType.intValue],
-             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_ParamType], [NSString stringWithFormat:@"%d", userAlert.paramType.intValue],
-             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_DateFrom], [dateFormatter stringFromDate:userAlert.dateFrom],
-             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_ProgramId], [NSString stringWithFormat:@"%d", userAlert.programId.intValue],
-             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Name], userAlert.name,
-             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Value], userAlert.value,
-             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Hour], [NSString stringWithFormat:@"%d", userAlert.hour.intValue],
-             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_LocalId], [NSString stringWithFormat:@"%d", userAlert.objectId.intValue], nil];
-    if(userAlert.dateTo) {
-        [dictionary setObject:[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_DateTo] forKey:[dateFormatter stringFromDate:userAlert.dateTo]];
-    }
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                       OWNTT_APP_DELEGATE.appUtils.currentUser.httpToken,
+            [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Token],
+                                       userAlert.borderType,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_BorderType],
+                                       userAlert.monitorType,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_MonitorType],
+                                       userAlert.paramType,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_ParamType],
+                                       [dateFormatter stringFromDate:userAlert.dateFrom],
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_DateFrom],
+                                        userAlert.programId,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_ProgramId],
+                                       userAlert.name,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Name],
+                                       userAlert.value,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Value],
+                                       userAlert.hour,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Hour],
+                                       userAlert.objectId,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_LocalId],
+                                       nil];
+    //if(userAlert.dateTo)
+    //{
+        [dictionary setValue:[dateFormatter stringFromDate:[NSDate date]] forKey:[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_DateTo]];
+    //}
     return dictionary;
 }
 
@@ -351,7 +364,7 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
     NSAssert(localId, @"registerAlertPushParamsToken: empty localId");
     
     return @{[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Token] : token,
-             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_LocalId] : [NSString stringWithFormat:@"%d", localId.intValue],
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_LocalId] : localId,
              };
 }
 

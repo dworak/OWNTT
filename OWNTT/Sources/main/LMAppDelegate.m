@@ -9,6 +9,7 @@
 #import "LMAppDelegate.h"
 #import "LMUser.h"
 #import "AFNetworkReachabilityManager.h"
+#import "AFHTTPRequestOperationLogger.h"
 #import "JSONModel.h"
 
 @implementation LMAppDelegate

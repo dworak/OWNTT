@@ -45,7 +45,7 @@
 "LMAlertManager_LoginSynchronizationError" = "Pobieranie danych aplikacji nie powiodło się, spróbuj ponownie.";
 "LMAlertManager_AlertAccessError" = "Użytkownik nie ma uprawnień do tego alertu.";
 "LMAlertManager_AlertServerError" = "Nie można wysłać alertu. Podczas wysyłania alertu wystąpił błąd połączenia z serwerem. Spróbuj ponownie.";
-"LMalertManager_AlertSummaryBadRequest" = "Nie można wysłać alertu. Błędna lista parametrów.";
+"LMAlertManager_AlertSummaryBadRequest" = "Nie można wysłać alertu. Błędna lista parametrów.";
 "LMAlertManager_AlertConnectionError" = "Do utworzenia alertu wymagane jest połączenie z Internetem.";
 "LMAlertManager_ReportAccessError" = "Użytkownik nie ma uprawnień do obejrzenia tego raportu.";
 "LMAlertManager_ReportServerError" = "Nie można wysłać raportu. Podczas wysyłania raportu wystąpił błąd połączenia z serwerem. Spróbuj ponownie.";
@@ -86,8 +86,8 @@
 "LMTabBar_Settings" = "Ustawienia";
 
 //LMBranchViewController
-"LMBranch_Report1" = "Raport Wszystkich Programów";
-"LMBranch_Report8" = "Raport Wszystkich Reklamodawców";
+"LMBranch_Report1" = "Raport wszystkich programów";
+"LMBranch_Report8" = "Raport wszystkich reklamodawców";
 
 //LMSummaryReportViewController
 "LMSumReport_ReportNameLabel" = "Nazwa raportu:";
@@ -102,6 +102,14 @@
 "LMSumAlert_AlertNameLabel" = "Nazwa alertu:";
 "LMSumAlert_ValueLabel" = "Wartość:";
 
+//LMAppReportTypes
+"LMAppReportType_1" = "Raport łączny kampanii";
+"LMAppReportType_5" = "Raport wszystkich wydawców";
+"LMAppReportType_8" = "Raport form reklamowych";
+
+//Menu
+"LMMenu_AddAlert" = "DODAJ ALERT";
+"LMMenu_AddReport" = "DODAJ RAPORT";
 
 
 

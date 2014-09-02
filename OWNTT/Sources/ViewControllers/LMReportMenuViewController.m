@@ -34,7 +34,7 @@
     {
         if([view isKindOfClass:[LMMenuNameView class]])
         {
-            ((LMMenuNameView *)view).titleLabel.text = @"DODAJ RAPORT";
+            ((LMMenuNameView *)view).titleLabel.text = LM_LOCALIZE(@"LMMenu_AddReport");
         }
     }
 }
