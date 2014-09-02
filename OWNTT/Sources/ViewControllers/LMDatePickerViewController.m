@@ -111,7 +111,7 @@
         pickerFrame.origin.y = view.frame.size.height;
         self.pickerView.frame = pickerFrame;
         
-        pickerFrame.origin.y = view.frame.size.height - (pickerFrame.size.height + 44);
+        pickerFrame.origin.y = view.frame.size.height - (pickerFrame.size.height);
         [UIView animateWithDuration:STANDARD_ANIMATION_DURATION animations:^{
             self.pickerView.frame = pickerFrame;
         } completion:^(BOOL finished) {
