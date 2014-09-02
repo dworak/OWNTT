@@ -86,8 +86,8 @@
 "LMTabBar_Settings" = "Ustawienia";
 
 //LMBranchViewController
-"LMBranch_Report1" = "Raport Wszystkich Programów";
-"LMBranch_Report8" = "Raport Wszystkich Reklamodawców";
+"LMBranch_Report1" = "Raport wszystkich programów";
+"LMBranch_Report8" = "Raport wszystkich reklamodawców";
 
 //LMSummaryReportViewController
 "LMSumReport_ReportNameLabel" = "Nazwa raportu:";
@@ -101,6 +101,11 @@
 "LMSumAlert_HourLabel" = "Godzina wysyłania powiadomień:";
 "LMSumAlert_AlertNameLabel" = "Nazwa alertu:";
 "LMSumAlert_ValueLabel" = "Wartość:";
+
+//LMAppReportTypes
+"LMAppReportType_1" = "Raport łączny kampanii";
+"LMAppReportType_5" = "Raport wszystkich wydawców";
+"LMAppReportType_8" = "Raport form reklamowych";
 
 
 

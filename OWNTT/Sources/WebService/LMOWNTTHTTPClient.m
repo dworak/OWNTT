@@ -237,11 +237,11 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
 {
     switch (reportType) {
         case LMOWNTTReportType_Type1:
-            return @"Raport łączny kampanii";
+            return LM_LOCALIZE(@"LMAppReportType_1");
         case LMOWNTTReportType_Type5:
-            return @"Raport wszystkich wydawców";
+            return LM_LOCALIZE(@"LMAppReportType_5");
         case LMOWNTTReportType_Type8:
-            return @"Raport form reklamowych";
+            return LM_LOCALIZE(@"LMAppReportType_8");
         default:
         {
             NSAssert(0, @"%@ Unknown report type", NSStringFromSelector(_cmd));

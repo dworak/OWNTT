@@ -102,6 +102,10 @@
 "LMSumAlert_AlertNameLabel" = "Nazwa alertu:";
 "LMSumAlert_ValueLabel" = "Wartość:";
 
+//LMAppReportTypes
+"LMAppReportType_1" = "Raport łączny kampanii";
+"LMAppReportType_5" = "Raport wszystkich wydawców";
+"LMAppReportType_8" = "Raport form reklamowych";
 
 
 
