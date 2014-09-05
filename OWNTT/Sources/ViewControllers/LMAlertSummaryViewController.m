@@ -71,13 +71,17 @@
     
     if(self.readOnly)
     {
-        for(UIView *view in self.view.subviews)
+        for(UIView *view in self.contentScrollView.subviews)
         {
             if([view isKindOfClass:[UIButton class]] || [view isKindOfClass:[UITextField class]])
             {
                 view.userInteractionEnabled = NO;
             }
         }
+    }
+    if(self.readOnly)
+    {
+        self.parentViewController.navigationItem.rightBarButtonItem = nil;
     }
     
     [self.alertNameTextField addValidation:LMTextFieldValidaitonType_Name];
@@ -245,6 +249,10 @@
 
 - (void)saveObjectData
 {
+    if(self.readOnly)
+    {
+        return;
+    }
     [[[LMCoreDataManager sharedInstance] masterManagedObjectContext] refreshObject:OWNTT_APP_DELEGATE.appUtils.currentUser mergeChanges:YES];
     if(![LMAppUtils connected])
     {

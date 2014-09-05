@@ -13,7 +13,8 @@ typedef enum {
     LMOWNTTHTTPClientServiceName_GetReport,
     LMOWNTTHTTPClientServiceName_RegisterAlertPush,
     LMOWNTTHTTPClientServiceName_UnregisterAlertPush,
-    LMOWNTTHTTPClientServiceName_GetAlertPush
+    LMOWNTTHTTPClientServiceName_GetAlertPush,
+    LMOWNTTHTTPClientServiceName_UpdateDevice
 } LMOWNTTHTTPClientServiceName;
 
 typedef enum {
@@ -108,6 +109,8 @@ typedef void (^failureBlock)(AFHTTPRequestOperation *operation, NSError *error);
 + (NSDictionary*)registerAlertPushParams:(LMUserAlert *)userAlert;
 + (NSDictionary*)unregisterAlertPushParamsToken:(NSString *)token
                                         localId:(NSNumber*)localId;
++ (NSDictionary*)updateDeviceParamsToken:(NSString *)token
+                                 pushKey:(NSString*)pushKey;
 
 - (AFHTTPRequestOperation *)POSTHTTPRequestOperationForServiceName: (LMOWNTTHTTPClientServiceName)serviceName
                                                   parameters: (NSDictionary *) parameters

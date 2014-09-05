@@ -83,6 +83,8 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
             return @"UnregisterAlertPush";
         case LMOWNTTHTTPClientServiceName_UnregisterDevice:
             return @"UnregisterDevice";
+        case LMOWNTTHTTPClientServiceName_UpdateDevice:
+            return @"UpdateDevice";
         default:
         {
             NSAssert(0, @"%@ Unknown service type", NSStringFromSelector(_cmd));
@@ -360,11 +362,22 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
 + (NSDictionary*)unregisterAlertPushParamsToken:(NSString *)token
                                       localId:(NSNumber*)localId
 {
-    NSAssert(token, @"registerAlertPushParamsToken: empty token");
-    NSAssert(localId, @"registerAlertPushParamsToken: empty localId");
+    NSAssert(token, @"unregisterAlertPushParamsToken: empty token");
+    NSAssert(localId, @"unregisterAlertPushParamsToken: empty localId");
     
     return @{[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Token] : token,
              [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_LocalId] : localId,
+             };
+}
+
++ (NSDictionary*)updateDeviceParamsToken:(NSString *)token
+                                        pushKey:(NSString*)pushKey
+{
+    NSAssert(token, @"updateDeviceParamsToken: empty token");
+    NSAssert(pushKey, @"updateDeviceParamsToken: empty push token");
+    
+    return @{[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Token] : token,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_PushKey] : pushKey,
              };
 }
 

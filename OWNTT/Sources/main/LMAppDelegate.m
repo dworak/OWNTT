@@ -16,12 +16,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Register for remote notification
+    self.appUtils.notSaveDeviceKey = @"Not register yet";
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeNewsstandContentAvailability];
+    
+    if (launchOptions != nil)
+	{
+		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+		if (dictionary != nil)
+		{
+			NSLog(@"Launched from push notification: %@", dictionary);
+			//TODO: Update badge
+		}
+	}
     // Override point for customization after application launch.
     [LMUtils setupCurrentLanguage];
-    NSLog(@"%@", LM_LOCALIZE(@"reportTimeInterval_ThisYear"));
     //Create app utils
     self.appUtils = [LMAppUtils new];
-    self.appUtils.notSaveDeviceKey = @"Not supported yet";
     [self.appUtils checkInternetConnection];
     
     //Get current user
@@ -33,19 +44,11 @@
                                                                               @"id":@"objectId",
                                                                               }]
      ];
-    
-    //Register for remote notification
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge];
-    
-    if (launchOptions != nil)
-	{
-		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-		if (dictionary != nil)
-		{
-			NSLog(@"Launched from push notification: %@", dictionary);
-			//TODO: Update badge
-		}
-	}
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2.0
+                                          target:self
+                                        selector:@selector(update)
+                                        userInfo:nil
+                                         repeats:YES];
     
     return YES;
 }
@@ -80,24 +83,33 @@
 
 - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
 {
-	NSLog(@"Received notification: %@", userInfo);
-	//TODO: Update badge
+	NSLog(@"%@", userInfo);
+    [LMAlertManager showInfoAlertWithOkWithText:[userInfo objectForKey:@"inAppMessage"] delegate:nil];
 }
 
 - (void)postUpdateRequest
 {
     //Add update device token
+    [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_UpdateDevice parameters:[LMOWNTTHTTPClient updateDeviceParamsToken:self.appUtils.currentUser.httpToken pushKey:self.appUtils.currentUser.deviceToken] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Correct update push key");
+    } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"ERROR: Could not update push key");
+    }];
 }
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
 	NSString* newToken = [deviceToken description];
+    NSString* oldToken = @"";
 	newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
 	newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-	NSLog(@"My token is: %@", newToken);
-    
-    self.appUtils.currentUser = [[LMUser fetchLMUsersInContext:[[LMCoreDataManager sharedInstance] masterManagedObjectContext]] objectAtIndex:0];
+    NSArray *users = [LMUser fetchLMUsersInContext:[[LMCoreDataManager sharedInstance] masterManagedObjectContext]];
+    if(users.count > 0)
+    {
+        self.appUtils.currentUser = [users objectAtIndex:0];
+        oldToken = self.appUtils.currentUser.deviceToken;
+    }
     if(self.appUtils.currentUser)
     {
         self.appUtils.currentUser.deviceToken = newToken;
@@ -107,15 +119,20 @@
     {
         self.appUtils.notSaveDeviceKey = newToken;
     }
-	/*if (![newToken isEqualToString:oldToken])
+	if (self.appUtils.currentUser && ![newToken isEqualToString:oldToken])
 	{
 		[self postUpdateRequest];
-	}*/
+	}
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
 	NSLog(@"Failed to get token, error: %@", error);
+}
+
+- (void)update
+{
+    
 }
 
 @end
