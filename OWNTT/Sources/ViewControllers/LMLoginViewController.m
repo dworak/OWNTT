@@ -161,6 +161,7 @@
     {
         LMUser *user = OWNTT_APP_DELEGATE.appUtils.currentUser;
         [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_UnregisterDevice parameters:[LMOWNTTHTTPClient unregisterDeviceParamsToken:user.httpToken] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+            OWNTT_APP_DELEGATE.appUtils.notSaveDeviceKey = user.deviceToken;
             [[[LMCoreDataManager sharedInstance] masterManagedObjectContext] deleteObject:user];
             [selfObj successAction];
             [[LMCoreDataManager sharedInstance] saveMasterContext];

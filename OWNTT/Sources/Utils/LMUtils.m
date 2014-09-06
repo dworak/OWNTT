@@ -280,6 +280,31 @@
     return [standardUserDefaults valueForKey:USER_DEFAULTS_CURRENT_INSTANCE];
 }
 
++ (void)storeCurrentDate
+{
+    NSDateFormatter *dF = [NSDateFormatter new];
+    [dF setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    [standardUserDefaults setValue:[dF stringFromDate:[NSDate date]] forKey:USER_DEFAULTS_CURRENT_DATE];
+    [standardUserDefaults synchronize];
+}
+
++ (NSDate *)getCurrentDate
+{
+    NSDateFormatter *dF = [NSDateFormatter new];
+    [dF setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *dateStr = [standardUserDefaults valueForKey:USER_DEFAULTS_CURRENT_DATE];
+    if(dateStr)
+    {
+        return [dF dateFromString:dateStr];
+    }
+    else
+    {
+        return nil;
+    }
+}
+
 + (void)createReportObjects
 {
 }

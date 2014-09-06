@@ -17,22 +17,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //Register for remote notification
+    self.appUtils = [LMAppUtils new];
     self.appUtils.notSaveDeviceKey = @"Not register yet";
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeNewsstandContentAvailability];
     
-    if (launchOptions != nil)
-	{
-		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-		if (dictionary != nil)
-		{
-			NSLog(@"Launched from push notification: %@", dictionary);
-			//TODO: Update badge
-		}
-	}
     // Override point for customization after application launch.
     [LMUtils setupCurrentLanguage];
     //Create app utils
-    self.appUtils = [LMAppUtils new];
     [self.appUtils checkInternetConnection];
     
     //Get current user
@@ -44,7 +35,18 @@
                                                                               @"id":@"objectId",
                                                                               }]
      ];
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2.0
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    if (launchOptions != nil)
+	{
+		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+		if (dictionary != nil)
+		{
+            
+			NSLog(@"Launched from push notification: %@", dictionary);
+            //[LMAlertManager showInfoAlertWithOkWithText:[dictionary objectForKey:@"alert"] delegate:nil];
+		}
+	}
+    [NSTimer scheduledTimerWithTimeInterval:60.0
                                           target:self
                                         selector:@selector(update)
                                         userInfo:nil
@@ -57,6 +59,7 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [LMUtils storeCurrentDate];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -73,6 +76,28 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    NSDate *currentStoreDate = [LMUtils getCurrentDate];
+    if(currentStoreDate)
+    {
+        NSDateFormatter *dF = [NSDateFormatter new];
+        [dF setDateFormat:@"yyyy-MM-dd HH:mm"];
+        NSDate *tody = [dF dateFromString:[dF stringFromDate:[NSDate date]]];
+        NSTimeInterval timeInterval = [tody timeIntervalSinceDate:currentStoreDate];
+        double secondsInAnHour = 3600;
+        NSInteger hoursBetweenDates = timeInterval / secondsInAnHour;
+        if(hoursBetweenDates >= 12)
+        //if(timeInterval > 20)
+        {
+            UIStoryboard *initalStoryboard = self.window.rootViewController.storyboard;
+            for (UIView* view in self.window.subviews)
+            {
+                [view removeFromSuperview];
+            }
+            
+            UIViewController* initialScene = [initalStoryboard instantiateInitialViewController];
+            self.window.rootViewController = initialScene;
+        }
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -83,15 +108,17 @@
 
 - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
 {
-	NSLog(@"%@", userInfo);
-    [LMAlertManager showInfoAlertWithOkWithText:[userInfo objectForKey:@"inAppMessage"] delegate:nil];
+    NSDictionary *apps = [userInfo valueForKeyPath:@"aps"];
+    if(apps)
+    {
+        //[LMAlertManager showInfoAlertWithOkWithText:[apps objectForKey:@"alert"] delegate:nil];
+    }
 }
 
 - (void)postUpdateRequest
 {
     //Add update device token
     [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_UpdateDevice parameters:[LMOWNTTHTTPClient updateDeviceParamsToken:self.appUtils.currentUser.httpToken pushKey:self.appUtils.currentUser.deviceToken] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Correct update push key");
     } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"ERROR: Could not update push key");
     }];
@@ -132,7 +159,7 @@
 
 - (void)update
 {
-    
+    [LMUtils performSynchronization:NO];
 }
 
 @end

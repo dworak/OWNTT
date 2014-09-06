@@ -7,109 +7,126 @@
  */
 
 //reportTimeInterval
-"reportTimeInterval_ThisYear" = "Ten rok";
-"reportTimeInterval_PreviousMonth" = "Poprzedni miesiąc";
-"reportTimeInterval_ActualMonth" = "Aktualny miesiąc";
-"reportTimeInterval_PreviousWeek" = "Poprzedni tydzień";
-"reportTimeInterval_ThisWeek" = "Ten tydzień";
-"reportTimeInterval_Yesterday" = "Wczoraj";
-"reportTimeInterval_Today" = "Dzisiaj";
-"reportTimeInterval_Custom" = "Niestandardowy";
+"reportTimeInterval_ThisYear" = "This year";
+"reportTimeInterval_PreviousMonth" = "Last month";
+"reportTimeInterval_ActualMonth" = "This month";
+"reportTimeInterval_PreviousWeek" = "Last week";
+"reportTimeInterval_ThisWeek" = "This week";
+"reportTimeInterval_Yesterday" = "Yesterday";
+"reportTimeInterval_Today" = "Today";
+"reportTimeInterval_Custom" = "Custom";
 
 //alertMonitoringTypes
-"alertMonitoringTypes_Growing" = "Narastający";
-"alertMonitoringTypes_Daily" = "Dzienny";
+"alertMonitoringTypes_Growing" = "Increasing";
+"alertMonitoringTypes_Daily" = "Daily";
 
 //alertPointertypes
-"alertPointerTypes_Display" = "Odsłona";
-"alertPointerTypes_Click" = "Kliknięcie";
-"alertPointerTypes_Visit" = "Wizyta";
-"alertPointerTypes_NewVisit" = "Nowa Wizyta";
-"alertPointerTypes_WebTime" = "Czas na stronie";
+"alertPointerTypes_Display" = "Impression";
+"alertPointerTypes_Clisk" = "Click";
+"alertPointerTypes_Visit" = "Visit";
+"alertPointerTypes_NewVisit" = "New visit";
+"alertPointerTypes_WebTime" = "Time on site";
 "alertPointerTypes_Checkpoint" = "Checkpoint";
 "alertPointerTypes_Lead" = "Lead";
-"alertPointerTypes_Sale" = "Sprzedaż";
+"alertPointerTypes_Sale" = "Sale";
 
 //alertBorderType
 "alertBorderTypes_GreaterThan" = ">";
 "alertBorderTypes_LessThan" = "<";
 
 //LMAlerManager types
-"LMAlertManager_Error" = "Błąd";
-"LMAlertManager_Info" = "Informacja";
-"LMAlertManager_Ok" = "Dalej";
+"LMAlertManager_Error" = "Error";
+"LMAlertManager_Info" = "Information";
+"LMAlertManager_Ok" = "Ok";
 
 //LMAlertManager messages
-"LMAlertManager_LoginRemoveUser" = "Nie można usunąć poprzedniego usera. Spróbuj ponownie.";
-"LMAlertManager_LoginRegisterDevice" = "Nie można zarejestrować użytkownika.";
-"LMAlertManager_LoginSynchronizationError" = "Pobieranie danych aplikacji nie powiodło się, spróbuj ponownie.";
-"LMAlertManager_AlertAccessError" = "Użytkownik nie ma uprawnień do tego alertu.";
-"LMAlertManager_AlertServerError" = "Nie można wysłać alertu. Podczas wysyłania alertu wystąpił błąd połączenia z serwerem. Spróbuj ponownie.";
-"LMAlertManager_AlertSummaryBadRequest" = "Nie można wysłać alertu. Błędna lista parametrów.";
-"LMAlertManager_AlertConnectionError" = "Do utworzenia alertu wymagane jest połączenie z Internetem.";
-"LMAlertManager_ReportAccessError" = "Użytkownik nie ma uprawnień do obejrzenia tego raportu.";
-"LMAlertManager_ReportServerError" = "Nie można wysłać raportu. Podczas wysyłania raportu wystąpił błąd połączenia z serwerem. Spróbuj ponownie.";
-"LMAlertManager_AlertAuthorizationError" = "Nie można wysłać alertu. Błąd autoryzacji.";
-"LMAlertManager_ReportAuthorizationError" = "Nie można pobrać raportu. Błąd autoryzacji.";
-"LMAlertManager_RepotBadRequest" = "Nie można wysłać raportu. Błędna lista parametrów.";
-"LMAlertManager_ReportConnectionError" = "Do wyświetlenia raportu wymagane jest połączenie z Internetem.";
-"LMAlertManager_AlertSummaryDeleteError" = "Nie można usunąć raportu";
+"LMAlertManager_Error" = "Error";
+"LMAlertManager_Info" = "Information";
+"LMAlertManager_Ok" = "Next";
+"LMAlertManager_LoginRemoveUser" = "Cannnot delete user. Please try again.";
+"LMAlertManager_LoginRegisterDevice" = "Canno regiser user.";
+"LMAlertManager_LoginSynchronizationError" = "Downloading application data failed. Please try again.";
+"LMAlertManager_AlertAccessError" = "User don't have permission to setup this alert.";
+"LMAlertManager_AlertServerError" = "Cannon save alert. Error communicating with server. Please try again.";
+"LMAlertManager_AlertSummaryBadRequest" = "Cannot save alert. Wrong parameters list.";
+"LMAlertManager_AlertConnectionError" = "Internet connection is required for saving alert.";
+"LMAlertManager_ReportAccessError" = "User has no access to view this report.";
+"LMAlertManager_ReportServerError" = "Cannot get report. Error communicating with server. Please try again.";
+"LMAlertManager_AlertAuthorizationError" = "Cannot save alert. Authentication error";
+"LMAlertManager_ReportAuthorizationError" = "Cannot get report. Authentication error.";
+"LMAlertManager_RepotBadRequest" = "Cannot get report. Wrong parameters list.";
+"LMAlertManager_ReportConnectionError" = "Internet connection is required for getting this report.";
+"LMAlertManager_AlertSummaryDeleteError" = "Cannot delete report";
 
 //LMLoginViewController
-"LMLogin_WarningLabel" = "Do przejścia dalej wymagane jest połączenie z Internetem!";
-"LMLogin_LoginButton" = "zaloguj";
-"LMLogin_LoadingDataLabel" = "Trwa pobieranie danych...";
-"LMLogin_LoginPlaceholder" = "użytkownik";
-"LMLogin_PasswordPlaceholder" = "hasło";
+"LMLogin_WarningLabel" = "Internet connection is required to acces this screen.";
+"LMLogin_LoginButton" = "Login";
+"LMLogin_LoadingDataLabel" = "Accessing data i progress…";
+"LMLogin_LoginPlaceholder" = "User";
+"LMLogin_PasswordPlaceholder" = "Password";
 
 //Validation
-"LMTextField_Login" = "Login musi być w formacie e-mail i zawierać od 1 do 255 znaków.";
-"LMTextField_Password" = "Hasło musi zawierać od 1 do 60 znaków.";
-"LMTextField_Name" = "Nazwa musi zawierać od 1 do 60 znaków.";
-"LMTextField_Value" = "Wartość musi być liczbą z przedziału od 0 do 999 999 999.";
-"LMDateValidation" = "Data do musi być większa niż data od.";
-"LMDateFromFutureValidation" = "Data od nie może być datą z przyszłości";
-"LMDateToFutureValidation" = "Data do nie może być datą z przyszłości";
+"LMTextField_Login" = "Login must have e-mail format and must have between 1 and 255 characters.";
+"LMTextField_Password" = "Password must have between 1 and 60 characters.";
+"LMTextField_Name" = "Name must have between 1 and 60 characters.";
+"LMTextField_Value" = "Value must be between 0 and 999 999 999.";
+"LMDateValidation" = "\"Date To\" must be later than \"From\".";
+"LMDateFromFutureValidation" = "From cannot be future date";
+"LMDateToFutureValidation" = "To cannot be future date";
 
 //LMSettingViewController
-"LMSettingsTitleLabel" = "Aplikacja zarejestrowana dla:";
-"LMSettingInstanceButton" = "Instancje";
-"LMSettingRefreshButton" = "Odśwież";
+"LMSettingsTitleLabel" = "OwnTT Mobile registered for user:";
+"LMSettingInstanceButton" = "Instance";
+"LMSettingRefreshButton" = "Refresh";
 
 //LMSplashViewController
-"LMSplash_LoadingData" = "Trwa pobieranie danych...";
+"LMSplash_LoadingData" = "Accessing data i progress…";
 
 //LMTabBar
-"LMTabBar_Report" = "Raport";
-"LMTabBar_Template" = "Szablon";
+"LMTabBar_Report" = "Report";
+"LMTabBar_Template" = "Templates";
 "LMTabBar_Alert" = "Alert";
-"LMTabBar_Settings" = "Ustawienia";
+"LMTabBar_Settings" = "Settings";
 
 //LMBranchViewController
-"LMBranch_Report1" = "Raport wszystkich programów";
-"LMBranch_Report8" = "Raport wszystkich reklamodawców";
+"LMBranch_Report1" = "Campaigns report";
+"LMBranch_Report8" = "Advertisers report";
 
 //LMSummaryReportViewController
-"LMSumReport_ReportNameLabel" = "Nazwa raportu:";
-"LMSumReport_Period" = "Wybierz okres:";
+"LMSumReport_ReportNameLabel" = "Report name:";
+"LMSumReport_Period" = "Choose period:";
 
 //LMAlertSummaryViewcontroller
-"LMSumAlert_DateFormLabel" = "Data od:";
-"LMSumAlert_DateToLabel" = "Data do:";
-"LMSumAlert_MonitorType" = "Typ monitorowania:";
-"LMSumAlert_PointerLabel" = "Wskaźnik:";
-"LMSumAlert_HourLabel" = "Godzina wysyłania powiadomień:";
-"LMSumAlert_AlertNameLabel" = "Nazwa alertu:";
-"LMSumAlert_ValueLabel" = "Wartość:";
+"LMSumAlert_DateFormLabel" = "From:";
+"LMSumAlert_DateToLabel" = "To:";
+"LMSumAlert_MonitorType" = "Monitoring type:";
+"LMSumAlert_PointerLabel" = "Type:";
+"LMSumAlert_HourLabel" = "Alert hour:";
+"LMSumAlert_AlertNameLabel" = "Alert name:";
+"LMSumAlert_ValueLabel" = "Value:";
 
 //LMAppReportTypes
-"LMAppReportType_1" = "Raport łączny kampanii";
-"LMAppReportType_5" = "Raport wszystkich wydawców";
-"LMAppReportType_8" = "Raport form reklamowych";
+"LMAppReportType_1" = "Campaign general report";
+"LMAppReportType_5" = "Publishers general report";
+"LMAppReportType_8" = "Ads report";
 
 //Menu
-"LMMenu_AddAlert" = "DODAJ ALERT";
-"LMMenu_AddReport" = "DODAJ RAPORT";
+"LMMenu_AddAlert" = "Add alert";
+"LMMenu_AddReport" = "Add report";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

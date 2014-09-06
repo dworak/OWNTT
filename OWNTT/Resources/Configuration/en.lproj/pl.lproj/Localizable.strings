@@ -40,34 +40,33 @@
 "LMAlertManager_Ok" = "Dalej";
 
 //LMAlertManager messages
-"LMAlertManager_LoginRemoveUser" = "Nie można usunąć poprzedniego usera. Spróbuj ponownie.";
 "LMAlertManager_LoginRegisterDevice" = "Nie można zarejestrować użytkownika.";
-"LMAlertManager_LoginSynchronizationError" = "Pobieranie danych aplikacji nie powiodło się, spróbuj ponownie.";
+"LMAlertManager_LoginSynchronizationError" = "Pobieranie danych aplikacji nie powiodło się. Spróbuj ponownie.";
 "LMAlertManager_AlertAccessError" = "Użytkownik nie ma uprawnień do tego alertu.";
-"LMAlertManager_AlertServerError" = "Nie można wysłać alertu. Podczas wysyłania alertu wystąpił błąd połączenia z serwerem. Spróbuj ponownie.";
-"LMAlertManager_AlertSummaryBadRequest" = "Nie można wysłać alertu. Błędna lista parametrów.";
+"LMAlertManager_AlertServerError" = "Nie można zapisać alertu. Podczas zapisu alertu wystąpił błąd połączenia z serwerem. Spróbuj ponownie.";
+"LMAlertManager_AlertSummaryBadRequest" = "Nie można zapisać alertu. Błędna lista parametrów.";
 "LMAlertManager_AlertConnectionError" = "Do utworzenia alertu wymagane jest połączenie z Internetem.";
 "LMAlertManager_ReportAccessError" = "Użytkownik nie ma uprawnień do obejrzenia tego raportu.";
-"LMAlertManager_ReportServerError" = "Nie można wysłać raportu. Podczas wysyłania raportu wystąpił błąd połączenia z serwerem. Spróbuj ponownie.";
-"LMAlertManager_AlertAuthorizationError" = "Nie można wysłać alertu. Błąd autoryzacji.";
+"LMAlertManager_ReportServerError" = "Nie można pobrać raportu. Podczas wysyłania raportu wystąpił błąd połączenia z serwerem. Spróbuj ponownie.";
+"LMAlertManager_AlertAuthorizationError" = "Nie można zapisać alertu. Błąd autoryzacji.";
 "LMAlertManager_ReportAuthorizationError" = "Nie można pobrać raportu. Błąd autoryzacji.";
-"LMAlertManager_RepotBadRequest" = "Nie można wysłać raportu. Błędna lista parametrów.";
+"LMAlertManager_RepotBadRequest" = "Nie można pobrać raportu. Błędna lista parametrów.";
 "LMAlertManager_ReportConnectionError" = "Do wyświetlenia raportu wymagane jest połączenie z Internetem.";
-"LMAlertManager_AlertSummaryDeleteError" = "Nie można usunąć raportu";
+"LMAlertManager_AlertSummaryDeleteError" = "Nie można usunąć raport";
 
 //LMLoginViewController
 "LMLogin_WarningLabel" = "Do przejścia dalej wymagane jest połączenie z Internetem!";
-"LMLogin_LoginButton" = "zaloguj";
+"LMLogin_LoginButton" = "Zaloguj";
 "LMLogin_LoadingDataLabel" = "Trwa pobieranie danych...";
-"LMLogin_LoginPlaceholder" = "użytkownik";
-"LMLogin_PasswordPlaceholder" = "hasło";
+"LMLogin_LoginPlaceholder" = "Użytkownik";
+"LMLogin_PasswordPlaceholder" = "Hasło";
 
 //Validation
 "LMTextField_Login" = "Login musi być w formacie e-mail i zawierać od 1 do 255 znaków.";
 "LMTextField_Password" = "Hasło musi zawierać od 1 do 60 znaków.";
 "LMTextField_Name" = "Nazwa musi zawierać od 1 do 60 znaków.";
 "LMTextField_Value" = "Wartość musi być liczbą z przedziału od 0 do 999 999 999.";
-"LMDateValidation" = "Data do musi być większa niż data od.";
+"LMDateValidation " = "\"Data do\" musi być większa niż \"data od\".";
 "LMDateFromFutureValidation" = "Data od nie może być datą z przyszłości";
 "LMDateToFutureValidation" = "Data do nie może być datą z przyszłości";
 
@@ -86,8 +85,8 @@
 "LMTabBar_Settings" = "Ustawienia";
 
 //LMBranchViewController
-"LMBranch_Report1" = "Raport Wszystkich Programów";
-"LMBranch_Report8" = "Raport Wszystkich Reklamodawców";
+"LMBranch_Report1" = "Raport wszystkich kampanii";
+"LMBranch_Report8" = "Raport wszystkich reklamodawców";
 
 //LMSummaryReportViewController
 "LMSumReport_ReportNameLabel" = "Nazwa raportu:";
@@ -108,7 +107,13 @@
 "LMAppReportType_8" = "Raport form reklamowych";
 
 //Menu
-"LMMenu_AddAlert" = "DODAJ ALERT";
-"LMMenu_AddReport" = "DODAJ RAPORT";
+"LMMenu_AddAlert" = "Dodaj alert";
+"LMMenu_AddReport" = "Dodaj raport";
+
+
+
+
+
+
 
 

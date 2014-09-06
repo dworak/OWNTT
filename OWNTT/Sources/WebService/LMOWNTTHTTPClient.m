@@ -352,10 +352,14 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
                                        userAlert.objectId,
              [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_LocalId],
                                        nil];
-    //if(userAlert.dateTo)
-    //{
-        [dictionary setValue:[dateFormatter stringFromDate:[NSDate date]] forKey:[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_DateTo]];
-    //}
+    if(userAlert.dateTo)
+    {
+        [dictionary setValue:[dateFormatter stringFromDate:userAlert.dateTo] forKey:[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_DateTo]];
+    }
+    else
+    {
+        [dictionary setValue:@"2100-01-01" forKeyPath:[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_DateTo]];
+    }
     return dictionary;
 }
 

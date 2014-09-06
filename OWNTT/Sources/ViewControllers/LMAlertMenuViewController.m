@@ -74,7 +74,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedUserAlertIndex = indexPath.row;
+    self.selectedUserAlertIndex = (int)indexPath.row;
     [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushAlertSummary] sender:self];
 }
 

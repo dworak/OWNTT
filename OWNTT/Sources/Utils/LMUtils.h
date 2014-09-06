@@ -59,6 +59,9 @@ typedef enum {
 + (void)createReportObjects;
 + (void)performSynchronization:(BOOL)initial;
 + (void)setupCurrentLanguage;
++ (void)storeCurrentDate;
+
++ (NSDate *)getCurrentDate;
 
 + (ReportTimeIntervalType)reportTimeIntervalStringToType:(NSString *)reportStr;
 + (AlertMonitoringTypes)alertMonitoringStringToType:(NSString *)monitoringStr;
