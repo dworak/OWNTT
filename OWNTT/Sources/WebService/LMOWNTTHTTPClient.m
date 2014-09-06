@@ -330,6 +330,8 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
     NSAssert(OWNTT_APP_DELEGATE.appUtils.currentUser.httpToken, @"registerAlertPushParams: empty token");
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                        OWNTT_APP_DELEGATE.appUtils.currentUser.httpToken,
             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Token],
@@ -345,7 +347,7 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
              [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_ProgramId],
                                        userAlert.name,
              [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Name],
-                                       userAlert.value,
+                                       [numberFormatter numberFromString:userAlert.value],
              [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Value],
                                        userAlert.hour,
              [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Hour],
@@ -354,7 +356,7 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
                                        nil];
     if(userAlert.dateTo)
     {
-        [dictionary setValue:[dateFormatter stringFromDate:userAlert.dateTo] forKey:[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_DateTo]];
+        [dictionary setObject:[dateFormatter stringFromDate:userAlert.dateTo] forKey:[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_DateTo]];
     }
     else
     {

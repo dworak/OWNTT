@@ -46,11 +46,6 @@
             //[LMAlertManager showInfoAlertWithOkWithText:[dictionary objectForKey:@"alert"] delegate:nil];
 		}
 	}
-    [NSTimer scheduledTimerWithTimeInterval:60.0
-                                          target:self
-                                        selector:@selector(update)
-                                        userInfo:nil
-                                         repeats:YES];
     
     return YES;
 }
@@ -155,11 +150,6 @@
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
 	NSLog(@"Failed to get token, error: %@", error);
-}
-
-- (void)update
-{
-    [LMUtils performSynchronization:NO];
 }
 
 @end
