@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="LMAdvertiser" representedClassName="LMAdvertiser" parentEntity="LMReadOnlyObject" syncable="YES">
+        <relationship name="instance" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMInstance" inverseName="advertisers" inverseEntity="LMInstance" syncable="YES"/>
+        <relationship name="programs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LMProgram" inverseName="advertiser" inverseEntity="LMProgram" syncable="YES"/>
+    </entity>
+    <entity name="LMInstance" representedClassName="LMInstance" parentEntity="LMReadOnlyObject" syncable="YES">
+        <attribute name="isReport1" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isReport5" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isReport8" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="advertisers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LMAdvertiser" inverseName="instance" inverseEntity="LMAdvertiser" syncable="YES"/>
+        <relationship name="reports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LMReport" inverseName="instance" inverseEntity="LMReport" syncable="YES"/>
+    </entity>
+    <entity name="LMProgram" representedClassName="LMProgram" parentEntity="LMReadOnlyObject" syncable="YES">
+        <relationship name="advertiser" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="LMAdvertiser" inverseName="programs" inverseEntity="LMAdvertiser" syncable="YES"/>
+    </entity>
+    <entity name="LMReadOnlyObject" representedClassName="LMReadOnlyObject" isAbstract="YES" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="LMReadOnlyUserObject" representedClassName="LMReadOnlyUserObject" isAbstract="YES" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="LMReport" representedClassName="LMReport" parentEntity="LMReadOnlyObject" syncable="YES">
+        <attribute name="htmlName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="instance" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LMInstance" inverseName="reports" inverseEntity="LMInstance" syncable="YES"/>
+        <relationship name="userReports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LMUserReport" inverseName="reportObject" inverseEntity="LMUserReport" syncable="YES"/>
+    </entity>
+    <entity name="LMSettings" representedClassName="LMSettings" syncable="YES">
+        <attribute name="alertDefaultBorderType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="alertDefaultHour" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="alertDefaultMonitorType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="alertDefaultPointer" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="alertDefaultValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="reportDefaultDateFrom" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="reportDefaultDateTo" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="reportDefaultEnum" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="reportDefaultIsEnum" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="LMUser" inverseName="settings" inverseEntity="LMUser" syncable="YES"/>
+    </entity>
+    <entity name="LMSynchStatus" representedClassName="LMSynchStatus" syncable="YES">
+        <attribute name="entityClass" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastSynchDate" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="LMUser" representedClassName="LMUser" syncable="YES">
+        <attribute name="alertsCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="deviceToken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="httpToken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="settings" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="LMSettings" inverseName="user" inverseEntity="LMSettings" syncable="YES"/>
+        <relationship name="userAlerts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LMUserAlert" inverseName="user" inverseEntity="LMUserAlert" syncable="YES"/>
+        <relationship name="userReports" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LMUserReport" inverseName="user" inverseEntity="LMUserReport" syncable="YES"/>
+    </entity>
+    <entity name="LMUserAlert" representedClassName="LMUserAlert" parentEntity="LMReadOnlyUserObject" syncable="YES">
+        <attribute name="advertiserId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="borderType" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dateFrom" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateTo" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="hour" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="monitorType" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="paramType" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="programId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="LMUser" inverseName="userAlerts" inverseEntity="LMUser" syncable="YES"/>
+    </entity>
+    <entity name="LMUserReport" representedClassName="LMUserReport" parentEntity="LMReadOnlyUserObject" syncable="YES">
+        <attribute name="programId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeintervalType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="reportObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMReport" inverseName="userReports" inverseEntity="LMReport" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="LMUser" inverseName="userReports" inverseEntity="LMUser" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="LMUser" positionX="-18" positionY="27" width="128" height="208"/>
+        <element name="LMSettings" positionX="36" positionY="81" width="128" height="193"/>
+        <element name="LMReadOnlyUserObject" positionX="9" positionY="54" width="128" height="90"/>
+        <element name="LMReport" positionX="18" positionY="63" width="128" height="88"/>
+        <element name="LMReadOnlyObject" positionX="27" positionY="72" width="128" height="90"/>
+        <element name="LMSynchStatus" positionX="36" positionY="81" width="128" height="75"/>
+        <element name="LMProgram" positionX="45" positionY="90" width="128" height="58"/>
+        <element name="LMUserAlert" positionX="63" positionY="108" width="128" height="208"/>
+        <element name="LMAdvertiser" positionX="81" positionY="126" width="128" height="73"/>
+        <element name="LMInstance" positionX="36" positionY="81" width="128" height="118"/>
+        <element name="LMUserReport" positionX="45" positionY="90" width="128" height="103"/>
+    </elements>
+</model>

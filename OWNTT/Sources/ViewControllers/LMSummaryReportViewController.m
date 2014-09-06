@@ -160,6 +160,7 @@
     userReport.name = self.reportNameTextField.text;
     [user.userReportsSet addObject:userReport];
     [LMUtils saveCoreDataContext:self.managedObjectContext];
+    [self endAction];
 }
 
 #pragma mark -

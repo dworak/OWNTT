@@ -253,7 +253,6 @@
     {
         return;
     }
-    [[[LMCoreDataManager sharedInstance] masterManagedObjectContext] refreshObject:OWNTT_APP_DELEGATE.appUtils.currentUser mergeChanges:YES];
     if(![LMAppUtils connected])
     {
         [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_AlertConnectionError") delegate:nil];
@@ -279,14 +278,15 @@
     userAlert.objectIdValue = user.alertsCountValue+1;
     user.alertsCount = [NSNumber numberWithInt:userAlert.objectId.intValue];
     userAlert.createDate = [NSDate date];
-    [user.userAlertsSet addObject:userAlert];
     
     //Send alert
     __weak LMAlertSummaryViewController *selfObj = self;
     [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_RegisterAlertPush parameters:[LMOWNTTHTTPClient registerAlertPushParams:userAlert] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         [selfObj endAction];
+        [user.userAlertsSet addObject:userAlert];
         [LMUtils saveCoreDataContext:selfObj.managedObjectContext];
-    } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [selfObj endAction];
+        } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
         [selfObj.managedObjectContext rollback];
         NSString *message;
         if(operation.response.statusCode == 403)
@@ -305,6 +305,7 @@
         {
             message = LM_LOCALIZE(@"LMAlertManager_AlertAuthorizationError");
         }
+        [self.managedObjectContext rollback];
         [LMAlertManager showErrorAlertWithOkWithText:message delegate:nil];
     }];
 }

@@ -147,7 +147,6 @@
     if([self isValid])
     {
         [self saveObjectData];
-        [self endAction];
     }
 }
 
