@@ -336,11 +336,11 @@
             isPickerData = NO;
             break;
         case LMAlertSummaryButtonType_Hour:
-            defaultStartValue = 0;
+            defaultStartValue = 1;
             dataArray = [LMReferenceData staticAlertHourTypes];
             break;
         case LMAlertSummaryButtonType_Monitoring:
-            defaultStartValue = 0;
+            defaultStartValue = 1;
             dataArray = [LMReferenceData staticAlertMonitoringTypes];
             break;
         case LMAlertSummaryButtonType_Pointer:
@@ -348,7 +348,7 @@
             dataArray = [LMReferenceData staticAlertPointerTypes];
             break;
         case LMAlertSummaryButtonType_Border:
-            defaultStartValue = 0;
+            defaultStartValue = 2;
             dataArray = [LMReferenceData staticAlertBorderTypes];
             break;
         default:
@@ -421,7 +421,7 @@
         }
         if(defaultVal != -1)
         {
-            [self.pickerViewController selectPickerObject:defaultVal];
+            [self.pickerViewController selectPickerObject:defaultVal+1];
         }
         else
         {

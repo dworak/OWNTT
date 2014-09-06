@@ -15,7 +15,7 @@
     ],
     "alertPointertypes" : [
                            "alertPointerTypes_Display",
-                           "alertPointerTypes_Clisk",
+                           "alertPointerTypes_Click",
                            "alertPointerTypes_Visit",
                            "alertPointerTypes_NewVisit",
                            "alertPointerTypes_WebTime",

@@ -16,6 +16,7 @@
                     <date key="date" timeIntervalSinceReferenceDate="429013304.268565">
                         <!--2014-08-06 10:21:44 +0000-->
                     </date>
+                    <locale key="locale" localeIdentifier="en"/>
                     <timeZone key="timeZone" name="America/Los_Angeles">
                         <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
@@ -46,7 +47,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="0Zd-KD-gbp"/>
-                        <barButtonItem title="Gotowe" style="done" id="S8J-Bv-STb">
+                        <barButtonItem style="done" systemItem="done" id="S8J-Bv-STb">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </items>

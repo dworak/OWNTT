@@ -137,10 +137,9 @@
     
     [self.pickerViewController addPickerData:self.pickerData];
     [self.pickerViewController showInView:self.view];
-    NSString *defaultVal = [self.pickerData objectAtIndex:2];
-    if([defaultVal isEqualToString:self.timeintervalButton.titleLabel.text])
+    if([[LMUtils reportTimeIntervalTypeToString:3] isEqualToString:self.timeintervalButton.titleLabel.text])
     {
-        [self.pickerViewController selectPickerObject:2];
+        [self.pickerViewController selectPickerObject:3];
     }
     else
     {

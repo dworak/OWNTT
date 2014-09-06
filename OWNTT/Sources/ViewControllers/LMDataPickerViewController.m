@@ -129,7 +129,7 @@
         [UIView animateWithDuration:STANDARD_ANIMATION_DURATION animations:^{
             self.pickerView.frame = pickerFrame;
         } completion:^(BOOL finished) {
-            if(self.defaultRow != -1)
+            if(self.defaultRow > -1)
             {
                 [self.pickerView.pickerView selectRow:self.defaultRow inComponent:0 animated:YES];
                 self.currentPickerValue = [self.pickerData objectAtIndex:self.defaultRow];

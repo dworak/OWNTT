@@ -22,7 +22,7 @@
 
 //alertPointertypes
 "alertPointerTypes_Display" = "Impression";
-"alertPointerTypes_Clisk" = "Click";
+"alertPointerTypes_Click" = "Click";
 "alertPointerTypes_Visit" = "Visit";
 "alertPointerTypes_NewVisit" = "New visit";
 "alertPointerTypes_WebTime" = "Time on site";
@@ -31,8 +31,8 @@
 "alertPointerTypes_Sale" = "Sale";
 
 //alertBorderType
-"alertBorderTypes_GreaterThan" = ">";
-"alertBorderTypes_LessThan" = "<";
+"alertBorderType_GreaterThan" = ">";
+"alertBorderType_LessThan" = "<";
 
 //LMAlerManager types
 "LMAlertManager_Error" = "Error";
@@ -113,6 +113,10 @@
 //Menu
 "LMMenu_AddAlert" = "Add alert";
 "LMMenu_AddReport" = "Add report";
+
+//UIToolbar
+"Toolbar_Done" = "Done";
+"Toolbar_Cancel" = "Cancel";
 
 
 

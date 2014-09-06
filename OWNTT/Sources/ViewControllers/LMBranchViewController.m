@@ -249,8 +249,8 @@
     {
         ((LMBranchReportTableViewCell *)cell).cellButton.tag = indexPath.row;
         ((LMBranchReportTableViewCell *)cell).cellButton.titleLabel.font = DEFAULT_APP_FONT;
-        [((LMBranchReportTableViewCell *)cell).cellButton setTitle:object.name forState:UIControlStateNormal];
-        [((LMBranchReportTableViewCell *)cell).cellButton setTitle:object.name forState:UIControlStateHighlighted];
+        [((LMBranchReportTableViewCell *)cell).cellButton setTitle:LM_LOCALIZE(object.name) forState:UIControlStateNormal];
+        [((LMBranchReportTableViewCell *)cell).cellButton setTitle:LM_LOCALIZE(object.name)forState:UIControlStateHighlighted];
         [((LMBranchReportTableViewCell *)cell).cellButton setTitleColor:DEFAULT_APP_FONT_COLOR forState:UIControlStateHighlighted];
         [((LMBranchReportTableViewCell *)cell).cellButton setTitleColor:DEFAULT_APP_FONT_COLOR forState:UIControlStateNormal];
     }

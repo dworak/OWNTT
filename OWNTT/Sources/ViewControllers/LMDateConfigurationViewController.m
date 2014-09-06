@@ -24,6 +24,9 @@ typedef enum {
 } FullButtonType;
 
 @interface LMDateConfigurationViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *dateToLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateFromLabel;
+@property (weak, nonatomic) IBOutlet UILabel *intervalLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *shadowImage;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet LMFullButton *currentInterval;
@@ -112,6 +115,14 @@ typedef enum {
             [self.dateToButton setTitle:[self.dateFormatter stringFromDate:currentUser.settings.reportDefaultDateTo] forState:UIControlStateHighlighted];
         }
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.intervalLabel.text = LM_LOCALIZE(@"LMSumReport_Period");
+    self.dateFromLabel.text = LM_LOCALIZE(@"LMSumAlert_DateFormLabel");
+    self.dateToLabel.text = LM_LOCALIZE(@"LMSumAlert_DateToLabel");
 }
 
 - (void)didReceiveMemoryWarning

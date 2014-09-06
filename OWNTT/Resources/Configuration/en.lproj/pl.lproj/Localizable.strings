@@ -31,8 +31,8 @@
 "alertPointerTypes_Sale" = "Sprzedaż";
 
 //alertBorderType
-"alertBorderTypes_GreaterThan" = ">";
-"alertBorderTypes_LessThan" = "<";
+"alertBorderType_GreaterThan" = ">";
+"alertBorderType_LessThan" = "<";
 
 //LMAlerManager types
 "LMAlertManager_Error" = "Błąd";
@@ -110,6 +110,9 @@
 "LMMenu_AddAlert" = "Dodaj alert";
 "LMMenu_AddReport" = "Dodaj raport";
 
+//UIToolbar
+"Toolbar_Done" = "Gotowe";
+"Toolbar_Cancel" = "Anuluj";
 
 
 

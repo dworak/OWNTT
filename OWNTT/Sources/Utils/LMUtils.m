@@ -171,9 +171,9 @@
 {
     switch (borderType) {
         case AlertBorderTypes_GreaterThan:
-            return LM_LOCALIZE(@"alertBorderTypes_GreaterThan");
+            return LM_LOCALIZE(@"alertBorderType_GreaterThan");
         case AlertBorderTypes_LessThan:
-            return LM_LOCALIZE(@"alertBorderTypes_LessThan");
+            return LM_LOCALIZE(@"alertBorderType_LessThan");
         default:
             return nil;
     }

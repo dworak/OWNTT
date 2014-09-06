@@ -39,11 +39,11 @@
 		250FD81F1986DC1C0047EB42 /* LMSummaryReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250FD81E1986DC1C0047EB42 /* LMSummaryReportViewController.m */; };
 		250FD8211986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */; };
 		251199CD1993466500277D4F /* LMLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 251199CC1993466500277D4F /* LMLabel.m */; };
-		25146A811992388F001DC8E3 /* LMDatePickerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25146A801992388F001DC8E3 /* LMDatePickerView_iPhone.xib */; };
 		25146A84199238B3001DC8E3 /* LMDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25146A83199238B3001DC8E3 /* LMDatePickerView.m */; };
 		25146A8719924FC5001DC8E3 /* LMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25146A8619924FC5001DC8E3 /* LMWebViewController.m */; };
 		25146A8919924FDA001DC8E3 /* LMWebViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25146A8819924FDA001DC8E3 /* LMWebViewController_iPhone.xib */; };
 		25146A8F199290D2001DC8E3 /* LMRotateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25146A8E199290D2001DC8E3 /* LMRotateViewController.m */; };
+		2515567D19BB39D00000B9FC /* LMDatePickerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2515567F19BB39D00000B9FC /* LMDatePickerView_iPhone.xib */; };
 		252CB2D819901454002677B8 /* LMBranchReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252CB2D719901454002677B8 /* LMBranchReportViewController.m */; };
 		2531616319AD162C0044CEC5 /* LMOWNTTHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2531616219AD162C0044CEC5 /* LMOWNTTHTTPClient.m */; };
 		253507DF19A773F700E2B42A /* pink_checkbox_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 253507DD19A773F700E2B42A /* pink_checkbox_normal@2x.png */; };
@@ -252,7 +252,6 @@
 		250FD8201986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMSummaryReportViewController_iPhone.xib; sourceTree = "<group>"; };
 		251199CB1993466500277D4F /* LMLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLabel.h; sourceTree = "<group>"; };
 		251199CC1993466500277D4F /* LMLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLabel.m; sourceTree = "<group>"; };
-		25146A801992388F001DC8E3 /* LMDatePickerView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMDatePickerView_iPhone.xib; sourceTree = "<group>"; };
 		25146A82199238B3001DC8E3 /* LMDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMDatePickerView.h; sourceTree = "<group>"; };
 		25146A83199238B3001DC8E3 /* LMDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMDatePickerView.m; sourceTree = "<group>"; };
 		25146A8519924FC5001DC8E3 /* LMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMWebViewController.h; sourceTree = "<group>"; };
@@ -260,6 +259,8 @@
 		25146A8819924FDA001DC8E3 /* LMWebViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMWebViewController_iPhone.xib; sourceTree = "<group>"; };
 		25146A8D199290D2001DC8E3 /* LMRotateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMRotateViewController.h; sourceTree = "<group>"; };
 		25146A8E199290D2001DC8E3 /* LMRotateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMRotateViewController.m; sourceTree = "<group>"; };
+		2515567E19BB39D00000B9FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LMDatePickerView_iPhone.xib; sourceTree = "<group>"; };
+		2515568019BB39EB0000B9FC /* pl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pl; path = pl.lproj/LMDatePickerView_iPhone.xib; sourceTree = "<group>"; };
 		252CB2D619901454002677B8 /* LMBranchReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchReportViewController.h; sourceTree = "<group>"; };
 		252CB2D719901454002677B8 /* LMBranchReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchReportViewController.m; sourceTree = "<group>"; };
 		2531616119AD162C0044CEC5 /* LMOWNTTHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMOWNTTHTTPClient.h; sourceTree = "<group>"; };
@@ -652,7 +653,7 @@
 			children = (
 				25FF5B4F198F68FA0043DA5D /* LMHeaderView_iPhone.xib */,
 				250F89B919915B0000D91836 /* LMDataPickerView_iPhone.xib */,
-				25146A801992388F001DC8E3 /* LMDatePickerView_iPhone.xib */,
+				2515567F19BB39D00000B9FC /* LMDatePickerView_iPhone.xib */,
 				25659B7D19A07CEA009BF814 /* LMNameHeaderView_iPhone.xib */,
 				25659B9819A2898B009BF814 /* LMBranchNameView_iPhone.xib */,
 				25659BA019A29AEF009BF814 /* LMMenuNameView_iPhone.xib */,
@@ -1102,7 +1103,7 @@
 				25036AAD198D294600EAE355 /* tabbar2@2x.png in Resources */,
 				25F9E62319A3DACD000D809A /* violetArrow@2x.png in Resources */,
 				250F89C519920B6E00D91836 /* LMAlertSummaryViewController_iPhone.xib in Resources */,
-				25146A811992388F001DC8E3 /* LMDatePickerView_iPhone.xib in Resources */,
+				2515567D19BB39D00000B9FC /* LMDatePickerView_iPhone.xib in Resources */,
 				EDF39E63198103B700E00966 /* mogen.sh in Resources */,
 				EDE87C0319867C8F00043861 /* LMSettingsViewController_iPhone.xib in Resources */,
 				25036AAA198D294600EAE355 /* tabbar1.png in Resources */,
@@ -1286,6 +1287,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2515567F19BB39D00000B9FC /* LMDatePickerView_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2515567E19BB39D00000B9FC /* en */,
+				2515568019BB39EB0000B9FC /* pl */,
+			);
+			name = LMDatePickerView_iPhone.xib;
+			sourceTree = "<group>";
+		};
 		ED14BAC619B075F4007D3CF4 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
