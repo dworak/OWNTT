@@ -70,7 +70,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <items>
-                                <barButtonItem title="Anuluj" id="orc-jA-OUv">
+                                <barButtonItem systemItem="cancel" id="orc-jA-OUv">
                                     <connections>
                                         <action selector="cancelTapped:" destination="-1" id="VW7-N2-vtr"/>
                                     </connections>

@@ -133,31 +133,31 @@
 
 + (AlertPointerTypes)alertPointerStringToType:(NSString *)pointerStr
 {
-    if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_Display")])
+    if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointerTypes_Display")])
     {
         return AlertPointertypes_Display;
     }
-    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_Click")])
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointerTypes_Click")])
     {
         return AlertPointertypes_Click;
     }
-    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_Visit")])
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointerTypes_Visit")])
     {
         return AlertPointertypes_Visit;
     }
-    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_NewVisit")])
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointerTypes_NewVisit")])
     {
         return AlertPointertypes_NewVisit;
     }
-    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_Checkpoint")])
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointerTypes_Checkpoint")])
     {
         return AlertPointertypes_Checkpoint;
     }
-    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_Lead")])
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointerTypes_Lead")])
     {
         return AlertPointertypes_Lead;
     }
-    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointertypes_Sale")])
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointerTypes_Sale")])
     {
         return AlertPointertypes_Sale;
     }

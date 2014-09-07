@@ -87,6 +87,8 @@
                 [self prepareBranchController:currentTopViewController];
                 [controllers addObject:currentTopViewController];
                 currentTopViewController = [LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchAdvertiserViewController class])];
+                LMInstance *instance = [instances objectAtIndex:0];
+                [LMUtils storeCurrentInstance:instance.objectId];
                 [controllers addObject:currentTopViewController];
                 self.viewControllers = controllers;
             }

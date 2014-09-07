@@ -124,15 +124,18 @@
 
 - (void)setLocalizationStrings
 {
-    if(OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultIsEnumValue)
+    if(((LMNavigationViewController *)self.navigationController).controllerType.intValue == NavigationControllerType_Report)
     {
-        self.nameView.ThirdName.text = [LMUtils reportTimeIntervalTypeToString:OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultEnum.intValue];
-    }
-    else
-    {
-        NSDateFormatter *dateFormatter = [NSDateFormatter new];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-        self.nameView.ThirdName.text = [NSString stringWithFormat:@"%@ - %@", [dateFormatter stringFromDate:OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultDateFrom], [dateFormatter stringFromDate:OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultDateTo]];
+        if(OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultIsEnumValue)
+        {
+            self.nameView.ThirdName.text = [LMUtils reportTimeIntervalTypeToString:OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultEnum.intValue];
+        }
+        else
+        {
+            NSDateFormatter *dateFormatter = [NSDateFormatter new];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+            self.nameView.ThirdName.text = [NSString stringWithFormat:@"%@ - %@", [dateFormatter stringFromDate:OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultDateFrom], [dateFormatter stringFromDate:OWNTT_APP_DELEGATE.appUtils.currentUser.settings.reportDefaultDateTo]];
+        }
     }
 }
 

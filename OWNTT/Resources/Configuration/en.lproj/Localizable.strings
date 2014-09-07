@@ -44,10 +44,10 @@
 "LMAlertManager_Info" = "Information";
 "LMAlertManager_Ok" = "Next";
 "LMAlertManager_LoginRemoveUser" = "Cannnot delete user. Please try again.";
-"LMAlertManager_LoginRegisterDevice" = "Canno regiser user.";
+"LMAlertManager_LoginRegisterDevice" = "Cannot regiser user.";
 "LMAlertManager_LoginSynchronizationError" = "Downloading application data failed. Please try again.";
 "LMAlertManager_AlertAccessError" = "User don't have permission to setup this alert.";
-"LMAlertManager_AlertServerError" = "Cannon save alert. Error communicating with server. Please try again.";
+"LMAlertManager_AlertServerError" = "Cannot save alert. Error communicating with server. Please try again.";
 "LMAlertManager_AlertSummaryBadRequest" = "Cannot save alert. Wrong parameters list.";
 "LMAlertManager_AlertConnectionError" = "Internet connection is required for saving alert.";
 "LMAlertManager_ReportAccessError" = "User has no access to view this report.";

@@ -54,6 +54,15 @@
     titleImage.image = [UIImage imageNamed:@"tabbar_logo.png"];
     [self.parentViewController.navigationItem setTitleView:titleImage];
     
+    if(!self.objectId)
+    {
+        self.objectId = [LMData new];
+    }
+    if(!self.objectId.instanceId)
+    {
+        self.objectId.instanceId = [LMUtils getCurrentInstance];
+    }
+    
     // Do any additional setup after loading the view.
     //check navigation controller type
     if([self.parentViewController.navigationController isKindOfClass:[LMNavigationViewController class]])
