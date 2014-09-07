@@ -124,8 +124,16 @@
 
 - (IBAction)refreshButtonTapped:(id)sender
 {
-    [LMUtils performSynchronization:NO];
-    [self instanceButtonTapped:nil];
+    //[LMUtils performSynchronization:NO];
+    //[self instanceButtonTapped:nil];
+    UIStoryboard *initalStoryboard = OWNTT_APP_DELEGATE.window.rootViewController.storyboard;
+    for (UIView* view in OWNTT_APP_DELEGATE.window.subviews)
+    {
+        [view removeFromSuperview];
+    }
+    
+    UIViewController* initialScene = [initalStoryboard instantiateInitialViewController];
+    OWNTT_APP_DELEGATE.window.rootViewController = initialScene;
 }
 
 @end
