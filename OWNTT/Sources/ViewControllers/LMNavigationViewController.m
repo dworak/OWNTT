@@ -80,7 +80,7 @@
             self.currentObjectId.instanceId = instanceId;
             NSManagedObjectContext *mOC = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
             NSArray *instances = [LMInstance fetchActiveEntityOfClass:[LMInstance class] inContext:mOC];
-            if(self.currentObjectId.instanceId || instances.count < 2)
+            if(self.currentObjectId.instanceId || (instances.count < 2 && instances.count > 0))
             {
                 NSMutableArray *controllers = [NSMutableArray new];
                 currentTopViewController = [LMUtils currentStoryboardControllerForIdentifier:NSStringFromClass([LMBranchInstanceViewController class])];
