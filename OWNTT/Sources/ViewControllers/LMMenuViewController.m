@@ -14,10 +14,12 @@
 #import "LMUserReport.h"
 #import "LMAlertMenuViewController.h"
 #import "LMReportMenuViewController.h"
+#import "LMBranchAdvertiserViewController.h"
 #import "LMReadOnlyUserObject.h"
 #import "LMData.h"
 #import "LMWebViewController.h"
 #import "LMMenuNameView.h"
+#import "LMInstance.h"
 
 @interface LMMenuViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *shadowView;
@@ -104,6 +106,14 @@
         {
             ((LMWebViewController *)hostController.childViewController).transactionData = self.object;
         }
+        if([hostController.childViewController isKindOfClass:[LMBranchAdvertiserViewController class]])
+        {
+            NSArray *instances = [LMInstance fetchActiveEntityOfClass:[LMInstance class] inContext:self.localContext];
+            LMInstance *instance = [instances objectAtIndex:0];
+            LMData *data = [LMData new];
+            data.instanceId = instance.objectId;
+            ((LMBranchAdvertiserViewController *)hostController.childViewController).objectId = data;
+        }
     }
 }
 
@@ -118,8 +128,17 @@
 }
 */
 
-- (IBAction)addButtonTapped:(id)sender {
-    [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushInstanceList] sender:self];
+- (IBAction)addButtonTapped:(id)sender
+{
+    NSArray *instances = [LMInstance fetchActiveEntityOfClass:[LMInstance class] inContext:self.localContext];
+    if(instances.count == 1)
+    {
+        [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushAdvertiserList] sender:nil];
+    }
+    else
+    {
+        [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushInstanceList] sender:self];
+    }
 }
 
 #pragma mark -

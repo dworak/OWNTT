@@ -329,6 +329,7 @@
                     <connections>
                         <segue destination="eS8-cG-JSw" kind="push" identifier="LMSegueKeyType_PushInstanceList" id="FPb-vR-x9c"/>
                         <segue destination="fy6-gG-81v" kind="modal" identifier="LMSegueKeyType_ModalWeb" modalTransitionStyle="crossDissolve" id="OIE-4W-ojE"/>
+                        <segue destination="M0q-mS-hcy" kind="push" identifier="LMSegueKeyType_PushAdvertiserList" id="f4X-ZA-n4B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAm-rs-MCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -371,6 +372,7 @@
                         <segue destination="eS8-cG-JSw" kind="push" identifier="LMSegueKeyType_PushInstanceList" id="4JP-VP-Uak"/>
                         <segue destination="fy6-gG-81v" kind="modal" identifier="LMSegueKeyType_ModalWeb" modalTransitionStyle="crossDissolve" id="WCJ-vT-hfW"/>
                         <segue destination="aZI-3u-bLF" kind="push" identifier="LMSegueKeyType_PushAlertSummary" id="msx-YT-kDr"/>
+                        <segue destination="M0q-mS-hcy" kind="push" identifier="LMSegueKeyType_PushAdvertiserList" id="roe-4M-h8R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUj-pa-X8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -495,11 +497,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="4JP-VP-Uak"/>
         <segue reference="taN-ZK-iiH"/>
         <segue reference="bzR-dC-4dG"/>
+        <segue reference="4JP-VP-Uak"/>
         <segue reference="WCJ-vT-hfW"/>
         <segue reference="msx-YT-kDr"/>
+        <segue reference="roe-4M-h8R"/>
         <segue reference="0yr-Nw-2XK"/>
         <segue reference="NH3-7p-hj2"/>
     </inferredMetricsTieBreakers>
