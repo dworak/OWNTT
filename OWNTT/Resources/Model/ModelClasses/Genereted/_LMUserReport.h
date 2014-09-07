@@ -5,7 +5,10 @@
 #import "LMReadOnlyUserObject.h"
 
 extern const struct LMUserReportAttributes {
+	__unsafe_unretained NSString *advertiserId;
+	__unsafe_unretained NSString *instanceId;
 	__unsafe_unretained NSString *programId;
+	__unsafe_unretained NSString *reportId;
 	__unsafe_unretained NSString *timeintervalType;
 } LMUserReportAttributes;
 
@@ -23,6 +26,9 @@ extern const struct LMUserReportFetchedProperties {
 
 
 
+
+
+
 @interface LMUserReportID : NSManagedObjectID {}
 @end
 
@@ -31,6 +37,34 @@ extern const struct LMUserReportFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (LMUserReportID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* advertiserId;
+
+
+
+@property int64_t advertiserIdValue;
+- (int64_t)advertiserIdValue;
+- (void)setAdvertiserIdValue:(int64_t)value_;
+
+//- (BOOL)validateAdvertiserId:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* instanceId;
+
+
+
+@property int64_t instanceIdValue;
+- (int64_t)instanceIdValue;
+- (void)setInstanceIdValue:(int64_t)value_;
+
+//- (BOOL)validateInstanceId:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -45,6 +79,20 @@ extern const struct LMUserReportFetchedProperties {
 - (void)setProgramIdValue:(int64_t)value_;
 
 //- (BOOL)validateProgramId:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* reportId;
+
+
+
+@property int64_t reportIdValue;
+- (int64_t)reportIdValue;
+- (void)setReportIdValue:(int64_t)value_;
+
+//- (BOOL)validateReportId:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -88,11 +136,38 @@ extern const struct LMUserReportFetchedProperties {
 @interface _LMUserReport (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSNumber*)primitiveAdvertiserId;
+- (void)setPrimitiveAdvertiserId:(NSNumber*)value;
+
+- (int64_t)primitiveAdvertiserIdValue;
+- (void)setPrimitiveAdvertiserIdValue:(int64_t)value_;
+
+
+
+
+- (NSNumber*)primitiveInstanceId;
+- (void)setPrimitiveInstanceId:(NSNumber*)value;
+
+- (int64_t)primitiveInstanceIdValue;
+- (void)setPrimitiveInstanceIdValue:(int64_t)value_;
+
+
+
+
 - (NSNumber*)primitiveProgramId;
 - (void)setPrimitiveProgramId:(NSNumber*)value;
 
 - (int64_t)primitiveProgramIdValue;
 - (void)setPrimitiveProgramIdValue:(int64_t)value_;
+
+
+
+
+- (NSNumber*)primitiveReportId;
+- (void)setPrimitiveReportId:(NSNumber*)value;
+
+- (int64_t)primitiveReportIdValue;
+- (void)setPrimitiveReportIdValue:(int64_t)value_;
 
 
 

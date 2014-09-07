@@ -12,6 +12,7 @@
 #import "LMNavigationViewController.h"
 #import "LMTabBarViewController.h"
 #import "LMBranchAdvertiserViewController.h"
+#import "LMDateConfigurationViewController.h"
 #import "LMSegueKeys.h"
 #import "LMSettings.h"
 #import "LMAppUtils.h"
@@ -78,6 +79,27 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
+    {
+        TTHostViewController *hostcontroller = (TTHostViewController *)segue.destinationViewController;
+        if([hostcontroller.childViewController isKindOfClass:[LMDateConfigurationViewController class]])
+        {
+            LMDateConfigurationViewController *dateConf = (LMDateConfigurationViewController *)hostcontroller.childViewController;
+            if(self.transactionData.isTemplate)
+            {
+                dateConf.dateChangeBlock = ^(NSDate *dateFrom, NSDate *dateTo)
+                {
+                    self.transactionData.dateFrom = dateFrom;
+                    self.transactionData.dateTo = dateTo;
+                };
+                dateConf.transactionData = self.transactionData;
+            }
+        }
+    }
 }
 
 - (void)viewDidLayoutSubviews
@@ -171,33 +193,42 @@
     NSString *dateTo;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    if(user.settings.reportDefaultIsEnumValue)
+    
+    if(self.transactionData.isTemplate)
     {
-        NSArray *dates = [LMUtils datesForReportTimeInterval:user.settings.reportDefaultEnum.intValue];
-        if(dates.count > 1)
-        {
-            dateFrom = [dateFormatter stringFromDate:[dates objectAtIndex:0]];
-            dateTo = [dateFormatter stringFromDate:[dates objectAtIndex:1]];
-        }
-        else
-        {
-            NSLog(@"Error: dates array has only one element");
-            return;
-        }
+        dateFrom = [dateFormatter stringFromDate:self.transactionData.dateFrom];
+        dateTo = [dateFormatter stringFromDate:self.transactionData.dateTo];
     }
     else
     {
-        if(user.settings.reportDefaultDateFrom)
+        if(user.settings.reportDefaultIsEnumValue)
         {
-            dateFrom = [dateFormatter stringFromDate:user.settings.reportDefaultDateFrom];
+            NSArray *dates = [LMUtils datesForReportTimeInterval:user.settings.reportDefaultEnum.intValue];
+            if(dates.count > 1)
+            {
+                dateFrom = [dateFormatter stringFromDate:[dates objectAtIndex:0]];
+                dateTo = [dateFormatter stringFromDate:[dates objectAtIndex:1]];
+            }
+            else
+            {
+                NSLog(@"Error: dates array has only one element");
+                return;
+            }
         }
-        if(user.settings.reportDefaultDateTo)
+        else
         {
-            dateTo = [dateFormatter stringFromDate:user.settings.reportDefaultDateTo];
+            if(user.settings.reportDefaultDateFrom)
+            {
+                dateFrom = [dateFormatter stringFromDate:user.settings.reportDefaultDateFrom];
+            }
+            if(user.settings.reportDefaultDateTo)
+            {
+                dateTo = [dateFormatter stringFromDate:user.settings.reportDefaultDateTo];
+            }
         }
     }
     
-    //NSLog(@"Report for dates: %@ %@", dateFrom, dateTo);
+    NSLog(@"Report for dates: %@ %@", dateFrom, dateTo);
     [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_GetReport parameters:[LMOWNTTHTTPClient getReportParamsToken:user.httpToken reportType:[LMOWNTTHTTPClient reportTypeName:(int)report.objectIdValue] dateFrom:dateFrom dateTo:dateTo programIds:self.transactionData.programIds] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          NSString *base64String = [responseObject valueForKeyPath:@"encodedReportContentHtml"];

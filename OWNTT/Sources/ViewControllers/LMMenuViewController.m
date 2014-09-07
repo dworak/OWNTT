@@ -180,7 +180,17 @@
     self.object.programIds = [NSArray arrayWithObject:((LMUserReport *)userObject).programId];
     if([userObject isKindOfClass:[LMUserReport class]])
     {
-        self.object.reportId = ((LMUserReport *)userObject).reportObject.objectId;
+        self.object.reportId = ((LMUserReport *)userObject).reportId;
+        self.object.instanceId = ((LMUserReport *)userObject).instanceId;
+        self.object.advertiserId = ((LMUserReport *)userObject).advertiserId;
+        self.object.interval = ((LMUserReport *)userObject).timeintervalTypeValue;
+        NSArray *dates = [LMUtils datesForReportTimeInterval:((LMUserReport *)userObject).timeintervalTypeValue];
+        if(dates.count > 1)
+        {
+            self.object.dateFrom = [dates objectAtIndex:0];
+            self.object.dateTo = [dates objectAtIndex:1];
+        }
+        self.object.isTemplate = YES;
     }
     [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_ModalWeb] sender:self];
 }

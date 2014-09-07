@@ -92,27 +92,35 @@ typedef enum {
     }
     
     LMUser *currentUser = OWNTT_APP_DELEGATE.appUtils.currentUser;
-    if(currentUser.settings.reportDefaultIsEnumValue)
+    if(self.transactionData.isTemplate)
     {
-        self.dateShow = NO;
-        [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:[currentUser.settings.reportDefaultEnum intValue]] forState:UIControlStateNormal];
-        [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:[currentUser.settings.reportDefaultEnum intValue]] forState:UIControlStateHighlighted];
+        [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:self.transactionData.interval] forState:UIControlStateNormal];
+        [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:self.transactionData.interval] forState:UIControlStateHighlighted];
     }
     else
     {
-        self.dateShow = YES;
-        self.dateView.alpha = 1;
-        [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:ReportTimeInterval_Custom] forState:UIControlStateNormal];
-        [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:ReportTimeInterval_Custom] forState:UIControlStateHighlighted];
-        if(currentUser.settings.reportDefaultDateFrom)
+        if(currentUser.settings.reportDefaultIsEnumValue)
         {
-            [self.dateFromButton setTitle:[self.dateFormatter stringFromDate:currentUser.settings.reportDefaultDateFrom] forState:UIControlStateNormal];
-            [self.dateFromButton setTitle:[self.dateFormatter stringFromDate:currentUser.settings.reportDefaultDateFrom] forState:UIControlStateHighlighted];
+            self.dateShow = NO;
+            [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:[currentUser.settings.reportDefaultEnum intValue]] forState:UIControlStateNormal];
+            [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:[currentUser.settings.reportDefaultEnum intValue]] forState:UIControlStateHighlighted];
         }
-        if(currentUser.settings.reportDefaultDateTo)
+        else
         {
-            [self.dateToButton setTitle:[self.dateFormatter stringFromDate:currentUser.settings.reportDefaultDateTo] forState:UIControlStateNormal];
-            [self.dateToButton setTitle:[self.dateFormatter stringFromDate:currentUser.settings.reportDefaultDateTo] forState:UIControlStateHighlighted];
+            self.dateShow = YES;
+            self.dateView.alpha = 1;
+            [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:ReportTimeInterval_Custom] forState:UIControlStateNormal];
+            [self.currentInterval setTitle:[LMUtils reportTimeIntervalTypeToString:ReportTimeInterval_Custom] forState:UIControlStateHighlighted];
+            if(currentUser.settings.reportDefaultDateFrom)
+            {
+                [self.dateFromButton setTitle:[self.dateFormatter stringFromDate:currentUser.settings.reportDefaultDateFrom] forState:UIControlStateNormal];
+                [self.dateFromButton setTitle:[self.dateFormatter stringFromDate:currentUser.settings.reportDefaultDateFrom] forState:UIControlStateHighlighted];
+            }
+            if(currentUser.settings.reportDefaultDateTo)
+            {
+                [self.dateToButton setTitle:[self.dateFormatter stringFromDate:currentUser.settings.reportDefaultDateTo] forState:UIControlStateNormal];
+                [self.dateToButton setTitle:[self.dateFormatter stringFromDate:currentUser.settings.reportDefaultDateTo] forState:UIControlStateHighlighted];
+            }
         }
     }
 }
@@ -179,14 +187,29 @@ typedef enum {
         }*/
         if(self.dateShow)
         {
-            user.settings.reportDefaultIsEnumValue = NO;
-            user.settings.reportDefaultDateFrom = [self.dateFormatter dateFromString:self.dateFromButton.titleLabel.text];
-            user.settings.reportDefaultDateTo = [self.dateFormatter dateFromString:self.dateToButton.titleLabel.text];
+            if(self.dateChangeBlock)
+            {
+                self.dateChangeBlock([self.dateFormatter dateFromString:self.dateFromButton.titleLabel.text], [self.dateFormatter dateFromString:self.dateToButton.titleLabel.text]);
+            }
+            else
+            {
+                user.settings.reportDefaultIsEnumValue = NO;
+                user.settings.reportDefaultDateFrom = [self.dateFormatter dateFromString:self.dateFromButton.titleLabel.text];
+                user.settings.reportDefaultDateTo = [self.dateFormatter dateFromString:self.dateToButton.titleLabel.text];
+            }
         }
         else
         {
-            user.settings.reportDefaultIsEnumValue = YES;
-            user.settings.reportDefaultEnum = [NSNumber numberWithInt:[LMUtils reportTimeIntervalStringToType:self.currentInterval.titleLabel.text]];
+            if(self.dateChangeBlock)
+            {
+                NSArray *dates = [LMUtils datesForReportTimeInterval:[LMUtils reportTimeIntervalStringToType:self.currentInterval.titleLabel.text]];
+                self.dateChangeBlock([dates objectAtIndex:0], [dates objectAtIndex:1]);
+            }
+            else
+            {
+                user.settings.reportDefaultIsEnumValue = YES;
+                user.settings.reportDefaultEnum = [NSNumber numberWithInt:[LMUtils reportTimeIntervalStringToType:self.currentInterval.titleLabel.text]];
+            }
         }
         [[LMCoreDataManager sharedInstance] saveMasterContext];
         if(self.fromBranchReport)

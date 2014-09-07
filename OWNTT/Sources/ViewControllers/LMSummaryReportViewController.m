@@ -156,6 +156,9 @@
     userReport.reportObject = report;
     userReport.programId = [self.transactionData.programIds objectAtIndex:0];
     userReport.timeintervalType = [NSNumber numberWithInt:[LMUtils reportTimeIntervalStringToType:self.timeintervalButton.titleLabel.text]];
+    userReport.instanceId = self.transactionData.instanceId;
+    userReport.advertiserId = self.transactionData.advertiserId;
+    userReport.reportId = self.transactionData.reportId;
     userReport.createDate = [NSDate date];
     userReport.name = self.reportNameTextField.text;
     [user.userReportsSet addObject:userReport];

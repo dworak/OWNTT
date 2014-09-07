@@ -72,7 +72,10 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMUser" inverseName="userAlerts" inverseEntity="LMUser" syncable="YES"/>
     </entity>
     <entity name="LMUserReport" representedClassName="LMUserReport" parentEntity="LMReadOnlyUserObject" syncable="YES">
+        <attribute name="advertiserId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="instanceId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="programId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="reportId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="timeintervalType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="reportObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMReport" inverseName="userReports" inverseEntity="LMReport" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LMUser" inverseName="userReports" inverseEntity="LMUser" syncable="YES"/>
@@ -88,6 +91,6 @@
         <element name="LMSynchStatus" positionX="-27" positionY="54" width="128" height="75"/>
         <element name="LMUser" positionX="-63" positionY="-18" width="128" height="208"/>
         <element name="LMUserAlert" positionX="-18" positionY="45" width="128" height="210"/>
-        <element name="LMUserReport" positionX="-27" positionY="36" width="128" height="105"/>
+        <element name="LMUserReport" positionX="-27" positionY="36" width="128" height="30"/>
     </elements>
 </model>

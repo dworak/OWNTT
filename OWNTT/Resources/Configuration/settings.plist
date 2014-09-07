@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>projectName</key>
-	<string>OwnTT Mobile</string>
+	<string>OWNTT</string>
 	<key>kAPIBaseURLString</key>
 	<string>http://46.29.19.142:8081/ownttmobile/api/</string>
 </dict>
