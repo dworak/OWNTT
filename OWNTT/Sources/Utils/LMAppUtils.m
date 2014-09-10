@@ -8,6 +8,7 @@
 
 #import "LMAppUtils.h"
 #import "AFNetworkReachabilityManager.h"
+#import <Security/Security.h>
 
 @implementation LMAppUtils
 - (void)checkInternetConnection
@@ -37,6 +38,16 @@
 + (BOOL)connected
 {
     return [[AFNetworkReachabilityManager sharedManager] isReachable];
+}
+
++ (id)secAttrForSection:(NSInteger)section
+{
+    switch (section)
+    {
+        case kUsernameSection: return (__bridge id)kSecAttrAccount;
+        case kPasswordSection: return (__bridge id)kSecValueData;
+    }
+    return nil;
 }
 
 @end

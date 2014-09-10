@@ -10,6 +10,7 @@
 #import "LMUser.h"
 #import "AFNetworkReachabilityManager.h"
 #import "AFHTTPRequestOperationLogger.h"
+#import <LM/KeychainItemWrapper.h>
 #import "JSONModel.h"
 
 @implementation LMAppDelegate
@@ -17,6 +18,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //Register for remote notification
+    self.passwordItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"PasswordOWNTT" accessGroup:nil];
+    
+	self.accountItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"Account Number" accessGroup:@"OwnTT-Mobile.com.kaft.GenericKeychainSuite"];
+    
     self.appUtils = [LMAppUtils new];
     self.appUtils.notSaveDeviceKey = @"Not register yet";
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeNewsstandContentAvailability];

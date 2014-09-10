@@ -16,7 +16,9 @@
 #import "LMUser.h"
 #import "LMReadOnlyObject.h"
 #import "LMReport.h"
+#import "LMAppUtils.h"
 #import "LMSettings.h"
+#import <LM/KeychainItemWrapper.h>
 
 @interface LMLoginViewController ()
 @property (weak, nonatomic) IBOutlet LMTextField *loginTextField;
@@ -162,6 +164,8 @@
         LMUser *user = OWNTT_APP_DELEGATE.appUtils.currentUser;
         [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_UnregisterDevice parameters:[LMOWNTTHTTPClient unregisterDeviceParamsToken:user.httpToken] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
             OWNTT_APP_DELEGATE.appUtils.notSaveDeviceKey = user.deviceToken;
+            [OWNTT_APP_DELEGATE.passwordItem resetKeychainItem];
+            [OWNTT_APP_DELEGATE.accountItem resetKeychainItem];
             [[[LMCoreDataManager sharedInstance] masterManagedObjectContext] deleteObject:user];
             [selfObj successAction];
             [[LMCoreDataManager sharedInstance] saveMasterContext];
@@ -184,11 +188,12 @@
          {
              NSDictionary *response = (NSDictionary *)responseObject;
              LMUser *user = [LMUser createObjectInContext:selfObj.managedObjectContext];
-             user.email = selfObj.loginTextField.text;
-             user.password = selfObj.passwordTextField.text;
+             [OWNTT_APP_DELEGATE.passwordItem setObject:[selfObj.passwordTextField text] forKey:[LMAppUtils secAttrForSection:kPasswordSection]];
+             [OWNTT_APP_DELEGATE.accountItem setObject:[selfObj.loginTextField text] forKey:[LMAppUtils secAttrForSection:kUsernameSection]];
              user.name = [response valueForKey:@"name"];
              user.surname = [response valueForKey:@"surname"];
              user.httpToken = [response valueForKey:@"token"];
+             user.deviceToken = OWNTT_APP_DELEGATE.appUtils.notSaveDeviceKey;
              LMAppDelegate *appDelegate = ((LMAppDelegate *)[[UIApplication sharedApplication] delegate]);
              appDelegate.appUtils.currentUser = user;
              if(appDelegate.appUtils.currentUser)

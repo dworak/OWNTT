@@ -12,6 +12,11 @@
 #define LMAppUtilsInternetConnected @"InternetConnected"
 #define LMAppUtilsInternetDisconnected @"InternedDisconnected"
 
+enum {
+	kUsernameSection = 0,
+	kPasswordSection
+};
+
 @interface LMAppUtils : NSObject
 @property (unsafe_unretained, nonatomic) BOOL internetConnected;
 
@@ -19,6 +24,7 @@
 @property (strong, nonatomic) NSString *notSaveDeviceKey;
 
 + (BOOL)connected;
++ (id)secAttrForSection:(NSInteger)section;
 - (void)checkInternetConnection;
 - (void)internetConnectionChange:(BOOL)connected;
 

@@ -90,6 +90,7 @@
 		25659BA119A29AEF009BF814 /* LMMenuNameView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25659BA019A29AEF009BF814 /* LMMenuNameView_iPhone.xib */; };
 		2584AD8619ABB98000C9CBA2 /* _LMSynchStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2584AD8519ABB98000C9CBA2 /* _LMSynchStatus.m */; };
 		2584AD8919ABB98800C9CBA2 /* LMSynchStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2584AD8819ABB98800C9CBA2 /* LMSynchStatus.m */; };
+		258DD9EC19BD0600009B4A2B /* OwnTT Mobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 258DD9EA19BD0600009B4A2B /* OwnTT Mobile.xcdatamodeld */; };
 		2591A91E1993F4620036EEDB /* 1.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91B1993F4620036EEDB /* 1.html */; };
 		2591A91F1993F4620036EEDB /* 2.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91C1993F4620036EEDB /* 2.html */; };
 		2591A9201993F4620036EEDB /* 3.html in Resources */ = {isa = PBXBuildFile; fileRef = 2591A91D1993F4620036EEDB /* 3.html */; };
@@ -158,7 +159,6 @@
 		EDF39E261980FC8700E00966 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF39E011980FC8700E00966 /* CoreData.framework */; };
 		EDF39E301980FC8700E00966 /* OWNTTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E2F1980FC8700E00966 /* OWNTTTests.m */; };
 		EDF39E511980FF7D00E00966 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF39E3F1980FF7D00E00966 /* Images.xcassets */; };
-		EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E451980FF7D00E00966 /* OWNTT.xcdatamodeld */; };
 		EDF39E541980FF7D00E00966 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E491980FF7D00E00966 /* main.m */; };
 		EDF39E551980FF7D00E00966 /* LMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E4B1980FF7D00E00966 /* LMAppDelegate.m */; };
 		EDF39E5B198101D500E00966 /* LMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF39E5A198101D500E00966 /* LMNavigationViewController.m */; };
@@ -329,6 +329,7 @@
 		2584AD8519ABB98000C9CBA2 /* _LMSynchStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _LMSynchStatus.m; path = Genereted/_LMSynchStatus.m; sourceTree = "<group>"; };
 		2584AD8719ABB98800C9CBA2 /* LMSynchStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSynchStatus.h; sourceTree = "<group>"; };
 		2584AD8819ABB98800C9CBA2 /* LMSynchStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSynchStatus.m; sourceTree = "<group>"; };
+		258DD9EB19BD0600009B4A2B /* OwnTT Mobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OwnTT Mobile.xcdatamodel"; sourceTree = "<group>"; };
 		2591A91B1993F4620036EEDB /* 1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 1.html; sourceTree = "<group>"; };
 		2591A91C1993F4620036EEDB /* 2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2.html; sourceTree = "<group>"; };
 		2591A91D1993F4620036EEDB /* 3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 3.html; sourceTree = "<group>"; };
@@ -432,19 +433,18 @@
 		EDE87C0219867C8F00043861 /* LMSettingsViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMSettingsViewController_iPhone.xib; sourceTree = "<group>"; };
 		EDE87C0419867E9100043861 /* LMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMUtils.h; sourceTree = "<group>"; };
 		EDE87C0519867E9100043861 /* LMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMUtils.m; sourceTree = "<group>"; };
-		EDF39DF81980FC8700E00966 /* OWNTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OWNTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF39DF81980FC8700E00966 /* OwnTT Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OwnTT Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF39DFB1980FC8700E00966 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EDF39DFD1980FC8700E00966 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EDF39DFF1980FC8700E00966 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDF39E011980FC8700E00966 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		EDF39E211980FC8700E00966 /* OWNTTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OWNTTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF39E211980FC8700E00966 /* OwnTT MobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OwnTT MobileTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF39E221980FC8700E00966 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		EDF39E2B1980FC8700E00966 /* OWNTT.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = OWNTT.plist; sourceTree = "<group>"; };
 		EDF39E2F1980FC8700E00966 /* OWNTTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OWNTTTests.m; sourceTree = "<group>"; };
 		EDF39E3F1980FF7D00E00966 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		EDF39E401980FF7D00E00966 /* OWNTT-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "OWNTT-Info.plist"; sourceTree = "<group>"; };
-		EDF39E411980FF7D00E00966 /* OWNTT-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OWNTT-Prefix.pch"; sourceTree = "<group>"; };
-		EDF39E461980FF7D00E00966 /* OWNTT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OWNTT.xcdatamodel; sourceTree = "<group>"; };
+		EDF39E401980FF7D00E00966 /* OwnTT Mobile-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "OwnTT Mobile-Info.plist"; sourceTree = "<group>"; };
+		EDF39E411980FF7D00E00966 /* OwnTT Mobile-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OwnTT Mobile-Prefix.pch"; sourceTree = "<group>"; };
 		EDF39E491980FF7D00E00966 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EDF39E4A1980FF7D00E00966 /* LMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAppDelegate.h; sourceTree = "<group>"; };
 		EDF39E4B1980FF7D00E00966 /* LMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAppDelegate.m; sourceTree = "<group>"; };
@@ -694,8 +694,8 @@
 		EDF39DF91980FC8700E00966 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EDF39DF81980FC8700E00966 /* OWNTT.app */,
-				EDF39E211980FC8700E00966 /* OWNTTTests.xctest */,
+				EDF39DF81980FC8700E00966 /* OwnTT Mobile.app */,
+				EDF39E211980FC8700E00966 /* OwnTT MobileTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -759,8 +759,8 @@
 			children = (
 				ED14BAC619B075F4007D3CF4 /* Localizable.strings */,
 				EDF39E3F1980FF7D00E00966 /* Images.xcassets */,
-				EDF39E401980FF7D00E00966 /* OWNTT-Info.plist */,
-				EDF39E411980FF7D00E00966 /* OWNTT-Prefix.pch */,
+				EDF39E401980FF7D00E00966 /* OwnTT Mobile-Info.plist */,
+				EDF39E411980FF7D00E00966 /* OwnTT Mobile-Prefix.pch */,
 				EDD131A9198117B1006F39E3 /* Storyboard.storyboard */,
 				25036ADC198D4D1300EAE355 /* settings.plist */,
 				253F1F3D198E219400158407 /* tree.json */,
@@ -821,8 +821,8 @@
 		EDF39E441980FF7D00E00966 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				258DD9EA19BD0600009B4A2B /* OwnTT Mobile.xcdatamodeld */,
 				25462AC71981BA590007482F /* ModelClasses */,
-				EDF39E451980FF7D00E00966 /* OWNTT.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -987,9 +987,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EDF39DF71980FC8700E00966 /* OWNTT */ = {
+		EDF39DF71980FC8700E00966 /* OwnTT Mobile */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EDF39E331980FC8700E00966 /* Build configuration list for PBXNativeTarget "OWNTT" */;
+			buildConfigurationList = EDF39E331980FC8700E00966 /* Build configuration list for PBXNativeTarget "OwnTT Mobile" */;
 			buildPhases = (
 				68B1EAD3113140629FB2C5D4 /* Check Pods Manifest.lock */,
 				EDF39DF41980FC8700E00966 /* Sources */,
@@ -1003,14 +1003,14 @@
 			);
 			dependencies = (
 			);
-			name = OWNTT;
+			name = "OwnTT Mobile";
 			productName = OWNTT;
-			productReference = EDF39DF81980FC8700E00966 /* OWNTT.app */;
+			productReference = EDF39DF81980FC8700E00966 /* OwnTT Mobile.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EDF39E201980FC8700E00966 /* OWNTTTests */ = {
+		EDF39E201980FC8700E00966 /* OwnTT MobileTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EDF39E361980FC8700E00966 /* Build configuration list for PBXNativeTarget "OWNTTTests" */;
+			buildConfigurationList = EDF39E361980FC8700E00966 /* Build configuration list for PBXNativeTarget "OwnTT MobileTests" */;
 			buildPhases = (
 				EDF39E1D1980FC8700E00966 /* Sources */,
 				EDF39E1E1980FC8700E00966 /* Frameworks */,
@@ -1021,9 +1021,9 @@
 			dependencies = (
 				EDF39E281980FC8700E00966 /* PBXTargetDependency */,
 			);
-			name = OWNTTTests;
+			name = "OwnTT MobileTests";
 			productName = OWNTTTests;
-			productReference = EDF39E211980FC8700E00966 /* OWNTTTests.xctest */;
+			productReference = EDF39E211980FC8700E00966 /* OwnTT MobileTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1040,7 +1040,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EDF39DF31980FC8700E00966 /* Build configuration list for PBXProject "OWNTT" */;
+			buildConfigurationList = EDF39DF31980FC8700E00966 /* Build configuration list for PBXProject "OwnTT Mobile" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1054,8 +1054,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EDF39DF71980FC8700E00966 /* OWNTT */,
-				EDF39E201980FC8700E00966 /* OWNTTTests */,
+				EDF39DF71980FC8700E00966 /* OwnTT Mobile */,
+				EDF39E201980FC8700E00966 /* OwnTT MobileTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1235,6 +1235,7 @@
 				EDD131BC19812F1E006F39E3 /* LMBranchAdvertiserViewController.m in Sources */,
 				25B18C751996186100A519B5 /* LMCustomNavigationViewController.m in Sources */,
 				253F1F50198E276400158407 /* LMReadOnlyObject.m in Sources */,
+				258DD9EC19BD0600009B4A2B /* OwnTT Mobile.xcdatamodeld in Sources */,
 				25FAFCC81990E1D300FCD226 /* _LMUserAlert.m in Sources */,
 				25036ADB198D466600EAE355 /* LMAppUtils.m in Sources */,
 				25036AC3198D2CCE00EAE355 /* NSManagedObject+Fetch.m in Sources */,
@@ -1252,7 +1253,6 @@
 				25FAFCA71990C41600FCD226 /* LMData.m in Sources */,
 				EDE87C0119867C7E00043861 /* LMSettingsViewController.m in Sources */,
 				25D0722B1998B2B100E326C8 /* LMSegueKeys.m in Sources */,
-				EDF39E531980FF7D00E00966 /* OWNTT.xcdatamodeld in Sources */,
 				ED54F16C19ADEDC800BC3446 /* LMSynchronizationBaseOperation.m in Sources */,
 				25FF5B49198F50B70043DA5D /* LMReport.m in Sources */,
 				25FAFCAD1990D79300FCD226 /* LMReportMenuViewController.m in Sources */,
@@ -1281,7 +1281,7 @@
 /* Begin PBXTargetDependency section */
 		EDF39E281980FC8700E00966 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EDF39DF71980FC8700E00966 /* OWNTT */;
+			target = EDF39DF71980FC8700E00966 /* OwnTT Mobile */;
 			targetProxy = EDF39E271980FC8700E00966 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1397,11 +1397,11 @@
 					"$(PROJECT_DIR)/OWNTT/3rdParty",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OWNTT/Resources/Configuration/OWNTT-Prefix.pch";
-				INFOPLIST_FILE = "OWNTT/Resources/Configuration/OWNTT-Info.plist";
+				GCC_PREFIX_HEADER = "OWNTT/Resources/Configuration/OwnTT Mobile-Prefix.pch";
+				INFOPLIST_FILE = "OWNTT/Resources/Configuration/OwnTT Mobile-Info.plist";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_NAME = OWNTT;
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = "OwnTT Mobile";
+				PROVISIONING_PROFILE = "e5864ec8-e6d7-48c9-b487-53f1f1d021df";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1420,11 +1420,11 @@
 					"$(PROJECT_DIR)/OWNTT/3rdParty",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OWNTT/Resources/Configuration/OWNTT-Prefix.pch";
-				INFOPLIST_FILE = "OWNTT/Resources/Configuration/OWNTT-Info.plist";
+				GCC_PREFIX_HEADER = "OWNTT/Resources/Configuration/OwnTT Mobile-Prefix.pch";
+				INFOPLIST_FILE = "OWNTT/Resources/Configuration/OwnTT Mobile-Info.plist";
 				OTHER_LDFLAGS = "-all_load";
-				PRODUCT_NAME = OWNTT;
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = "OwnTT Mobile";
+				PROVISIONING_PROFILE = "e5864ec8-e6d7-48c9-b487-53f1f1d021df";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1445,7 +1445,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "OWNTTTests/OwnTTMobileTests-Info.plist";
-				PRODUCT_NAME = OWNTTTests;
+				PRODUCT_NAME = "OwnTT MobileTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1463,7 +1463,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OWNTT/OWNTT-Prefix.pch";
 				INFOPLIST_FILE = "OWNTTTests/OwnTTMobileTests-Info.plist";
-				PRODUCT_NAME = OWNTTTests;
+				PRODUCT_NAME = "OwnTT MobileTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1472,7 +1472,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EDF39DF31980FC8700E00966 /* Build configuration list for PBXProject "OWNTT" */ = {
+		EDF39DF31980FC8700E00966 /* Build configuration list for PBXProject "OwnTT Mobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDF39E311980FC8700E00966 /* Debug */,
@@ -1481,7 +1481,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EDF39E331980FC8700E00966 /* Build configuration list for PBXNativeTarget "OWNTT" */ = {
+		EDF39E331980FC8700E00966 /* Build configuration list for PBXNativeTarget "OwnTT Mobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDF39E341980FC8700E00966 /* Debug */,
@@ -1490,7 +1490,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EDF39E361980FC8700E00966 /* Build configuration list for PBXNativeTarget "OWNTTTests" */ = {
+		EDF39E361980FC8700E00966 /* Build configuration list for PBXNativeTarget "OwnTT MobileTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDF39E371980FC8700E00966 /* Debug */,
@@ -1502,13 +1502,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		EDF39E451980FF7D00E00966 /* OWNTT.xcdatamodeld */ = {
+		258DD9EA19BD0600009B4A2B /* OwnTT Mobile.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				EDF39E461980FF7D00E00966 /* OWNTT.xcdatamodel */,
+				258DD9EB19BD0600009B4A2B /* OwnTT Mobile.xcdatamodel */,
 			);
-			currentVersion = EDF39E461980FF7D00E00966 /* OWNTT.xcdatamodel */;
-			path = OWNTT.xcdatamodeld;
+			currentVersion = 258DD9EB19BD0600009B4A2B /* OwnTT Mobile.xcdatamodel */;
+			path = "OwnTT Mobile.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

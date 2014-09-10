@@ -262,6 +262,10 @@
 
 + (void)storeCurrentInstance:(NSNumber *)instanceId
 {
+    if(!instanceId)
+    {
+        return;
+    }
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     [standardUserDefaults setValue:instanceId forKey:USER_DEFAULTS_CURRENT_INSTANCE];
     [standardUserDefaults synchronize];
