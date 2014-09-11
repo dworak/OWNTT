@@ -48,6 +48,8 @@
 		2531616319AD162C0044CEC5 /* LMOWNTTHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2531616219AD162C0044CEC5 /* LMOWNTTHTTPClient.m */; };
 		253507DF19A773F700E2B42A /* pink_checkbox_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 253507DD19A773F700E2B42A /* pink_checkbox_normal@2x.png */; };
 		253507E019A773F700E2B42A /* pink_checkbox_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 253507DE19A773F700E2B42A /* pink_checkbox_selected@2x.png */; };
+		25373D0D19C1ECD90039FBF1 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 25373D0C19C1ECD90039FBF1 /* SSKeychain.m */; };
+		25373D1019C1ECF70039FBF1 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 25373D0F19C1ECF70039FBF1 /* SSKeychainQuery.m */; };
 		253E39311999EEF100B395ED /* LMBranchReportTableViewCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 253E39301999EEF100B395ED /* LMBranchReportTableViewCell_iPhone.xib */; };
 		253E39341999EF1700B395ED /* LMBranchReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 253E39331999EF1700B395ED /* LMBranchReportTableViewCell.m */; };
 		253F1F3E198E219400158407 /* tree.json in Resources */ = {isa = PBXBuildFile; fileRef = 253F1F3D198E219400158407 /* tree.json */; };
@@ -267,6 +269,10 @@
 		2531616219AD162C0044CEC5 /* LMOWNTTHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMOWNTTHTTPClient.m; sourceTree = "<group>"; };
 		253507DD19A773F700E2B42A /* pink_checkbox_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_checkbox_normal@2x.png"; sourceTree = "<group>"; };
 		253507DE19A773F700E2B42A /* pink_checkbox_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_checkbox_selected@2x.png"; sourceTree = "<group>"; };
+		25373D0B19C1ECD90039FBF1 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		25373D0C19C1ECD90039FBF1 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		25373D0E19C1ECF70039FBF1 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
+		25373D0F19C1ECF70039FBF1 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		253E39301999EEF100B395ED /* LMBranchReportTableViewCell_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchReportTableViewCell_iPhone.xib; sourceTree = "<group>"; };
 		253E39321999EF1700B395ED /* LMBranchReportTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchReportTableViewCell.h; sourceTree = "<group>"; };
 		253E39331999EF1700B395ED /* LMBranchReportTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchReportTableViewCell.m; sourceTree = "<group>"; };
@@ -511,6 +517,10 @@
 		25036ABC198D2CCE00EAE355 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				25373D0E19C1ECF70039FBF1 /* SSKeychainQuery.h */,
+				25373D0F19C1ECF70039FBF1 /* SSKeychainQuery.m */,
+				25373D0B19C1ECD90039FBF1 /* SSKeychain.h */,
+				25373D0C19C1ECD90039FBF1 /* SSKeychain.m */,
 				25036ABD198D2CCE00EAE355 /* NSManagedObject+Fetch.h */,
 				25036ABE198D2CCE00EAE355 /* NSManagedObject+Fetch.m */,
 				25036ABF198D2CCE00EAE355 /* NSManagedObjectContext+FetchedObjectFromURI.h */,
@@ -1220,6 +1230,7 @@
 				253F1F4F198E276400158407 /* LMInstance.m in Sources */,
 				251199CD1993466500277D4F /* LMLabel.m in Sources */,
 				EDD131BF19812F2E006F39E3 /* LMBranchProgramViewController.m in Sources */,
+				25373D0D19C1ECD90039FBF1 /* SSKeychain.m in Sources */,
 				250F89C319920B4A00D91836 /* LMAlertSummaryViewController.m in Sources */,
 				25FAFCCC1990E1D300FCD226 /* LMUserReport.m in Sources */,
 				25659B8719A082A1009BF814 /* LMFontLabel.m in Sources */,
@@ -1243,6 +1254,7 @@
 				25659B8419A07E40009BF814 /* LMFontButton.m in Sources */,
 				253F1F4C198E276400158407 /* _LMInstance.m in Sources */,
 				25036AD4198D2E6900EAE355 /* _LMUser.m in Sources */,
+				25373D1019C1ECF70039FBF1 /* SSKeychainQuery.m in Sources */,
 				250F89C819920C0B00D91836 /* LMSummaryBaseViewController.m in Sources */,
 				253F1F55198E27BD00158407 /* _LMProgram.m in Sources */,
 				250F89AE1991577500D91836 /* LMReferenceData.m in Sources */,

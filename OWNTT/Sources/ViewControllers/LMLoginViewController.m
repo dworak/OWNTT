@@ -18,7 +18,7 @@
 #import "LMReport.h"
 #import "LMAppUtils.h"
 #import "LMSettings.h"
-#import <LM/KeychainItemWrapper.h>
+#import "SSKeychain.h"
 
 @interface LMLoginViewController ()
 @property (weak, nonatomic) IBOutlet LMTextField *loginTextField;
@@ -164,8 +164,6 @@
         LMUser *user = OWNTT_APP_DELEGATE.appUtils.currentUser;
         [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_UnregisterDevice parameters:[LMOWNTTHTTPClient unregisterDeviceParamsToken:user.httpToken] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
             OWNTT_APP_DELEGATE.appUtils.notSaveDeviceKey = user.deviceToken;
-            [OWNTT_APP_DELEGATE.passwordItem resetKeychainItem];
-            [OWNTT_APP_DELEGATE.accountItem resetKeychainItem];
             [[[LMCoreDataManager sharedInstance] masterManagedObjectContext] deleteObject:user];
             [selfObj successAction];
             [[LMCoreDataManager sharedInstance] saveMasterContext];
@@ -188,8 +186,8 @@
          {
              NSDictionary *response = (NSDictionary *)responseObject;
              LMUser *user = [LMUser createObjectInContext:selfObj.managedObjectContext];
-             [OWNTT_APP_DELEGATE.passwordItem setObject:[selfObj.passwordTextField text] forKey:[LMAppUtils secAttrForSection:kPasswordSection]];
-             [OWNTT_APP_DELEGATE.accountItem setObject:[selfObj.loginTextField text] forKey:[LMAppUtils secAttrForSection:kUsernameSection]];
+             user.email = selfObj.loginTextField.text;
+             [SSKeychain setPassword:selfObj.passwordTextField.text forService:@"OwnTT-Mobile" account:selfObj.loginTextField.text];
              user.name = [response valueForKey:@"name"];
              user.surname = [response valueForKey:@"surname"];
              user.httpToken = [response valueForKey:@"token"];

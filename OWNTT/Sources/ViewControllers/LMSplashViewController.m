@@ -9,6 +9,7 @@
 #import "LMSplashViewController.h"
 #import "LMLoginViewController.h"
 #import "LMReport.h"
+#import "SSKeychain.h"
 
 @interface LMSplashViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *indicatorTextLabel;

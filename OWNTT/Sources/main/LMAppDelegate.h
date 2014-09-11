@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LMAppUtils.h"
 
-@class KeychainItemWrapper;
+@class MCKKeychainItemWrapper;
 
 @class LMAppUtils;
 
@@ -17,8 +17,5 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) LMAppUtils *appUtils;
-
-@property (strong, nonatomic) KeychainItemWrapper *passwordItem;
-@property (strong, nonatomic) KeychainItemWrapper *accountItem;
 
 @end
