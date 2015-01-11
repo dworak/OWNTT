@@ -33,7 +33,9 @@ typedef enum {
     AlertPointertypes_WebTime,
     AlertPointertypes_Checkpoint,
     AlertPointertypes_Lead,
-    AlertPointertypes_Sale
+    AlertPointertypes_Sale,
+    AlertPointertypes_CTR,
+    AlertPointertypes_LR
 } AlertPointerTypes;
 
 typedef enum {

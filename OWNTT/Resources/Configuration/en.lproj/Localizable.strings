@@ -30,6 +30,8 @@
 "alertPointerTypes_Checkpoint" = "Checkpoint";
 "alertPointerTypes_Lead" = "Lead";
 "alertPointerTypes_Sale" = "Sale";
+"alertPointerTypes_CTR" = "Click Through Rate";
+"alertPointerTypes_LR" = "Lead rate";
 
 //alertBorderType
 "alertBorderType_GreaterThan" = ">";

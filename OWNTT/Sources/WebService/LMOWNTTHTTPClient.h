@@ -54,7 +54,9 @@ typedef enum {
     LMOWNTTGetAlertParamType_TimeOnPage,
     LMOWNTTGetAlertParamType_Checkpoint,
     LMOWNTTGetAlertParamType_Lead,
-    LMOWNTTGetAlertParamType_Sell
+    LMOWNTTGetAlertParamType_Sell,
+    LMOWNTTGetAlertParamType_CTR,
+    LMOWNTTGetAlertParamType_LR
 } LMOWNTTGetAlertParamType;
 
 typedef enum {

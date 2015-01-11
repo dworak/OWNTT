@@ -212,6 +212,10 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
             return @"LEAD";
         case LMOWNTTGetAlertParamType_Sell:
             return @"SELL";
+        case LMOWNTTGetAlertParamType_CTR:
+            return @"CTR";
+        case LMOWNTTGetAlertParamType_LR:
+            return @"LR";
         default:
         {
             NSAssert(0, @"%@ Unknown alert param type", NSStringFromSelector(_cmd));

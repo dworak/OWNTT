@@ -22,7 +22,9 @@
                            "alertPointerTypes_WebTime",
                            "alertPointerTypes_Checkpoint",
                            "alertPointerTypes_Lead",
-                           "alertPointerTypes_Sale"
+                           "alertPointerTypes_Sale",
+                           "alertPointerTypes_CTR",
+                           "alertPointerTypes_LR"
     ],
     "alertBorderTypes" : [
                          "alertBorderType_GreaterThan",

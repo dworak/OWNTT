@@ -132,6 +132,10 @@
             return LM_LOCALIZE(@"alertPointerTypes_Sale");
         case AlertPointertypes_WebTime:
             return LM_LOCALIZE(@"alertPointerTypes_WebTime");
+        case AlertPointertypes_CTR:
+            return LM_LOCALIZE(@"alertPointerTypes_CTR");
+        case AlertPointertypes_LR:
+            return LM_LOCALIZE(@"alertPointerTypes_LR");
         default:
             return nil;
     }
@@ -166,6 +170,14 @@
     else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointerTypes_Sale")])
     {
         return AlertPointertypes_Sale;
+    }
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointerTypes_CTR")])
+    {
+        return AlertPointertypes_CTR;
+    }
+    else if([pointerStr isEqualToString:LM_LOCALIZE(@"alertPointerTypes_LR")])
+    {
+        return AlertPointertypes_LR;
     }
     else
     {
