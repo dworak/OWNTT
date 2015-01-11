@@ -9,12 +9,6 @@ const struct LMReadOnlyUserObjectAttributes LMReadOnlyUserObjectAttributes = {
 	.name = @"name",
 };
 
-const struct LMReadOnlyUserObjectRelationships LMReadOnlyUserObjectRelationships = {
-};
-
-const struct LMReadOnlyUserObjectFetchedProperties LMReadOnlyUserObjectFetchedProperties = {
-};
-
 @implementation LMReadOnlyUserObjectID
 @end
 
@@ -40,7 +34,7 @@ const struct LMReadOnlyUserObjectFetchedProperties LMReadOnlyUserObjectFetchedPr
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"activeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"active"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -50,12 +44,7 @@ const struct LMReadOnlyUserObjectFetchedProperties LMReadOnlyUserObjectFetchedPr
 	return keyPaths;
 }
 
-
-
-
 @dynamic active;
-
-
 
 - (BOOL)activeValue {
 	NSNumber *result = [self active];
@@ -75,27 +64,9 @@ const struct LMReadOnlyUserObjectFetchedProperties LMReadOnlyUserObjectFetchedPr
 	[self setPrimitiveActive:[NSNumber numberWithBool:value_]];
 }
 
-
-
-
-
 @dynamic createDate;
-
-
-
-
-
 
 @dynamic name;
 
-
-
-
-
-
-
-
-
-
-
 @end
+

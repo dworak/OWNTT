@@ -14,9 +14,6 @@ const struct LMInstanceRelationships LMInstanceRelationships = {
 	.reports = @"reports",
 };
 
-const struct LMInstanceFetchedProperties LMInstanceFetchedProperties = {
-};
-
 @implementation LMInstanceID
 @end
 
@@ -42,7 +39,7 @@ const struct LMInstanceFetchedProperties LMInstanceFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"isReport1Value"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"isReport1"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -62,12 +59,7 @@ const struct LMInstanceFetchedProperties LMInstanceFetchedProperties = {
 	return keyPaths;
 }
 
-
-
-
 @dynamic isReport1;
-
-
 
 - (BOOL)isReport1Value {
 	NSNumber *result = [self isReport1];
@@ -87,13 +79,7 @@ const struct LMInstanceFetchedProperties LMInstanceFetchedProperties = {
 	[self setPrimitiveIsReport1:[NSNumber numberWithBool:value_]];
 }
 
-
-
-
-
 @dynamic isReport5;
-
-
 
 - (BOOL)isReport5Value {
 	NSNumber *result = [self isReport5];
@@ -113,13 +99,7 @@ const struct LMInstanceFetchedProperties LMInstanceFetchedProperties = {
 	[self setPrimitiveIsReport5:[NSNumber numberWithBool:value_]];
 }
 
-
-
-
-
 @dynamic isReport8;
-
-
 
 - (BOOL)isReport8Value {
 	NSNumber *result = [self isReport8];
@@ -139,39 +119,27 @@ const struct LMInstanceFetchedProperties LMInstanceFetchedProperties = {
 	[self setPrimitiveIsReport8:[NSNumber numberWithBool:value_]];
 }
 
-
-
-
-
 @dynamic advertisers;
 
-	
 - (NSMutableSet*)advertisersSet {
 	[self willAccessValueForKey:@"advertisers"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"advertisers"];
-  
+
 	[self didAccessValueForKey:@"advertisers"];
 	return result;
 }
-	
 
 @dynamic reports;
 
-	
 - (NSMutableSet*)reportsSet {
 	[self willAccessValueForKey:@"reports"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"reports"];
-  
+
 	[self didAccessValueForKey:@"reports"];
 	return result;
 }
-	
-
-
-
-
-
 
 @end
+

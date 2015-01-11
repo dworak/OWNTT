@@ -10,17 +10,6 @@ extern const struct LMReadOnlyUserObjectAttributes {
 	__unsafe_unretained NSString *name;
 } LMReadOnlyUserObjectAttributes;
 
-extern const struct LMReadOnlyUserObjectRelationships {
-} LMReadOnlyUserObjectRelationships;
-
-extern const struct LMReadOnlyUserObjectFetchedProperties {
-} LMReadOnlyUserObjectFetchedProperties;
-
-
-
-
-
-
 @interface LMReadOnlyUserObjectID : NSManagedObjectID {}
 @end
 
@@ -28,55 +17,27 @@ extern const struct LMReadOnlyUserObjectFetchedProperties {
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (LMReadOnlyUserObjectID*)objectID;
-
-
-
-
+@property (nonatomic, readonly, strong) LMReadOnlyUserObjectID* objectID;
 
 @property (nonatomic, strong) NSNumber* active;
 
-
-
-@property BOOL activeValue;
+@property (atomic) BOOL activeValue;
 - (BOOL)activeValue;
 - (void)setActiveValue:(BOOL)value_;
 
 //- (BOOL)validateActive:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSDate* createDate;
-
-
 
 //- (BOOL)validateCreateDate:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSString* name;
 
-
-
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-
-@end
-
-@interface _LMReadOnlyUserObject (CoreDataGeneratedAccessors)
 
 @end
 
 @interface _LMReadOnlyUserObject (CoreDataGeneratedPrimitiveAccessors)
-
 
 - (NSNumber*)primitiveActive;
 - (void)setPrimitiveActive:(NSNumber*)value;
@@ -84,19 +45,10 @@ extern const struct LMReadOnlyUserObjectFetchedProperties {
 - (BOOL)primitiveActiveValue;
 - (void)setPrimitiveActiveValue:(BOOL)value_;
 
-
-
-
 - (NSDate*)primitiveCreateDate;
 - (void)setPrimitiveCreateDate:(NSDate*)value;
 
-
-
-
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
-
-
-
 
 @end

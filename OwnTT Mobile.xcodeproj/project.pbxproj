@@ -390,8 +390,9 @@
 		25FF5B4B198F68CB0043DA5D /* LMHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHeaderView.h; sourceTree = "<group>"; };
 		25FF5B4C198F68CB0043DA5D /* LMHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMHeaderView.m; sourceTree = "<group>"; };
 		25FF5B4F198F68FA0043DA5D /* LMHeaderView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMHeaderView_iPhone.xib; sourceTree = "<group>"; };
-		7E43CB3D41384074996BB063 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		2FD59F859D6D8454623486B1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8E3CEF0A0FE04D0FAC9F6EC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D65CE28DBB5D07238A5CE9C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		ED14BAC719B075F4007D3CF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		ED14BAC919B075F4007D3CF4 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ED14BACC19B07E5E007D3CF4 /* _LMSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _LMSettings.h; path = Genereted/_LMSettings.h; sourceTree = "<group>"; };
@@ -671,6 +672,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		8F370E3B04BE936C3D4C73F1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D65CE28DBB5D07238A5CE9C5 /* Pods.debug.xcconfig */,
+				2FD59F859D6D8454623486B1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		ED54F16619ADED0300BC3446 /* Synchronization */ = {
 			isa = PBXGroup;
 			children = (
@@ -697,7 +707,7 @@
 				EDF39E291980FC8700E00966 /* OWNTTTests */,
 				EDF39DFA1980FC8700E00966 /* Frameworks */,
 				EDF39DF91980FC8700E00966 /* Products */,
-				7E43CB3D41384074996BB063 /* Pods.xcconfig */,
+				8F370E3B04BE936C3D4C73F1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1176,7 +1186,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1397,12 +1407,13 @@
 		};
 		EDF39E341980FC8700E00966 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E43CB3D41384074996BB063 /* Pods.xcconfig */;
+			baseConfigurationReference = D65CE28DBB5D07238A5CE9C5 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CLANG_MODULES_AUTOLINK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Christopher  Soon (W346UH7XSH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/OWNTT/3rdParty\"/**",
@@ -1411,7 +1422,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OWNTT/Resources/Configuration/OwnTT Mobile-Prefix.pch";
 				INFOPLIST_FILE = "OWNTT/Resources/Configuration/OwnTT Mobile-Info.plist";
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "OwnTT Mobile";
 				PROVISIONING_PROFILE = "e5864ec8-e6d7-48c9-b487-53f1f1d021df";
 				WRAPPER_EXTENSION = app;
@@ -1420,12 +1434,13 @@
 		};
 		EDF39E351980FC8700E00966 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E43CB3D41384074996BB063 /* Pods.xcconfig */;
+			baseConfigurationReference = 2FD59F859D6D8454623486B1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CLANG_MODULES_AUTOLINK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Christopher  Soon (W346UH7XSH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/OWNTT/3rdParty\"/**",
@@ -1434,7 +1449,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OWNTT/Resources/Configuration/OwnTT Mobile-Prefix.pch";
 				INFOPLIST_FILE = "OWNTT/Resources/Configuration/OwnTT Mobile-Info.plist";
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "OwnTT Mobile";
 				PROVISIONING_PROFILE = "e5864ec8-e6d7-48c9-b487-53f1f1d021df";
 				WRAPPER_EXTENSION = app;

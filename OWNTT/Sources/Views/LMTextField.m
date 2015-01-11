@@ -112,7 +112,7 @@
             }
         }
         default:
-            return NO;
+            return nil;
     }
 }
 

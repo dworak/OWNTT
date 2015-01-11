@@ -12,9 +12,6 @@ const struct LMReportRelationships LMReportRelationships = {
 	.userReports = @"userReports",
 };
 
-const struct LMReportFetchedProperties LMReportFetchedProperties = {
-};
-
 @implementation LMReportID
 @end
 
@@ -40,50 +37,33 @@ const struct LMReportFetchedProperties LMReportFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic htmlName;
-
-
-
-
-
 
 @dynamic instance;
 
-	
 - (NSMutableSet*)instanceSet {
 	[self willAccessValueForKey:@"instance"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"instance"];
-  
+
 	[self didAccessValueForKey:@"instance"];
 	return result;
 }
-	
 
 @dynamic userReports;
 
-	
 - (NSMutableSet*)userReportsSet {
 	[self willAccessValueForKey:@"userReports"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"userReports"];
-  
+
 	[self didAccessValueForKey:@"userReports"];
 	return result;
 }
-	
-
-
-
-
-
 
 @end
+

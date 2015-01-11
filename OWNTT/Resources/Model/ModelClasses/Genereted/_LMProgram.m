@@ -3,14 +3,8 @@
 
 #import "_LMProgram.h"
 
-const struct LMProgramAttributes LMProgramAttributes = {
-};
-
 const struct LMProgramRelationships LMProgramRelationships = {
 	.advertiser = @"advertiser",
-};
-
-const struct LMProgramFetchedProperties LMProgramFetchedProperties = {
 };
 
 @implementation LMProgramID
@@ -38,21 +32,11 @@ const struct LMProgramFetchedProperties LMProgramFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic advertiser;
 
-	
-
-
-
-
-
-
 @end
+

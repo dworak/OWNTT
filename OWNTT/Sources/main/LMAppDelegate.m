@@ -20,6 +20,17 @@
     self.appUtils = [LMAppUtils new];
     self.appUtils.notSaveDeviceKey = @"Not register yet";
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeNewsstandContentAvailability];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    if (launchOptions != nil)
+	{
+		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+		if (dictionary != nil)
+		{
+            
+			NSLog(@"Launched from push notification: %@", dictionary);
+            //[LMAlertManager showInfoAlertWithOkWithText:[dictionary objectForKey:@"alert"] delegate:nil];
+		}
+	}
     
     // Override point for customization after application launch.
     [LMUtils setupCurrentLanguage];
@@ -35,17 +46,6 @@
                                                                               @"id":@"objectId",
                                                                               }]
      ];
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    if (launchOptions != nil)
-	{
-		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-		if (dictionary != nil)
-		{
-            
-			NSLog(@"Launched from push notification: %@", dictionary);
-            //[LMAlertManager showInfoAlertWithOkWithText:[dictionary objectForKey:@"alert"] delegate:nil];
-		}
-	}
     
     return YES;
 }
@@ -71,6 +71,8 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeNewsstandContentAvailability];
+    
     NSDate *currentStoreDate = [LMUtils getCurrentDate];
     if(currentStoreDate)
     {

@@ -15,95 +15,61 @@ extern const struct LMInstanceRelationships {
 	__unsafe_unretained NSString *reports;
 } LMInstanceRelationships;
 
-extern const struct LMInstanceFetchedProperties {
-} LMInstanceFetchedProperties;
-
 @class LMAdvertiser;
 @class LMReport;
 
-
-
-
-
-@interface LMInstanceID : NSManagedObjectID {}
+@interface LMInstanceID : LMReadOnlyObjectID {}
 @end
 
 @interface _LMInstance : LMReadOnlyObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (LMInstanceID*)objectID;
-
-
-
-
+@property (nonatomic, readonly, strong) LMInstanceID* objectID;
 
 @property (nonatomic, strong) NSNumber* isReport1;
 
-
-
-@property BOOL isReport1Value;
+@property (atomic) BOOL isReport1Value;
 - (BOOL)isReport1Value;
 - (void)setIsReport1Value:(BOOL)value_;
 
 //- (BOOL)validateIsReport1:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* isReport5;
 
-
-
-@property BOOL isReport5Value;
+@property (atomic) BOOL isReport5Value;
 - (BOOL)isReport5Value;
 - (void)setIsReport5Value:(BOOL)value_;
 
 //- (BOOL)validateIsReport5:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* isReport8;
 
-
-
-@property BOOL isReport8Value;
+@property (atomic) BOOL isReport8Value;
 - (BOOL)isReport8Value;
 - (void)setIsReport8Value:(BOOL)value_;
 
 //- (BOOL)validateIsReport8:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSSet *advertisers;
 
 - (NSMutableSet*)advertisersSet;
-
-
-
 
 @property (nonatomic, strong) NSSet *reports;
 
 - (NSMutableSet*)reportsSet;
 
-
-
-
-
 @end
 
-@interface _LMInstance (CoreDataGeneratedAccessors)
-
+@interface _LMInstance (AdvertisersCoreDataGeneratedAccessors)
 - (void)addAdvertisers:(NSSet*)value_;
 - (void)removeAdvertisers:(NSSet*)value_;
 - (void)addAdvertisersObject:(LMAdvertiser*)value_;
 - (void)removeAdvertisersObject:(LMAdvertiser*)value_;
 
+@end
+
+@interface _LMInstance (ReportsCoreDataGeneratedAccessors)
 - (void)addReports:(NSSet*)value_;
 - (void)removeReports:(NSSet*)value_;
 - (void)addReportsObject:(LMReport*)value_;
@@ -113,15 +79,11 @@ extern const struct LMInstanceFetchedProperties {
 
 @interface _LMInstance (CoreDataGeneratedPrimitiveAccessors)
 
-
 - (NSNumber*)primitiveIsReport1;
 - (void)setPrimitiveIsReport1:(NSNumber*)value;
 
 - (BOOL)primitiveIsReport1Value;
 - (void)setPrimitiveIsReport1Value:(BOOL)value_;
-
-
-
 
 - (NSNumber*)primitiveIsReport5;
 - (void)setPrimitiveIsReport5:(NSNumber*)value;
@@ -129,26 +91,16 @@ extern const struct LMInstanceFetchedProperties {
 - (BOOL)primitiveIsReport5Value;
 - (void)setPrimitiveIsReport5Value:(BOOL)value_;
 
-
-
-
 - (NSNumber*)primitiveIsReport8;
 - (void)setPrimitiveIsReport8:(NSNumber*)value;
 
 - (BOOL)primitiveIsReport8Value;
 - (void)setPrimitiveIsReport8Value:(BOOL)value_;
 
-
-
-
-
 - (NSMutableSet*)primitiveAdvertisers;
 - (void)setPrimitiveAdvertisers:(NSMutableSet*)value;
 
-
-
 - (NSMutableSet*)primitiveReports;
 - (void)setPrimitiveReports:(NSMutableSet*)value;
-
 
 @end

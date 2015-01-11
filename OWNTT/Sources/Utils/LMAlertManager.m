@@ -20,6 +20,7 @@
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:LM_LOCALIZE(@"LMAlertManager_Error") message:text delegate:alertDelegate cancelButtonTitle:LM_LOCALIZE(@"LMAlertManager_Ok") otherButtonTitles:nil];
     [alertView show];
 }
+
 + (void)showInfoAlertWithOkWithText:(NSString *)text delegate:(id)delegate
 {
     id alertDelegate = self;

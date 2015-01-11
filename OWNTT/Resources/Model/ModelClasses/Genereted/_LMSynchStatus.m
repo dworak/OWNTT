@@ -8,12 +8,6 @@ const struct LMSynchStatusAttributes LMSynchStatusAttributes = {
 	.lastSynchDate = @"lastSynchDate",
 };
 
-const struct LMSynchStatusRelationships LMSynchStatusRelationships = {
-};
-
-const struct LMSynchStatusFetchedProperties LMSynchStatusFetchedProperties = {
-};
-
 @implementation LMSynchStatusID
 @end
 
@@ -39,31 +33,13 @@ const struct LMSynchStatusFetchedProperties LMSynchStatusFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic entityClass;
-
-
-
-
-
 
 @dynamic lastSynchDate;
 
-
-
-
-
-
-
-
-
-
-
 @end
+

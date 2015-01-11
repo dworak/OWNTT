@@ -20,9 +20,6 @@ const struct LMUserRelationships LMUserRelationships = {
 	.userReports = @"userReports",
 };
 
-const struct LMUserFetchedProperties LMUserFetchedProperties = {
-};
-
 @implementation LMUserID
 @end
 
@@ -48,7 +45,7 @@ const struct LMUserFetchedProperties LMUserFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"alertsCountValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"alertsCount"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -58,12 +55,7 @@ const struct LMUserFetchedProperties LMUserFetchedProperties = {
 	return keyPaths;
 }
 
-
-
-
 @dynamic alertsCount;
-
-
 
 - (int64_t)alertsCountValue {
 	NSNumber *result = [self alertsCount];
@@ -83,92 +75,43 @@ const struct LMUserFetchedProperties LMUserFetchedProperties = {
 	[self setPrimitiveAlertsCount:[NSNumber numberWithLongLong:value_]];
 }
 
-
-
-
-
 @dynamic createDate;
-
-
-
-
-
 
 @dynamic deviceToken;
 
-
-
-
-
-
 @dynamic email;
-
-
-
-
-
 
 @dynamic httpToken;
 
-
-
-
-
-
 @dynamic name;
-
-
-
-
-
 
 @dynamic password;
 
-
-
-
-
-
 @dynamic surname;
-
-
-
-
-
 
 @dynamic settings;
 
-	
-
 @dynamic userAlerts;
 
-	
 - (NSMutableSet*)userAlertsSet {
 	[self willAccessValueForKey:@"userAlerts"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"userAlerts"];
-  
+
 	[self didAccessValueForKey:@"userAlerts"];
 	return result;
 }
-	
 
 @dynamic userReports;
 
-	
 - (NSMutableSet*)userReportsSet {
 	[self willAccessValueForKey:@"userReports"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"userReports"];
-  
+
 	[self didAccessValueForKey:@"userReports"];
 	return result;
 }
-	
-
-
-
-
-
 
 @end
+

@@ -16,9 +16,6 @@ const struct LMUserReportRelationships LMUserReportRelationships = {
 	.user = @"user",
 };
 
-const struct LMUserReportFetchedProperties LMUserReportFetchedProperties = {
-};
-
 @implementation LMUserReportID
 @end
 
@@ -44,7 +41,7 @@ const struct LMUserReportFetchedProperties LMUserReportFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"advertiserIdValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"advertiserId"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -74,12 +71,7 @@ const struct LMUserReportFetchedProperties LMUserReportFetchedProperties = {
 	return keyPaths;
 }
 
-
-
-
 @dynamic advertiserId;
-
-
 
 - (int64_t)advertiserIdValue {
 	NSNumber *result = [self advertiserId];
@@ -99,13 +91,7 @@ const struct LMUserReportFetchedProperties LMUserReportFetchedProperties = {
 	[self setPrimitiveAdvertiserId:[NSNumber numberWithLongLong:value_]];
 }
 
-
-
-
-
 @dynamic instanceId;
-
-
 
 - (int64_t)instanceIdValue {
 	NSNumber *result = [self instanceId];
@@ -125,13 +111,7 @@ const struct LMUserReportFetchedProperties LMUserReportFetchedProperties = {
 	[self setPrimitiveInstanceId:[NSNumber numberWithLongLong:value_]];
 }
 
-
-
-
-
 @dynamic programId;
-
-
 
 - (int64_t)programIdValue {
 	NSNumber *result = [self programId];
@@ -151,13 +131,7 @@ const struct LMUserReportFetchedProperties LMUserReportFetchedProperties = {
 	[self setPrimitiveProgramId:[NSNumber numberWithLongLong:value_]];
 }
 
-
-
-
-
 @dynamic reportId;
-
-
 
 - (int64_t)reportIdValue {
 	NSNumber *result = [self reportId];
@@ -177,13 +151,7 @@ const struct LMUserReportFetchedProperties LMUserReportFetchedProperties = {
 	[self setPrimitiveReportId:[NSNumber numberWithLongLong:value_]];
 }
 
-
-
-
-
 @dynamic timeintervalType;
-
-
 
 - (int16_t)timeintervalTypeValue {
 	NSNumber *result = [self timeintervalType];
@@ -203,21 +171,9 @@ const struct LMUserReportFetchedProperties LMUserReportFetchedProperties = {
 	[self setPrimitiveTimeintervalType:[NSNumber numberWithShort:value_]];
 }
 
-
-
-
-
 @dynamic reportObject;
-
-	
 
 @dynamic user;
 
-	
-
-
-
-
-
-
 @end
+

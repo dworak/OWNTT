@@ -97,6 +97,7 @@
     self.tableView.delegate = self;
     self.tableView.separatorColor = [UIColor whiteColor];
     self.tableView.dataSource = self;
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
     [self getTableData];
 }

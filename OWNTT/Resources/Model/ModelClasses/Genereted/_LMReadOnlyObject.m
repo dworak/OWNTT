@@ -9,12 +9,6 @@ const struct LMReadOnlyObjectAttributes LMReadOnlyObjectAttributes = {
 	.objectId = @"objectId",
 };
 
-const struct LMReadOnlyObjectRelationships LMReadOnlyObjectRelationships = {
-};
-
-const struct LMReadOnlyObjectFetchedProperties LMReadOnlyObjectFetchedProperties = {
-};
-
 @implementation LMReadOnlyObjectID
 @end
 
@@ -40,7 +34,7 @@ const struct LMReadOnlyObjectFetchedProperties LMReadOnlyObjectFetchedProperties
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"activeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"active"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -55,12 +49,7 @@ const struct LMReadOnlyObjectFetchedProperties LMReadOnlyObjectFetchedProperties
 	return keyPaths;
 }
 
-
-
-
 @dynamic active;
-
-
 
 - (BOOL)activeValue {
 	NSNumber *result = [self active];
@@ -80,20 +69,9 @@ const struct LMReadOnlyObjectFetchedProperties LMReadOnlyObjectFetchedProperties
 	[self setPrimitiveActive:[NSNumber numberWithBool:value_]];
 }
 
-
-
-
-
 @dynamic name;
 
-
-
-
-
-
 @dynamic objectId;
-
-
 
 - (int64_t)objectIdValue {
 	NSNumber *result = [self objectId];
@@ -113,13 +91,5 @@ const struct LMReadOnlyObjectFetchedProperties LMReadOnlyObjectFetchedProperties
 	[self setPrimitiveObjectId:[NSNumber numberWithLongLong:value_]];
 }
 
-
-
-
-
-
-
-
-
-
 @end
+

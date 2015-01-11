@@ -3,15 +3,9 @@
 
 #import "_LMAdvertiser.h"
 
-const struct LMAdvertiserAttributes LMAdvertiserAttributes = {
-};
-
 const struct LMAdvertiserRelationships LMAdvertiserRelationships = {
 	.instance = @"instance",
 	.programs = @"programs",
-};
-
-const struct LMAdvertiserFetchedProperties LMAdvertiserFetchedProperties = {
 };
 
 @implementation LMAdvertiserID
@@ -39,34 +33,22 @@ const struct LMAdvertiserFetchedProperties LMAdvertiserFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic instance;
-
-	
 
 @dynamic programs;
 
-	
 - (NSMutableSet*)programsSet {
 	[self willAccessValueForKey:@"programs"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"programs"];
-  
+
 	[self didAccessValueForKey:@"programs"];
 	return result;
 }
-	
-
-
-
-
-
 
 @end
+

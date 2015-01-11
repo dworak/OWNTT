@@ -20,9 +20,6 @@ const struct LMUserAlertRelationships LMUserAlertRelationships = {
 	.user = @"user",
 };
 
-const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
-};
-
 @implementation LMUserAlertID
 @end
 
@@ -48,7 +45,7 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"advertiserIdValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"advertiserId"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -88,12 +85,7 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 	return keyPaths;
 }
 
-
-
-
 @dynamic advertiserId;
-
-
 
 - (int16_t)advertiserIdValue {
 	NSNumber *result = [self advertiserId];
@@ -113,13 +105,7 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 	[self setPrimitiveAdvertiserId:[NSNumber numberWithShort:value_]];
 }
 
-
-
-
-
 @dynamic borderType;
-
-
 
 - (int16_t)borderTypeValue {
 	NSNumber *result = [self borderType];
@@ -139,27 +125,11 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 	[self setPrimitiveBorderType:[NSNumber numberWithShort:value_]];
 }
 
-
-
-
-
 @dynamic dateFrom;
-
-
-
-
-
 
 @dynamic dateTo;
 
-
-
-
-
-
 @dynamic hour;
-
-
 
 - (int16_t)hourValue {
 	NSNumber *result = [self hour];
@@ -179,13 +149,7 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 	[self setPrimitiveHour:[NSNumber numberWithShort:value_]];
 }
 
-
-
-
-
 @dynamic monitorType;
-
-
 
 - (int16_t)monitorTypeValue {
 	NSNumber *result = [self monitorType];
@@ -205,13 +169,7 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 	[self setPrimitiveMonitorType:[NSNumber numberWithShort:value_]];
 }
 
-
-
-
-
 @dynamic objectId;
-
-
 
 - (int64_t)objectIdValue {
 	NSNumber *result = [self objectId];
@@ -231,13 +189,7 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 	[self setPrimitiveObjectId:[NSNumber numberWithLongLong:value_]];
 }
 
-
-
-
-
 @dynamic paramType;
-
-
 
 - (int16_t)paramTypeValue {
 	NSNumber *result = [self paramType];
@@ -257,13 +209,7 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 	[self setPrimitiveParamType:[NSNumber numberWithShort:value_]];
 }
 
-
-
-
-
 @dynamic programId;
-
-
 
 - (int64_t)programIdValue {
 	NSNumber *result = [self programId];
@@ -283,24 +229,9 @@ const struct LMUserAlertFetchedProperties LMUserAlertFetchedProperties = {
 	[self setPrimitiveProgramId:[NSNumber numberWithLongLong:value_]];
 }
 
-
-
-
-
 @dynamic value;
-
-
-
-
-
 
 @dynamic user;
 
-	
-
-
-
-
-
-
 @end
+

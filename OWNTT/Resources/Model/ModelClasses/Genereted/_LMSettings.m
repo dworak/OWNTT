@@ -19,9 +19,6 @@ const struct LMSettingsRelationships LMSettingsRelationships = {
 	.user = @"user",
 };
 
-const struct LMSettingsFetchedProperties LMSettingsFetchedProperties = {
-};
-
 @implementation LMSettingsID
 @end
 
@@ -47,7 +44,7 @@ const struct LMSettingsFetchedProperties LMSettingsFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"alertDefaultBorderTypeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"alertDefaultBorderType"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -87,12 +84,7 @@ const struct LMSettingsFetchedProperties LMSettingsFetchedProperties = {
 	return keyPaths;
 }
 
-
-
-
 @dynamic alertDefaultBorderType;
-
-
 
 - (int16_t)alertDefaultBorderTypeValue {
 	NSNumber *result = [self alertDefaultBorderType];
@@ -112,13 +104,7 @@ const struct LMSettingsFetchedProperties LMSettingsFetchedProperties = {
 	[self setPrimitiveAlertDefaultBorderType:[NSNumber numberWithShort:value_]];
 }
 
-
-
-
-
 @dynamic alertDefaultHour;
-
-
 
 - (int16_t)alertDefaultHourValue {
 	NSNumber *result = [self alertDefaultHour];
@@ -138,13 +124,7 @@ const struct LMSettingsFetchedProperties LMSettingsFetchedProperties = {
 	[self setPrimitiveAlertDefaultHour:[NSNumber numberWithShort:value_]];
 }
 
-
-
-
-
 @dynamic alertDefaultMonitorType;
-
-
 
 - (int16_t)alertDefaultMonitorTypeValue {
 	NSNumber *result = [self alertDefaultMonitorType];
@@ -164,13 +144,7 @@ const struct LMSettingsFetchedProperties LMSettingsFetchedProperties = {
 	[self setPrimitiveAlertDefaultMonitorType:[NSNumber numberWithShort:value_]];
 }
 
-
-
-
-
 @dynamic alertDefaultPointer;
-
-
 
 - (int16_t)alertDefaultPointerValue {
 	NSNumber *result = [self alertDefaultPointer];
@@ -190,13 +164,7 @@ const struct LMSettingsFetchedProperties LMSettingsFetchedProperties = {
 	[self setPrimitiveAlertDefaultPointer:[NSNumber numberWithShort:value_]];
 }
 
-
-
-
-
 @dynamic alertDefaultValue;
-
-
 
 - (int16_t)alertDefaultValueValue {
 	NSNumber *result = [self alertDefaultValue];
@@ -216,27 +184,11 @@ const struct LMSettingsFetchedProperties LMSettingsFetchedProperties = {
 	[self setPrimitiveAlertDefaultValue:[NSNumber numberWithShort:value_]];
 }
 
-
-
-
-
 @dynamic reportDefaultDateFrom;
-
-
-
-
-
 
 @dynamic reportDefaultDateTo;
 
-
-
-
-
-
 @dynamic reportDefaultEnum;
-
-
 
 - (int16_t)reportDefaultEnumValue {
 	NSNumber *result = [self reportDefaultEnum];
@@ -256,13 +208,7 @@ const struct LMSettingsFetchedProperties LMSettingsFetchedProperties = {
 	[self setPrimitiveReportDefaultEnum:[NSNumber numberWithShort:value_]];
 }
 
-
-
-
-
 @dynamic reportDefaultIsEnum;
-
-
 
 - (BOOL)reportDefaultIsEnumValue {
 	NSNumber *result = [self reportDefaultIsEnum];
@@ -282,17 +228,7 @@ const struct LMSettingsFetchedProperties LMSettingsFetchedProperties = {
 	[self setPrimitiveReportDefaultIsEnum:[NSNumber numberWithBool:value_]];
 }
 
-
-
-
-
 @dynamic user;
 
-	
-
-
-
-
-
-
 @end
+
