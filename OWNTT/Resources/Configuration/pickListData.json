@@ -11,7 +11,8 @@
     ],
     "alertMonitoringTypes" : [
                               "alertMonitoringTypes_Growing",
-                              "alertMonitoringTypes_Daily"
+                              "alertMonitoringTypes_Daily",
+                              "alertMonitoringTypes_Continuous"
     ],
     "alertPointertypes" : [
                            "alertPointerTypes_Display",

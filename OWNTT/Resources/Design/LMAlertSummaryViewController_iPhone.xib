@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LMAlertSummaryViewController">
@@ -18,6 +19,7 @@
                 <outlet property="hourOfSend" destination="ZWn-xq-3ba" id="toN-7I-XYY"/>
                 <outlet property="monitorTypeLabel" destination="K5G-NK-CvU" id="fFZ-hR-Q3B"/>
                 <outlet property="monitoringType" destination="Keb-Kh-M1P" id="dEd-6m-oSx"/>
+                <outlet property="notAvailableLabel" destination="tZB-90-Klo" id="kIr-iD-RKA"/>
                 <outlet property="pointerLabel" destination="ArH-tD-LT4" id="5cy-kw-Y7l"/>
                 <outlet property="rateType" destination="Ysr-q6-hap" id="UtT-vW-jB5"/>
                 <outlet property="shadowImage" destination="TzR-4y-pzl" id="u27-mR-4cC"/>
@@ -36,7 +38,6 @@
                     <rect key="frame" x="10" y="88" width="300" height="95"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="TzR-4y-pzl">
                     <rect key="frame" x="0.0" y="64" width="320" height="15"/>
@@ -99,6 +100,13 @@
                         <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="3jV-o0-1Im"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tZB-90-Klo">
+                    <rect key="frame" x="165" y="328" width="145" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.90980392156862744" green="0.28235294117647058" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Keb-Kh-M1P" customClass="LMMiniFullButton">
                     <rect key="frame" x="165" y="293" width="145" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -186,11 +194,16 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
     <resources>
         <image name="pink_checkbox_normal.png" width="30" height="30"/>
         <image name="pink_checkbox_selected.png" width="30" height="30"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

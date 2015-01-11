@@ -90,6 +90,8 @@
             return LM_LOCALIZE(@"alertMonitoringTypes_Daily");
         case AlertMonitoringTypes_Growing:
             return LM_LOCALIZE(@"alertMonitoringTypes_Growing");
+        case AlertMonitoringTypes_Continuous:
+            return LM_LOCALIZE(@"alertMonitoringTypes_Continuous");
         default:
             return nil;
     }
@@ -100,6 +102,10 @@
     if([monitoringStr isEqualToString:LM_LOCALIZE(@"alertMonitoringTypes_Daily")])
     {
         return AlertMonitoringTypes_Daily;
+    }
+    else if([monitoringStr isEqualToString:LM_LOCALIZE(@"alertMonitoringTypes_Continuous")])
+    {
+        return AlertMonitoringTypes_Continuous;
     }
     else
     {

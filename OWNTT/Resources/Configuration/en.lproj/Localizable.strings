@@ -19,6 +19,7 @@
 //alertMonitoringTypes
 "alertMonitoringTypes_Growing" = "Increasing";
 "alertMonitoringTypes_Daily" = "Daily";
+"alertMonitoringTypes_Continuous" = "Continuous";
 
 //alertPointertypes
 "alertPointerTypes_Display" = "Impression";
@@ -104,10 +105,12 @@
 "LMSumAlert_HourLabel" = "Alert hour:";
 "LMSumAlert_AlertNameLabel" = "Alert name:";
 "LMSumAlert_ValueLabel" = "Value:";
+"LMSumAlert_NotAvailableLabel" = "Not available";
 
 //LMAppReportTypes
 "LMAppReportType_1" = "Campaign general report";
 "LMAppReportType_5" = "Publishers general report";
+"LMAppReportType_6" = "Daily events report";
 "LMAppReportType_8" = "Ads report";
 
 //Menu

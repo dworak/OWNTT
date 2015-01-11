@@ -42,6 +42,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *hourLabel;
 @property (weak, nonatomic) IBOutlet UILabel *alertNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *notAvailableLabel;
 
 @end
 
@@ -61,6 +62,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.checkButton.exclusiveTouch = YES;
+    self.hourOfSend.hidden = NO;
+    self.notAvailableLabel.hidden = YES;
     self.dateFormater = [[NSDateFormatter alloc] init];
     [self.dateFormater setDateFormat:@"yyyy-MM-dd"];
     self.scrollView.contentSize = CGSizeMake(320, self.view.frame.size.height-64);
@@ -123,6 +126,7 @@
     self.hourLabel.text = LM_LOCALIZE(@"LMSumAlert_HourLabel");
     self.alertNameLabel.text = LM_LOCALIZE(@"LMSumAlert_AlertNameLabel");
     self.valueLabel.text = LM_LOCALIZE(@"LMSumAlert_ValueLabel");
+    self.notAvailableLabel.text = LM_LOCALIZE(@"LMSumAlert_NotAvailableLabel");
     LMUser *user = OWNTT_APP_DELEGATE.appUtils.currentUser;
     if(self.readOnly)
     {
@@ -266,7 +270,10 @@
     userAlert.paramTypeValue = [LMUtils alertPointerStringToType:self.rateType.titleLabel.text];
     userAlert.monitorTypeValue = [LMUtils alertMonitoringStringToType:self.monitoringType.titleLabel.text];
     userAlert.borderTypeValue = [LMUtils alertBorderStringToType:self.borderType.titleLabel.text];
-    userAlert.hour = [decimalFormater numberFromString:self.hourOfSend.titleLabel.text];
+    if(!self.hourOfSend.hidden)
+    {
+        userAlert.hour = [decimalFormater numberFromString:self.hourOfSend.titleLabel.text];
+    }
     userAlert.programId = [self.transactionData.programIds objectAtIndex:0];
     userAlert.advertiserId = self.transactionData.advertiserId;
     userAlert.dateFrom = [self.dateFormater dateFromString:self.dateFrom.titleLabel.text];
@@ -385,6 +392,19 @@
                 {
                     [selfObj.currentButton setTitle:LM_LOCALIZE(value) forState:UIControlStateNormal];
                     [selfObj.currentButton setTitle:LM_LOCALIZE(value) forState:UIControlStateHighlighted];
+                }
+                if([selfObj.currentButton isEqual:selfObj.monitoringType])
+                {
+                    if([LMUtils alertMonitoringStringToType:LM_LOCALIZE(value)] == AlertMonitoringTypes_Continuous)
+                    {
+                        selfObj.hourOfSend.hidden = YES;
+                        selfObj.notAvailableLabel.hidden = NO;
+                    }
+                    else
+                    {
+                        selfObj.hourOfSend.hidden = NO;
+                        selfObj.notAvailableLabel.hidden = YES;
+                    }
                 }
                 [selfObj.pickerViewController hide];
             };

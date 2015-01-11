@@ -21,7 +21,8 @@ typedef enum {
 
 typedef enum {
     AlertMonitoringTypes_Growing = 1,
-    AlertMonitoringTypes_Daily
+    AlertMonitoringTypes_Daily,
+    AlertMonitoringTypes_Continuous
 } AlertMonitoringTypes;
 
 typedef enum {

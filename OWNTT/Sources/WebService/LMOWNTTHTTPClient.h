@@ -59,7 +59,8 @@ typedef enum {
 
 typedef enum {
     LMOWNTTGetalertMonitoringType_Increasing = 1,
-    LMOWNTTGetalertMonitoringType_Daily
+    LMOWNTTGetalertMonitoringType_Daily,
+    LMOWNTTGetalertMonitoringType_Continuous
 } LMOWNTTGetalertMonitoringType;
 
 typedef enum {
@@ -70,7 +71,8 @@ typedef enum {
 typedef enum {
     LMOWNTTReportType_Type1 = 1,
     LMOWNTTReportType_Type5 = 2,
-    LMOWNTTReportType_Type8 = 3
+    LMOWNTTReportType_Type6 = 3,
+    LMOWNTTReportType_Type8 = 4
 } LMOWNTTReportType;
 
 #import <UIKit/UIKit.h>

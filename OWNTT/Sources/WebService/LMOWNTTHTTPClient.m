@@ -183,6 +183,8 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
             return @"DAILY";
         case LMOWNTTGetalertMonitoringType_Increasing:
             return @"INCREASING";
+        case LMOWNTTGetalertMonitoringType_Continuous:
+            return @"CONTINUOUS";
         default:
         {
             NSAssert(0, @"%@ Unknown alert monitoring type", NSStringFromSelector(_cmd));
@@ -225,6 +227,8 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
             return @"TYPE1";
         case LMOWNTTReportType_Type5:
             return @"TYPE5";
+        case LMOWNTTReportType_Type6:
+            return @"TYPE6";
         case LMOWNTTReportType_Type8:
             return @"TYPE8";
         default:
@@ -242,6 +246,8 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
             return LM_LOCALIZE(@"LMAppReportType_1");
         case LMOWNTTReportType_Type5:
             return LM_LOCALIZE(@"LMAppReportType_5");
+        case LMOWNTTReportType_Type6:
+            return LM_LOCALIZE(@"LMAppReportType_6");
         case LMOWNTTReportType_Type8:
             return LM_LOCALIZE(@"LMAppReportType_8");
         default:
@@ -261,6 +267,10 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
     else if([name isEqualToString:@"TYPE5"])
     {
         return LMOWNTTReportType_Type5;
+    }
+    else if([name isEqualToString:@"TYPE6"])
+    {
+        return LMOWNTTReportType_Type6;
     }
     else if([name isEqualToString:@"TYPE8"])
     {

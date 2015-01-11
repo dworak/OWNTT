@@ -19,6 +19,7 @@
 //alertMonitoringTypes
 "alertMonitoringTypes_Growing" = "Narastający";
 "alertMonitoringTypes_Daily" = "Dzienny";
+"alertMonitoringTypes_Continuous" = "Ciągły";
 
 //alertPointertypes
 "alertPointerTypes_Display" = "Odsłona";
@@ -100,10 +101,12 @@
 "LMSumAlert_HourLabel" = "Godzina wysyłania powiadomień:";
 "LMSumAlert_AlertNameLabel" = "Nazwa alertu:";
 "LMSumAlert_ValueLabel" = "Wartość:";
+"LMSumAlert_NotAvailableLabel" = "Niedostepne";
 
 //LMAppReportTypes
 "LMAppReportType_1" = "Raport łączny kampanii";
 "LMAppReportType_5" = "Raport wszystkich wydawców";
+"LMAppReportType_6" = "Raport zdarzeń (dziennie)";
 "LMAppReportType_8" = "Raport form reklamowych";
 
 //Menu
