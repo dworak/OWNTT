@@ -17,6 +17,8 @@ XX(LMSegueKeyType_PushInstanceList,) \
 XX(LMSegueKeyType_PushAdvertiserList,) \
 XX(LMSegueKeyType_PushProgramList,) \
 XX(LMSegueKeyType_PushReport,) \
+XX(LMSegueKeyType_PushSiteList,) \
+XX(LMSegueKeyType_PushSiteAdvertiserList,) \
 XX(LMSegueKeyType_PushSettings,) \
 XX(LMSegueKeyType_PushReportSummary,) \
 XX(LMSegueKeyType_PushAlertSummary,) \

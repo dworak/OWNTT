@@ -9,6 +9,8 @@
 #import "LMAppUtils.h"
 #import "AFNetworkReachabilityManager.h"
 #import <Security/Security.h>
+#import "LMSiteAdvertiserWS.h"
+#import "LMSiteWS.h"
 
 @implementation LMAppUtils
 - (void)checkInternetConnection
@@ -33,6 +35,26 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:LMAppUtilsInternetDisconnected object:nil];
     }*/
     [[NSNotificationCenter defaultCenter] postNotificationName:LM_CONNECTION_NOTIFICATION_CHANGE object:nil];
+}
+
+- (NSError *)createCurrentSitesForDictionary:(NSDictionary *)jsonData
+{
+    self.currentSites = [NSArray new];
+    NSMutableArray *tmpArray = [NSMutableArray new];
+    NSError *error;
+    for(NSDictionary * objectDictionary in jsonData[@"sites"])
+    {
+        LMSiteWS *site = [[LMSiteWS alloc] initWithDictionary:objectDictionary error:&error];
+        if(error)
+        {
+            break;
+        }
+        else
+        {
+            [tmpArray addObject:site];
+        }
+    }
+    return error;
 }
 
 + (BOOL)connected

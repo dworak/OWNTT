@@ -67,6 +67,12 @@
     self.dateFormater = [[NSDateFormatter alloc] init];
     [self.dateFormater setDateFormat:@"yyyy-MM-dd"];
     self.scrollView.contentSize = CGSizeMake(320, self.view.frame.size.height-64);
+    if(!self.readOnly)
+    {
+        self.nameView.pageButton.hidden = NO;
+        self.nameView.pageButton.exclusiveTouch = YES;
+        [self.nameView.pageButton addTarget:self action:@selector(pageButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    }
     
     [self.borderType setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
     [self.borderType setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 1)];
@@ -134,6 +140,7 @@
         LMProgram *program = [LMProgram fetchEntityOfClass:[LMProgram class] withObjectID:self.userAlert.programId inContext:self.managedObjectContext];
         self.nameView.firstName.text = advertiser.name;
         self.nameView.SecondName.text = program.name;
+        self.nameView.ThirdName.text = @"therd";
         [self.alertNameTextField setText:self.userAlert.name];
         [self.monitoringType setTitle:[LMUtils alertMonitoringTypeToString:self.userAlert.monitorType.intValue] forState:UIControlStateNormal];
         [self.monitoringType setTitle:[LMUtils alertMonitoringTypeToString:self.userAlert.monitorType.intValue] forState:UIControlStateHighlighted];
@@ -492,6 +499,50 @@
         {
             [self.datePickerController setPickerDate:nil];
         }
+    }
+}
+
+- (IBAction)pageButtonTapped:(id)sender
+{
+    if([LMAppUtils connected])
+    {
+        //Get sites and advertisers
+        [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_GetSites parameters:[LMOWNTTHTTPClient getSitesListParams:(OWNTT_APP_DELEGATE).appUtils.currentUser.httpToken programId:[self.transactionData.programIds objectAtIndex:0]] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject)
+        {
+            //save file
+            NSError *error = [(OWNTT_APP_DELEGATE).appUtils createCurrentSitesForDictionary:responseObject];
+            if(!error)
+            {
+                [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushSiteList] sender:self];
+            }
+            else
+            {
+                [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMAlertManager_AlertSummarySite") delegate:self];
+            }
+        }
+        failureBlock:^(AFHTTPRequestOperation *operation, NSError *error)
+        {
+            NSString *message;
+            NSLog(@"%ld", (long)operation.response.statusCode);
+            if(operation.response.statusCode == 500)
+            {
+                message = LM_LOCALIZE(@"LMAlertManager_AlertSummarySiteConnectionError");
+            }
+            else if (operation.response.statusCode == 400)
+            {
+                message = LM_LOCALIZE(@"LMAlertManager_AlertSummarySitesBadRequest");
+            }
+            else
+            {
+                message = LM_LOCALIZE(@"LMAlertManager_AlertSummarySitesAuthorizationError");
+            }
+            [LMAlertManager showErrorAlertWithOkWithText:message delegate:nil];
+        }];
+        [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushSiteList] sender:self];
+    }
+    else
+    {
+        [LMAlertManager showErrorAlertWithOkWithText:LM_LOCALIZE(@"LMLogin_WarningLabel") delegate:self];
     }
 }
 

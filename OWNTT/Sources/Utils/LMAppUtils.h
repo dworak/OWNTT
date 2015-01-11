@@ -22,10 +22,12 @@ enum {
 
 @property (strong, nonatomic) LMUser *currentUser;
 @property (strong, nonatomic) NSString *notSaveDeviceKey;
+@property (strong, nonatomic) NSArray *currentSites;
 
 + (BOOL)connected;
 + (id)secAttrForSection:(NSInteger)section;
 - (void)checkInternetConnection;
 - (void)internetConnectionChange:(BOOL)connected;
+- (NSError*)createCurrentSitesForDictionary:(NSDictionary*)jsonData;
 
 @end

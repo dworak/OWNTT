@@ -85,6 +85,8 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
             return @"UnregisterDevice";
         case LMOWNTTHTTPClientServiceName_UpdateDevice:
             return @"UpdateDevice";
+        case LMOWNTTHTTPClientServiceName_GetSites:
+            return @"LoadSitesAndAdsForProgram";
         default:
         {
             NSAssert(0, @"%@ Unknown service type", NSStringFromSelector(_cmd));
@@ -398,6 +400,17 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
     
     return @{[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Token] : token,
              [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_PushKey] : pushKey,
+             };
+}
+
++ (NSDictionary*)getSitesListParams:(NSString *)token
+                          programId:(NSString *)programId
+{
+    NSAssert(token, @"getSitesListParams: empty token");
+    NSAssert(programId, @"getSitesListParams: empty programId");
+    
+    return @{[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_Token] : token,
+             [LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_ProgramId] : programId,
              };
 }
 
