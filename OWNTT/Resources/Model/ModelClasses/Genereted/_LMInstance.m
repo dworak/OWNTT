@@ -6,6 +6,7 @@
 const struct LMInstanceAttributes LMInstanceAttributes = {
 	.isReport1 = @"isReport1",
 	.isReport5 = @"isReport5",
+	.isReport6 = @"isReport6",
 	.isReport8 = @"isReport8",
 };
 
@@ -47,6 +48,11 @@ const struct LMInstanceRelationships LMInstanceRelationships = {
 	}
 	if ([key isEqualToString:@"isReport5Value"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"isReport5"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"isReport6Value"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"isReport6"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -97,6 +103,26 @@ const struct LMInstanceRelationships LMInstanceRelationships = {
 
 - (void)setPrimitiveIsReport5Value:(BOOL)value_ {
 	[self setPrimitiveIsReport5:[NSNumber numberWithBool:value_]];
+}
+
+@dynamic isReport6;
+
+- (BOOL)isReport6Value {
+	NSNumber *result = [self isReport6];
+	return [result boolValue];
+}
+
+- (void)setIsReport6Value:(BOOL)value_ {
+	[self setIsReport6:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveIsReport6Value {
+	NSNumber *result = [self primitiveIsReport6];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveIsReport6Value:(BOOL)value_ {
+	[self setPrimitiveIsReport6:[NSNumber numberWithBool:value_]];
 }
 
 @dynamic isReport8;

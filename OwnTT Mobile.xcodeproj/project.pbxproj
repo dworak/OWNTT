@@ -49,6 +49,8 @@
 		25146A8F199290D2001DC8E3 /* LMRotateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25146A8E199290D2001DC8E3 /* LMRotateViewController.m */; };
 		2515567D19BB39D00000B9FC /* LMDatePickerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2515567F19BB39D00000B9FC /* LMDatePickerView_iPhone.xib */; };
 		252CB2D819901454002677B8 /* LMBranchReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252CB2D719901454002677B8 /* LMBranchReportViewController.m */; };
+		252E9D191A6A721300D1966F /* LMBranchSiteAdvertiserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252E9D181A6A721300D1966F /* LMBranchSiteAdvertiserViewController.m */; };
+		252E9D1B1A6A75B300D1966F /* LMBranchSiteAdvertiserViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252E9D1A1A6A75B300D1966F /* LMBranchSiteAdvertiserViewController_iPhone.xib */; };
 		2531616319AD162C0044CEC5 /* LMOWNTTHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2531616219AD162C0044CEC5 /* LMOWNTTHTTPClient.m */; };
 		253507DF19A773F700E2B42A /* pink_checkbox_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 253507DD19A773F700E2B42A /* pink_checkbox_normal@2x.png */; };
 		253507E019A773F700E2B42A /* pink_checkbox_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 253507DE19A773F700E2B42A /* pink_checkbox_selected@2x.png */; };
@@ -277,6 +279,9 @@
 		2515568019BB39EB0000B9FC /* pl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pl; path = pl.lproj/LMDatePickerView_iPhone.xib; sourceTree = "<group>"; };
 		252CB2D619901454002677B8 /* LMBranchReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchReportViewController.h; sourceTree = "<group>"; };
 		252CB2D719901454002677B8 /* LMBranchReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchReportViewController.m; sourceTree = "<group>"; };
+		252E9D171A6A721300D1966F /* LMBranchSiteAdvertiserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchSiteAdvertiserViewController.h; sourceTree = "<group>"; };
+		252E9D181A6A721300D1966F /* LMBranchSiteAdvertiserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchSiteAdvertiserViewController.m; sourceTree = "<group>"; };
+		252E9D1A1A6A75B300D1966F /* LMBranchSiteAdvertiserViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMBranchSiteAdvertiserViewController_iPhone.xib; sourceTree = "<group>"; };
 		2531616119AD162C0044CEC5 /* LMOWNTTHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMOWNTTHTTPClient.h; sourceTree = "<group>"; };
 		2531616219AD162C0044CEC5 /* LMOWNTTHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMOWNTTHTTPClient.m; sourceTree = "<group>"; };
 		253507DD19A773F700E2B42A /* pink_checkbox_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink_checkbox_normal@2x.png"; sourceTree = "<group>"; };
@@ -824,6 +829,7 @@
 				25146A8819924FDA001DC8E3 /* LMWebViewController_iPhone.xib */,
 				25FF5B4E198F68DE0043DA5D /* Views */,
 				2560EEFA19A6788A008C4B1F /* LMBranchReportViewController_iPhone.xib */,
+				252E9D1A1A6A75B300D1966F /* LMBranchSiteAdvertiserViewController_iPhone.xib */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -946,6 +952,8 @@
 				259AF74D19B2FEC90086CF4E /* LMSettingsHostViewController.m */,
 				25143DFB1A62FFF900F5219A /* LMBranchSiteViewController.h */,
 				25143DFC1A62FFF900F5219A /* LMBranchSiteViewController.m */,
+				252E9D171A6A721300D1966F /* LMBranchSiteAdvertiserViewController.h */,
+				252E9D181A6A721300D1966F /* LMBranchSiteAdvertiserViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1160,6 +1168,7 @@
 				253E39311999EEF100B395ED /* LMBranchReportTableViewCell_iPhone.xib in Resources */,
 				25FAFCB21990D7F200FCD226 /* LMMenuViewController_iPhone.xib in Resources */,
 				2591A91F1993F4620036EEDB /* 2.html in Resources */,
+				252E9D1B1A6A75B300D1966F /* LMBranchSiteAdvertiserViewController_iPhone.xib in Resources */,
 				2591A91E1993F4620036EEDB /* 1.html in Resources */,
 				25659B8919A0879D009BF814 /* tabbar_logo@2x.png in Resources */,
 				EDD131C119812F48006F39E3 /* LMBranchViewController_iPhone.xib in Resources */,
@@ -1276,6 +1285,7 @@
 				25FAFCB51990D81F00FCD226 /* LMMenuViewController.m in Sources */,
 				25FAFCC71990E1D300FCD226 /* _LMReadOnlyUserObject.m in Sources */,
 				25146A84199238B3001DC8E3 /* LMDatePickerView.m in Sources */,
+				252E9D191A6A721300D1966F /* LMBranchSiteAdvertiserViewController.m in Sources */,
 				25FAFCB01990D7A000FCD226 /* LMAlertMenuViewController.m in Sources */,
 				ED54F17219ADFE3600BC3446 /* LMNotificationService.m in Sources */,
 				2584AD8919ABB98800C9CBA2 /* LMSynchStatus.m in Sources */,

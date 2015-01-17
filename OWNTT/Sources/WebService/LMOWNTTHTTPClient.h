@@ -44,7 +44,9 @@ typedef enum {
     LMOWNTTHTTPCLIENTServiceParamName_BorderType,
     LMOWNTTHTTPCLIENTServiceParamName_Hour,
     LMOWNTTHTTPCLIENTServiceParamName_ProgramType,
-    LMOWNTTHTTPCLIENTServiceParamName_ParamType
+    LMOWNTTHTTPCLIENTServiceParamName_ParamType,
+    LMOWNTTHTTPCLIENTServiceParamName_SiteType,
+    LMOWNTTHTTPCLIENTServiceParamName_AdvertismentType
 } LMOWNTTHTTPCLIENTServiceParamName;
 
 typedef enum {

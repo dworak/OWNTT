@@ -7,6 +7,7 @@
 extern const struct LMInstanceAttributes {
 	__unsafe_unretained NSString *isReport1;
 	__unsafe_unretained NSString *isReport5;
+	__unsafe_unretained NSString *isReport6;
 	__unsafe_unretained NSString *isReport8;
 } LMInstanceAttributes;
 
@@ -42,6 +43,14 @@ extern const struct LMInstanceRelationships {
 - (void)setIsReport5Value:(BOOL)value_;
 
 //- (BOOL)validateIsReport5:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSNumber* isReport6;
+
+@property (atomic) BOOL isReport6Value;
+- (BOOL)isReport6Value;
+- (void)setIsReport6Value:(BOOL)value_;
+
+//- (BOOL)validateIsReport6:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSNumber* isReport8;
 
@@ -90,6 +99,12 @@ extern const struct LMInstanceRelationships {
 
 - (BOOL)primitiveIsReport5Value;
 - (void)setPrimitiveIsReport5Value:(BOOL)value_;
+
+- (NSNumber*)primitiveIsReport6;
+- (void)setPrimitiveIsReport6:(NSNumber*)value;
+
+- (BOOL)primitiveIsReport6Value;
+- (void)setPrimitiveIsReport6Value:(BOOL)value_;
 
 - (NSNumber*)primitiveIsReport8;
 - (void)setPrimitiveIsReport8:(NSNumber*)value;

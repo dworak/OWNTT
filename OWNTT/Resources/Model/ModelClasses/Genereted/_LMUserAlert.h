@@ -14,6 +14,8 @@ extern const struct LMUserAlertAttributes {
 	__unsafe_unretained NSString *objectId;
 	__unsafe_unretained NSString *paramType;
 	__unsafe_unretained NSString *programId;
+	__unsafe_unretained NSString *siteAdvetiserId;
+	__unsafe_unretained NSString *siteId;
 	__unsafe_unretained NSString *value;
 } LMUserAlertAttributes;
 
@@ -96,6 +98,22 @@ extern const struct LMUserAlertRelationships {
 
 //- (BOOL)validateProgramId:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSNumber* siteAdvetiserId;
+
+@property (atomic) int16_t siteAdvetiserIdValue;
+- (int16_t)siteAdvetiserIdValue;
+- (void)setSiteAdvetiserIdValue:(int16_t)value_;
+
+//- (BOOL)validateSiteAdvetiserId:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSNumber* siteId;
+
+@property (atomic) int16_t siteIdValue;
+- (int16_t)siteIdValue;
+- (void)setSiteIdValue:(int16_t)value_;
+
+//- (BOOL)validateSiteId:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSString* value;
 
 //- (BOOL)validateValue:(id*)value_ error:(NSError**)error_;
@@ -155,6 +173,18 @@ extern const struct LMUserAlertRelationships {
 
 - (int64_t)primitiveProgramIdValue;
 - (void)setPrimitiveProgramIdValue:(int64_t)value_;
+
+- (NSNumber*)primitiveSiteAdvetiserId;
+- (void)setPrimitiveSiteAdvetiserId:(NSNumber*)value;
+
+- (int16_t)primitiveSiteAdvetiserIdValue;
+- (void)setPrimitiveSiteAdvetiserIdValue:(int16_t)value_;
+
+- (NSNumber*)primitiveSiteId;
+- (void)setPrimitiveSiteId:(NSNumber*)value;
+
+- (int16_t)primitiveSiteIdValue;
+- (void)setPrimitiveSiteIdValue:(int16_t)value_;
 
 - (NSString*)primitiveValue;
 - (void)setPrimitiveValue:(NSString*)value;

@@ -9,5 +9,4 @@
 #import "LMBranchViewController.h"
 
 @interface LMBranchSiteViewController : LMBranchViewController
-
 @end

@@ -17,5 +17,7 @@
 @property (strong, nonatomic) NSNumber *reportId;
 @property (strong, nonatomic) NSDate *dateFrom;
 @property (strong, nonatomic) NSDate *dateTo;
+@property (strong, nonatomic) NSNumber *siteId;
+@property (strong, nonatomic) NSNumber *siteAdvertiserId;
 @property (unsafe_unretained, nonatomic) int interval;
 @end

@@ -158,7 +158,21 @@
 - (void)getTableData
 {
     LMInstance *instance = [LMInstance fetchActiveEntityOfClass:[LMInstance class] withObjectID:self.objectId.instanceId inContext:self.managedObjectContext];
-    self.tableData = instance.reports.allObjects;
+    LMReport *reportToRemove;
+    NSMutableArray *dataArray = [NSMutableArray arrayWithArray:instance.reports.allObjects];
+    for(LMReport * report in dataArray)
+    {
+        if(report.objectIdValue == 4)
+        {
+            reportToRemove = report;
+        }
+    }
+    if(reportToRemove)
+    {
+        [dataArray removeObject:reportToRemove];
+    }
+    self.tableData = [NSArray arrayWithArray:dataArray];
+    
     NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     self.tableData = [self.tableData sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesc]];
 }

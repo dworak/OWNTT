@@ -9,6 +9,7 @@
 #import "LMAlertSummaryViewController.h"
 #import "LMDataPickerViewController.h"
 #import "LMDatePickerViewController.h"
+#import "LMBranchSiteViewController.h"
 #import "LMButton.h"
 #import "LMTextField.h"
 #import "LMReferenceData.h"
@@ -96,6 +97,21 @@
     [self.alertNameTextField addValidation:LMTextFieldValidaitonType_Name];
     [self.valueTextField addValidation:LMTextFieldValidaitonType_Value];
 
+}
+
+- (void)prepareChildForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushSiteList]])
+    {
+        if([segue.destinationViewController isKindOfClass:[TTHostViewController class]])
+        {
+            TTHostViewController *hostController = (TTHostViewController *)segue.destinationViewController;
+            if([hostController.childViewController isKindOfClass:[LMBranchSiteViewController class]])
+            {
+                ((LMBranchSiteViewController *)hostController.childViewController).objectId = [self.transactionData copy];
+            }
+        }
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -292,11 +308,13 @@
     userAlert.objectIdValue = user.alertsCountValue+1;
     user.alertsCount = [NSNumber numberWithInt:userAlert.objectId.intValue];
     userAlert.createDate = [NSDate date];
+    userAlert.siteId = self.transactionData.siteId;
+    userAlert.siteAdvetiserId = self.transactionData.siteAdvertiserId;
     
     //Send alert
     __weak LMAlertSummaryViewController *selfObj = self;
     [[LMOWNTTHTTPClient sharedClient] POSTHTTPRequestOperationForServiceName:LMOWNTTHTTPClientServiceName_RegisterAlertPush parameters:[LMOWNTTHTTPClient registerAlertPushParams:userAlert] succedBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [selfObj endAction];
+        //[selfObj endAction];
         [user.userAlertsSet addObject:userAlert];
         [LMUtils saveCoreDataContext:selfObj.managedObjectContext];
         [selfObj endAction];
@@ -538,7 +556,6 @@
             }
             [LMAlertManager showErrorAlertWithOkWithText:message delegate:nil];
         }];
-        [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushSiteList] sender:self];
     }
     else
     {

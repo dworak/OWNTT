@@ -39,7 +39,6 @@
 
 - (NSError *)createCurrentSitesForDictionary:(NSDictionary *)jsonData
 {
-    self.currentSites = [NSArray new];
     NSMutableArray *tmpArray = [NSMutableArray new];
     NSError *error;
     for(NSDictionary * objectDictionary in jsonData[@"sites"])
@@ -53,6 +52,10 @@
         {
             [tmpArray addObject:site];
         }
+    }
+    if(!error)
+    {
+        self.currentSites = [NSArray arrayWithArray:tmpArray];
     }
     return error;
 }

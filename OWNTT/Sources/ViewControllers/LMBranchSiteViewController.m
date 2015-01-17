@@ -6,7 +6,12 @@
 //
 //
 
+#import "LMAlertSummaryViewController.h"
 #import "LMBranchSiteViewController.h"
+#import "LMBranchSiteAdvertiserViewController.h"
+#import "LMBranchSiteViewController.h"
+#import "LMProgramWS.h"
+#import "LMBranchTableViewCell.h"
 
 @interface LMBranchSiteViewController ()
 
@@ -17,6 +22,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.parentViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction:)]];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self performSelector:@selector(selectRow) withObject:nil afterDelay:0.1];
+}
+
+- (void)selectRow
+{
+    if(self.objectId.siteId)
+    {
+        int position = 0;
+        BOOL selected = NO;
+        for(LMProgramWS *site in self.tableData)
+        {
+            if(self.objectId.siteId.intValue == site.objectId.intValue)
+            {
+                selected = YES;
+                break;
+            }
+            position++;
+        }
+        if(selected)
+        {
+            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:position inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,23 +77,55 @@
 #pragma mark === Private methods ===
 - (void)getTableData
 {
-    /*self.tableData = [LMInstance fetchActiveEntityOfClass:[LMInstance class] inContext:self.managedObjectContext];
-    [self.tableView reloadData];*/
+    self.tableData = OWNTT_APP_DELEGATE.appUtils.currentSites;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*if(((LMNavigationViewController *)self.navigationController).controllerType.intValue == NavigationControllerType_Report)
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self cellIdentifier]];
+    if(!cell) {
+        cell = [self createNewCell];
+    }
+    LMProgramWS *object = [self.tableData objectAtIndex:indexPath.row];
+    cell.textLabel.font = DEFAULT_APP_FONT;
+    cell.textLabel.text = object.name;
+    if(indexPath.row == self.tableData.count-1)
     {
-        LMReadOnlyObject *object = [self.tableData objectAtIndex:indexPath.row];
-        [LMUtils storeCurrentInstance:object.objectId];
-    }*/
-    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+        ((LMBranchTableViewCell *)cell).separatorImage.hidden = YES;
+    }
+    else
+    {
+        ((LMBranchTableViewCell *)cell).separatorImage.hidden = NO;
+    }
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 0;
+}
+
+- (IBAction)cancelAction:(id)sender
+{
+    [self popAndSaveData];
+}
+
+- (void)popAndSaveData
+{
+    if(self.parentViewController.navigationController.viewControllers.count > 2)
+    {
+        UIViewController *controller = [self.parentViewController.navigationController.viewControllers objectAtIndex:self.parentViewController.navigationController.viewControllers.count-2];
+        if([controller isKindOfClass:[TTHostViewController class]])
+        {
+            if([((TTHostViewController *)controller).childViewController isKindOfClass:[LMAlertSummaryViewController class]])
+            {
+                LMAlertSummaryViewController *summary = (LMAlertSummaryViewController *)((TTHostViewController *)controller).childViewController;
+                summary.transactionData.siteId = nil;
+                summary.transactionData.siteAdvertiserId = nil;
+                [self.parentViewController.navigationController popToViewController:controller animated:YES];
+            }
+        }
+    }
 }
 
 @end

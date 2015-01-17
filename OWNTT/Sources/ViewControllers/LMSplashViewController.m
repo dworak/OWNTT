@@ -138,7 +138,7 @@
     NSManagedObjectContext *context = [[LMCoreDataManager sharedInstance] newManagedObjectContext];
     //Create default settings
     //Create reports
-    for(int i=0; i<3; i++)
+    for(int i=0; i<4; i++)
     {
         LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:i+1] inContext:context];
         if(!report)
@@ -156,8 +156,13 @@
                     report.htmlName = @"2.html";
                     break;
                 case 3:
+                    report.name = @"LMAppReportType_6";
+                    report.htmlName = @"3.html";
+                    break;
+                case 4:
                     report.name = @"LMAppReportType_8";
                     report.htmlName = @"3.html";
+                    break;
                 default:
                     break;
             }

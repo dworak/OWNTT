@@ -468,7 +468,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2U8-w3-fiH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1ea-NL-zWy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -523,7 +523,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="SqO-cU-ud3"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMBranchSiteViewController"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="childClassName" value="LMBranchSiteAdvertiserViewController"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="childXibName" value="LMBranchViewController"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
@@ -548,10 +548,10 @@
         <segue reference="FPb-vR-x9c"/>
         <segue reference="taN-ZK-iiH"/>
         <segue reference="Ug5-Jv-ffk"/>
-        <segue reference="GpV-0x-REA"/>
         <segue reference="0yr-Nw-2XK"/>
+        <segue reference="GpV-0x-REA"/>
         <segue reference="cLc-J3-1iJ"/>
-        <segue reference="jUf-iR-n7D"/>
-        <segue reference="s9M-nP-w52"/>
+        <segue reference="NH3-7p-hj2"/>
+        <segue reference="jZe-Kz-lmN"/>
     </inferredMetricsTieBreakers>
 </document>

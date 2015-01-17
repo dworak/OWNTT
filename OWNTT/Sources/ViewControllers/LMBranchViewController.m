@@ -20,6 +20,8 @@
 #import "LMAdvertiser.h"
 #import "LMProgram.h"
 #import "LMReport.h"
+#import "LMSiteAdvertiserWS.h"
+#import "LMSiteWS.h"
 
 @interface LMBranchViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *shadowView;
@@ -309,22 +311,37 @@
         {
             self.objectId = [LMData new];
         }
-        LMReadOnlyObject *object = [self.tableData objectAtIndex:indexPath.row];
-        if([object isKindOfClass:[LMInstance class]])
+        id baseObject = [self.tableData objectAtIndex:indexPath.row];
+        if([baseObject isKindOfClass:[LMReadOnlyObject class]])
         {
-            self.objectId.instanceId = object.objectId;
+            LMReadOnlyObject *object = (LMReadOnlyObject *)baseObject;
+            if([object isKindOfClass:[LMInstance class]])
+            {
+                self.objectId.instanceId = object.objectId;
+            }
+            else if([object isKindOfClass:[LMAdvertiser class]])
+            {
+                self.objectId.advertiserId = object.objectId;
+            }
+            else if([object isKindOfClass:[LMProgram class]])
+            {
+                self.objectId.programIds = [NSArray arrayWithObject:object.objectId];
+            }
+            else if([object isKindOfClass:[LMReport class]])
+            {
+                self.objectId.reportId = object.objectId;
+            }
         }
-        else if([object isKindOfClass:[LMAdvertiser class]])
+        else
         {
-            self.objectId.advertiserId = object.objectId;
-        }
-        else if([object isKindOfClass:[LMProgram class]])
-        {
-            self.objectId.programIds = [NSArray arrayWithObject:object.objectId];
-        }
-        else if([object isKindOfClass:[LMReport class]])
-        {
-            self.objectId.reportId = object.objectId;
+            if([baseObject isKindOfClass:[LMSiteWS class]])
+            {
+                self.objectId.siteId = ((LMSiteWS*)baseObject).objectId;
+            }
+            else if([baseObject isKindOfClass:[LMSiteAdvertiserWS class]])
+            {
+                self.objectId.siteAdvertiserId = ((LMSiteAdvertiserWS *)baseObject).objectId;
+            }
         }
         [self.parentViewController performSegueWithIdentifier:nextSegue sender:self];
     }

@@ -26,6 +26,7 @@
     entity.isReport1 = [NSNumber numberWithBool:NO];
     entity.isReport5 = [NSNumber numberWithBool:NO];
     entity.isReport8 = [NSNumber numberWithBool:NO];
+    entity.isReport6 = [NSNumber numberWithBool:NO];
 }
 
 
@@ -117,9 +118,17 @@
                     instance.isReport5 = [NSNumber numberWithBool:YES];
                     break;
                 }
-                case LMOWNTTReportType_Type8:
+                case LMOWNTTReportType_Type6:
                 {
                     LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:3] inContext:self.managedObjectContextForTheOperation];
+                    NSAssert(report, @"ERROR: report 4 can not exist");
+                    [instance addReportsObject:report];
+                    instance.isReport6 = [NSNumber numberWithBool:YES];
+                    break;
+                }
+                case LMOWNTTReportType_Type8:
+                {
+                    LMReport *report = [LMReport fetchActiveEntityOfClass:[LMReport class] withObjectID:[NSNumber numberWithInt:4] inContext:self.managedObjectContextForTheOperation];
                     NSAssert(report, @"ERROR: report 3 can not exist");
                     [instance addReportsObject:report];
                     instance.isReport8 = [NSNumber numberWithBool:YES];

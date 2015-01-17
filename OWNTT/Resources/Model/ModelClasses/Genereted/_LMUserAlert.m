@@ -13,6 +13,8 @@ const struct LMUserAlertAttributes LMUserAlertAttributes = {
 	.objectId = @"objectId",
 	.paramType = @"paramType",
 	.programId = @"programId",
+	.siteAdvetiserId = @"siteAdvetiserId",
+	.siteId = @"siteId",
 	.value = @"value",
 };
 
@@ -78,6 +80,16 @@ const struct LMUserAlertRelationships LMUserAlertRelationships = {
 	}
 	if ([key isEqualToString:@"programIdValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"programId"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"siteAdvetiserIdValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"siteAdvetiserId"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"siteIdValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"siteId"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -227,6 +239,46 @@ const struct LMUserAlertRelationships LMUserAlertRelationships = {
 
 - (void)setPrimitiveProgramIdValue:(int64_t)value_ {
 	[self setPrimitiveProgramId:[NSNumber numberWithLongLong:value_]];
+}
+
+@dynamic siteAdvetiserId;
+
+- (int16_t)siteAdvetiserIdValue {
+	NSNumber *result = [self siteAdvetiserId];
+	return [result shortValue];
+}
+
+- (void)setSiteAdvetiserIdValue:(int16_t)value_ {
+	[self setSiteAdvetiserId:[NSNumber numberWithShort:value_]];
+}
+
+- (int16_t)primitiveSiteAdvetiserIdValue {
+	NSNumber *result = [self primitiveSiteAdvetiserId];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveSiteAdvetiserIdValue:(int16_t)value_ {
+	[self setPrimitiveSiteAdvetiserId:[NSNumber numberWithShort:value_]];
+}
+
+@dynamic siteId;
+
+- (int16_t)siteIdValue {
+	NSNumber *result = [self siteId];
+	return [result shortValue];
+}
+
+- (void)setSiteIdValue:(int16_t)value_ {
+	[self setSiteId:[NSNumber numberWithShort:value_]];
+}
+
+- (int16_t)primitiveSiteIdValue {
+	NSNumber *result = [self primitiveSiteId];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveSiteIdValue:(int16_t)value_ {
+	[self setPrimitiveSiteId:[NSNumber numberWithShort:value_]];
 }
 
 @dynamic value;

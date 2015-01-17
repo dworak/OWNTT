@@ -17,6 +17,8 @@
     another.instanceId = [self.instanceId copyWithZone:zone];
     another.reportId = [self.reportId copyWithZone:zone];
     another.advertiserId = [self.advertiserId copyWithZone:zone];
+    another.siteId = [self.siteId copyWithZone:zone];
+    another.siteAdvertiserId = [self.siteAdvertiserId copyWithZone:zone];
     another.isReport = self.isReport;
     return another;
 }
