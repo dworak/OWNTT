@@ -71,6 +71,7 @@
 - (IBAction)cancelAction:(id)sender
 {
     self.objectId.siteAdvertiserId = nil;
+    self.objectId.pageAddName = nil;
     [self popAndSaveData];
 }
 
@@ -78,6 +79,7 @@
 {
     LMSiteAdvertiserWS *advertiser = [self.tableData objectAtIndex:indexPath.row];
     self.objectId.siteAdvertiserId = advertiser.objectId;
+    self.objectId.pageAddName = advertiser.name;
     [self popAndSaveData];
 }
 

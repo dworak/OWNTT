@@ -19,18 +19,61 @@
     //Register for remote notification
     self.appUtils = [LMAppUtils new];
     self.appUtils.notSaveDeviceKey = @"Not register yet";
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeNewsstandContentAvailability];
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    if (launchOptions != nil)
-	{
-		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-		if (dictionary != nil)
-		{
-            
-			NSLog(@"Launched from push notification: %@", dictionary);
-            //[LMAlertManager showInfoAlertWithOkWithText:[dictionary objectForKey:@"alert"] delegate:nil];
-		}
-	}
+    
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        // iOS 8
+        UIUserNotificationSettings* settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeAlert categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    } else {
+        // iOS 7 or iOS 6
+        [application registerForRemoteNotificationTypes:
+         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
+        [application setApplicationIconBadgeNumber:0];
+        if (launchOptions != nil)
+        {
+            NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+            if (dictionary != nil)
+            {
+                
+                NSLog(@"Launched from push notification: %@", dictionary);
+                //[LMAlertManager showInfoAlertWithOkWithText:[dictionary objectForKey:@"alert"] delegate:nil];
+            }
+        }
+    }
+/*
+#ifdef __IPHONE_8_0
+        UIUserNotificationType types = UIUserNotificationTypeBadge |
+        
+        UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+        
+        
+        
+        UIUserNotificationSettings *mySettings =
+        
+        [UIUserNotificationSettings settingsForTypes:types categories:nil];
+        
+        
+        
+        [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+        
+        [application registerForRemoteNotifications];
+#else
+        // iOS < 8 Notifications
+        [application registerForRemoteNotificationTypes:
+         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
+        [application setApplicationIconBadgeNumber:0];
+        if (launchOptions != nil)
+        {
+            NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+            if (dictionary != nil)
+            {
+                
+                NSLog(@"Launched from push notification: %@", dictionary);
+                //[LMAlertManager showInfoAlertWithOkWithText:[dictionary objectForKey:@"alert"] delegate:nil];
+            }
+        }
+#endif
+  */
     
     // Override point for customization after application launch.
     [LMUtils setupCurrentLanguage];
@@ -152,6 +195,19 @@
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
 	NSLog(@"Failed to get token, error: %@", error);
+}
+
+//ios 8
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    //register to receive notifications
+    [application registerForRemoteNotifications];
+}
+
+//For interactive notification only
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void(^)())completionHandler
+{
+    
 }
 
 @end

@@ -156,9 +156,9 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
         case LMOWNTTHTTPCLIENTServiceParamName_ParamType:
             return @"paramType";
         case LMOWNTTHTTPCLIENTServiceParamName_SiteType:
-            return @"stronaId";
+            return @"siteId";
         case LMOWNTTHTTPCLIENTServiceParamName_AdvertismentType:
-            return @"reklamaId";
+            return @"adId";
         default:
         {
             NSAssert(0, @"%@ Unknown param type", NSStringFromSelector(_cmd));
@@ -386,9 +386,17 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
     {
         [dictionary setValue:userAlert.siteId forKey:[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_SiteType]];
     }
+    else
+    {
+        [dictionary setValue:[NSNumber numberWithInt:0] forKey:[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_SiteType]];
+    }
     if(userAlert.siteAdvetiserId)
     {
         [dictionary setValue:userAlert.siteId forKey:[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_AdvertismentType]];
+    }
+    else
+    {
+        [dictionary setValue:[NSNumber numberWithInt:0] forKey:[LMOWNTTHTTPClient httpCleintServiseParamName:LMOWNTTHTTPCLIENTServiceParamName_AdvertismentType]];
     }
     return dictionary;
 }

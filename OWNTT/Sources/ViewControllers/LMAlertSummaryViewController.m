@@ -156,7 +156,28 @@
         LMProgram *program = [LMProgram fetchEntityOfClass:[LMProgram class] withObjectID:self.userAlert.programId inContext:self.managedObjectContext];
         self.nameView.firstName.text = advertiser.name;
         self.nameView.SecondName.text = program.name;
-        self.nameView.ThirdName.text = @"therd";
+        NSMutableString *thirdText = [NSMutableString new];
+        if(self.userAlert.pageName && ![self.userAlert.pageName isEqualToString:@""])
+        {
+            [thirdText appendString:self.userAlert.pageName];
+        }
+        if(self.userAlert.pageAddName && ![self.userAlert.pageAddName isEqualToString:@""])
+        {
+            if(thirdText.length > 0)
+            {
+                [thirdText appendFormat:@", %@", self.userAlert.pageAddName];
+            }
+            else
+            {
+                [thirdText appendString:self.userAlert.pageAddName];
+            }
+        }
+        if(self.userAlert.monitorTypeValue == AlertMonitoringTypes_Continuous)
+        {
+            self.hourOfSend.hidden = YES;
+            self.notAvailableLabel.hidden = NO;
+        }
+        self.nameView.ThirdName.text = thirdText;
         [self.alertNameTextField setText:self.userAlert.name];
         [self.monitoringType setTitle:[LMUtils alertMonitoringTypeToString:self.userAlert.monitorType.intValue] forState:UIControlStateNormal];
         [self.monitoringType setTitle:[LMUtils alertMonitoringTypeToString:self.userAlert.monitorType.intValue] forState:UIControlStateHighlighted];
@@ -198,6 +219,23 @@
                 }
             }
         }
+        NSMutableString *thirdText = [NSMutableString new];
+        if(self.transactionData.pageName && ![self.transactionData.pageName isEqualToString:@""])
+        {
+            [thirdText appendString:self.transactionData.pageName];
+        }
+        if(self.transactionData.pageAddName && ![self.transactionData.pageAddName isEqualToString:@""])
+        {
+            if(thirdText.length > 0)
+            {
+                [thirdText appendFormat:@", %@", self.transactionData.pageAddName];
+            }
+            else
+            {
+                [thirdText appendString:self.transactionData.pageAddName];
+            }
+        }
+        self.nameView.ThirdName.text = thirdText;
         [self.dateFrom setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateNormal];
         [self.dateFrom setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateHighlighted];
         [self.dateTo setTitle:[self.dateFormater stringFromDate:[NSDate date]] forState:UIControlStateNormal];
@@ -292,6 +330,10 @@
     userAlert.name = self.alertNameTextField.text;
     userAlert.paramTypeValue = [LMUtils alertPointerStringToType:self.rateType.titleLabel.text];
     userAlert.monitorTypeValue = [LMUtils alertMonitoringStringToType:self.monitoringType.titleLabel.text];
+    if(userAlert.monitorTypeValue == AlertMonitoringTypes_Continuous)
+    {
+        userAlert.hour = [NSNumber numberWithInt:-1];
+    }
     userAlert.borderTypeValue = [LMUtils alertBorderStringToType:self.borderType.titleLabel.text];
     if(!self.hourOfSend.hidden)
     {
@@ -310,6 +352,8 @@
     userAlert.createDate = [NSDate date];
     userAlert.siteId = self.transactionData.siteId;
     userAlert.siteAdvetiserId = self.transactionData.siteAdvertiserId;
+    userAlert.pageAddName = self.transactionData.pageAddName;
+    userAlert.pageName = self.transactionData.pageName;
     
     //Send alert
     __weak LMAlertSummaryViewController *selfObj = self;
@@ -522,6 +566,11 @@
 
 - (IBAction)pageButtonTapped:(id)sender
 {
+    if(self.currentEditingTextField)
+    {
+        [self.currentEditingTextField resignFirstResponder];
+    }
+    [self.pickerViewController hide];
     if([LMAppUtils connected])
     {
         //Get sites and advertisers
@@ -531,7 +580,14 @@
             NSError *error = [(OWNTT_APP_DELEGATE).appUtils createCurrentSitesForDictionary:responseObject];
             if(!error)
             {
-                [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushSiteList] sender:self];
+                if(OWNTT_APP_DELEGATE.appUtils.currentSites.count > 0)
+                {
+                    [self.parentViewController performSegueWithIdentifier:[LMSegueKeys segueIdentifierForSegueKey:LMSegueKeyType_PushSiteList] sender:self];
+                }
+                else
+                {
+                    [LMAlertManager showInfoAlertWithOkWithText:@"Brak stron" delegate:nil];
+                }
             }
             else
             {

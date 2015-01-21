@@ -11,6 +11,8 @@ const struct LMUserAlertAttributes LMUserAlertAttributes = {
 	.hour = @"hour",
 	.monitorType = @"monitorType",
 	.objectId = @"objectId",
+	.pageAddName = @"pageAddName",
+	.pageName = @"pageName",
 	.paramType = @"paramType",
 	.programId = @"programId",
 	.siteAdvetiserId = @"siteAdvetiserId",
@@ -200,6 +202,10 @@ const struct LMUserAlertRelationships LMUserAlertRelationships = {
 - (void)setPrimitiveObjectIdValue:(int64_t)value_ {
 	[self setPrimitiveObjectId:[NSNumber numberWithLongLong:value_]];
 }
+
+@dynamic pageAddName;
+
+@dynamic pageName;
 
 @dynamic paramType;
 

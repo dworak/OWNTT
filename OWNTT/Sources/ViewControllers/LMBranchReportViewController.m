@@ -162,7 +162,7 @@
     NSMutableArray *dataArray = [NSMutableArray arrayWithArray:instance.reports.allObjects];
     for(LMReport * report in dataArray)
     {
-        if(report.objectIdValue == 4)
+        if(report.objectIdValue == 1)
         {
             reportToRemove = report;
         }
@@ -173,7 +173,7 @@
     }
     self.tableData = [NSArray arrayWithArray:dataArray];
     
-    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"objectId" ascending:YES];
     self.tableData = [self.tableData sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesc]];
 }
 

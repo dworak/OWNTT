@@ -19,5 +19,7 @@
 @property (strong, nonatomic) NSDate *dateTo;
 @property (strong, nonatomic) NSNumber *siteId;
 @property (strong, nonatomic) NSNumber *siteAdvertiserId;
+@property (strong, nonatomic) NSString *pageName;
+@property (strong, nonatomic) NSString *pageAddName;
 @property (unsafe_unretained, nonatomic) int interval;
 @end

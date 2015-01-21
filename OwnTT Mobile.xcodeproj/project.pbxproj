@@ -1084,6 +1084,9 @@
 				CLASSPREFIX = LM;
 				LastUpgradeCheck = 0510;
 				TargetAttributes = {
+					EDF39DF71980FC8700E00966 = {
+						DevelopmentTeam = QP658A3MKW;
+					};
 					EDF39E201980FC8700E00966 = {
 						TestTargetID = EDF39DF71980FC8700E00966;
 					};
@@ -1403,7 +1406,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "ef12851b-9dd2-410f-a028-b1e50ecc2da6";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos8.1;
 			};
 			name = Debug;
 		};
@@ -1436,7 +1439,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PROVISIONING_PROFILE = "ef12851b-9dd2-410f-a028-b1e50ecc2da6";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos8.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1448,8 +1451,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_MODULES_AUTOLINK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Christopher  Soon (W346UH7XSH)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/OWNTT/3rdParty\"/**",
@@ -1463,7 +1466,8 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "OwnTT Mobile";
-				PROVISIONING_PROFILE = "e5864ec8-e6d7-48c9-b487-53f1f1d021df";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos8.1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1475,8 +1479,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_MODULES_AUTOLINK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Christopher  Soon (W346UH7XSH)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/OWNTT/3rdParty\"/**",
@@ -1490,7 +1494,8 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "OwnTT Mobile";
-				PROVISIONING_PROFILE = "e5864ec8-e6d7-48c9-b487-53f1f1d021df";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos8.1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

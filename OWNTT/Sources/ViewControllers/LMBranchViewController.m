@@ -337,10 +337,12 @@
             if([baseObject isKindOfClass:[LMSiteWS class]])
             {
                 self.objectId.siteId = ((LMSiteWS*)baseObject).objectId;
+                self.objectId.pageName = ((LMSiteWS*)baseObject).name;
             }
             else if([baseObject isKindOfClass:[LMSiteAdvertiserWS class]])
             {
                 self.objectId.siteAdvertiserId = ((LMSiteAdvertiserWS *)baseObject).objectId;
+                self.objectId.pageAddName = ((LMSiteAdvertiserWS *)baseObject).name;
             }
         }
         [self.parentViewController performSegueWithIdentifier:nextSegue sender:self];

@@ -122,6 +122,8 @@
                 LMAlertSummaryViewController *summary = (LMAlertSummaryViewController *)((TTHostViewController *)controller).childViewController;
                 summary.transactionData.siteId = nil;
                 summary.transactionData.siteAdvertiserId = nil;
+                summary.transactionData.pageAddName = nil;
+                summary.transactionData.pageName = nil;
                 [self.parentViewController.navigationController popToViewController:controller animated:YES];
             }
         }

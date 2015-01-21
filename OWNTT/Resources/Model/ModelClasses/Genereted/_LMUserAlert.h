@@ -12,6 +12,8 @@ extern const struct LMUserAlertAttributes {
 	__unsafe_unretained NSString *hour;
 	__unsafe_unretained NSString *monitorType;
 	__unsafe_unretained NSString *objectId;
+	__unsafe_unretained NSString *pageAddName;
+	__unsafe_unretained NSString *pageName;
 	__unsafe_unretained NSString *paramType;
 	__unsafe_unretained NSString *programId;
 	__unsafe_unretained NSString *siteAdvetiserId;
@@ -81,6 +83,14 @@ extern const struct LMUserAlertRelationships {
 - (void)setObjectIdValue:(int64_t)value_;
 
 //- (BOOL)validateObjectId:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* pageAddName;
+
+//- (BOOL)validatePageAddName:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* pageName;
+
+//- (BOOL)validatePageName:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSNumber* paramType;
 
@@ -161,6 +171,12 @@ extern const struct LMUserAlertRelationships {
 
 - (int64_t)primitiveObjectIdValue;
 - (void)setPrimitiveObjectIdValue:(int64_t)value_;
+
+- (NSString*)primitivePageAddName;
+- (void)setPrimitivePageAddName:(NSString*)value;
+
+- (NSString*)primitivePageName;
+- (void)setPrimitivePageName:(NSString*)value;
 
 - (NSNumber*)primitiveParamType;
 - (void)setPrimitiveParamType:(NSNumber*)value;
