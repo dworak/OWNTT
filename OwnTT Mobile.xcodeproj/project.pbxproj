@@ -48,6 +48,7 @@
 		25146A8919924FDA001DC8E3 /* LMWebViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25146A8819924FDA001DC8E3 /* LMWebViewController_iPhone.xib */; };
 		25146A8F199290D2001DC8E3 /* LMRotateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25146A8E199290D2001DC8E3 /* LMRotateViewController.m */; };
 		2515567D19BB39D00000B9FC /* LMDatePickerView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2515567F19BB39D00000B9FC /* LMDatePickerView_iPhone.xib */; };
+		2527F40B1A83D4DB000CDC78 /* page@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2527F40A1A83D4DB000CDC78 /* page@2x.png */; };
 		252CB2D819901454002677B8 /* LMBranchReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252CB2D719901454002677B8 /* LMBranchReportViewController.m */; };
 		252E9D191A6A721300D1966F /* LMBranchSiteAdvertiserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252E9D181A6A721300D1966F /* LMBranchSiteAdvertiserViewController.m */; };
 		252E9D1B1A6A75B300D1966F /* LMBranchSiteAdvertiserViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252E9D1A1A6A75B300D1966F /* LMBranchSiteAdvertiserViewController_iPhone.xib */; };
@@ -96,7 +97,6 @@
 		25659B9C19A289A2009BF814 /* LMBranchNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25659B9B19A289A2009BF814 /* LMBranchNameView.m */; };
 		25659B9F19A29AD8009BF814 /* LMMenuNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25659B9E19A29AD8009BF814 /* LMMenuNameView.m */; };
 		25659BA119A29AEF009BF814 /* LMMenuNameView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25659BA019A29AEF009BF814 /* LMMenuNameView_iPhone.xib */; };
-		256636651A62FCC700299D23 /* page@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 256636641A62FCC700299D23 /* page@2x.png */; };
 		2584AD8619ABB98000C9CBA2 /* _LMSynchStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2584AD8519ABB98000C9CBA2 /* _LMSynchStatus.m */; };
 		2584AD8919ABB98800C9CBA2 /* LMSynchStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2584AD8819ABB98800C9CBA2 /* LMSynchStatus.m */; };
 		258DD9EC19BD0600009B4A2B /* OwnTT Mobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 258DD9EA19BD0600009B4A2B /* OwnTT Mobile.xcdatamodeld */; };
@@ -277,6 +277,7 @@
 		25146A8E199290D2001DC8E3 /* LMRotateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMRotateViewController.m; sourceTree = "<group>"; };
 		2515567E19BB39D00000B9FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LMDatePickerView_iPhone.xib; sourceTree = "<group>"; };
 		2515568019BB39EB0000B9FC /* pl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pl; path = pl.lproj/LMDatePickerView_iPhone.xib; sourceTree = "<group>"; };
+		2527F40A1A83D4DB000CDC78 /* page@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page@2x.png"; sourceTree = "<group>"; };
 		252CB2D619901454002677B8 /* LMBranchReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchReportViewController.h; sourceTree = "<group>"; };
 		252CB2D719901454002677B8 /* LMBranchReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBranchReportViewController.m; sourceTree = "<group>"; };
 		252E9D171A6A721300D1966F /* LMBranchSiteAdvertiserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBranchSiteAdvertiserViewController.h; sourceTree = "<group>"; };
@@ -348,7 +349,6 @@
 		25659B9D19A29AD8009BF814 /* LMMenuNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMMenuNameView.h; sourceTree = "<group>"; };
 		25659B9E19A29AD8009BF814 /* LMMenuNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMMenuNameView.m; sourceTree = "<group>"; };
 		25659BA019A29AEF009BF814 /* LMMenuNameView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMMenuNameView_iPhone.xib; sourceTree = "<group>"; };
-		256636641A62FCC700299D23 /* page@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page@2x.png"; sourceTree = "<group>"; };
 		2584AD8419ABB98000C9CBA2 /* _LMSynchStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _LMSynchStatus.h; path = Genereted/_LMSynchStatus.h; sourceTree = "<group>"; };
 		2584AD8519ABB98000C9CBA2 /* _LMSynchStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _LMSynchStatus.m; path = Genereted/_LMSynchStatus.m; sourceTree = "<group>"; };
 		2584AD8719ABB98800C9CBA2 /* LMSynchStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSynchStatus.h; sourceTree = "<group>"; };
@@ -837,7 +837,7 @@
 		EDF39E431980FF7D00E00966 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				256636641A62FCC700299D23 /* page@2x.png */,
+				2527F40A1A83D4DB000CDC78 /* page@2x.png */,
 				253507DD19A773F700E2B42A /* pink_checkbox_normal@2x.png */,
 				253507DE19A773F700E2B42A /* pink_checkbox_selected@2x.png */,
 				25F9E62019A3DACD000D809A /* violet_inverse_arrow@2x.png */,
@@ -1082,7 +1082,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = LM;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				TargetAttributes = {
 					EDF39DF71980FC8700E00966 = {
 						DevelopmentTeam = QP658A3MKW;
@@ -1122,6 +1122,7 @@
 				25659B63199FE0D4009BF814 /* tabbar_background.png in Resources */,
 				EDF39E64198103B700E00966 /* mogend.sh in Resources */,
 				25411B1119A307DD00C1BEE8 /* white_arrow_mini@2x.png in Resources */,
+				2527F40B1A83D4DB000CDC78 /* page@2x.png in Resources */,
 				25146A8919924FDA001DC8E3 /* LMWebViewController_iPhone.xib in Resources */,
 				250F89BA19915B0000D91836 /* LMDataPickerView_iPhone.xib in Resources */,
 				250FD8211986DC320047EB42 /* LMSummaryReportViewController_iPhone.xib in Resources */,
@@ -1157,7 +1158,6 @@
 				250F89C519920B6E00D91836 /* LMAlertSummaryViewController_iPhone.xib in Resources */,
 				25143E011A63005600F5219A /* LMBranchSiteViewController_iPhone.xib in Resources */,
 				2515567D19BB39D00000B9FC /* LMDatePickerView_iPhone.xib in Resources */,
-				256636651A62FCC700299D23 /* page@2x.png in Resources */,
 				EDF39E63198103B700E00966 /* mogen.sh in Resources */,
 				EDE87C0319867C8F00043861 /* LMSettingsViewController_iPhone.xib in Resources */,
 				25036AAA198D294600EAE355 /* tabbar1.png in Resources */,
@@ -1406,7 +1406,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "ef12851b-9dd2-410f-a028-b1e50ecc2da6";
-				SDKROOT = iphoneos8.1;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1439,7 +1439,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PROVISIONING_PROFILE = "ef12851b-9dd2-410f-a028-b1e50ecc2da6";
-				SDKROOT = iphoneos8.1;
+				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1467,7 +1467,7 @@
 				);
 				PRODUCT_NAME = "OwnTT Mobile";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos8.1;
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1495,7 +1495,7 @@
 				);
 				PRODUCT_NAME = "OwnTT Mobile";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos8.1;
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

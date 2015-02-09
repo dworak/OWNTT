@@ -31,7 +31,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self performSelector:@selector(selectRow) withObject:nil afterDelay:0.1];
+    //[self performSelector:@selector(selectRow) withObject:nil afterDelay:0.1];
 }
 
 - (void)selectRow

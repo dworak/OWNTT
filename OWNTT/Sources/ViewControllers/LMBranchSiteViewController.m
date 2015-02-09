@@ -22,13 +22,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.parentViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction:)]];
+    [self.parentViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(cancelAction:)]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self performSelector:@selector(selectRow) withObject:nil afterDelay:0.1];
+    //[self performSelector:@selector(selectRow) withObject:nil afterDelay:0.1];
 }
 
 - (void)selectRow
@@ -98,6 +98,13 @@
         ((LMBranchTableViewCell *)cell).separatorImage.hidden = NO;
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.objectId.siteAdvertiserId = nil;
+    self.objectId.pageAddName = nil;
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

@@ -30,8 +30,8 @@
 "alertPointerTypes_Checkpoint" = "Checkpoint";
 "alertPointerTypes_Lead" = "Lead";
 "alertPointerTypes_Sale" = "Sale";
-"alertPointerTypes_CTR" = "Click Through Rate";
-"alertPointerTypes_LR" = "Lead rate";
+"alertPointerTypes_CTR" = "CTR";
+"alertPointerTypes_LR" = "LR";
 
 //alertBorderType
 "alertBorderType_GreaterThan" = ">";
@@ -61,10 +61,10 @@
 "LMAlertManager_ReportConnectionError" = "Internet connection is required for getting this report.";
 "LMAlertManager_AlertSummaryDeleteError" = "Cannot delete report";
 
-"LMAlertManager_AlertSummarySitesAuthorizationError" = "Nie można pobrać listy stron. Błąd autoryzacji.";
-"LMAlertManager_AlertSummarySitesBadRequest" = "Nie można pobrać listy stron. Błędna lista parametrów.";
-"LMAlertManager_AlertSummarySiteConnectionError" = "Do pobrania listy stron wymagane jest połączenie z Internetem.";
-"LMAlertManager_AlertSummarySite" = "Wystąpił błąd podczas pobierania listy stron.";
+"LMAlertManager_AlertSummarySitesAuthorizationError" = "Cannot get sites list. Authentication error.";
+"LMAlertManager_AlertSummarySitesBadRequest" = "Cannot get sites list. Incorrect request parameters.";
+"LMAlertManager_AlertSummarySiteConnectionError" = "Internet connection is required for downloading sites list.";
+"LMAlertManager_AlertSummarySite" = "A error occured while downloading sites list.";
 
 //LMLoginViewController
 "LMLogin_WarningLabel" = "Internet connection is required to acces this screen.";

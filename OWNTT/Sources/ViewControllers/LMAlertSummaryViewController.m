@@ -43,7 +43,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *hourLabel;
 @property (weak, nonatomic) IBOutlet UILabel *alertNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *notAvailableLabel;
+@property (weak, nonatomic) IBOutlet UIView *notAvailableView;
 
 @end
 
@@ -64,7 +64,7 @@
     // Do any additional setup after loading the view.
     self.checkButton.exclusiveTouch = YES;
     self.hourOfSend.hidden = NO;
-    self.notAvailableLabel.hidden = YES;
+    self.notAvailableView.hidden = YES;
     self.dateFormater = [[NSDateFormatter alloc] init];
     [self.dateFormater setDateFormat:@"yyyy-MM-dd"];
     self.scrollView.contentSize = CGSizeMake(320, self.view.frame.size.height-64);
@@ -108,6 +108,10 @@
             TTHostViewController *hostController = (TTHostViewController *)segue.destinationViewController;
             if([hostController.childViewController isKindOfClass:[LMBranchSiteViewController class]])
             {
+                self.transactionData.pageAddName = nil;
+                self.transactionData.pageName = nil;
+                self.transactionData.siteAdvertiserId = nil;
+                self.transactionData.siteId = nil;
                 ((LMBranchSiteViewController *)hostController.childViewController).objectId = [self.transactionData copy];
             }
         }
@@ -148,7 +152,10 @@
     self.hourLabel.text = LM_LOCALIZE(@"LMSumAlert_HourLabel");
     self.alertNameLabel.text = LM_LOCALIZE(@"LMSumAlert_AlertNameLabel");
     self.valueLabel.text = LM_LOCALIZE(@"LMSumAlert_ValueLabel");
-    self.notAvailableLabel.text = LM_LOCALIZE(@"LMSumAlert_NotAvailableLabel");
+    for(UILabel *notAvailableLabel in self.notAvailableView.subviews)
+    {
+        notAvailableLabel.text = LM_LOCALIZE(@"LMSumAlert_NotAvailableLabel");
+    }
     LMUser *user = OWNTT_APP_DELEGATE.appUtils.currentUser;
     if(self.readOnly)
     {
@@ -175,7 +182,9 @@
         if(self.userAlert.monitorTypeValue == AlertMonitoringTypes_Continuous)
         {
             self.hourOfSend.hidden = YES;
-            self.notAvailableLabel.hidden = NO;
+            self.notAvailableView.hidden = NO;
+            self.valueTextField.hidden = YES;
+            self.borderType.hidden = YES;
         }
         self.nameView.ThirdName.text = thirdText;
         [self.alertNameTextField setText:self.userAlert.name];
@@ -298,7 +307,9 @@
         }
         if(!message)
         {
-            message = [self.valueTextField validateField];
+            if([LMUtils alertMonitoringStringToType:self.monitoringType.titleLabel.text] != AlertMonitoringTypes_Continuous) {
+                message = [self.valueTextField validateField];
+            }
         }
     }
     if(message)
@@ -333,11 +344,14 @@
     if(userAlert.monitorTypeValue == AlertMonitoringTypes_Continuous)
     {
         userAlert.hour = [NSNumber numberWithInt:-1];
+        userAlert.value = @"0";
+        userAlert.borderTypeValue = AlertBorderTypes_GreaterThan;
     }
-    userAlert.borderTypeValue = [LMUtils alertBorderStringToType:self.borderType.titleLabel.text];
-    if(!self.hourOfSend.hidden)
+    else
     {
         userAlert.hour = [decimalFormater numberFromString:self.hourOfSend.titleLabel.text];
+        userAlert.value = self.valueTextField.text;
+        userAlert.borderTypeValue = [LMUtils alertBorderStringToType:self.borderType.titleLabel.text];
     }
     userAlert.programId = [self.transactionData.programIds objectAtIndex:0];
     userAlert.advertiserId = self.transactionData.advertiserId;
@@ -346,7 +360,7 @@
     {
         userAlert.dateTo = [self.dateFormater dateFromString:self.dateTo.titleLabel.text];
     }
-    userAlert.value = self.valueTextField.text;
+    
     userAlert.objectIdValue = user.alertsCountValue+1;
     user.alertsCount = [NSNumber numberWithInt:userAlert.objectId.intValue];
     userAlert.createDate = [NSDate date];
@@ -467,12 +481,16 @@
                     if([LMUtils alertMonitoringStringToType:LM_LOCALIZE(value)] == AlertMonitoringTypes_Continuous)
                     {
                         selfObj.hourOfSend.hidden = YES;
-                        selfObj.notAvailableLabel.hidden = NO;
+                        selfObj.notAvailableView.hidden = NO;
+                        selfObj.borderType.hidden = YES;
+                        selfObj.valueTextField.hidden = YES;
                     }
                     else
                     {
                         selfObj.hourOfSend.hidden = NO;
-                        selfObj.notAvailableLabel.hidden = YES;
+                        selfObj.notAvailableView.hidden = YES;
+                        selfObj.borderType.hidden = NO;
+                        selfObj.valueTextField.hidden = NO;
                     }
                 }
                 [selfObj.pickerViewController hide];
